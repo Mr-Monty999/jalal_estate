@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("user_id");
+            $table->string("adjective");
+            $table->bigInteger("commercial_registration_number")->unique();
+            $table->softDeletes();
             $table->timestamps();
+
+
+            $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

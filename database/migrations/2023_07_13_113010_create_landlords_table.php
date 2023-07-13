@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('landlords', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("user_id");
+            $table->timestamp("birthdate");
+            $table->string("photo")->nullable();
+            $table->softDeletes();
             $table->timestamps();
+
+
+            $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

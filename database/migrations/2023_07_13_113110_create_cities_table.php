@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->unsignedBigInteger("parent_id");
+            $table->boolean("status")->default(true);
+            $table->softDeletes();
             $table->timestamps();
+
+
+            $table->foreign("parent_id")->references("id")->on("cities")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
