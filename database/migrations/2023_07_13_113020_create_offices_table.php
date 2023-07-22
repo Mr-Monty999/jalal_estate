@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("license_number")->unique();
+            $table->bigInteger("advertiser_number")->unique();
             $table->unsignedBigInteger("user_id");
-            $table->string("adjective");
             $table->bigInteger("commercial_registration_number")->unique();
+            $table->string("logo");
             $table->softDeletes();
             $table->timestamps();
 

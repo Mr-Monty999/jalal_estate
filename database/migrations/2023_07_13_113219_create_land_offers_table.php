@@ -28,6 +28,7 @@ return new class extends Migration
             $table->bigInteger("instrument_number");
             $table->string("photo");
             $table->string("operation_type");
+            $table->string("adjective");
             $table->bigInteger("marketing_certificate_number");
             $table->integer("rent_period");
             $table->text("contact_info");

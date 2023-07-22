@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('landlords', function (Blueprint $table) {
+        Schema::create('company_city', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("user_id");
-            $table->dateTime("birthdate")->nullable();
-            $table->string("photo")->nullable();
-            $table->softDeletes();
+            $table->unsignedBigInteger("company_id");
+            $table->unsignedBigInteger("city_id");
             $table->timestamps();
 
-
-            $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign("company_id")->references("id")->on("companies")->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign("city_id")->references("id")->on("cities")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('landlords');
+        Schema::dropIfExists('company_city');
     }
 };

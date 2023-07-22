@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('marketers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("user_id");
-            $table->timestamp("birthdate");
+            $table->dateTime("birthdate")->nullable();
+            $table->bigInteger("license_number")->unique();
+            $table->bigInteger("advertiser_number")->unique();
             $table->string("photo")->nullable();
             $table->softDeletes();
             $table->timestamps();
