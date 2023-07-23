@@ -1,20 +1,22 @@
 @extends('layouts.back-end.app')
 
-@section('title', \App\CPU\translate('Dashboard'))
+@section('title', trans('keywords.Dashboard'))
 
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
 @section('content')
-    @if(auth('admin')->user()->admin_role_id==1 || \App\CPU\Helpers::module_permission_check('dashboard'))
+    @if (auth('admin')->user()->admin_role_id == 1 || \App\CPU\Helpers::module_permission_check('dashboard'))
         <div class="content container-fluid">
             <!-- Page Header -->
             <div class="page-header pb-0 mb-0 border-0">
                 <div class="flex-between align-items-center">
                     <div>
-                        <h1 class="page-header-title" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">{{\App\CPU\translate('Dashboard')}}</h1>
-                        <p>{{ \App\CPU\translate('Welcome_message')}}.</p>
+                        <h1 class="page-header-title"
+                            style="text-align: {{ Session::get('direction') === 'rtl' ? 'right' : 'left' }};">
+                            {{ trans('keywords.Dashboard') }}</h1>
+                        <p>{{ trans('keywords.Welcome_message') }}.</p>
                     </div>
                 </div>
             </div>
@@ -26,28 +28,30 @@
                     <div class="row flex-between align-items-center g-2 mb-3">
                         <div class="col-sm-6">
                             <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-                                <img src="{{asset('/public/assets/back-end/img/business_analytics.png')}}" alt="">{{\App\CPU\translate('business_analytics')}}</h4>
+                                <img src="{{ asset('/public/assets/back-end/img/business_analytics.png') }}"
+                                    alt="">{{ trans('keywords.business_analytics') }}
+                            </h4>
                         </div>
                         <div class="col-sm-6 d-flex justify-content-sm-end">
                             <select class="custom-select w-auto" name="statistics_type"
-                                    onchange="order_stats_update(this.value)">
-                                <option
-                                    value="overall" {{session()->has('statistics_type') && session('statistics_type') == 'overall'?'selected':''}}>
-                                    {{ \App\CPU\translate('Overall_statistics')}}
+                                onchange="order_stats_update(this.value)">
+                                <option value="overall"
+                                    {{ session()->has('statistics_type') && session('statistics_type') == 'overall' ? 'selected' : '' }}>
+                                    {{ trans('keywords.Overall_statistics') }}
                                 </option>
-                                <option
-                                    value="today" {{session()->has('statistics_type') && session('statistics_type') == 'today'?'selected':''}}>
-                                    {{ \App\CPU\translate("Todays Statistics")}}
+                                <option value="today"
+                                    {{ session()->has('statistics_type') && session('statistics_type') == 'today' ? 'selected' : '' }}>
+                                    {{ trans('keywords.Todays Statistics') }}
                                 </option>
-                                <option
-                                    value="this_month" {{session()->has('statistics_type') && session('statistics_type') == 'this_month'?'selected':''}}>
-                                    {{ \App\CPU\translate("This Months Statistics")}}
+                                <option value="this_month"
+                                    {{ session()->has('statistics_type') && session('statistics_type') == 'this_month' ? 'selected' : '' }}>
+                                    {{ trans('keywords.This Months Statistics') }}
                                 </option>
                             </select>
                         </div>
                     </div>
                     <div class="row g-2" id="order_stats">
-                        @include('admin-views.partials._dashboard-order-stats',['data'=>$data])
+                        @include('admin-views.partials._dashboard-order-stats', ['data' => $data])
                     </div>
                 </div>
             </div>
@@ -58,12 +62,13 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-3">
-                        <img width="20" class="mb-1" src="{{asset('/public/assets/back-end/img/admin-wallet.png')}}" alt="">
-                        {{\App\CPU\translate('admin_wallet')}}
+                        <img width="20" class="mb-1"
+                            src="{{ asset('/public/assets/back-end/img/admin-wallet.png') }}" alt="">
+                        {{ trans('keywords.admin_wallet') }}
                     </h4>
 
                     <div class="row g-2" id="order_stats">
-                        @include('admin-views.partials._dashboard-wallet-stats',['data'=>$data])
+                        @include('admin-views.partials._dashboard-wallet-stats', ['data' => $data])
                     </div>
                 </div>
             </div>
@@ -78,8 +83,9 @@
                             <div class="row g-2 align-items-center">
                                 <div class="col-md-6">
                                     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-                                        <img src="{{asset('/public/assets/back-end/img/earning_statictics.png')}}" alt="">
-                                        {{\App\CPU\translate('earning_statistics')}}
+                                        <img src="{{ asset('/public/assets/back-end/img/earning_statictics.png') }}"
+                                            alt="">
+                                        {{ trans('keywords.earning_statistics') }}
                                     </h4>
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-md-end">
@@ -88,21 +94,21 @@
                                             <label>
                                                 <input type="radio" name="statistics2" hidden="" checked="">
                                                 <span data-earn-type="yearEarn"
-                                                      onclick="earningStatisticsUpdate(this)">{{\App\CPU\translate('This_Year')}}</span>
+                                                    onclick="earningStatisticsUpdate(this)">{{ trans('keywords.This_Year') }}</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label>
                                                 <input type="radio" name="statistics2" hidden="">
                                                 <span data-earn-type="MonthEarn"
-                                                      onclick="earningStatisticsUpdate(this)">{{\App\CPU\translate('This_Month')}}</span>
+                                                    onclick="earningStatisticsUpdate(this)">{{ trans('keywords.This_Month') }}</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label>
                                                 <input type="radio" name="statistics2" hidden="">
                                                 <span data-earn-type="WeekEarn"
-                                                      onclick="earningStatisticsUpdate(this)">{{\App\CPU\translate('This Week')}}</span>
+                                                    onclick="earningStatisticsUpdate(this)">{{ trans('keywords.This Week') }}</span>
                                             </label>
                                         </li>
                                     </ul>
@@ -114,26 +120,26 @@
                             <!-- Bar Chart -->
                             <div class="chartjs-custom mt-2" id="set-new-graph">
                                 <canvas id="updatingData"
-                                        data-hs-chartjs-options='{
+                                    data-hs-chartjs-options='{
                                             "type": "bar",
                                             "data": {
                                               "labels": ["Jan","Feb","Mar","April","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
                                               "datasets": [{
-                                                "label": "{{\App\CPU\translate('In-house')}}",
-                                                "data": [{{$inhouse_data[1]}},{{$inhouse_data[2]}},{{$inhouse_data[3]}},{{$inhouse_data[4]}},{{$inhouse_data[5]}},{{$inhouse_data[6]}},{{$inhouse_data[7]}},{{$inhouse_data[8]}},{{$inhouse_data[9]}},{{$inhouse_data[10]}},{{$inhouse_data[11]}},{{$inhouse_data[12]}}],
+                                                "label": "{{ trans('keywords.In-house') }}",
+                                                "data": [{{ $inhouse_data[1] }},{{ $inhouse_data[2] }},{{ $inhouse_data[3] }},{{ $inhouse_data[4] }},{{ $inhouse_data[5] }},{{ $inhouse_data[6] }},{{ $inhouse_data[7] }},{{ $inhouse_data[8] }},{{ $inhouse_data[9] }},{{ $inhouse_data[10] }},{{ $inhouse_data[11] }},{{ $inhouse_data[12] }}],
                                                 "backgroundColor": "#ACDBAB",
                                                 "hoverBackgroundColor": "#ACDBAB",
                                                 "borderColor": "#ACDBAB"
                                               },
                                               {
-                                                "label": "{{\App\CPU\translate('Seller')}}",
-                                                "data": [{{$seller_data[1]}},{{$seller_data[2]}},{{$seller_data[3]}},{{$seller_data[4]}},{{$seller_data[5]}},{{$seller_data[6]}},{{$seller_data[7]}},{{$seller_data[8]}},{{$seller_data[9]}},{{$seller_data[10]}},{{$seller_data[11]}},{{$seller_data[12]}}],
+                                                "label": "{{ trans('keywords.Seller') }}",
+                                                "data": [{{ $seller_data[1] }},{{ $seller_data[2] }},{{ $seller_data[3] }},{{ $seller_data[4] }},{{ $seller_data[5] }},{{ $seller_data[6] }},{{ $seller_data[7] }},{{ $seller_data[8] }},{{ $seller_data[9] }},{{ $seller_data[10] }},{{ $seller_data[11] }},{{ $seller_data[12] }}],
                                                 "backgroundColor": "#0177CD",
                                                 "borderColor": "#0177CD"
                                               },
                                               {
-                                                "label": "{{\App\CPU\translate('Commission')}}",
-                                                "data": [{{$commission_data[1]}},{{$commission_data[2]}},{{$commission_data[3]}},{{$commission_data[4]}},{{$commission_data[5]}},{{$commission_data[6]}},{{$commission_data[7]}},{{$commission_data[8]}},{{$commission_data[9]}},{{$commission_data[10]}},{{$commission_data[11]}},{{$commission_data[12]}}],
+                                                "label": "{{ trans('keywords.Commission') }}",
+                                                "data": [{{ $commission_data[1] }},{{ $commission_data[2] }},{{ $commission_data[3] }},{{ $commission_data[4] }},{{ $commission_data[5] }},{{ $commission_data[6] }},{{ $commission_data[7] }},{{ $commission_data[8] }},{{ $commission_data[9] }},{{ $commission_data[10] }},{{ $commission_data[11] }},{{ $commission_data[12] }}],
                                                 "backgroundColor": "#FFB36D",
                                                 "borderColor": "#FFB36D"
                                               }]
@@ -161,7 +167,7 @@
                                                         "fontSize": 12,
                                                         "fontColor": "#5B6777",
                                                         "padding": 10,
-                                                        "postfix": " {{\App\CPU\BackEndHelper::currency_symbol()}}"
+                                                        "postfix": " {{ \App\CPU\BackEndHelper::currency_symbol() }}"
                                                     }
                                                     }],
                                                     "xAxes": [{
@@ -207,7 +213,9 @@
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
                     <div class="card h-100">
-                        @include('admin-views.partials._top-customer',['top_customer'=>$data['top_customer']])
+                        @include('admin-views.partials._top-customer', [
+                            'top_customer' => $data['top_customer'],
+                        ])
                     </div>
                     <!-- End Card -->
                 </div>
@@ -215,7 +223,9 @@
                 <!-- Top Store By Order Received -->
                 <div class="col-md-6 col-xl-4">
                     <div class="card h-100">
-                        @include('admin-views.partials._top-store-by-order',['top_store_by_order_received'=>$data['top_store_by_order_received']])
+                        @include('admin-views.partials._top-store-by-order', [
+                            'top_store_by_order_received' => $data['top_store_by_order_received'],
+                        ])
                     </div>
                 </div>
                 <!-- End Top Store By Order Received -->
@@ -223,7 +233,9 @@
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
                     <div class="card h-100">
-                        @include('admin-views.partials._top-selling-store',['top_store_by_earning'=>$data['top_store_by_earning']])
+                        @include('admin-views.partials._top-selling-store', [
+                            'top_store_by_earning' => $data['top_store_by_earning'],
+                        ])
                     </div>
                     <!-- End Card -->
                 </div>
@@ -231,7 +243,9 @@
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
                     <div class="card h-100">
-                        @include('admin-views.partials._most-rated-products',['most_rated_products'=>$data['most_rated_products']])
+                        @include('admin-views.partials._most-rated-products', [
+                            'most_rated_products' => $data['most_rated_products'],
+                        ])
                     </div>
                     <!-- End Card -->
                 </div>
@@ -239,7 +253,9 @@
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
                     <div class="card h-100">
-                        @include('admin-views.partials._top-selling-products',['top_sell'=>$data['top_sell']])
+                        @include('admin-views.partials._top-selling-products', [
+                            'top_sell' => $data['top_sell'],
+                        ])
                     </div>
                     <!-- End Card -->
                 </div>
@@ -247,7 +263,9 @@
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
                     <div class="card h-100">
-                        @include('admin-views.partials._top-delivery-man',['top_deliveryman'=>$data['top_deliveryman']])
+                        @include('admin-views.partials._top-delivery-man', [
+                            'top_deliveryman' => $data['top_deliveryman'],
+                        ])
                     </div>
                     <!-- End Card -->
                 </div>
@@ -260,7 +278,8 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col-12 mb-2 mb-sm-0">
-                        <h3 class="text-center">{{\App\CPU\translate('hi')}} {{auth('admin')->user()->name}}, {{\App\CPU\translate('welcome_to_dashboard')}}.</h3>
+                        <h3 class="text-center">{{ trans('keywords.hi') }} {{ auth('admin')->user()->name }},
+                            {{ trans('keywords.welcome_to_dashboard') }}.</h3>
                     </div>
                 </div>
             </div>
@@ -270,10 +289,11 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/assets/back-end')}}/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="{{asset('public/assets/back-end')}}/vendor/chart.js.extensions/chartjs-extensions.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/vendor/chart.js.extensions/chartjs-extensions.js"></script>
     <script
-        src="{{asset('public/assets/back-end')}}/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js"></script>
+        src="{{ asset('public/assets/back-end') }}/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js">
+    </script>
 @endpush
 
 
@@ -283,15 +303,15 @@
             let value = $(t).attr('data-earn-type');
 
             $.ajax({
-                url: '{{route('admin.dashboard.earning-statistics')}}',
+                url: '{{ route('admin.dashboard.earning-statistics') }}',
                 type: 'GET',
                 data: {
                     type: value
                 },
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#loading').show()
                 },
-                success: function (response_data) {
+                success: function(response_data) {
                     document.getElementById("updatingData").remove();
                     let graph = document.createElement('canvas');
                     graph.setAttribute("id", "updatingData");
@@ -338,9 +358,8 @@
                         type: 'bar',
                         data: {
                             labels: [],
-                            datasets: [
-                                {
-                                    label: "{{\App\CPU\translate('In-house')}}",
+                            datasets: [{
+                                    label: "{{ trans('keywords.In-house') }}",
                                     data: [],
                                     backgroundColor: "#ACDBAB",
                                     hoverBackgroundColor: "#ACDBAB",
@@ -350,7 +369,7 @@
                                     radius: 0
                                 },
                                 {
-                                    label: "{{\App\CPU\translate('Seller')}}",
+                                    label: "{{ trans('keywords.Seller') }}",
                                     data: [],
                                     backgroundColor: "#0177CD",
                                     hoverBackgroundColor: "#0177CD",
@@ -360,7 +379,7 @@
                                     radius: 0
                                 },
                                 {
-                                    label: "{{\App\CPU\translate('Commission')}}",
+                                    label: "{{ trans('keywords.Commission') }}",
                                     data: [],
                                     backgroundColor: "#FFB36D",
                                     hoverBackgroundColor: "FFB36D",
@@ -381,7 +400,7 @@
 
                     myChart.update();
                 },
-                complete: function () {
+                complete: function() {
                     $('#loading').hide()
                 }
             });
@@ -393,7 +412,7 @@
         // =======================================================
         Chart.plugins.unregister(ChartDataLabels);
 
-        $('.js-chart').each(function () {
+        $('.js-chart').each(function() {
             $.HSCore.components.HSChartJS.init($(this));
         });
 
@@ -406,15 +425,17 @@
             type: 'doughnut',
             data: {
                 labels: [
-                    '{{\App\CPU\translate('customer')}} ',
-                    '{{\App\CPU\translate('store')}} ',
-                    '{{\App\CPU\translate('product')}} ',
-                    '{{\App\CPU\translate('order')}} ',
-                    '{{\App\CPU\translate('brand')}} ',
+                    '{{ trans('keywords.customer') }} ',
+                    '{{ trans('keywords.store') }} ',
+                    '{{ trans('keywords.product') }} ',
+                    '{{ trans('keywords.order') }} ',
+                    '{{ trans('keywords.brand') }} ',
                 ],
                 datasets: [{
-                    label: '{{\App\CPU\translate('business')}}',
-                    data: ['{{$data['customer']}}', '{{$data['store']}}', '{{$data['product']}}', '{{$data['order']}}', '{{$data['brand']}}'],
+                    label: '{{ trans('keywords.business') }}',
+                    data: ['{{ $data['customer'] }}', '{{ $data['store'] }}', '{{ $data['product'] }}',
+                        '{{ $data['order'] }}', '{{ $data['brand'] }}'
+                    ],
                     backgroundColor: [
                         '#041562',
                         '#DA1212',
@@ -436,7 +457,7 @@
     </script>
 
     <script>
-        $(function(){
+        $(function() {
 
             //get the doughnut chart canvas
             var ctx1 = $("#user_overview");
@@ -444,23 +465,21 @@
             //doughnut chart data
             var data1 = {
                 labels: ["Customer", "Seller", "Delivery Man"],
-                datasets: [
-                    {
-                        label: "User Overview",
-                        data: [88297, 34546, 15000],
-                        backgroundColor: [
-                            "#017EFA",
-                            "#51CBFF",
-                            "#56E7E7",
-                        ],
-                        borderColor: [
-                            "#017EFA",
-                            "#51CBFF",
-                            "#56E7E7",
-                        ],
-                        borderWidth: [1, 1, 1]
-                    }
-                ]
+                datasets: [{
+                    label: "User Overview",
+                    data: [88297, 34546, 15000],
+                    backgroundColor: [
+                        "#017EFA",
+                        "#51CBFF",
+                        "#56E7E7",
+                    ],
+                    borderColor: [
+                        "#017EFA",
+                        "#51CBFF",
+                        "#56E7E7",
+                    ],
+                    borderWidth: [1, 1, 1]
+                }]
             };
 
             //options
@@ -491,17 +510,18 @@
     </script>
 
     <script>
-        $(function(){
+        $(function() {
             //get the line chart canvas
             var ctx = $("#order_statictics");
 
             //line chart data
             var data = {
                 labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [
-                    {
+                datasets: [{
                         label: "In-house",
-                        data: [10000, 50000, 100000, 140000, 40000, 10000, 50000, 100000, 130000, 40000, 80000, 120000],
+                        data: [10000, 50000, 100000, 140000, 40000, 10000, 50000, 100000, 130000, 40000,
+                            80000, 120000
+                        ],
                         backgroundColor: "#FFB36D",
                         borderColor: "#FFB36D",
                         fill: false,
@@ -510,7 +530,9 @@
                     },
                     {
                         label: "Seller",
-                        data: [9000, 60000, 110000, 130000, 50000, 29000, 60000, 110000, 100000, 50000, 70000, 90000],
+                        data: [9000, 60000, 110000, 130000, 50000, 29000, 60000, 110000, 100000, 50000,
+                            70000, 90000
+                        ],
                         backgroundColor: "#0177CD",
                         borderColor: "#0177CD",
                         fill: false,
@@ -523,7 +545,7 @@
             //options
             var options = {
                 responsive: true,
-                bezierCurve : false,
+                bezierCurve: false,
                 maintainAspectRatio: false,
                 scales: {
                     xAxes: [{
@@ -569,18 +591,18 @@
                 }
             });
             $.post({
-                url: '{{route('admin.dashboard.order-stats')}}',
+                url: '{{ route('admin.dashboard.order-stats') }}',
                 data: {
                     statistics_type: type
                 },
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#loading').show()
                 },
-                success: function (data) {
+                success: function(data) {
                     console.log(data)
                     $('#order_stats').html(data.view)
                 },
-                complete: function () {
+                complete: function() {
                     $('#loading').hide()
                 }
             });
@@ -593,23 +615,21 @@
                 }
             });
             $.post({
-                url: '{{route('admin.dashboard.business-overview')}}',
+                url: '{{ route('admin.dashboard.business-overview') }}',
                 data: {
                     business_overview: type
                 },
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#loading').show()
                 },
-                success: function (data) {
+                success: function(data) {
                     console.log(data.view)
                     $('#business-overview-board').html(data.view)
                 },
-                complete: function () {
+                complete: function() {
                     $('#loading').hide()
                 }
             });
         }
     </script>
-
 @endpush
-
