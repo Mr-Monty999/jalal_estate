@@ -70,7 +70,7 @@
             }
 
             .icon-menu.h3 {
-                color: white
+                color: white;
             }
         </style>
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
