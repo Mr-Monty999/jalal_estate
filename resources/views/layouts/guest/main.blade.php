@@ -68,6 +68,10 @@
             .sticky-wrapper.is-sticky .site-navbar ul li a:hover {
                 color: white !important
             }
+
+            .icon-menu.h3 {
+                color: white
+            }
         </style>
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
@@ -75,7 +79,8 @@
                 <div class="row align-items-center">
 
                     <div class="col-6 col-xl-2">
-                        <h1 class="mb-0 site-logo m-0 p-0"><a href="index.html" class="mb-0">Stated.</a></h1>
+                        <h1 class="mb-0 site-logo m-0 p-0"><a style="color:white !important" href="index.html"
+                                class="mb-0">{{ trans('keywords.Jalal') }}</a></h1>
                     </div>
 
                     <div class="col-12 col-md-10 d-none d-xl-block">
@@ -84,6 +89,8 @@
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                 <li><a href="{{ route('guest.home') }}"
                                         class="nav-link">{{ trans('keywords.Home') }}</a></li>
+                                <li><a href="{{ route('user.login') }}"
+                                        class="nav-link">{{ trans('keywords.Login') }}</a></li>
                                 <li>
                                     <div class="dropdown show">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -94,7 +101,7 @@
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item text-black"
-                                                href="{{ route('user.companies.register') }}">{{ trans('keywords.Create Company Account') }}</a>
+                                                href="{{ route('guest.companies.register') }}">{{ trans('keywords.Create Company Account') }}</a>
                                             {{-- <a class="dropdown-item text-black" href="#">Another action</a>
                                             <a class="dropdown-item text-black" href="#">Something else here</a> --}}
                                         </div>

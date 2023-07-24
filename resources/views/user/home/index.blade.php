@@ -1,4 +1,4 @@
-@extends('layouts.guest.main')
+@extends('layouts.user.main')
 
 @section('content')
     <br><br><br>
@@ -6,8 +6,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 mt-lg-5 text-center">
-                    <h1>إشتري وبيع عقارات حقيقية</h1>
-                    <p class="mb-5">موقع عقار أينما تذهب تجد عقارك</p>
+                    <h1>صفحة المستخدم الرئيسية</h1>
 
                 </div>
             </div>

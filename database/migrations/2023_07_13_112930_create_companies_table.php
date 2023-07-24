@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger("license_number")->unique();
             $table->bigInteger("advertiser_number")->unique();
             $table->bigInteger("commercial_registration_number")->unique();
-            $table->string("logo");
+            $table->string("logo")->nullable();
             $table->softDeletes();
             $table->timestamps();
 

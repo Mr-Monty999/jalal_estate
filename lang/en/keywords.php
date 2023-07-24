@@ -18,7 +18,14 @@ return [
     "License Number" => 'License Number',
     "Advertiser Number" => 'Advertiser Number',
     "Commercial Registration Number" => "Commercial Registration Number",
-    "Logo" => "Logo"
+    "Logo" => "Logo",
+    "Satate" => "Satate",
+    "Jalal" => "Jalal",
+    "Company Name" => "Company Name",
+    "Profile" => "Profile",
+    "Sign Out" => "Sign Out",
+    "Login" => "Login"
+
 
 
 ];

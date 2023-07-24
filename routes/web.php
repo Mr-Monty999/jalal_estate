@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Guest\CompanyController;
 use App\Http\Controllers\Guest\HomeController;
-use App\Http\Controllers\User\CompanyController;
+use App\Http\Controllers\Guest\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,3 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-
-Route::group([], function () {
-
-    Route::get("/", [HomeController::class, 'index'])->name("guest.home");
-});

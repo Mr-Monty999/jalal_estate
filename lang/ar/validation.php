@@ -212,5 +212,8 @@ return [
         'updated_at'               => 'تاريخ التحديث',
         'username'                 => 'اسم المُستخدم',
         'year'                     => 'السنة',
+        "license_number" => "رقم الترخيص",
+        "advertiser_number" => "رقم المعلن",
+        "commercial_registration_number" => "رقم السجل التجاري"
     ],
 ];

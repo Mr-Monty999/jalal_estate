@@ -18,7 +18,17 @@ return [
     "License Number" => 'رقم الترخيص',
     "Advertiser Number" => 'رقم المعلن',
     "Commercial Registration Number" => "رقم السجل التجاري",
-    "Logo" => "الشعار"
+    "Logo" => "الشعار",
+    "Satate" => "عقار",
+    "Jalal" => "جلال",
+    "Company Name" => "إسم الشركة",
+    "Sign Out" => "تسجيل خروج",
+    "Profile" => "الملف الشخصي",
+    "Login" => "تسجيل دخول"
+
+
+
+
 
 
 
