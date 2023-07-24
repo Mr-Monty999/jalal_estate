@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\User\CompanyController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::group([], function () {
+
+    Route::get("/", [HomeController::class, 'index'])->name("guest.home");
 });

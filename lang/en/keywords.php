@@ -9,7 +9,16 @@ return [
     "Password Confirmation" => "Password Confirmation",
     "Create Account" => "Create Account",
     "Create Company Account" => "Create Company Account",
-    "Phone" => "Phone"
+    "Phone" => "Phone",
+    "Home" => "Home",
+    "Join Us" => "Join Us",
+    "About" => "About",
+    "Contact Us" => "Contact Us",
+    "Create Company Account" => "Create Company Account",
+    "License Number" => 'License Number',
+    "Advertiser Number" => 'Advertiser Number',
+    "Commercial Registration Number" => "Commercial Registration Number",
+    "Logo" => "Logo"
 
 
 ];

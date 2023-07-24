@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterCompany;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
@@ -20,6 +21,12 @@ class CompanyController extends Controller
     }
 
     public function register()
+    {
+        return view("user.companies.auth.register");
+    }
+
+
+    public function postRegister(RegisterCompany $request)
     {
         return view("user.companies.auth.register");
     }
