@@ -118,7 +118,7 @@
 
 
                     <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#"
-                            class="site-menu-toggle js-menu-toggle text-black float-right"><span
+                            class="site-menu-toggle js-menu-toggle text-black float-left"><span
                                 class="icon-menu h3"></span></a></div>
 
                 </div>
