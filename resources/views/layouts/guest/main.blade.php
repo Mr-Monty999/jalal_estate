@@ -121,6 +121,9 @@
                                             <a class="dropdown-item text-black"
                                                 href="{{ route('guest.landlords.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
 
+                                            <a class="dropdown-item text-black"
+                                                href="{{ route('guest.service-providers.register') }}">{{ trans('keywords.Create Service Provider Account') }}</a>
+
                                             {{-- <a class="dropdown-item text-black" href="#">Another action</a>
                                             <a class="dropdown-item text-black" href="#">Something else here</a> --}}
                                         </div>

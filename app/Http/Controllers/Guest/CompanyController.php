@@ -15,7 +15,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        return view("guest.auth.company-register");
+        return view("guest.auth.companies-register");
     }
 
 

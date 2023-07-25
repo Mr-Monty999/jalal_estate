@@ -30,6 +30,10 @@
 
                 <a class="link2 text-center bg-warning col-8 col-md-4"
                     href="{{ route('guest.landlords.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
+
+                <a class="link2 text-center bg-warning col-8 col-md-4"
+                    href="{{ route('guest.service-providers.register') }}">{{ trans('keywords.Create Service Provider Account') }}</a>
+
             </div>
         </div>
     </div>

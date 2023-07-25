@@ -70,4 +70,19 @@ class RoleService
 
         return $user;
     }
+
+    public static function assignServiceProviderRole($user)
+    {
+        $role = Role::firstOrCreate([
+            "name" => "service-provider"
+        ]);
+
+        $permission = PermissionService::storePermissions(PermissionService::serviceProviderPermissions());
+
+        $role->syncPermissions(PermissionService::serviceProviderPermissions());
+
+        $user->assignRole("service-provider");
+
+        return $user;
+    }
 }

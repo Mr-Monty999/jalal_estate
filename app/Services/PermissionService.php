@@ -48,6 +48,17 @@ class PermissionService
             "delete_offers",
         ];
     }
+
+
+    public static function serviceProviderPermissions()
+    {
+        return [
+            "view_offers",
+            "create_offers",
+            "edit_offers",
+            "delete_offers",
+        ];
+    }
     public static function storePermissions($data)
     {
         foreach ($data as $key => $value) {

@@ -33,7 +33,9 @@ return [
     "Create Office Account" => "Create Office Account",
     "Office Name" => "Office Name",
     "Create Landlord Account" => "Create Landlord Account",
-    "Landlord Name" => "Landlord Name"
+    "Landlord Name" => "Landlord Name",
+    "Create Service Provider Account" => "Create Service Provider Account",
+    "Service Provider Name" => "Service Provider Name"
 
 
 

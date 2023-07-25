@@ -15,7 +15,7 @@ class OfficeController extends Controller
 {
     public function index()
     {
-        return view("guest.auth.office-register");
+        return view("guest.auth.offices-register");
     }
 
 

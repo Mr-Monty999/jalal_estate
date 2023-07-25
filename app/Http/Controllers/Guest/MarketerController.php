@@ -17,7 +17,7 @@ class MarketerController extends Controller
 {
     public function index()
     {
-        return view("guest.auth.marketer-register");
+        return view("guest.auth.marketers-register");
     }
 
 

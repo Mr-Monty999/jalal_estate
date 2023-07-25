@@ -6,6 +6,7 @@ use App\Http\Controllers\Guest\LandlordController;
 use App\Http\Controllers\Guest\LoginController;
 use App\Http\Controllers\Guest\MarketerController;
 use App\Http\Controllers\Guest\OfficeController;
+use App\Http\Controllers\Guest\ServiceProviderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,5 +27,8 @@ Route::group([], function () {
 
         Route::get("/landlords/register", [LandlordController::class, "index"])->name("guest.landlords.register");
         Route::post("/landlords/register", [LandlordController::class, "register"])->name("guest.landlords.register.post");
+
+        Route::get("/service-providers/register", [ServiceProviderController::class, "index"])->name("guest.service-providers.register");
+        Route::post("/service-providers/register", [ServiceProviderController::class, "register"])->name("guest.service-providers.register.post");
     });
 });

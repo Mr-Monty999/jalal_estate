@@ -16,7 +16,7 @@ class LandlordController extends Controller
 
     public function index()
     {
-        return view("guest.auth.landlord-register");
+        return view("guest.auth.landlords-register");
     }
 
 
