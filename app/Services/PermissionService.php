@@ -19,6 +19,16 @@ class PermissionService
             "delete_offers",
         ];
     }
+    public static function marketerPermissions()
+    {
+
+        return [
+            "view_offers",
+            "create_offers",
+            "edit_offers",
+            "delete_offers",
+        ];
+    }
 
     public static function storePermissions($data)
     {

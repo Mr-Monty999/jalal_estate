@@ -4,14 +4,15 @@
     <br><br><br>
     <div class="bg-light site-section bg-white" id="company-register">
         <div class="container">
-            <h1>{{ trans('keywords.Create Company Account') }}</h1>
+            <h1 class="text-center">{{ trans('keywords.Create Company Account') }}</h1>
             <br><br>
             <form method="POST" action="{{ route('guest.companies.register') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
                         <label for="name">{{ trans('keywords.Company Name') }}</label>
-                        <input name="name" value="{{ old('name') }}" type="text" class="form-control" id="name">
+                        <input name="name" value="{{ old('name') }}" type="text" class="form-control"
+                            id="name">
                         @error('name')
                             <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">{{ $message }}
                             </div>

@@ -24,7 +24,17 @@ return [
     "Company Name" => "إسم الشركة",
     "Sign Out" => "تسجيل خروج",
     "Profile" => "الملف الشخصي",
-    "Login" => "تسجيل دخول"
+    "Login" => "تسجيل دخول",
+    "Create Marketer Account" => "إنشاء حساب مُسوق",
+    "Marketer Name" => "إسم المُسوق",
+    "Birth Date" => "تاريخ الميلاد",
+    "Photo" => "الصورة",
+    "Personal Photo" => "الصورة الشخصية"
+
+
+
+
+
 
 
 

@@ -24,7 +24,12 @@ return [
     "Company Name" => "Company Name",
     "Profile" => "Profile",
     "Sign Out" => "Sign Out",
-    "Login" => "Login"
+    "Login" => "Login",
+    "Create Marketer Account" => "Create Marketer Account",
+    "Marketer Name" => "Marketer Name",
+    "Birth Date" => "Birth Date",
+    "Photo" => "Photo",
+    "Personal Photo" => "Personal Photo"
 
 
 

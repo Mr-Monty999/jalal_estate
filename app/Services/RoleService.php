@@ -12,7 +12,7 @@ class RoleService
 {
 
 
-    public static function assignRole($user)
+    public static function assignCompanyRole($user)
     {
         $role = Role::firstOrCreate([
             "name" => "company"
@@ -23,6 +23,20 @@ class RoleService
         $role->syncPermissions(PermissionService::companyPermissions());
 
         $user->assignRole("company");
+
+        return $user;
+    }
+    public static function assignMarketerRole($user)
+    {
+        $role = Role::firstOrCreate([
+            "name" => "marketer"
+        ]);
+
+        $permission = PermissionService::storePermissions(PermissionService::marketerPermissions());
+
+        $role->syncPermissions(PermissionService::marketerPermissions());
+
+        $user->assignRole("marketer");
 
         return $user;
     }

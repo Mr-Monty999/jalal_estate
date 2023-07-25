@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Stated &mdash; Website by Colorlib</title>
+    <title>{{ env('APP_NAME') }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -102,6 +102,8 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item text-black"
                                                 href="{{ route('guest.companies.register') }}">{{ trans('keywords.Create Company Account') }}</a>
+                                            <a class="dropdown-item text-black"
+                                                href="{{ route('guest.marketers.register') }}">{{ trans('keywords.Create Marketer Account') }}</a>
                                             {{-- <a class="dropdown-item text-black" href="#">Another action</a>
                                             <a class="dropdown-item text-black" href="#">Something else here</a> --}}
                                         </div>
