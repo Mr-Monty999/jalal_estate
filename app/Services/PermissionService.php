@@ -39,6 +39,15 @@ class PermissionService
         ];
     }
 
+    public static function landlordPermissions()
+    {
+        return [
+            "view_offers",
+            "create_offers",
+            "edit_offers",
+            "delete_offers",
+        ];
+    }
     public static function storePermissions($data)
     {
         foreach ($data as $key => $value) {

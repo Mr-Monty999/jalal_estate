@@ -29,7 +29,7 @@
                     href="{{ route('guest.marketers.register') }}">{{ trans('keywords.Create Marketer Account') }}</a>
 
                 <a class="link2 text-center bg-warning col-8 col-md-4"
-                    href="{{ route('guest.companies.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
+                    href="{{ route('guest.landlords.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
             </div>
         </div>
     </div>

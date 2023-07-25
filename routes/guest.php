@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Guest\CompanyController;
 use App\Http\Controllers\Guest\HomeController;
+use App\Http\Controllers\Guest\LandlordController;
 use App\Http\Controllers\Guest\LoginController;
 use App\Http\Controllers\Guest\MarketerController;
 use App\Http\Controllers\Guest\OfficeController;
@@ -22,5 +23,8 @@ Route::group([], function () {
 
         Route::get("/offices/register", [OfficeController::class, "index"])->name("guest.offices.register");
         Route::post("/offices/register", [OfficeController::class, "register"])->name("guest.offices.register.post");
+
+        Route::get("/landlords/register", [LandlordController::class, "index"])->name("guest.landlords.register");
+        Route::post("/landlords/register", [LandlordController::class, "register"])->name("guest.landlords.register.post");
     });
 });

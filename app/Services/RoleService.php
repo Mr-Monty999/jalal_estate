@@ -55,4 +55,19 @@ class RoleService
 
         return $user;
     }
+
+    public static function assignLandlordRole($user)
+    {
+        $role = Role::firstOrCreate([
+            "name" => "landlord"
+        ]);
+
+        $permission = PermissionService::storePermissions(PermissionService::landlordPermissions());
+
+        $role->syncPermissions(PermissionService::landlordPermissions());
+
+        $user->assignRole("landlord");
+
+        return $user;
+    }
 }

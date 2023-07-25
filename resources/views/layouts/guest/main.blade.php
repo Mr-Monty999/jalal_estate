@@ -72,6 +72,15 @@
             .icon-menu.h3 {
                 color: white;
             }
+
+            h1 {
+                color: #0f2d52;
+                font-weight: bold;
+            }
+
+            label {
+                color: #0f2d52
+            }
         </style>
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
@@ -107,6 +116,10 @@
 
                                             <a class="dropdown-item text-black"
                                                 href="{{ route('guest.offices.register') }}">{{ trans('keywords.Create Office Account') }}</a>
+
+
+                                            <a class="dropdown-item text-black"
+                                                href="{{ route('guest.landlords.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
 
                                             {{-- <a class="dropdown-item text-black" href="#">Another action</a>
                                             <a class="dropdown-item text-black" href="#">Something else here</a> --}}

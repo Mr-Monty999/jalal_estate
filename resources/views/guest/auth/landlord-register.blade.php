@@ -4,13 +4,13 @@
     <br><br><br>
     <div class="bg-light site-section bg-white" id="company-register">
         <div class="container">
-            <h1 class="text-center">{{ trans('keywords.Create Marketer Account') }}</h1>
+            <h1 class="text-center">{{ trans('keywords.Create Landlord Account') }}</h1>
             <br><br>
-            <form method="POST" action="{{ route('guest.marketers.register') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('guest.landlords.register') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
-                        <label for="name">{{ trans('keywords.Marketer Name') }}</label>
+                        <label for="name">{{ trans('keywords.Landlord Name') }}</label>
                         <input name="name" value="{{ old('name') }}" type="text" class="form-control"
                             id="name">
                         @error('name')
@@ -27,24 +27,8 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="phone">{{ trans('keywords.Phone') }}</label>
-                        <input name="phone" value="{{ old('phone') }}" type="phone" class="form-control"
-                            id="phone">
-                        @error('phone')
-                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">{{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="license_number">{{ trans('keywords.License Number') }}</label>
-                        <input name="license_number" value="{{ old('license_number') }}" type="number"
-                            class="form-control" id="license_number">
-                        @error('license_number')
-                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">{{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+
+
                     {{-- <div class="form-group col-12 col-md-6">
                         <label for="birthdate">{{ trans('keywords.Birth Date') }}</label>
                         <input name="birthdate" value="{{ old('birthdate') }}" type="date" class="form-control"
@@ -71,10 +55,10 @@
                         @enderror
                     </div>
                     <div class="form-group col-12 col-md-6">
-                        <label for="advertiser_number">{{ trans('keywords.Advertiser Number') }}</label>
-                        <input name="advertiser_number" value="{{ old('advertiser_number') }}" type="number"
-                            class="form-control" id="advertiser_number">
-                        @error('advertiser_number')
+                        <label for="phone">{{ trans('keywords.Phone') }}</label>
+                        <input name="phone" value="{{ old('phone') }}" type="phone" class="form-control"
+                            id="phone">
+                        @error('phone')
                             <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">{{ $message }}
                             </div>
                         @enderror
