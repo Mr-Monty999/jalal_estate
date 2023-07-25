@@ -40,4 +40,19 @@ class RoleService
 
         return $user;
     }
+
+    public static function assignOfficeRole($user)
+    {
+        $role = Role::firstOrCreate([
+            "name" => "office"
+        ]);
+
+        $permission = PermissionService::storePermissions(PermissionService::officePermissions());
+
+        $role->syncPermissions(PermissionService::officePermissions());
+
+        $user->assignRole("office");
+
+        return $user;
+    }
 }

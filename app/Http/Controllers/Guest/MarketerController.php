@@ -11,6 +11,7 @@ use App\Services\RoleService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MarketerController extends Controller
 {
@@ -22,11 +23,18 @@ class MarketerController extends Controller
 
     public function register(RegisterMarketerRequest $request)
     {
-        $user = UserService::store($request);
-        $marketer = MarketerService::store($request, $user->id);
-        RoleService::assignMarketerRole($user);
 
-        Auth::login($user, true);
+        DB::transaction(
+            function () use ($request) {
+
+                $user = UserService::store($request);
+                $marketer = MarketerService::store($request, $user->id);
+                RoleService::assignMarketerRole($user);
+
+                Auth::login($user, true);
+            }
+        );
+
 
         return redirect()->route("user.home");
     }

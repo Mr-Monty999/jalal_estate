@@ -4,6 +4,7 @@ use App\Http\Controllers\Guest\CompanyController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Guest\LoginController;
 use App\Http\Controllers\Guest\MarketerController;
+use App\Http\Controllers\Guest\OfficeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,5 +19,8 @@ Route::group([], function () {
 
         Route::get("/marketers/register", [MarketerController::class, "index"])->name("guest.marketers.register");
         Route::post("/marketers/register", [MarketerController::class, "register"])->name("guest.marketers.register.post");
+
+        Route::get("/offices/register", [OfficeController::class, "index"])->name("guest.offices.register");
+        Route::post("/offices/register", [OfficeController::class, "register"])->name("guest.offices.register.post");
     });
 });

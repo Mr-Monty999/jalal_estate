@@ -29,7 +29,10 @@ return [
     "Marketer Name" => "Marketer Name",
     "Birth Date" => "Birth Date",
     "Photo" => "Photo",
-    "Personal Photo" => "Personal Photo"
+    "Personal Photo" => "Personal Photo",
+    "Create Office Account" => "Create Office Account",
+    "Office Name" => "Office Name"
+
 
 
 

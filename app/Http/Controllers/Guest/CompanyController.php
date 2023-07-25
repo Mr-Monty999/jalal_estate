@@ -9,6 +9,7 @@ use App\Services\RoleService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CompanyController extends Controller
 {
@@ -20,11 +21,16 @@ class CompanyController extends Controller
 
     public function register(RegisterCompany $request)
     {
-        $user = UserService::store($request);
-        $company = CompanyService::store($request, $user->id);
-        RoleService::assignCompanyRole($user);
+        DB::transaction(
+            function () use ($request) {
 
-        Auth::login($user, true);
+                $user = UserService::store($request);
+                $company = CompanyService::store($request, $user->id);
+                RoleService::assignCompanyRole($user);
+
+                Auth::login($user, true);
+            }
+        );
 
         return redirect()->route("user.home");
     }

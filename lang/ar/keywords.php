@@ -29,7 +29,9 @@ return [
     "Marketer Name" => "إسم المُسوق",
     "Birth Date" => "تاريخ الميلاد",
     "Photo" => "الصورة",
-    "Personal Photo" => "الصورة الشخصية"
+    "Personal Photo" => "الصورة الشخصية",
+    "Create Office Account" => "إنشاء حساب مكتب",
+    "Office Name" => "إسم المكتب"
 
 
 

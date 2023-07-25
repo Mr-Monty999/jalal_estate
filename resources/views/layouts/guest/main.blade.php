@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 
 <head>
     <title>{{ env('APP_NAME') }}</title>
@@ -104,6 +104,10 @@
                                                 href="{{ route('guest.companies.register') }}">{{ trans('keywords.Create Company Account') }}</a>
                                             <a class="dropdown-item text-black"
                                                 href="{{ route('guest.marketers.register') }}">{{ trans('keywords.Create Marketer Account') }}</a>
+
+                                            <a class="dropdown-item text-black"
+                                                href="{{ route('guest.offices.register') }}">{{ trans('keywords.Create Office Account') }}</a>
+
                                             {{-- <a class="dropdown-item text-black" href="#">Another action</a>
                                             <a class="dropdown-item text-black" href="#">Something else here</a> --}}
                                         </div>
