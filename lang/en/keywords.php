@@ -31,7 +31,8 @@ return [
     "Photo" => "Photo",
     "Personal Photo" => "Personal Photo",
     "Create Office Account" => "Create Office Account",
-    "Office Name" => "Office Name"
+    "Office Name" => "Office Name",
+    "Create Landlord Account" => "Create Landlord Account"
 
 
 

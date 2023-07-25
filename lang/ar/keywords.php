@@ -31,7 +31,9 @@ return [
     "Photo" => "الصورة",
     "Personal Photo" => "الصورة الشخصية",
     "Create Office Account" => "إنشاء حساب مكتب",
-    "Office Name" => "إسم المكتب"
+    "Office Name" => "إسم المكتب",
+    "Create Landlord Account" => "إنشاء حساب مالك العقار"
+
 
 
 
