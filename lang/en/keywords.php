@@ -38,7 +38,16 @@ return [
     "Service Provider Name" => "Service Provider Name",
     "Remember Me" => "Remember Me",
     "Admin Login" => "Admin Login",
-    "Admin Panel" => 'Admin Panel'
+    "Admin Panel" => 'Admin Panel',
+    "Dashboard" => "Dashboard",
+    "Sign Out" => "Sign Out",
+    "Cities" => "Cities",
+    "Cities Management" => "Cities Management",
+    "Add City" => "Add City",
+    "Cities List" => "Cities List",
+    "Hi" => "Hi",
+    "Welcome To Dashboard" => "Welcome To Dashboard"
+
 
 
 

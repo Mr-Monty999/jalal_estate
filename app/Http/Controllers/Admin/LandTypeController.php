@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLandTypeRequest;
 use App\Http\Requests\UpdateLandTypeRequest;
 use App\Models\LandType;

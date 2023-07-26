@@ -38,7 +38,20 @@ return [
     "Service Provider Name" => "إسم مقدم الخدمة",
     "Remember Me" => "تذكرني",
     "Admin Login" => "تسجيل دخول المدير",
-    "Admin Panel" => 'لوحة المدير'
+    "Admin Panel" => 'لوحة المدير',
+    "Dashboard" => "لوحة التحكم",
+    "Sign Out" => "تسجيل خروج",
+    "Cities" => "المدن",
+    "Cities Management" => 'إدارة المدن',
+    "Add City" => "إضافة مدينة",
+    "Cities List" => "قائمة المدن",
+    "Hi" => "مرحبا",
+    "Welcome To Dashboard" => "مرحبا بك في لوحة التحكم"
+
+
+
+
+
 
 
 
