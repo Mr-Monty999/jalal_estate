@@ -35,7 +35,10 @@ return [
     "Create Landlord Account" => "Create Landlord Account",
     "Landlord Name" => "Landlord Name",
     "Create Service Provider Account" => "Create Service Provider Account",
-    "Service Provider Name" => "Service Provider Name"
+    "Service Provider Name" => "Service Provider Name",
+    "Remember Me" => "Remember Me",
+    "Admin Login" => "Admin Login",
+    "Admin Panel" => 'Admin Panel'
 
 
 

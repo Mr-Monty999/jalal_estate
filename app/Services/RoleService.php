@@ -85,4 +85,19 @@ class RoleService
 
         return $user;
     }
+
+    public static function assignAdminRole($user)
+    {
+        $role = Role::firstOrCreate([
+            "name" => "admin"
+        ]);
+
+        $permission = PermissionService::storePermissions(PermissionService::AdminPermissions());
+
+        $role->syncPermissions(PermissionService::AdminPermissions());
+
+        $user->assignRole("admin");
+
+        return $user;
+    }
 }

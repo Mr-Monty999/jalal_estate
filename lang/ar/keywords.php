@@ -35,7 +35,13 @@ return [
     "Create Landlord Account" => "إنشاء حساب مالك العقار",
     "Landlord Name" => "إسم مالك العقار",
     "Create Service Provider Account" => "إنشاء حساب مقدم خدمة",
-    "Service Provider Name" => "إسم مقدم الخدمة"
+    "Service Provider Name" => "إسم مقدم الخدمة",
+    "Remember Me" => "تذكرني",
+    "Admin Login" => "تسجيل دخول المدير",
+    "Admin Panel" => 'لوحة المدير'
+
+
+
 
 
 
