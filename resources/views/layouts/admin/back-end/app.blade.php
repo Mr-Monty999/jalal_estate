@@ -125,7 +125,7 @@
         }
     </script>
 
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <script>
             @foreach ($errors->all() as $error)
                 toastr.error('{{ $error }}', Error, {
@@ -134,7 +134,7 @@
                 });
             @endforeach
         </script>
-    @endif
+    @endif --}}
     <!-- JS Plugins Init. -->
     <script>
         $(document).on('ready', function() {

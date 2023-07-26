@@ -46,7 +46,15 @@ return [
     "Add City" => "إضافة مدينة",
     "Cities List" => "قائمة المدن",
     "Hi" => "مرحبا",
-    "Welcome To Dashboard" => "مرحبا بك في لوحة التحكم"
+    "Welcome To Dashboard" => "مرحبا بك في لوحة التحكم",
+    "submit" => "إرسال",
+    "reset" => "مسح",
+    "City Name" => "إسم المدينة",
+    "None" => "لايوجد",
+    "Main City" => "المدينة الرئيسية"
+
+
+
 
 
 

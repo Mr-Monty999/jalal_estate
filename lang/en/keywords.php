@@ -46,7 +46,12 @@ return [
     "Add City" => "Add City",
     "Cities List" => "Cities List",
     "Hi" => "Hi",
-    "Welcome To Dashboard" => "Welcome To Dashboard"
+    "Welcome To Dashboard" => "Welcome To Dashboard",
+    "submit" => "submit",
+    "reset" => "reset",
+    "City Name" => "City Name",
+    "None" => "None",
+    "Main City" => "Main City"
 
 
 

@@ -26,7 +26,9 @@ class CityController extends Controller
      */
     public function create()
     {
-        //
+
+        $cities = City::whereNull("parent_id")->orderBy("name", "asc")->get();
+        return view("admin.cities.create", compact("cities"));
     }
 
     /**
@@ -37,7 +39,14 @@ class CityController extends Controller
      */
     public function store(StoreCityRequest $request)
     {
-        //
+        $data  = $request->validated();
+
+        if (!$request->parent_id || !City::where("id", $request->parent_id)->exists())
+            unset($data["parent_id"]);
+
+        $city = City::create($data);
+
+        return back();
     }
 
     /**
