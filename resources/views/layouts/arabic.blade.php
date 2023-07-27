@@ -5,7 +5,11 @@
 <style>
     *:not(i) {
         direction: rtl !important;
-        text-align: right !important;
         font-family: 'Cairo', sans-serif;
+    }
+
+    *:not(i, button) {
+        text-align: right !important;
+
     }
 </style>

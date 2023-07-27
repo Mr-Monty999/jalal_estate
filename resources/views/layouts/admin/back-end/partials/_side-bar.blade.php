@@ -1,3 +1,9 @@
+<style>
+    .navbar-vertical .navbar-nav.nav-tabs .active .nav-link,
+    .navbar-vertical .navbar-nav.nav-tabs .active.nav-link {
+        border: none
+    }
+</style>
 <div id="sidebarMain" class="d-none">
     <aside style="text-align: {{ Session::get('direction') === 'rtl' ? 'right' : 'left' }};"
         class="bg-white js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered  ">
@@ -66,25 +72,26 @@
                                     {{ trans('keywords.Cities') }}
                                 </span>
                             </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/cities*') ? 'block' : '' }}">
+                                <li class="nav-item {{ Request::is('admin/cities/create') ? 'active' : '' }}">
+                                    <a class="nav-link " href="{{ route('admin.cities.create') }}"
+                                        title="{{ trans('keywords.Add City') }}">
+                                        <span class="tio-circle nav-indicator-icon"></span>
+                                        <span class="text-truncate">{{ trans('keywords.Add City') }}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item {{ Request::is('admin/cities') ? 'active' : '' }}">
+                                    <a class="nav-link " href="{{ route('admin.cities.index') }}"
+                                        title="{{ trans('keywords.Cities List') }}">
+                                        <span class="tio-circle nav-indicator-icon"></span>
+                                        <span class="text-truncate">{{ trans('keywords.Cities List') }}</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
-                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                            style="display: {{ Request::is('admin/cities/create') ? 'block' : '' }}">
-                            <li class="nav-item {{ Request::is('admin/cities/create') ? 'active' : '' }}">
-                                <a class="nav-link " href="{{ route('admin.cities.create') }}"
-                                    title="{{ trans('keywords.Add City') }}">
-                                    <span class="tio-circle nav-indicator-icon"></span>
-                                    <span class="text-truncate">{{ trans('keywords.Add City') }}</span>
-                                </a>
-                            </li>
-                            <li class="nav-item {{ Request::is('admin/cities') ? 'active' : '' }}">
-                                <a class="nav-link " href="{{ route('admin.cities.index') }}"
-                                    title="{{ trans('keywords.Cities List') }}">
-                                    <span class="tio-circle nav-indicator-icon"></span>
-                                    <span class="text-truncate">{{ trans('keywords.Cities List') }}</span>
-                                </a>
-                            </li>
-                        </ul>
                     </ul>
 
                 </div>

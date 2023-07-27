@@ -9,6 +9,13 @@ use App\Models\City;
 
 class CityController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("can:view_cities")->only(["index", "show"]);
+        $this->middleware("can:edit_cities")->only(["edit", "update"]);
+        $this->middleware("can:create_cities")->only(["create", "store"]);
+        $this->middleware("can:delete_cities")->only(["destroy"]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +23,9 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::orderBy("name")->paginate(10);
+
+        return view("admin.cities.index", compact("cities"));
     }
 
     /**
@@ -46,7 +55,9 @@ class CityController extends Controller
 
         $city = City::create($data);
 
-        return back();
+        toastr()->success(trans('keywords.Added Successfully'));
+
+        return redirect()->route("admin.cities.index");
     }
 
     /**
@@ -68,7 +79,9 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-        //
+        $cities = City::whereNull("parent_id")->where("id", "!=", $city->id)->orderBy("name", "asc")->get();
+
+        return view("admin.cities.edit", compact("city", "cities"));
     }
 
     /**
@@ -80,7 +93,17 @@ class CityController extends Controller
      */
     public function update(UpdateCityRequest $request, City $city)
     {
-        //
+
+        $data  = $request->validated();
+
+        if (!$request->parent_id || !City::where("id", $request->parent_id)->exists())
+            unset($data["parent_id"]);
+
+        $city->update($data);
+
+        toastr()->success('keywords.Updated Successfully');
+
+        return redirect()->route("admin.cities.index");
     }
 
     /**
@@ -91,6 +114,8 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        //
+        $city->delete();
+
+        return response()->json();
     }
 }

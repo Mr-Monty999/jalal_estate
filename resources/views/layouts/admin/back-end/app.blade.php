@@ -46,11 +46,12 @@
     </style> -->
     <script src="{{ asset('assets/back-end') }}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js">
     </script>
-    <link rel="stylesheet" href="{{ asset('assets/back-end') }}/css/toastr.css">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/back-end') }}/css/toastr.css"> --}}
     @if (app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('assets/back-end') }}/css/menurtl.css">
         @include('layouts.arabic')
     @endif
+
 
 </head>
 
@@ -102,10 +103,10 @@
     <script src="{{ asset('assets/back-end') }}/js/vendor.min.js"></script>
     <script src="{{ asset('assets/back-end') }}/js/theme.min.js"></script>
     <script src="{{ asset('assets/back-end') }}/js/sweet_alert.js"></script>
-    <script src="{{ asset('assets/back-end') }}/js/toastr.js"></script>
+    {{-- <script src="{{ asset('assets/back-end') }}/js/toastr.js"></script> --}}
     {{-- {!! Toastr::message() !!} --}}
 
-    <script>
+    {{-- <script>
         toastr.options = {
             "closeButton": false,
             "debug": false,
@@ -123,7 +124,7 @@
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
-    </script>
+    </script> --}}
 
     {{-- @if ($errors->any())
         <script>
@@ -423,6 +424,9 @@
             return Math.floor(Math.random() * 90000) + 100000;
         }
     </script>
+
+
+
 </body>
 
 </html>

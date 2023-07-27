@@ -51,7 +51,25 @@ return [
     "reset" => "مسح",
     "City Name" => "إسم المدينة",
     "None" => "لايوجد",
-    "Main City" => "المدينة الرئيسية"
+    "Main City" => "المدينة الرئيسية",
+    "Action" => "الحدث",
+    "ID" => "الرقم",
+    "Are You Sure Want To Delete This City" => "هل أنت متأكد من حذف هذه المدينة",
+    "Are You Sure?" => "هل أنت متأكد؟",
+    "Yes" => "نعم",
+    "Cancel" => "إلغاء",
+    "Edit City" => "تعديل المدينة",
+    "Delete" => "حذف",
+    "Edit" => "تعديل",
+    "Updated Successfully" => "تم التحديث بنجاح",
+    "Added Successfully" => "تمت الإضافة بنجاح"
+
+
+
+
+
+
+
 
 
 

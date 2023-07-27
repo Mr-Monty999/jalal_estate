@@ -1,6 +1,6 @@
 @extends('layouts.admin.back-end.app')
 
-@section('title', trans('keywords.Add City'))
+@section('title', trans('keywords.Edit City'))
 
 @push('css_or_js')
 @endpush
@@ -11,7 +11,7 @@
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-10">
                 <img src="{{ asset('/assets/back-end/img/brand-setup.png') }}" alt="">
-                {{ trans('keywords.Add City') }}
+                {{ trans('keywords.Edit City') }}
             </h2>
         </div>
         <!-- End Page Title -->
@@ -21,14 +21,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body" style="text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};">
-                        <form action="{{ route('admin.cities.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.cities.update', $city->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
+                            @method('put')
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="title-color">
                                             {{ trans('keywords.City Name') }}<span class="text-danger">*</span></label>
-                                        <input value="{{ old('name') }}" type="text" name="name"
+                                        <input value="{{ $city->name }}" type="text" name="name"
                                             class="form-control" placeholder="">
                                         @error('name')
                                             <div class="alert alert-danger text-center">{{ $message }}</div>
@@ -41,8 +43,10 @@
 
                                         <select class="form-control" name="parent_id" id="parent_id" required>
                                             <option value="0" selected>{{ trans('keywords.None') }}</option>
-                                            @foreach ($cities as $city)
-                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                            @foreach ($cities as $cityValue)
+                                                <option value="{{ $cityValue->id }}"
+                                                    @if ($city->parentCity && $city->parentCity->id == $cityValue->id) selected @endif>
+                                                    {{ $cityValue->name }}</option>
                                             @endforeach
                                         </select>
                                         @error('parent_id')

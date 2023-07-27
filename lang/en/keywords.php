@@ -51,7 +51,20 @@ return [
     "reset" => "reset",
     "City Name" => "City Name",
     "None" => "None",
-    "Main City" => "Main City"
+    "Main City" => "Main City",
+    "Action" => "Action",
+    "ID" => "ID",
+    "Are You Sure" => "Are You Sure",
+    "Yes" => "Yes",
+    "Cancel" => "Cancel",
+    "Are You Sure Want To Delete This City" => "Are You Sure Want To Delete This City",
+    "Are You Sure?" => "Are You Sure?",
+    "Yes" => "Yes",
+    "Edit City" => "Edit City",
+    "Delete" => "Delete",
+    "Edit" => "Edit",
+    "Updated Successfully" => "Updated Successfully",
+    "Added Successfully" => "Added Successfully"
 
 
 
