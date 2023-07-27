@@ -72,7 +72,12 @@ class PermissionService
             "view_cities",
             "create_cities",
             "edit_cities",
-            "delete_cities"
+            "delete_cities",
+            "view_neighbourhoods",
+            "create_neighbourhoods",
+            "edit_neighbourhoods",
+            "delete_neighbourhoods",
+
         ];
     }
     public static function storePermissions($data)

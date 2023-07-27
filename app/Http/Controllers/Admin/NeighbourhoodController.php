@@ -5,83 +5,81 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNeighbourhoodRequest;
 use App\Http\Requests\UpdateNeighbourhoodRequest;
+use App\Models\City;
 use App\Models\Neighbourhood;
 
 class NeighbourhoodController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware("can:view_neighbourhoods")->only(["index", "show"]);
+        $this->middleware("can:edit_neighbourhoods")->only(["edit", "update"]);
+        $this->middleware("can:create_neighbourhoods")->only(["create", "store"]);
+        $this->middleware("can:delete_neighbourhoods")->only(["destroy"]);
+    }
+
     public function index()
     {
-        //
+        $neighbourhoods = Neighbourhood::with("city")->orderBy("name")->paginate(10);
+
+        return view("admin.neighbourhoods.index", compact("neighbourhoods"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+
+        $cities = City::orderBy("name", "asc")->get();
+        return view("admin.neighbourhoods.create", compact("cities"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreNeighbourhoodRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(StoreNeighbourhoodRequest $request)
     {
-        //
+        $data  = $request->validated();
+
+
+        $neighbourhood = Neighbourhood::create($data);
+
+        toastr()->success(trans('keywords.Added Successfully'));
+
+        return redirect()->route("admin.neighbourhoods.index");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Neighbourhood  $neighbourhood
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Neighbourhood $neighbourhood)
     {
-        //
+        abort(403);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Neighbourhood  $neighbourhood
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Neighbourhood $neighbourhood)
     {
-        //
+        $cities = City::orderBy("name", "asc")->get();
+
+        return view("admin.neighbourhoods.edit", compact("neighbourhood", "cities"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateNeighbourhoodRequest  $request
-     * @param  \App\Models\Neighbourhood  $neighbourhood
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(UpdateNeighbourhoodRequest $request, Neighbourhood $neighbourhood)
     {
-        //
+
+        $data  = $request->validated();
+
+
+        $neighbourhood->update($data);
+
+        toastr()->success('keywords.Updated Successfully');
+
+        return redirect()->route("admin.neighbourhoods.index");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Neighbourhood  $neighbourhood
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Neighbourhood $neighbourhood)
     {
-        //
+        $neighbourhood->delete();
+
+        return response()->json();
     }
 }

@@ -64,7 +64,17 @@ return [
     "Delete" => "Delete",
     "Edit" => "Edit",
     "Updated Successfully" => "Updated Successfully",
-    "Added Successfully" => "Added Successfully"
+    "Added Successfully" => "Added Successfully",
+    "No Data Found" => 'No Data Found',
+    "Neighbourhoods" => "Neighbourhoods",
+    "Neighbourhoods List" => "Neighbourhoods List",
+    "Add Neighbourhood" =>    "Add Neighbourhood",
+    "Edit Neighbourhood" =>    "Edit Neighbourhood",
+    "Neighbourhood Name" => "Neighbourhood Name",
+    "City" => "City",
+    "Are You Sure Want To Delete This Neighbourhood" => "Are You Sure Want To Delete This Neighbourhood"
+
+
 
 
 

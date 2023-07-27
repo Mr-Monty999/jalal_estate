@@ -13,7 +13,7 @@ class UpdateNeighbourhoodRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateNeighbourhoodRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required|string",
+            "city_id" => "required|numeric|exists:cities,id"
         ];
     }
 }

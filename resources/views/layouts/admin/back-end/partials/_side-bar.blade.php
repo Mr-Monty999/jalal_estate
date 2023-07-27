@@ -75,20 +75,61 @@
 
                             <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
                                 style="display: {{ Request::is('admin/cities*') ? 'block' : '' }}">
-                                <li class="nav-item {{ Request::is('admin/cities/create') ? 'active' : '' }}">
-                                    <a class="nav-link " href="{{ route('admin.cities.create') }}"
-                                        title="{{ trans('keywords.Add City') }}">
-                                        <span class="tio-circle nav-indicator-icon"></span>
-                                        <span class="text-truncate">{{ trans('keywords.Add City') }}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item {{ Request::is('admin/cities') ? 'active' : '' }}">
-                                    <a class="nav-link " href="{{ route('admin.cities.index') }}"
-                                        title="{{ trans('keywords.Cities List') }}">
-                                        <span class="tio-circle nav-indicator-icon"></span>
-                                        <span class="text-truncate">{{ trans('keywords.Cities List') }}</span>
-                                    </a>
-                                </li>
+                                @can('create_cities')
+                                    <li class="nav-item {{ Request::is('admin/cities/create') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.cities.create') }}"
+                                            title="{{ trans('keywords.Add City') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.Add City') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                                @can('view_cities')
+                                    <li class="nav-item {{ Request::is('admin/cities') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.cities.index') }}"
+                                            title="{{ trans('keywords.Cities List') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.Cities List') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                            </ul>
+                        </li>
+
+                        <li
+                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/neighbourhoods*') ? 'active' : '' }}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                title="{{ trans('keywords.Neighbourhoods') }}">
+                                <i class="tio-filter-list nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{ trans('keywords.Neighbourhoods') }}
+                                </span>
+                            </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/neighbourhoods*') ? 'block' : '' }}">
+                                @can('create_neighbourhoods')
+                                    <li class="nav-item {{ Request::is('admin/neighbourhoods/create') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.neighbourhoods.create') }}"
+                                            title="{{ trans('keywords.Add Neighbourhood') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.Add Neighbourhood') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                                @can('view_neighbourhoods')
+                                    <li class="nav-item {{ Request::is('admin/neighbourhoods') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.neighbourhoods.index') }}"
+                                            title="{{ trans('keywords.Neighbourhoods List') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.Neighbourhoods List') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
                             </ul>
                         </li>
 

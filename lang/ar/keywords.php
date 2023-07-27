@@ -62,7 +62,18 @@ return [
     "Delete" => "حذف",
     "Edit" => "تعديل",
     "Updated Successfully" => "تم التحديث بنجاح",
-    "Added Successfully" => "تمت الإضافة بنجاح"
+    "Added Successfully" => "تمت الإضافة بنجاح",
+    "No Data Found" => 'لم يتم إيجاد بيانات',
+    "Neighbourhoods" => "الأحياء",
+    "Neighbourhoods List" => "قائمة الأحياء",
+    "Add Neighbourhood" =>    "إضافة حي",
+    "Edit Neighbourhood" =>    "تعديل حي",
+    "Neighbourhood Name" => "إسم الحي",
+    "City" => "المدينة",
+    'Are You Sure Want To Delete This Neighbourhood' => "هل أنت متأكد من حذف هذا الحي"
+
+
+
 
 
 
