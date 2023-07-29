@@ -67,7 +67,9 @@ class Kernel extends HttpKernel
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
-        "admin-guest" => \App\Http\Middleware\RedirectAdminIfAuth::class
+        "admin-guest" => \App\Http\Middleware\RedirectAdminIfAuth::class,
+        "check-admin-can-access-dashboard" => \App\Http\Middleware\CheckIfAdminCanAccessDashboard::class,
+        "check-user-can-access-dashboard" => \App\Http\Middleware\CheckIfUserCanAccessDashboard::class,
 
     ];
 }

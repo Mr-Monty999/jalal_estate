@@ -16,7 +16,7 @@ Route::group(["prefix" => "user"], function () {
     });
 
 
-    Route::group(["middleware" => ["auth", "can:view_user_dashboard"]], function () {
+    Route::group(["middleware" => ["auth", "check-user-can-access-dashboard"]], function () {
         Route::get("/", [HomeController::class, "index"])->name("user.home");
         Route::get("/logout", [UserController::class, "logout"])->name("user.logout");
 

@@ -17,7 +17,7 @@ Route::group(["prefix" => "admin"], function () {
         Route::post("/login", [AuthController::class, "loginAttempt"])->name("admin.login.attempt");
     });
 
-    Route::group(["middleware" => ["admin-auth", "can:view_admin_dashboard"]], function () {
+    Route::group(["middleware" => ["admin-auth", "check-admin-can-access-dashboard"]], function () {
         Route::get("/", [HomeController::class, "index"])->name("admin.home");
 
         Route::get("/logout", [AuthController::class, "logout"])->name("admin.logout");
