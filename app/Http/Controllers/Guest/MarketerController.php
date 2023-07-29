@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterCompany;
 use App\Http\Requests\RegisterMarketerRequest;
+use App\Models\City;
 use App\Services\CompanyService;
 use App\Services\MarketerService;
 use App\Services\RoleService;
@@ -17,7 +18,8 @@ class MarketerController extends Controller
 {
     public function index()
     {
-        return view("guest.auth.marketers-register");
+        $cities = City::orderBy("name")->get();
+        return view("guest.auth.marketers-register", compact("cities"));
     }
 
 
@@ -30,6 +32,20 @@ class MarketerController extends Controller
                 $user = UserService::store($request);
                 $marketer = MarketerService::store($request, $user->id);
                 RoleService::assignMarketerRole($user);
+                $marketer->cities()->attach(
+                    $request->city_id,
+                    [
+                        "created_at" => now(),
+                        "updated_at" => now()
+                    ]
+                );
+                $marketer->neighbourhoods()->attach(
+                    $request->neighbourhood_id,
+                    [
+                        "created_at" => now(),
+                        "updated_at" => now()
+                    ]
+                );
 
                 Auth::login($user, true);
             }

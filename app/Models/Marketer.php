@@ -20,4 +20,8 @@ class Marketer extends Model
     {
         return $this->belongsToMany(City::class, "marketer_city");
     }
+    public function neighbourhoods()
+    {
+        return $this->belongsToMany(Neighbourhood::class, "marketer_neighbourhood");
+    }
 }

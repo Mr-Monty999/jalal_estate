@@ -36,6 +36,13 @@ class CompanyController extends Controller
                         "updated_at" => now()
                     ]
                 );
+                $company->neighbourhoods()->attach(
+                    $request->neighbourhood_id,
+                    [
+                        "created_at" => now(),
+                        "updated_at" => now()
+                    ]
+                );
 
                 Auth::login($user, true);
             }

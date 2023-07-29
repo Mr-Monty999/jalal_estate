@@ -32,7 +32,10 @@ class RegisterMarketerRequest extends FormRequest
             "password" => "required|string",
             "password_confirmation" => "required|same:password",
             "birthdate" => "nullable|date",
-            "logo" => "nullable|image"
+            "logo" => "nullable|image",
+            "city_id" => "required|exists:cities,id",
+            "neighbourhood_id" => "required|exists:neighbourhoods,id"
+
         ];
     }
 }

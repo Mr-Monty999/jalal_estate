@@ -20,4 +20,9 @@ class Company extends Model
     {
         return $this->belongsToMany(City::class, "company_city");
     }
+
+    public function neighbourhoods()
+    {
+        return $this->belongsToMany(Neighbourhood::class, "company_neighbourhood");
+    }
 }

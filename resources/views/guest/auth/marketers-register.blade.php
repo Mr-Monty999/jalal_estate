@@ -45,6 +45,30 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="city_id">{{ trans('keywords.City') }}</label>
+                        <select onchange="getNeighbourhoods()" name="city_id" class="form-control" id="city_id">
+                            @foreach ($cities as $city)
+                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('city_id')
+                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
+                        <select name="neighbourhood_id" class="form-control" id="neighbourhood_id">
+                        </select>
+                        @error('neighbourhood_id')
+                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
                     {{-- <div class="form-group col-12 col-md-6">
                         <label for="birthdate">{{ trans('keywords.Birth Date') }}</label>
                         <input name="birthdate" value="{{ old('birthdate') }}" type="date" class="form-control"
@@ -104,3 +128,26 @@
     </div>
     <br><br><br>
 @endsection
+@push('scripts')
+    <script>
+        function getNeighbourhoods() {
+
+            let city = $("#city_id");
+            let neighbourhood = $("#neighbourhood_id");
+            $.ajax({
+                type: "get",
+                url: "/api/cities/" + city.val() + "/neighbourhoods",
+                success: function(response) {
+                    neighbourhood.empty();
+                    for (const data of response) {
+                        neighbourhood.append("<option value='" + data.id + "'>" + data.name + "</option>");
+                    }
+
+                }
+            });
+        }
+        $(document).ready(function() {
+            getNeighbourhoods();
+        });
+    </script>
+@endpush

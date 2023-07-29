@@ -24,4 +24,12 @@ class Neighbourhood extends Model
     {
         return $this->belongsToMany(Office::class, "office_neighbourhood");
     }
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class, "company_neighbourhood");
+    }
+    public function marketers()
+    {
+        return $this->belongsToMany(Marketer::class, "marketer_neighbourhood");
+    }
 }
