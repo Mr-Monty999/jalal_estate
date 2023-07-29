@@ -70,7 +70,9 @@ return [
     "Edit Neighbourhood" =>    "تعديل حي",
     "Neighbourhood Name" => "إسم الحي",
     "City" => "المدينة",
-    'Are You Sure Want To Delete This Neighbourhood' => "هل أنت متأكد من حذف هذا الحي"
+    'Are You Sure Want To Delete This Neighbourhood' => "هل أنت متأكد من حذف هذا الحي",
+    "Neighbourhood" => "الحي",
+    "Logged In Successfully" => "تم تسجيل الدخول بنجاح"
 
 
 

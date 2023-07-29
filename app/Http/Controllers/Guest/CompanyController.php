@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterCompany;
+use App\Models\City;
 use App\Services\CompanyService;
 use App\Services\RoleService;
 use App\Services\UserService;
@@ -15,7 +16,8 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        return view("guest.auth.companies-register");
+        $cities = City::orderBy("name")->get();
+        return view("guest.auth.companies-register", compact("cities"));
     }
 
 
@@ -27,6 +29,13 @@ class CompanyController extends Controller
                 $user = UserService::store($request);
                 $company = CompanyService::store($request, $user->id);
                 RoleService::assignCompanyRole($user);
+                $company->cities()->attach(
+                    $request->city_id,
+                    [
+                        "created_at" => now(),
+                        "updated_at" => now()
+                    ]
+                );
 
                 Auth::login($user, true);
             }

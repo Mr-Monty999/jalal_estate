@@ -72,7 +72,9 @@ return [
     "Edit Neighbourhood" =>    "Edit Neighbourhood",
     "Neighbourhood Name" => "Neighbourhood Name",
     "City" => "City",
-    "Are You Sure Want To Delete This Neighbourhood" => "Are You Sure Want To Delete This Neighbourhood"
+    "Are You Sure Want To Delete This Neighbourhood" => "Are You Sure Want To Delete This Neighbourhood",
+    "Neighbourhood" => "Neighbourhood",
+    "Logged In Successfully" => "Logged In Successfully"
 
 
 

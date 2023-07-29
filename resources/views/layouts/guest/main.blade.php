@@ -260,7 +260,7 @@
 
 
     <script src="{{ asset('theme2/js/main.js') }}"></script>
-
+    @stack('scripts')
 </body>
 
 </html>
