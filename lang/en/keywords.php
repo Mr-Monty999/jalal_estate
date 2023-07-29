@@ -74,7 +74,9 @@ return [
     "City" => "City",
     "Are You Sure Want To Delete This Neighbourhood" => "Are You Sure Want To Delete This Neighbourhood",
     "Neighbourhood" => "Neighbourhood",
-    "Logged In Successfully" => "Logged In Successfully"
+    "Logged In Successfully" => "Logged In Successfully",
+    "Choose" => "Choose",
+    "Account Created Successfully" => 'Account Created Successfully'
 
 
 

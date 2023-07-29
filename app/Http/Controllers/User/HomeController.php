@@ -14,7 +14,6 @@ class HomeController extends Controller
     public function index()
     {
 
-        toastr()->success(trans('keywords.Logged In Successfully'));
         return view("user.home.index");
     }
 }

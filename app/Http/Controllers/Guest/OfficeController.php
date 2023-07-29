@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterOfficeRequest;
+use App\Models\City;
 use App\Services\OfficeService;
 use App\Services\RoleService;
 use App\Services\UserService;
@@ -15,7 +16,8 @@ class OfficeController extends Controller
 {
     public function index()
     {
-        return view("guest.auth.offices-register");
+        $cities = City::orderBy("name")->get();
+        return view("guest.auth.offices-register", compact("cities"));
     }
 
 
@@ -25,10 +27,25 @@ class OfficeController extends Controller
             $user = UserService::store($request);
             $office = OfficeService::store($request, $user->id);
             RoleService::assignOfficeRole($user);
+            $office->cities()->attach(
+                $request->city_id,
+                [
+                    "created_at" => now(),
+                    "updated_at" => now()
+                ]
+            );
+            $office->neighbourhoods()->attach(
+                $request->neighbourhood_id,
+                [
+                    "created_at" => now(),
+                    "updated_at" => now()
+                ]
+            );
 
             Auth::login($user, true);
         });
 
+        toastr()->success(trans('keywords.Account Created Successfully'));
         return redirect()->route("user.home");
     }
 }

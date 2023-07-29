@@ -48,6 +48,7 @@ class CompanyController extends Controller
             }
         );
 
+        toastr()->success(trans('keywords.Account Created Successfully'));
         return redirect()->route("user.home");
     }
 }

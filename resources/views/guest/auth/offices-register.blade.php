@@ -65,6 +65,31 @@
                         @enderror
                     </div>
                     <div class="form-group col-12 col-md-6">
+                        <label for="city_id">{{ trans('keywords.City') }}</label>
+                        <select required onchange="getNeighbourhoods()" name="city_id" class="form-control" id="city_id">
+                            <option value="" disabled selected>{{ trans('keywords.Choose') }}</option>
+                            @foreach ($cities as $city)
+                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('city_id')
+                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
+                        <select required name="neighbourhood_id" class="form-control" id="neighbourhood_id">
+                        </select>
+                        @error('neighbourhood_id')
+                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-12 col-md-6">
                         <label for="password">{{ trans('keywords.Password') }}</label>
                         <input name="password" type="password" class="form-control" id="password">
                         @error('password')
@@ -105,3 +130,28 @@
     </div>
     <br><br><br>
 @endsection
+
+
+@push('scripts')
+    <script>
+        function getNeighbourhoods() {
+
+            let city = $("#city_id");
+            let neighbourhood = $("#neighbourhood_id");
+            $.ajax({
+                type: "get",
+                url: "/api/cities/" + city.val() + "/neighbourhoods",
+                success: function(response) {
+                    neighbourhood.empty();
+                    for (const data of response) {
+                        neighbourhood.append("<option value='" + data.id + "'>" + data.name + "</option>");
+                    }
+
+                }
+            });
+        }
+        $(document).ready(function() {
+            getNeighbourhoods();
+        });
+    </script>
+@endpush

@@ -72,7 +72,9 @@ return [
     "City" => "المدينة",
     'Are You Sure Want To Delete This Neighbourhood' => "هل أنت متأكد من حذف هذا الحي",
     "Neighbourhood" => "الحي",
-    "Logged In Successfully" => "تم تسجيل الدخول بنجاح"
+    "Logged In Successfully" => "تم تسجيل الدخول بنجاح",
+    "Choose" => "إختر",
+    "Account Created Successfully" => 'تم إنشاء الحساب بنجاح'
 
 
 
