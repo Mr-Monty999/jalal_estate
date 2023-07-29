@@ -86,7 +86,17 @@ return [
     "Estate Offers" => "Estate Offers",
     "Add Offer" => "Add Offer",
     "Add" => "Add",
-    "New Offer" => "New Offer"
+    "New Offer" => "New Offer",
+    "Directions" => "Directions",
+    "Street Height" => 'Street Height',
+    "Dept" => "Dept",
+    "Street Width" => 'Street Width',
+    "Instrument Number" => "Instrument Number",
+    "Adjective" => "Adjective",
+    "Contact Info" => "Contact Info",
+    "Estate Image" => "Estate Image",
+    "Sell" => "Sell",
+    "Buy" => "Buy"
 
 
 

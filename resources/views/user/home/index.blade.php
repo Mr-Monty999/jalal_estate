@@ -31,30 +31,40 @@
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <div class="form-group col-12 col-md-6">
-                                                        <label for="name">{{ trans('keywords.Company Name') }}</label>
-                                                        <input name="name" value="{{ old('name') }}" type="text"
-                                                            class="form-control" id="name">
-                                                        @error('name')
+                                                        <label for="city_id">{{ trans('keywords.City') }}</label>
+                                                        <select required onchange="getNeighbourhoods()" name="city_id"
+                                                            class="form-control" id="city_id">
+                                                            <option value="" disabled selected>
+                                                                {{ trans('keywords.Choose') }}</option>
+                                                            @foreach ($cities as $city)
+                                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('city_id')
                                                             <div style="border-radius: 30px"
-                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                                class="alert alert-danger text-center mt-1">
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
-                                                        <label for="email">{{ trans('keywords.Email') }}</label>
-                                                        <input name="email" value="{{ old('email') }}" type="email"
-                                                            class="form-control" id="email">
-                                                        @error('email')
+                                                        <label
+                                                            for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
+                                                        <select required name="neighbourhood_id" class="form-control"
+                                                            id="neighbourhood_id">
+                                                        </select>
+                                                        @error('neighbourhood_id')
                                                             <div style="border-radius: 30px"
-                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                                class="alert alert-danger text-center mt-1">
+                                                                {{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
-                                                        <label for="phone">{{ trans('keywords.Phone') }}</label>
-                                                        <input name="phone" value="{{ old('phone') }}" type="phone"
-                                                            class="form-control" id="phone">
-                                                        @error('phone')
+                                                        <label for="direction">{{ trans('keywords.Directions') }}</label>
+                                                        <input name="direction" value="{{ old('direction') }}" type="text"
+                                                            class="form-control" id="direction">
+                                                        @error('direction')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
@@ -62,10 +72,40 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label
-                                                            for="license_number">{{ trans('keywords.License Number') }}</label>
-                                                        <input name="license_number" value="{{ old('license_number') }}"
-                                                            type="number" class="form-control" id="license_number">
-                                                        @error('license_number')
+                                                            for="street_height">{{ trans('keywords.Street Height') }}</label>
+                                                        <input name="street_height" value="{{ old('street_height') }}"
+                                                            type="text" class="form-control" id="street_height">
+                                                        @error('street_height')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12 col-md-6">
+                                                        <label for="dept">{{ trans('keywords.Dept') }}</label>
+                                                        <input name="dept" value="{{ old('dept') }}" type="text"
+                                                            class="form-control" id="dept">
+                                                        @error('dept')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12 col-md-6">
+                                                        <label for="street_width">{{ trans('keywords.Street Width') }}</label>
+                                                        <input name="street_width" value="{{ old('street_width') }}"
+                                                            type="text" class="form-control" id="street_width">
+                                                        @error('street_width')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12 col-md-6">
+                                                        <label for="land_number">{{ trans('keywords.Land Number') }}</label>
+                                                        <input name="land_number" value="{{ old('land_number') }}"
+                                                            type="text" class="form-control" id="land_number">
+                                                        @error('land_number')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
@@ -73,10 +113,10 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label
-                                                            for="advertiser_number">{{ trans('keywords.Advertiser Number') }}</label>
-                                                        <input name="advertiser_number" value="{{ old('advertiser_number') }}"
-                                                            type="number" class="form-control" id="advertiser_number">
-                                                        @error('advertiser_number')
+                                                            for="instrument_number">{{ trans('keywords.Instrument Number') }}</label>
+                                                        <input name="instrument_number" value="{{ old('instrument_number') }}"
+                                                            type="number" class="form-control" id="instrument_number">
+                                                        @error('instrument_number')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
@@ -84,42 +124,55 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label
-                                                            for="commercial_registration_number">{{ trans('keywords.Commercial Registration Number') }}</label>
-                                                        <input name="commercial_registration_number"
-                                                            value="{{ old('commercial_registration_number') }}" type="number"
-                                                            class="form-control" id="commercial_registration_number">
-                                                        @error('commercial_registration_number')
+                                                            for="operation_type">{{ trans('keywords.Operation Type') }}</label>
+                                                        <select name="operation_type" class="form-control"
+                                                            id="operation_type">
+                                                            <option value="">{{ trans('keywords.Sell') }}</option>
+                                                            <option value="">{{ trans('keywords.Buy') }}</option>
+
+                                                        </select>
+                                                        @error('operation_type')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
-                                                        <label for="password">{{ trans('keywords.Password') }}</label>
-                                                        <input name="password" type="password" class="form-control"
-                                                            id="password">
-                                                        @error('password')
+                                                        <label for="adjective">{{ trans('keywords.Adjective') }}</label>
+                                                        <input name="adjective" value="{{ old('adjective') }}"
+                                                            type="text" class="form-control" id="adjective">
+                                                        @error('adjective')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
-                                                        <label
-                                                            for="password_confirmation">{{ trans('keywords.Password Confirmation') }}</label>
-                                                        <input name="password_confirmation" type="password" class="form-control"
-                                                            id="password_confirmation">
-                                                        @error('password_confirmation')
+                                                        <label for="contact_info">{{ trans('keywords.Contact Info') }}</label>
+                                                        <input name="contact_info" value="{{ old('contact_info') }}"
+                                                            type="text" class="form-control" id="contact_info">
+                                                        @error('contact_info')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12 col-md-6">
+                                                        <label for="land_type">{{ trans('keywords.Estate Type') }}</label>
+                                                        <select name="land_type" class="form-control" id="land_type">
+                                                            {{-- <option value="">{{ trans('keywords.Sell') }}</option> --}}
+                                                        </select>
+                                                        @error('land_type')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
                                                     <div class="form-group col-12">
-                                                        <label for="logo">{{ trans('keywords.Logo') }}</label>
-                                                        <input name="logo" type="file" class="form-control"
-                                                            id="logo">
-                                                        @error('logo')
+                                                        <label for="image">{{ trans('keywords.Estate Image') }}</label>
+                                                        <input name="image" type="file" class="form-control"
+                                                            id="image">
+                                                        @error('image')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>

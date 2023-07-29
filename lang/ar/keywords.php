@@ -84,7 +84,17 @@ return [
     "Estate Offers" => "عروض العقارات",
     "Add Offer" => "إضافة عرض",
     "Add" => "إضافة",
-    "New Offer" => "عرض جديد"
+    "New Offer" => "عرض جديد",
+    "Directions" => "الإتجاهات",
+    "Street Height" => 'طول الشارع',
+    "Dept" => "العمق",
+    "Street Width" => 'عرض الشارع',
+    "Instrument Number" => "رقم الصك",
+    "Adjective" => "الصفة",
+    "Contact Info" => "معلومات التواصل",
+    "Estate Image" => "صورة العقار",
+    "Sell" => "بيع",
+    "Buy" => "شراء"
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
 
     public function index()
     {
-
-        return view("user.home.index");
+        $cities = City::orderBy("name")->get();
+        return view("user.home.index", compact("cities"));
     }
 }
