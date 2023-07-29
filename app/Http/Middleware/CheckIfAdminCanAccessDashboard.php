@@ -19,6 +19,7 @@ class CheckIfAdminCanAccessDashboard
     {
         if (Auth::check()) {
             if (!Auth::user()->can("view_admin_dashboard")) {
+                toastr()->error(trans('keywords.Please Logout First') . "!");
                 return redirect()->route("user.home");
             }
         }

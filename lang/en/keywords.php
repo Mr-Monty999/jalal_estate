@@ -76,7 +76,8 @@ return [
     "Neighbourhood" => "Neighbourhood",
     "Logged In Successfully" => "Logged In Successfully",
     "Choose" => "Choose",
-    "Account Created Successfully" => 'Account Created Successfully'
+    "Account Created Successfully" => 'Account Created Successfully',
+    "Please Logout First" => 'Please Logout First'
 
 
 

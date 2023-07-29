@@ -74,7 +74,9 @@ return [
     "Neighbourhood" => "الحي",
     "Logged In Successfully" => "تم تسجيل الدخول بنجاح",
     "Choose" => "إختر",
-    "Account Created Successfully" => 'تم إنشاء الحساب بنجاح'
+    "Account Created Successfully" => 'تم إنشاء الحساب بنجاح',
+    "Please Logout First" => 'الرجاء تسجيل الخروج أولا'
+
 
 
 
