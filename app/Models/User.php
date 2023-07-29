@@ -64,6 +64,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Landlord::class, "user_id");
     }
+    public function serviceProvider()
+    {
+        return $this->hasOne(ServiceProvider::class, "user_id");
+    }
 
     public function landOffers()
     {

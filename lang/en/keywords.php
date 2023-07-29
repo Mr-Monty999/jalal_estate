@@ -77,7 +77,16 @@ return [
     "Logged In Successfully" => "Logged In Successfully",
     "Choose" => "Choose",
     "Account Created Successfully" => 'Account Created Successfully',
-    "Please Logout First" => 'Please Logout First'
+    "Please Logout First" => 'Please Logout First',
+    "Street" => "Street",
+    "Operation Type" => "Operation Type",
+    "Estate Type" => "Estate Type",
+    "Land Number" => "Land Number",
+    "Price" => "Price",
+    "Estate Offers" => "Estate Offers",
+    "Add Offer" => "Add Offer",
+    "Add" => "Add",
+    "New Offer" => "New Offer"
 
 
 

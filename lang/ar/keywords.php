@@ -75,7 +75,20 @@ return [
     "Logged In Successfully" => "تم تسجيل الدخول بنجاح",
     "Choose" => "إختر",
     "Account Created Successfully" => 'تم إنشاء الحساب بنجاح',
-    "Please Logout First" => 'الرجاء تسجيل الخروج أولا'
+    "Please Logout First" => 'الرجاء تسجيل الخروج أولا',
+    "Street" => "الشارع",
+    "Operation Type" => "نوع العملية",
+    "Estate Type" => "نوع العقار",
+    "Land Number" => "رقم الأرض",
+    "Price" => "السعر",
+    "Estate Offers" => "عروض العقارات",
+    "Add Offer" => "إضافة عرض",
+    "Add" => "إضافة",
+    "New Offer" => "عرض جديد"
+
+
+
+
 
 
 
