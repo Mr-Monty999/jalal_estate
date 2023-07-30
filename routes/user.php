@@ -16,7 +16,7 @@ Route::group(["prefix" => "user"], function () {
     });
 
 
-    Route::group(["middleware" => ["auth"]], function () {
+    Route::group(["middleware" => ["auth", "can:access_user_dashboard"]], function () {
         Route::get("/", [HomeController::class, "index"])->name("user.home");
         Route::get("/logout", [UserController::class, "logout"])->name("user.logout");
 

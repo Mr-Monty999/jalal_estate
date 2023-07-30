@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
+use App\Models\Neighbourhood;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +16,20 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        //
+
+        $city = City::create([
+            "name" => "الرياض"
+        ]);
+
+        $n = Neighbourhood::insert([
+            [
+                "city_id" => $city->id,
+                "name" => "شبرا"
+            ],
+            [
+                "city_id" => $city->id,
+                "name" => "الورود"
+            ]
+        ]);
     }
 }

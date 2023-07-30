@@ -18,9 +18,9 @@ class RoleService
             "name" => "company"
         ]);
 
-        // $permission = PermissionService::storePermissions(PermissionService::companyPermissions());
+        $permission = PermissionService::storePermissions(PermissionService::companyPermissions());
 
-        // $role->syncPermissions(PermissionService::companyPermissions());
+        $role->syncPermissions(PermissionService::companyPermissions());
 
         $user->assignRole("company");
 
@@ -32,9 +32,9 @@ class RoleService
             "name" => "marketer"
         ]);
 
-        // $permission = PermissionService::storePermissions(PermissionService::marketerPermissions());
+        $permission = PermissionService::storePermissions(PermissionService::marketerPermissions());
 
-        // $role->syncPermissions(PermissionService::marketerPermissions());
+        $role->syncPermissions(PermissionService::marketerPermissions());
 
         $user->assignRole("marketer");
 
@@ -47,9 +47,9 @@ class RoleService
             "name" => "office"
         ]);
 
-        // $permission = PermissionService::storePermissions(PermissionService::officePermissions());
+        $permission = PermissionService::storePermissions(PermissionService::officePermissions());
 
-        // $role->syncPermissions(PermissionService::officePermissions());
+        $role->syncPermissions(PermissionService::officePermissions());
 
         $user->assignRole("office");
 
@@ -62,9 +62,9 @@ class RoleService
             "name" => "landlord"
         ]);
 
-        // $permission = PermissionService::storePermissions(PermissionService::landlordPermissions());
+        $permission = PermissionService::storePermissions(PermissionService::landlordPermissions());
 
-        // $role->syncPermissions(PermissionService::landlordPermissions());
+        $role->syncPermissions(PermissionService::landlordPermissions());
 
         $user->assignRole("landlord");
 
@@ -77,9 +77,9 @@ class RoleService
             "name" => "service-provider"
         ]);
 
-        // $permission = PermissionService::storePermissions(PermissionService::serviceProviderPermissions());
+        $permission = PermissionService::storePermissions(PermissionService::serviceProviderPermissions());
 
-        // $role->syncPermissions(PermissionService::serviceProviderPermissions());
+        $role->syncPermissions(PermissionService::serviceProviderPermissions());
 
         $user->assignRole("service-provider");
 

@@ -30,7 +30,8 @@ return new class extends Migration
             $table->string("operation_type");
             $table->string("adjective");
             $table->bigInteger("marketing_certificate_number");
-            $table->integer("rent_period");
+            $table->integer("rent_period")->nullable();
+            $table->integer("space");
             $table->text("contact_info");
             $table->integer("price");
 

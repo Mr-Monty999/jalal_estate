@@ -42,8 +42,8 @@
                         <li><a href="{{ route('user.home') }}" class="nav-link">{{ trans('keywords.Home') }}</a></li>
                         <li>
                             <div>
-                                <img style="width: 50px;height:50px;border-radius:50%"
-                                    src="{{ asset('storage') . '/' . auth()->user()->company->logo }}" alt="">
+                                {{-- <img style="width: 50px;height:50px;border-radius:50%"
+                                    src="{{ asset('storage') . '/' . auth()->user()->company->logo }}" alt=""> --}}
                                 <a href="{{ route('user.profile') }}"
                                     class="nav-link">{{ trans('keywords.Profile') }}</a>
                             </div>

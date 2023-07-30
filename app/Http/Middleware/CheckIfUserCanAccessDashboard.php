@@ -18,7 +18,7 @@ class CheckIfUserCanAccessDashboard
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            if (!Auth::user()->can("view_user_dashboard")) {
+            if (!Auth::user()->can("access_user_dashboard")) {
                 toastr()->error(trans('keywords.Please Logout First') . "!");
                 return redirect()->route("admin.home");
             }

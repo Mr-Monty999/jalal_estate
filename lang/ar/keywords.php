@@ -94,7 +94,9 @@ return [
     "Contact Info" => "معلومات التواصل",
     "Estate Image" => "صورة العقار",
     "Sell" => "بيع",
-    "Buy" => "شراء"
+    "Buy" => "شراء",
+    "Rent Period" => "مدة الإيجار"
+
 
 
 

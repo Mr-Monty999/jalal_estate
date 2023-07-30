@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Neighbourhood;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,5 +16,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call([
+            AdminSeeder::class,
+            CitySeeder::class,
+            LandlordSeeder::class,
+            CompanySeeder::class,
+            LandTypeSeeder::class,
+            LandOfferSeeder::class,
+            MarketerSeeder::class,
+            NeighbourhoodSeeder::class,
+            OfficeSeeder::class,
+            ServiceProviderSeeder::class
+        ]);
     }
 }

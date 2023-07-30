@@ -96,7 +96,8 @@ return [
     "Contact Info" => "Contact Info",
     "Estate Image" => "Estate Image",
     "Sell" => "Sell",
-    "Buy" => "Buy"
+    "Buy" => "Buy",
+    "Rent Period"
 
 
 
