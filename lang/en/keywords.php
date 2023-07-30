@@ -97,7 +97,10 @@ return [
     "Estate Image" => "Estate Image",
     "Sell" => "Sell",
     "Buy" => "Buy",
-    "Rent Period"
+    "Rent Period",
+    "Space" => "Space",
+    "Is Commercial" => "Is Commercial"
+
 
 
 

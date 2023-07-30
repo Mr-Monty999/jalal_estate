@@ -22,16 +22,17 @@ return new class extends Migration
             $table->bigInteger("land_number");
             $table->string("street_name");
             $table->string("direction");
+            $table->boolean("is_commercial");
             $table->integer("street_width");
             $table->integer("street_height");
             $table->integer("dept");
+            $table->string("space");
             $table->bigInteger("instrument_number");
             $table->string("photo");
             $table->string("operation_type");
             $table->string("adjective");
             $table->bigInteger("marketing_certificate_number");
             $table->integer("rent_period")->nullable();
-            $table->integer("space");
             $table->text("contact_info");
             $table->integer("price");
 

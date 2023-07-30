@@ -95,7 +95,10 @@ return [
     "Estate Image" => "صورة العقار",
     "Sell" => "بيع",
     "Buy" => "شراء",
-    "Rent Period" => "مدة الإيجار"
+    "Rent Period" => "مدة الإيجار",
+    "Space" => "المساحة",
+    "Is Commercial" => "ظهيرة تجاري"
+
 
 
 
