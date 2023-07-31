@@ -112,7 +112,8 @@ return [
     "Offer Added Successfully" => "Offer Added Successfully",
     "rent" => "rent",
     "piece" => "piece",
-    "View" => "View"
+    "View" => "View",
+    "Close" => "Close"
 
 
 

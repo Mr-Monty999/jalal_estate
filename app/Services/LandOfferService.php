@@ -24,6 +24,7 @@ class LandOfferService
         }
 
         $landOffer = LandOffer::create($data);
+        $landOffer->landTypes()->attach($data["land_type_ids"]);
 
         return $landOffer;
     }

@@ -110,7 +110,9 @@ return [
     "Offer Added Successfully" => "تم إضافة العرض بنجاح",
     "rent" => "إيجار",
     "piece" => "قطعة",
-    "View" => "إظهار"
+    "View" => "إظهار",
+    "Close" => "إغلاق"
+
 
 
 

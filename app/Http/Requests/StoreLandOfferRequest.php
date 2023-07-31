@@ -41,7 +41,7 @@ class StoreLandOfferRequest extends FormRequest
             "adjective" => "required|string",
             "contact_info" => "required|string",
             "type2" => "required|string|in:piece,block",
-            "land_type_id" => "required|array|exists:land_types,id",
+            "land_type_ids" => "required|array|exists:land_types,id",
             "image" => "nullable|image"
 
 
