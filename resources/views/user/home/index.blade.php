@@ -498,7 +498,8 @@
                                                                             for="image">{{ trans('keywords.Estate Image') }}</label>
                                                                         @if ($landOffer->image)
                                                                             <div>
-                                                                                <img src="{{ asset('storage/' . $landOffer->image) }}"
+                                                                                <img style="width: 200px;height:200px"
+                                                                                    src="{{ asset('storage/' . $landOffer->image) }}"
                                                                                     alt="">
                                                                             </div>
                                                                         @else
