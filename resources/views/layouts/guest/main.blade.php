@@ -26,6 +26,12 @@
 
     <link rel="stylesheet" href="{{ asset('theme2/css/style.css') }}">
 
+
+    <style>
+        button {
+            border-radius: 10px !important
+        }
+    </style>
     @if (app()->getLocale() == 'ar')
         @include('layouts.arabic')
     @endif
