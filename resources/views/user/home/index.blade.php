@@ -2,7 +2,7 @@
 
 @section('content')
     <br><br><br>
-    @hasanyrole('company|office')
+    @can('view_offers')
         <div class="bg-light site-section bg-white my-4" id="offers">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
@@ -11,7 +11,8 @@
                         {{-- begin Modal --}}
                         <div class="my-1">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                            <button id="open-modal-button" type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#exampleModal">
                                 {{ trans('keywords.Add Offer') }}
                             </button>
 
@@ -20,7 +21,8 @@
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
-                                        <form action="">
+                                        <form method="POST" action="{{ route('user.land-offers.store') }}">
+                                            @csrf
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">{{ trans('keywords.New Offer') }}
                                                 </h5>
@@ -37,7 +39,8 @@
                                                             <option value="" disabled selected>
                                                                 {{ trans('keywords.Choose') }}</option>
                                                             @foreach ($cities as $city)
-                                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                                                <option @if (old('city_id') == $city->id) selected @endif
+                                                                    value="{{ $city->id }}">{{ $city->name }}</option>
                                                             @endforeach
                                                         </select>
                                                         @error('city_id')
@@ -84,14 +87,16 @@
                                                         <label
                                                             for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" class="form-check-input mx-1"
+                                                            <input @if (old('is_commercial') == '0') checked @endif
+                                                                type="radio" class="form-check-input mx-1"
                                                                 name="is_commercial" id="is_commercial_no" value="0">
                                                             <label class="form-check-label" for="is_commercial_no">
                                                                 {{ trans('keywords.No') }}
                                                             </label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="radio" class="form-check-input mx-1"
+                                                            <input @if (old('is_commercial') == '1') checked @endif
+                                                                type="radio" class="form-check-input mx-1"
                                                                 name="is_commercial" id="is_commercial_yes" value="1">
                                                             <label class="form-check-label" for="is_commercial_yes">
                                                                 {{ trans('keywords.Yes') }}
@@ -161,8 +166,10 @@
                                                             for="operation_type">{{ trans('keywords.Operation Type') }}</label>
                                                         <select name="operation_type" class="form-control"
                                                             id="operation_type">
-                                                            <option value="sell">{{ trans('keywords.Sell') }}</option>
-                                                            <option value="rent">{{ trans('keywords.Rent') }}</option>
+                                                            <option @if (old('operation_type') == 'sell') selected @endif
+                                                                value="sell">{{ trans('keywords.Sell') }}</option>
+                                                            <option @if (old('operation_type') == 'rent') selected @endif
+                                                                value="rent">{{ trans('keywords.Rent') }}</option>
                                                         </select>
                                                         @error('operation_type')
                                                             <div style="border-radius: 30px"
@@ -172,7 +179,8 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label for="rent_period">{{ trans('keywords.Rent Period') }}</label>
-                                                        <input disabled name="rent_period" value="{{ old('rent_period') }}"
+                                                        <input @if (old('operation_type') != 'rent') disabled @endif
+                                                            name="rent_period" value="{{ old('rent_period') }}"
                                                             type="text" class="form-control" id="rent_period">
                                                         @error('rent_period')
                                                             <div style="border-radius: 30px"
@@ -182,7 +190,7 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label for="price">{{ trans('keywords.Price') }}</label>
-                                                        <input name="price" value="{{ old('price') }}" type="text"
+                                                        <input name="price" value="{{ old('price') }}" type="number"
                                                             class="form-control" id="price">
                                                         @error('price')
                                                             <div style="border-radius: 30px"
@@ -214,15 +222,17 @@
                                                         <label
                                                             for="type2">{{ trans('keywords.Is Piece Or Block') }}:</label>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="checkbox" class="form-check-input mx-1"
-                                                                name="type2" id="type2_piece" value="piece">
+                                                            <input type="radio" class="form-check-input mx-1"
+                                                                name="type2" @if (old('type2') == 'piece') checked @endif
+                                                                id="type2_piece" value="piece">
                                                             <label class="form-check-label" for="type2_piece">
                                                                 {{ trans('keywords.Piece') }}
                                                             </label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type="checkbox" class="form-check-input mx-1"
-                                                                name="type2" id="type2_block" value="block">
+                                                            <input type="radio" class="form-check-input mx-1"
+                                                                name="type2" @if (old('type2') == 'block') checked @endif
+                                                                id="type2_block" value="block">
                                                             <label class="form-check-label" for="type2_block">
                                                                 {{ trans('keywords.Block') }}
                                                             </label>
@@ -238,8 +248,9 @@
                                                         <br>
                                                         @foreach ($landTypes as $landType)
                                                             <div class="form-check form-check-inline">
-                                                                <input type="checkbox" class="form-check-input mx-1"
-                                                                    name="land_type_id" id="land-type{{ $landType->id }}"
+                                                                <input @if (old('land_type_id') && in_array($landType->id, old('land_type_id'))) checked @endif
+                                                                    type="checkbox" class="form-check-input mx-1"
+                                                                    name="land_type_id[]" id="land-type{{ $landType->id }}"
                                                                     value="{{ $landType->id }}">
                                                                 <label class="form-check-label"
                                                                     for="land-type{{ $landType->id }}">
@@ -269,7 +280,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary mx-1"
                                                     data-dismiss="modal">{{ trans('keywords.Cancel') }}</button>
-                                                <button type="button"
+                                                <button type="submit"
                                                     class="btn btn-primary">{{ trans('keywords.Add') }}</button>
                                             </div>
                                     </div>
@@ -307,11 +318,17 @@
                 </div>
             </div>
         </div>
-    @endhasanyrole
+    @endcan
     <br><br><br>
 @endsection
 
 @push('scripts')
+    @if ($errors->any())
+        <script>
+            // $("#open-modal-button").click();
+            $(".modal").modal("show");
+        </script>
+    @endif
     <script>
         function getNeighbourhoods() {
 
@@ -322,16 +339,22 @@
                 url: "/api/cities/" + city.val() + "/neighbourhoods",
                 success: function(response) {
                     neighbourhood.empty();
+                    let oldId = "{{ old('neighbourhood_id') }}";
+
                     for (const data of response) {
-                        neighbourhood.append("<option value='" + data.id + "'>" + data.name + "</option>");
+
+                        let val = "";
+                        if (oldId == data.id)
+                            val = "selected";
+
+                        neighbourhood.append("<option " + val + " value='" + data.id + "'>" + data.name +
+                            "</option>");
                     }
 
                 }
             });
         }
-        $(document).ready(function() {
-            getNeighbourhoods();
-        });
+        getNeighbourhoods();
 
 
 
@@ -379,6 +402,7 @@
 
 
         }
+
         toggleInputsStatus();
     </script>
 @endpush

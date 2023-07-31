@@ -37,7 +37,7 @@ class LandOfferController extends Controller
      */
     public function store(StoreLandOfferRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

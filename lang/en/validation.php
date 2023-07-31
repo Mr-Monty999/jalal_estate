@@ -212,5 +212,8 @@ return [
         'updated_at'               => 'updated at',
         'username'                 => 'username',
         'year'                     => 'year',
+        "city_id" => "city",
+        "neighbourhood_id" => "neighbourhood",
+        "land_type_id" => "land type"
     ],
 ];

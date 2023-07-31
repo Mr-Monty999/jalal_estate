@@ -214,6 +214,26 @@ return [
         'year'                     => 'السنة',
         "license_number" => "رقم الترخيص",
         "advertiser_number" => "رقم المعلن",
-        "commercial_registration_number" => "رقم السجل التجاري"
+        "commercial_registration_number" => "رقم السجل التجاري",
+        "city_id" => "المدينة",
+        "neighbourhood_id" => "الحي",
+        "land_type_id" => "نوع العقار",
+        "direction" => "الإتجاهات",
+        "space" => "المساحة",
+        "is_commercial" => "هل هو تجاري",
+        "street_height" => "الطول على الشارع",
+        "dept" => "العمق",
+        "street_width" => "عرض الشارع",
+        "land_number" => "رقم الأرض",
+        "instrument_number" => "رقم الصك",
+        "operation_type" => "نوع العملية",
+        "rent_period" => "مدة الإيجار",
+        "adjective" => "الصفة",
+        "contact_info" => "معلومات التواصل",
+        "type2" => "النوع",
+        "rent" => "إيجار",
+        "sell" => "بيع"
+
+
     ],
 ];
