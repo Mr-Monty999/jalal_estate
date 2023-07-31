@@ -21,7 +21,8 @@
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
-                                        <form method="POST" action="{{ route('user.land-offers.store') }}">
+                                        <form method="POST" action="{{ route('user.land-offers.store') }}"
+                                            enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">{{ trans('keywords.New Offer') }}
@@ -60,6 +61,16 @@
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">
                                                                 {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12 col-md-6">
+                                                        <label for="street_name">{{ trans('keywords.Street Name') }}</label>
+                                                        <input name="street_name" value="{{ old('street_name') }}"
+                                                            type="text" class="form-control" id="street_name">
+                                                        @error('street_name')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
@@ -299,19 +310,34 @@
                                     <th scope="col">{{ trans('keywords.Neighbourhood') }}</th>
                                     <th scope="col">{{ trans('keywords.Street') }}</th>
                                     <th scope="col">{{ trans('keywords.Operation Type') }}</th>
-                                    <th scope="col">{{ trans('keywords.Estate Type') }}</th>
+                                    <th scope="col">{{ trans('keywords.Type') }}</th>
                                     <th scope="col">{{ trans('keywords.Land Number') }}</th>
                                     <th scope="col">{{ trans('keywords.Price') }}</th>
                                     <th scope="col">{{ trans('keywords.Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr> --}}
+                                @foreach ($landOffers as $index => $landOffer)
+                                    <tr>
+                                        <th scope="row">{{ $index + 1 }}</th>
+                                        <td>{{ $landOffer->city->name }}</td>
+                                        <td>{{ $landOffer->neighbourhood->name }}</td>
+                                        <td>{{ $landOffer->street_name }}</td>
+                                        <td>{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}</td>
+                                        <td>{{ trans('keywords.' . ucfirst($landOffer->type2)) }}</td>
+                                        <td>{{ $landOffer->land_number }}</td>
+                                        <td>{{ number_format($landOffer->price) }}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <button class="btn btn-primary mx-1">{{ trans('keywords.Accept') }}</button>
+                                                <button class="btn btn-info mx-1">{{ trans('keywords.View') }}</button>
+                                                <button class="btn btn-danger mx-1">{{ trans('keywords.Delete') }}</button>
+                                                <button class="btn btn-warning mx-1">{{ trans('keywords.Edit') }}</button>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

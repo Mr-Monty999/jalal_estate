@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLandOfferRequest;
 use App\Http\Requests\UpdateLandOfferRequest;
 use App\Models\LandOffer;
+use App\Services\LandOfferService;
 
 class LandOfferController extends Controller
 {
@@ -37,7 +38,10 @@ class LandOfferController extends Controller
      */
     public function store(StoreLandOfferRequest $request)
     {
-        dd($request->all());
+        $landOffer = LandOfferService::store($request);
+
+        toastr()->success(trans('keywords.Offer Added Successfully'));
+        return back();
     }
 
     /**

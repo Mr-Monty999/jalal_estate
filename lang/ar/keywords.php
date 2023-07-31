@@ -103,7 +103,16 @@ return [
     "No" => "لا",
     "Piece" => "قطعة",
     "Block" => "بُلك",
-    "Rent" => "إيجار"
+    "Rent" => "إيجار",
+    "Type" => "النوع",
+    "Street Name" => "إسم الشارع",
+    "Accept" => "إقبل",
+    "Offer Added Successfully" => "تم إضافة العرض بنجاح",
+    "rent" => "إيجار",
+    "piece" => "قطعة",
+    "View" => "إظهار"
+
+
 
 
 

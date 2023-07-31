@@ -105,7 +105,14 @@ return [
     "No" => "No",
     "Piece" => "Piece",
     "Block" => "Block",
-    "Rent" => "Rent"
+    "Rent" => "Rent",
+    "Type" => "Type",
+    "Street Name" => "Street Name",
+    "Accept" => "Accept",
+    "Offer Added Successfully" => "Offer Added Successfully",
+    "rent" => "rent",
+    "piece" => "piece",
+    "View" => "View"
 
 
 

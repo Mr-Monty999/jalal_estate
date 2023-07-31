@@ -26,6 +26,7 @@ class StoreLandOfferRequest extends FormRequest
         return [
             "city_id" => "required|numeric|exists:cities,id",
             "neighbourhood_id" => "required|numeric|exists:neighbourhoods,id",
+            "street_name" => "required|string",
             "direction" => "required|string",
             "space" => "required|string",
             "is_commercial" => "required|string",

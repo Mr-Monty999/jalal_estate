@@ -28,7 +28,7 @@ class LandOffer extends Model
         return $this->belongsTo(Neighbourhood::class, "neighbourhood_id");
     }
 
-    public function landType()
+    public function landTypes()
     {
         return $this->belongsTo(LandType::class, "land_type_id");
     }

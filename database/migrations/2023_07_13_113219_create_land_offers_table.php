@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("city_id");
             $table->unsignedBigInteger("neighbourhood_id");
-            $table->unsignedBigInteger("land_type_id");
+            // $table->unsignedBigInteger("land_type_id");
             $table->bigInteger("land_number");
             $table->string("street_name");
             $table->string("direction");
@@ -28,13 +28,13 @@ return new class extends Migration
             $table->string("dept");
             $table->string("space");
             $table->bigInteger("instrument_number");
-            $table->string("photo");
+            $table->string("image")->nullable();
             $table->string("operation_type");
             $table->string("type2");
             $table->string("adjective");
             // $table->bigInteger("marketing_certificate_number");
             $table->string("rent_period")->nullable();
-            $table->text("contact_info");
+            $table->text("contact_info")->nullable();
             $table->integer("price");
 
 
