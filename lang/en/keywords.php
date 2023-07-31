@@ -99,7 +99,13 @@ return [
     "Buy" => "Buy",
     "Rent Period",
     "Space" => "Space",
-    "Is Commercial" => "Is Commercial"
+    "Is Commercial" => "Is Commercial",
+    "Height On Street" => "Height On Street",
+    "Is Piece Or Block" => "Is Piece Or Block",
+    "No" => "No",
+    "Piece" => "Piece",
+    "Block" => "Block",
+    "Rent" => "Rent"
 
 
 

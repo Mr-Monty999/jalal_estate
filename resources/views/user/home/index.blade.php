@@ -87,14 +87,14 @@
                                                             <input type="radio" class="form-check-input mx-1"
                                                                 name="is_commercial" id="is_commercial_no" value="0">
                                                             <label class="form-check-label" for="is_commercial_no">
-                                                                لا
+                                                                {{ trans('keywords.No') }}
                                                             </label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" class="form-check-input mx-1"
                                                                 name="is_commercial" id="is_commercial_yes" value="1">
                                                             <label class="form-check-label" for="is_commercial_yes">
-                                                                نعم
+                                                                {{ trans('keywords.Yes') }}
                                                             </label>
                                                         </div>
                                                         @error('is_commercial')
@@ -105,8 +105,8 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label
-                                                            for="street_height">{{ trans('keywords.Street Height') }}</label>
-                                                        <input disabled name="street_height" value="{{ old('street_height') }}"
+                                                            for="street_height">{{ trans('keywords.Height On Street') }}</label>
+                                                        <input name="street_height" value="{{ old('street_height') }}"
                                                             type="text" class="form-control" id="street_height">
                                                         @error('street_height')
                                                             <div style="border-radius: 30px"
@@ -116,8 +116,8 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label for="dept">{{ trans('keywords.Dept') }}</label>
-                                                        <input disabled name="dept" value="{{ old('dept') }}"
-                                                            type="text" class="form-control" id="dept">
+                                                        <input name="dept" value="{{ old('dept') }}" type="text"
+                                                            class="form-control" id="dept">
                                                         @error('dept')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
@@ -126,7 +126,7 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label for="street_width">{{ trans('keywords.Street Width') }}</label>
-                                                        <input disabled name="street_width" value="{{ old('street_width') }}"
+                                                        <input name="street_width" value="{{ old('street_width') }}"
                                                             type="text" class="form-control" id="street_width">
                                                         @error('street_width')
                                                             <div style="border-radius: 30px"
@@ -161,9 +161,8 @@
                                                             for="operation_type">{{ trans('keywords.Operation Type') }}</label>
                                                         <select name="operation_type" class="form-control"
                                                             id="operation_type">
-                                                            <option value="">{{ trans('keywords.Sell') }}</option>
-                                                            <option value="">{{ trans('keywords.Buy') }}</option>
-
+                                                            <option value="sell">{{ trans('keywords.Sell') }}</option>
+                                                            <option value="rent">{{ trans('keywords.Rent') }}</option>
                                                         </select>
                                                         @error('operation_type')
                                                             <div style="border-radius: 30px"
@@ -173,7 +172,7 @@
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
                                                         <label for="rent_period">{{ trans('keywords.Rent Period') }}</label>
-                                                        <input name="rent_period" value="{{ old('rent_period') }}"
+                                                        <input disabled name="rent_period" value="{{ old('rent_period') }}"
                                                             type="text" class="form-control" id="rent_period">
                                                         @error('rent_period')
                                                             <div style="border-radius: 30px"
@@ -206,6 +205,29 @@
                                                         <input name="contact_info" value="{{ old('contact_info') }}"
                                                             type="text" class="form-control" id="contact_info">
                                                         @error('contact_info')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label
+                                                            for="type2">{{ trans('keywords.Is Piece Or Block') }}:</label>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="checkbox" class="form-check-input mx-1"
+                                                                name="type2" id="type2_piece" value="piece">
+                                                            <label class="form-check-label" for="type2_piece">
+                                                                {{ trans('keywords.Piece') }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="checkbox" class="form-check-input mx-1"
+                                                                name="type2" id="type2_block" value="block">
+                                                            <label class="form-check-label" for="type2_block">
+                                                                {{ trans('keywords.Block') }}
+                                                            </label>
+                                                        </div>
+                                                        @error('type2')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
@@ -315,22 +337,40 @@
 
 
         ////////////// Enable street Height,dept,width when is_commecrial is true /////
-        function isCommercial() {
+        function toggleInputsStatus() {
             // let isCommercialYes = $("#is_commercial_yes");
             // let isCommercialNo = $("#is_commercial_no");
 
-            let isCommercial = $("[name='is_commercial']");
-            let inputs = $("[name='street_height'],[name='dept'],[name='street_width']");
-            isCommercial.on("click", function() {
+            // let isCommercial = $("[name='is_commercial']");
+            // let inputs = $("[name='street_height'],[name='dept'],[name='street_width']");
+            // isCommercial.on("click", function() {
 
-                if (this.value == 1) {
+            //     if (this.value == 1) {
 
-                    inputs.removeAttr("disabled");
+            //         inputs.removeAttr("disabled");
+
+
+            //     } else {
+
+            //         inputs.attr("disabled", "true");
+
+
+            //     }
+
+            // });
+
+            let operationType = $("[name='operation_type']");
+            let rentPeriod = $("[name='rent_period']");
+            operationType.on("change", function() {
+
+                if (this.value == "rent") {
+
+                    rentPeriod.removeAttr("disabled");
 
 
                 } else {
 
-                    inputs.attr("disabled", "true");
+                    rentPeriod.attr("disabled", "true");
 
 
                 }
@@ -339,6 +379,6 @@
 
 
         }
-        isCommercial();
+        toggleInputsStatus();
     </script>
 @endpush

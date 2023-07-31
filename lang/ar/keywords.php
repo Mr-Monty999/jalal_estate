@@ -97,7 +97,17 @@ return [
     "Buy" => "شراء",
     "Rent Period" => "مدة الإيجار",
     "Space" => "المساحة",
-    "Is Commercial" => "ظهيرة تجاري"
+    "Is Commercial" => "ظهيرة تجاري",
+    "Height On Street" => "الطول على الشارع",
+    "Is Piece Or Block" => "هل هو قطعة أم بُلك",
+    "No" => "لا",
+    "Piece" => "قطعة",
+    "Block" => "بُلك",
+    "Rent" => "إيجار"
+
+
+
+
 
 
 
