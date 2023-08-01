@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         $cities = City::orderBy("name")->get();
         $landTypes = LandType::orderBy("name")->get();
-        $landOffers = LandOffer::with("city", "neighbourhood", "landTypes")->latest()->paginate(10);
+        $landOffers = LandOffer::with("city.neighbourhoods", "neighbourhood", "landTypes")->latest()->paginate(10);
         return view("user.home.index", compact("cities", "landTypes", "landOffers"));
     }
 }

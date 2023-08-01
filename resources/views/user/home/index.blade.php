@@ -73,29 +73,39 @@
     <script>
         function getNeighbourhoods() {
 
-            let city = $("#city_id");
-            let neighbourhood = $("#neighbourhood_id");
-            $.ajax({
-                type: "get",
-                url: "/api/cities/" + city.val() + "/neighbourhoods",
-                success: function(response) {
-                    neighbourhood.empty();
-                    let oldId = "{{ old('neighbourhood_id') }}";
+            let city = $(".city_id");
+            city.on("change", function() {
+                let neighbourhood = $(this).parent().parent().find(".neighbourhood_id");
 
-                    for (const data of response) {
+                $.ajax({
+                    type: "get",
+                    url: "/api/cities/" + this.value + "/neighbourhoods",
+                    success: function(response) {
+                        neighbourhood.empty();
+                        // let oldId =
+                        //     "{{ old('neighbourhood_id') }}";
 
-                        let val = "";
-                        if (oldId == data.id)
-                            val = "selected";
 
-                        neighbourhood.append("<option " + val + " value='" + data.id + "'>" + data.name +
-                            "</option>");
+                        for (const data of response) {
+
+                            // let val = "";
+                            // if (oldId == data.id.toString())
+                            //     val = "selected";
+
+                            neighbourhood.append("<option value='" + data.id + "'>" + data
+                                .name +
+                                "</option>");
+                        }
+
                     }
-
-                }
+                });
             });
+
         }
+
         getNeighbourhoods();
+
+
 
 
 
@@ -124,8 +134,9 @@
         // });
 
         let operationType = $("[name='operation_type']");
-        let rentPeriod = $("[name='rent_period']");
         operationType.on("change", function() {
+
+            let rentPeriod = $(this).parent().parent().find("[name='rent_period']");
 
             if (this.value == "rent") {
 
@@ -142,27 +153,25 @@
         });
 
 
-        let isCommercial = $("[name='is_commercial']");
         let CommercialOrHousing = $("[name=commercial_or_housing]");
-        CommercialOrHousing.on("change", function() {
+        CommercialOrHousing.on("change",
+            function() {
 
-            if (this.value == "housing") {
+                let isCommercial = $(this).parent().parent().find("[name='is_commercial']");
 
-                isCommercial.removeAttr("disabled");
+                if (this.value == "housing") {
 
-
-            } else {
-
-                isCommercial.removeAttr("checked");
-                isCommercial.attr("disabled", "true");
+                    isCommercial.removeAttr("disabled");
 
 
-            }
+                } else {
 
-        });
+                    isCommercial.removeAttr("checked");
+                    isCommercial.attr("disabled", "true");
 
-        // }
 
-        // toggleInputsStatus();
+                }
+
+            });
     </script>
 @endpush

@@ -36,13 +36,15 @@
                             </p>
 
                         </div>
-                        <div class="form-group col-12 col-md-6">
-                            <label for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
-                            <p class="text-black">
-                                {{ $landOffer->is_commercial == 1 ? trans('keywords.Yes') : trans('keywords.No') }}
-                            </p>
+                        @if ($landOffer->commercial_or_housing == 'housing')
+                            <div class="form-group col-12 col-md-6">
+                                <label for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
+                                <p class="text-black">
+                                    {{ $landOffer->is_commercial == 1 ? trans('keywords.Yes') : trans('keywords.No') }}
+                                </p>
+                            </div>
+                        @endif
 
-                        </div>
                         <div class="form-group col-12 col-md-6">
                             <label for="street_name">{{ trans('keywords.Street Name') }}</label>
                             <p class="text-black">
@@ -105,13 +107,15 @@
                             </p>
 
                         </div>
-                        <div class="form-group col-12 col-md-6">
-                            <label for="rent_period">{{ trans('keywords.Rent Period') }}</label>
-                            <p class="text-black">
-                                {{ $landOffer->rent_period }}
-                            </p>
+                        @if ($landOffer->operation_type == 'rent')
+                            <div class="form-group col-12 col-md-6">
+                                <label for="rent_period">{{ trans('keywords.Rent Period') }}</label>
+                                <p class="text-black">
+                                    {{ $landOffer->rent_period }}
+                                </p>
+                            </div>
+                        @endif
 
-                        </div>
                         <div class="form-group col-12 col-md-6">
                             <label for="price">{{ trans('keywords.Price') }}</label>
                             <p class="text-black">

@@ -116,7 +116,9 @@ return [
     "commercial" => "تجاري",
     "housing" => "سكني",
     "deleted successfully" => "تم الحذف بنجاح",
-    "are you sure want to delete this offer?" => "هل أنت متأكد من حذف هذا العرض؟"
+    "are you sure want to delete this offer?" => "هل أنت متأكد من حذف هذا العرض؟",
+    "updated successfully" => "تم التحديث بنجاح"
+
 
 
 

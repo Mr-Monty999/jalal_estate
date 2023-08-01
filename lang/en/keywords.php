@@ -118,7 +118,8 @@ return [
     "commercial" => "commercial",
     "housing" => "housing",
     "deleted successfully" => "deleted successfully",
-    "are you sure want to delete this offer?" => 'are you sure want to delete this offer?'
+    "are you sure want to delete this offer?" => 'are you sure want to delete this offer?',
+    "updated successfully" => "updated successfully"
 
 
 

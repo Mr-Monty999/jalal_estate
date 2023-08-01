@@ -62,7 +62,7 @@ class LandOfferController extends Controller
      */
     public function show(LandOffer $landOffer)
     {
-        //
+        abort(403);
     }
 
     /**
@@ -73,7 +73,7 @@ class LandOfferController extends Controller
      */
     public function edit(LandOffer $landOffer)
     {
-        //
+        abort(403);
     }
 
     /**
@@ -85,7 +85,13 @@ class LandOfferController extends Controller
      */
     public function update(UpdateLandOfferRequest $request, LandOffer $landOffer)
     {
-        //
+        if ($landOffer->user_id != auth()->id())
+            abort(403);
+
+        LandOfferService::update($request, $landOffer);
+
+        toastr()->success(trans('keywords.updated successfully'));
+        return back();
     }
 
     /**

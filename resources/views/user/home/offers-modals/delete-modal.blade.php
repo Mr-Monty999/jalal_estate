@@ -23,12 +23,11 @@
                              </div>
                              <div class="modal-footer">
                                  <button type="button" class="btn btn-secondary mx-1"
-                                     data-dismiss="modal">{{ trans('keywords.Close') }}</button>
+                                     data-dismiss="modal">{{ trans('keywords.No') }}</button>
                                  <form method="POST" action="{{ route('user.land-offers.destroy', $landOffer->id) }}">
                                      @csrf
                                      @method('delete')
-                                     <button type="submit"
-                                         class="btn btn-danger mx-1">{{ trans('keywords.Delete') }}</button>
+                                     <button type="submit" class="btn btn-danger mx-1">{{ trans('keywords.Yes') }}</button>
                                  </form>
                              </div>
                          </div>

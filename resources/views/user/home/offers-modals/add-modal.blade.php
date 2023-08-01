@@ -29,8 +29,8 @@
                                                     <div class="row">
                                                         <div class="form-group col-12 col-md-6">
                                                             <label for="city_id">{{ trans('keywords.City') }}</label>
-                                                            <select required onchange="getNeighbourhoods()" name="city_id"
-                                                                class="form-control" id="city_id">
+                                                            <select required name="city_id" class="form-control city_id"
+                                                                id="city_id">
                                                                 <option value="" disabled selected>
                                                                     {{ trans('keywords.Choose') }}</option>
                                                                 @foreach ($cities as $city)
@@ -50,8 +50,8 @@
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
                                                                 for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
-                                                            <select required name="neighbourhood_id" class="form-control"
-                                                                id="neighbourhood_id">
+                                                            <select required name="neighbourhood_id"
+                                                                class="form-control neighbourhood_id" id="neighbourhood_id">
                                                             </select>
                                                             @error('neighbourhood_id')
                                                                 <div style="border-radius: 30px"
