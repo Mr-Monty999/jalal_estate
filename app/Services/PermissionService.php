@@ -18,6 +18,7 @@ class PermissionService
             "create_offers",
             "edit_offers",
             "delete_offers",
+            "accept_offers",
         ];
     }
     public static function marketerPermissions()
@@ -28,6 +29,7 @@ class PermissionService
             "create_offers",
             "edit_offers",
             "delete_offers",
+            "accept_offers",
         ];
     }
 
@@ -39,6 +41,7 @@ class PermissionService
             "create_offers",
             "edit_offers",
             "delete_offers",
+            "accept_offers",
         ];
     }
 
@@ -50,6 +53,7 @@ class PermissionService
             "create_offers",
             "edit_offers",
             "delete_offers",
+            "accept_offers",
         ];
     }
 
@@ -62,6 +66,7 @@ class PermissionService
             "create_offers",
             "edit_offers",
             "delete_offers",
+            "accept_offers",
         ];
     }
 
