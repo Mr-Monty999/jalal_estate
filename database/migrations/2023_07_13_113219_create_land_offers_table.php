@@ -22,7 +22,8 @@ return new class extends Migration
             $table->bigInteger("land_number");
             $table->string("street_name");
             $table->string("direction");
-            $table->boolean("is_commercial");
+            $table->string("commercial_or_housing");
+            $table->boolean("is_commercial")->nullable();
             $table->string("street_width");
             $table->string("street_height");
             $table->string("dept");

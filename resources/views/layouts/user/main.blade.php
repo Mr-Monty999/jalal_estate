@@ -35,6 +35,10 @@
         button {
             border-radius: 10px !important
         }
+
+        * {
+            text-transform: capitalize !important
+        }
     </style>
     @if (app()->getLocale() == 'ar')
         @include('layouts.arabic')

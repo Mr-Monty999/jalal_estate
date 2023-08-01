@@ -10,6 +10,15 @@ use App\Services\LandOfferService;
 
 class LandOfferController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("can:view_offers")->only(["index", "show"]);
+        $this->middleware("can:edit_offers")->only(["edit", "update"]);
+        $this->middleware("can:create_offers")->only(["create", "store"]);
+        $this->middleware("can:delete_offers")->only(["destroy"]);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -38,6 +47,7 @@ class LandOfferController extends Controller
      */
     public function store(StoreLandOfferRequest $request)
     {
+
         $landOffer = LandOfferService::store($request);
 
         toastr()->success(trans('keywords.Offer Added Successfully'));
@@ -86,6 +96,12 @@ class LandOfferController extends Controller
      */
     public function destroy(LandOffer $landOffer)
     {
-        //
+        if ($landOffer->user_id != auth()->id())
+            abort(403);
+
+        $landOffer->delete();
+
+        toastr()->success(trans('keywords.deleted successfully'));
+        return back();
     }
 }

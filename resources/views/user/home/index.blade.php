@@ -11,21 +11,24 @@
                         {{-- begin Modal --}}
                         <div class="my-1">
                             <!-- Button trigger modal -->
-                            <button id="open-modal-button" type="button" class="btn btn-info" data-toggle="modal"
-                                data-target="#exampleModal">
-                                {{ trans('keywords.Add Offer') }}
-                            </button>
+                            @can('create_offers')
+                                <button id="open-modal-button" type="button" class="btn btn-info" data-toggle="modal"
+                                    data-target="#addOfferModal">
+                                    {{ trans('keywords.Add Offer') }}
+                                </button>
+                            @endcan
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="addOfferModal" tabindex="-1" role="dialog"
+                                aria-labelledby="addOfferModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <form method="POST" action="{{ route('user.land-offers.store') }}"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">{{ trans('keywords.New Offer') }}
+                                                <h5 class="modal-title" id="addOfferModalLabel">
+                                                    {{ trans('keywords.New Offer') }}
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -65,6 +68,47 @@
                                                         @enderror
                                                     </div>
                                                     <div class="form-group col-12 col-md-6">
+                                                        <label
+                                                            for="commercial_or_housing">{{ trans('keywords.Commercial Or Housing') }}</label>
+                                                        <select name="commercial_or_housing" class="form-control"
+                                                            id="commercial_or_housing">
+                                                            <option @if (old('commercial_or_housing') == 'commercial') selected @endif
+                                                                value="commercial">{{ trans('keywords.commercial') }}</option>
+                                                            <option @if (old('commercial_or_housing') == 'housing') selected @endif
+                                                                value="housing">{{ trans('keywords.housing') }}</option>
+                                                        </select>
+                                                        @error('commercial_or_housing')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label
+                                                            for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
+                                                        <div class="form-check form-check-inline">
+                                                            <input disabled @if (old('is_commercial') == '0') checked @endif
+                                                                type="radio" class="form-check-input mx-1"
+                                                                name="is_commercial" id="is_commercial_no" value="0">
+                                                            <label class="form-check-label" for="is_commercial_no">
+                                                                {{ trans('keywords.No') }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input disabled @if (old('is_commercial') == '1') checked @endif
+                                                                type="radio" class="form-check-input mx-1"
+                                                                name="is_commercial" id="is_commercial_yes" value="1">
+                                                            <label class="form-check-label" for="is_commercial_yes">
+                                                                {{ trans('keywords.Yes') }}
+                                                            </label>
+                                                        </div>
+                                                        @error('is_commercial')
+                                                            <div style="border-radius: 30px"
+                                                                class="alert alert-danger text-center mt-1">{{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group col-12 col-md-6">
                                                         <label for="street_name">{{ trans('keywords.Street Name') }}</label>
                                                         <input name="street_name" value="{{ old('street_name') }}"
                                                             type="text" class="form-control" id="street_name">
@@ -89,31 +133,6 @@
                                                         <input name="space" value="{{ old('space') }}" type="text"
                                                             class="form-control" id="space">
                                                         @error('space')
-                                                            <div style="border-radius: 30px"
-                                                                class="alert alert-danger text-center mt-1">{{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="form-group col-12">
-                                                        <label
-                                                            for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
-                                                        <div class="form-check form-check-inline">
-                                                            <input @if (old('is_commercial') == '0') checked @endif
-                                                                type="radio" class="form-check-input mx-1"
-                                                                name="is_commercial" id="is_commercial_no" value="0">
-                                                            <label class="form-check-label" for="is_commercial_no">
-                                                                {{ trans('keywords.No') }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input @if (old('is_commercial') == '1') checked @endif
-                                                                type="radio" class="form-check-input mx-1"
-                                                                name="is_commercial" id="is_commercial_yes" value="1">
-                                                            <label class="form-check-label" for="is_commercial_yes">
-                                                                {{ trans('keywords.Yes') }}
-                                                            </label>
-                                                        </div>
-                                                        @error('is_commercial')
                                                             <div style="border-radius: 30px"
                                                                 class="alert alert-danger text-center mt-1">{{ $message }}
                                                             </div>
@@ -357,13 +376,30 @@
                                                                     <div class="form-group col-12 col-md-6">
                                                                         <label
                                                                             for="city_id">{{ trans('keywords.City') }}</label>
-                                                                        <p class="text-black">{{ $landOffer->city->name }}</p>
+                                                                        <p class="text-black">{{ $landOffer->city->name }}
+                                                                        </p>
                                                                     </div>
                                                                     <div class="form-group col-12 col-md-6">
                                                                         <label
                                                                             for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
                                                                         <p class="text-black">
                                                                             {{ $landOffer->neighbourhood->name }}</p>
+
+                                                                    </div>
+                                                                    <div class="form-group col-12 col-md-6">
+                                                                        <label
+                                                                            for="commercial_or_housing">{{ trans('keywords.Commercial Or Housing') }}</label>
+                                                                        <p class="text-black">
+                                                                            {{ trans('keywords.' . $landOffer->commercial_or_housing) }}
+                                                                        </p>
+
+                                                                    </div>
+                                                                    <div class="form-group col-12 col-md-6">
+                                                                        <label
+                                                                            for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
+                                                                        <p class="text-black">
+                                                                            {{ $landOffer->is_commercial == 1 ? trans('keywords.Yes') : trans('keywords.No') }}
+                                                                        </p>
 
                                                                     </div>
                                                                     <div class="form-group col-12 col-md-6">
@@ -386,14 +422,7 @@
                                                                         </p>
 
                                                                     </div>
-                                                                    <div class="form-group col-12 col-md-6">
-                                                                        <label
-                                                                            for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
-                                                                        <p class="text-black">
-                                                                            {{ $landOffer->is_commercial == 1 ? trans('keywords.Yes') : trans('keywords.No') }}
-                                                                        </p>
 
-                                                                    </div>
                                                                     <div class="form-group col-12 col-md-6">
                                                                         <label
                                                                             for="street_height">{{ trans('keywords.Height On Street') }}</label>
@@ -526,10 +555,51 @@
 
 
                                                 @if ($landOffer->user_id == auth()->id())
-                                                    <button
-                                                        class="btn btn-danger mx-1">{{ trans('keywords.Delete') }}</button>
-                                                    <button
-                                                        class="btn btn-warning mx-1">{{ trans('keywords.Edit') }}</button>
+                                                    @can('edit_offers')
+                                                        <button
+                                                            class="btn btn-warning mx-1">{{ trans('keywords.Edit') }}</button>
+                                                    @endcan
+                                                    @can('delete_offers')
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                            data-target="#deleteOfferModal{{ $landOffer->id }}">
+                                                            {{ trans('keywords.Delete') }}
+                                                        </button>
+                                                        <div class="modal fade" id="deleteOfferModal{{ $landOffer->id }}"
+                                                            tabindex="-1" role="dialog"
+                                                            aria-labelledby="deleteOfferModal{{ $landOffer->id }}Label"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title"
+                                                                            id="deleteOfferModal{{ $landOffer->id }}Label">
+                                                                            {{ trans('keywords.Delete') }}
+                                                                        </h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <h5>{{ trans('keywords.are you sure want to delete this offer?') }}
+                                                                        </h5>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary mx-1"
+                                                                            data-dismiss="modal">{{ trans('keywords.Close') }}</button>
+                                                                        <form method="POST"
+                                                                            action="{{ route('user.land-offers.destroy', $landOffer->id) }}">
+                                                                            @csrf
+                                                                            @method('delete')
+                                                                            <button type="submit"
+                                                                                class="btn btn-danger mx-1">{{ trans('keywords.Delete') }}</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    @endcan
                                                 @endif
                                             </div>
                                         </td>
@@ -551,7 +621,7 @@
     @if ($errors->any())
         <script>
             // $("#open-modal-button").click();
-            $(".modal").modal("show");
+            $("#addOfferModal").modal("show");
         </script>
     @endif
     <script>
@@ -585,49 +655,68 @@
 
 
         ////////////// Enable street Height,dept,width when is_commecrial is true /////
-        function toggleInputsStatus() {
-            // let isCommercialYes = $("#is_commercial_yes");
-            // let isCommercialNo = $("#is_commercial_no");
+        // function toggleInputsStatus() {
+        // let isCommercialYes = $("#is_commercial_yes");
+        // let isCommercialNo = $("#is_commercial_no");
 
-            // let isCommercial = $("[name='is_commercial']");
-            // let inputs = $("[name='street_height'],[name='dept'],[name='street_width']");
-            // isCommercial.on("click", function() {
+        // let isCommercial = $("[name='is_commercial']");
+        // let inputs = $("[name='street_height'],[name='dept'],[name='street_width']");
+        // isCommercial.on("click", function() {
 
-            //     if (this.value == 1) {
+        //     if (this.value == 1) {
 
-            //         inputs.removeAttr("disabled");
-
-
-            //     } else {
-
-            //         inputs.attr("disabled", "true");
+        //         inputs.removeAttr("disabled");
 
 
-            //     }
+        //     } else {
 
-            // });
-
-            let operationType = $("[name='operation_type']");
-            let rentPeriod = $("[name='rent_period']");
-            operationType.on("change", function() {
-
-                if (this.value == "rent") {
-
-                    rentPeriod.removeAttr("disabled");
+        //         inputs.attr("disabled", "true");
 
 
-                } else {
+        //     }
 
-                    rentPeriod.attr("disabled", "true");
+        // });
+
+        let operationType = $("[name='operation_type']");
+        let rentPeriod = $("[name='rent_period']");
+        operationType.on("change", function() {
+
+            if (this.value == "rent") {
+
+                rentPeriod.removeAttr("disabled");
 
 
-                }
+            } else {
 
-            });
+                rentPeriod.attr("disabled", "true");
 
 
-        }
+            }
 
-        toggleInputsStatus();
+        });
+
+
+        let isCommercial = $("[name='is_commercial']");
+        let CommercialOrHousing = $("[name=commercial_or_housing]");
+        CommercialOrHousing.on("change", function() {
+
+            if (this.value == "housing") {
+
+                isCommercial.removeAttr("disabled");
+
+
+            } else {
+
+                isCommercial.removeAttr("checked");
+                isCommercial.attr("disabled", "true");
+
+
+            }
+
+        });
+
+        // }
+
+        // toggleInputsStatus();
     </script>
 @endpush

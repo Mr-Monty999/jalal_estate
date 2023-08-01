@@ -111,7 +111,13 @@ return [
     "rent" => "إيجار",
     "piece" => "قطعة",
     "View" => "إظهار",
-    "Close" => "إغلاق"
+    "Close" => "إغلاق",
+    "Commercial Or Housing" => "تجاري أو سكني",
+    "commercial" => "تجاري",
+    "housing" => "سكني",
+    "deleted successfully" => "تم الحذف بنجاح",
+    "are you sure want to delete this offer?" => "هل أنت متأكد من حذف هذا العرض؟"
+
 
 
 

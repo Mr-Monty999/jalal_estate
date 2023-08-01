@@ -113,7 +113,12 @@ return [
     "rent" => "rent",
     "piece" => "piece",
     "View" => "View",
-    "Close" => "Close"
+    "Close" => "Close",
+    "Commercial Or Housing" => "Commercial Or Housing",
+    "commercial" => "commercial",
+    "housing" => "housing",
+    "deleted successfully" => "deleted successfully",
+    "are you sure want to delete this offer?" => 'are you sure want to delete this offer?'
 
 
 
