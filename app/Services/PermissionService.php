@@ -82,6 +82,7 @@ class PermissionService
             "create_neighbourhoods",
             "edit_neighbourhoods",
             "delete_neighbourhoods",
+            "view_users"
 
         ];
     }

@@ -131,7 +131,28 @@ return [
     "are you sure want to accept this offer?" => "هل أنت متأكد من قبول هذا العرض؟",
     "offer accepted successfully" => "تم قبول العرض بنجاح",
     "created at" => "إنشىء منذ",
-    "created by" => "إنشىء بواسطة"
+    "created by" => "إنشىء بواسطة",
+    "status" => "الحالة",
+    "active" => "مفعل",
+    "not active" => "غير مفعل",
+    "deactivate" => "إلغاء تفعيل",
+    "are you sure want to do this operation?" => "هل أنت متأكد من إجراء هذه العملية؟",
+    "user type" => "نوع المستخدم",
+    "landlord" => "مالك عقار",
+    "company" => "شركة",
+    "marketer" => "مسوق",
+    "office" => "مكتب",
+    "service provider" => "مزود خدمة",
+    "users" => "المستخدمين",
+    "all users" => "جميع المستخدمين",
+    "unactive users" => "المستخدمين غير المفعلين",
+    "user activated successfully" => "تم تفعيل المستخدم بنجاح",
+    "user deactivated successfully" => "تم تعطيل المستخدم بنجاح",
+    "active user" => "تفعيل المستخدم"
+
+
+
+
 
 
 

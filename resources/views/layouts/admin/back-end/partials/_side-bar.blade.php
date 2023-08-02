@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- Content -->
-                <div class="navbar-vertical-content">
+                <div style="padding: 0px" class="navbar-vertical-content">
                     <!-- Search Form -->
                     {{-- <div class="sidebar--search-form pb-3 pt-4">
                         <div class="search--form-group">
@@ -132,6 +132,41 @@
 
                             </ul>
                         </li>
+
+                        {{-- users --}}
+                        @can('view_users')
+                            <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/users*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.users') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.users') }}
+                                    </span>
+                                </a>
+
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/users*') ? 'block' : '' }}">
+                                    <li class="nav-item {{ Request::is('admin/users/all') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.users.all') }}"
+                                            title="{{ trans('keywords.all users') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.all users') }}</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item {{ Request::is('admin/users') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.users.all') }}"
+                                            title="{{ trans('keywords.unactive users') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.unactive users') }}</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        @endcan
+
+                        {{-- end user --}}
 
                     </ul>
 

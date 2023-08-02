@@ -133,7 +133,24 @@ return [
     "are you sure want to accept this offer" => "are you sure want to accept this offer",
     "offer accepted successfully" => "offer accepted successfully",
     "created at" => "created at",
-    "created by" => "created by"
+    "created by" => "created by",
+    "status" => "status",
+    "active" => "active",
+    "not active" => "not active",
+    "deactivate" => "deactivate",
+    "are you sure want to do this operation?" => "are you sure want to do this operation?",
+    "user type" => "user type",
+    "landlord" => "landlord",
+    "company" => "company",
+    "marketer" => "marketer",
+    "office" => "office",
+    "service provider" => "service provider",
+    "users" => "users",
+    "all users" => "all users",
+    "unactive users" => "unactive users",
+    "user activated successfully" => 'user activated successfully',
+    "user deactivated successfully" => "user deactivated successfully",
+    "active user" => 'active user'
 
 
 

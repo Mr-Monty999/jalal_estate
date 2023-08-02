@@ -28,6 +28,8 @@ Route::group(["prefix" => "admin"], function () {
 
         Route::resource("neighbourhoods", NeighbourhoodController::class, ["as" => "admin"]);
 
-        Route::get('/users', [UserController::class, "index"])->name("admin.users");
+        Route::get('/users/all', [UserController::class, "index"])->name("admin.users.all");
+        Route::post('/users/{user}/active', [UserController::class, "active"])->name("admin.users.active");
+        Route::post('/users/{user}/deactive', [UserController::class, "deactive"])->name("admin.users.deactive");
     });
 });
