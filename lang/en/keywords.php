@@ -131,7 +131,9 @@ return [
     "block" => "block",
     "piece" => "piece",
     "are you sure want to accept this offer" => "are you sure want to accept this offer",
-    "offer accepted successfully" => "offer accepted successfully"
+    "offer accepted successfully" => "offer accepted successfully",
+    "created at" => "created at",
+    "created by" => "created by"
 
 
 

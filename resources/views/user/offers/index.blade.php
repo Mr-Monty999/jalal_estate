@@ -22,6 +22,9 @@
                                     <th scope="col">{{ trans('keywords.Type') }}</th>
                                     <th scope="col">{{ trans('keywords.Land Number') }}</th>
                                     <th scope="col">{{ trans('keywords.Price') }}</th>
+                                    <th scope="col">{{ trans('keywords.created at') }}</th>
+                                    <th scope="col">{{ trans('keywords.created by') }}</th>
+
                                     <th scope="col">{{ trans('keywords.Action') }}</th>
                                 </tr>
                             </thead>
@@ -36,6 +39,8 @@
                                         <td>{{ trans('keywords.' . $landOffer->type2) }}</td>
                                         <td>{{ $landOffer->land_number }}</td>
                                         <td>{{ number_format($landOffer->price) }}</td>
+                                        <td>{{ $landOffer->created_at->diffForHumans() }}</td>
+                                        <td>{{ $landOffer->user->name }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 @include('user.offers.modals.accept-modal')
