@@ -148,7 +148,12 @@ return [
     "unactive users" => "المستخدمين غير المفعلين",
     "user activated successfully" => "تم تفعيل المستخدم بنجاح",
     "user deactivated successfully" => "تم تعطيل المستخدم بنجاح",
-    "active user" => "تفعيل المستخدم"
+    "active user" => "تفعيل المستخدم",
+    "your account is not activated. please wait for it to be activated" => "حسابك غير مفعل الرجاء الإنتظار حتى يتم تفعيله",
+    "registered at" => "مسجل منذ",
+    "active users" => "المستخدمين المفعلين",
+
+
 
 
 

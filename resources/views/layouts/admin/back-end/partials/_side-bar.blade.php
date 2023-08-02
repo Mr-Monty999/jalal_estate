@@ -154,8 +154,16 @@
                                         </a>
                                     </li>
 
-                                    <li class="nav-item {{ Request::is('admin/users') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.users.all') }}"
+                                    <li class="nav-item {{ Request::is('admin/users/all/active') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.users.active.all') }}"
+                                            title="{{ trans('keywords.active users') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.active users') }}</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item {{ Request::is('admin/users/all/unactive') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.users.unactive.all') }}"
                                             title="{{ trans('keywords.unactive users') }}">
                                             <span class="tio-circle nav-indicator-icon"></span>
                                             <span class="text-truncate">{{ trans('keywords.unactive users') }}</span>

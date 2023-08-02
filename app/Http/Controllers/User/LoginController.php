@@ -15,9 +15,9 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
-        $request->merge(["is_active" => true]);
+        // $request->merge(["is_active" => true]);
 
-        if (Auth::attempt($request->only("email", "password", "is_active"))) {
+        if (Auth::attempt($request->only("email", "password"))) {
             toastr()->success(trans('keywords.Logged In Successfully'));
             return redirect()->route("user.home");
         }

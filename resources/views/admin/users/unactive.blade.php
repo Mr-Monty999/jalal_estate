@@ -15,7 +15,7 @@
                               <div class="row align-items-center">
                                   <div class="col-sm-4 col-md-6 col-lg-8 mb-2 mb-sm-0">
                                       <h5 class="text-capitalize d-flex gap-1">
-                                          {{ trans('keywords.all users') }}
+                                          {{ trans('keywords.unactive users') }}
                                           <span class="badge badge-soft-dark radius-50 fz-12">{{ $users->total() }}</span>
                                       </h5>
                                   </div>

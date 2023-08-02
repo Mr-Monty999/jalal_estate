@@ -150,7 +150,10 @@ return [
     "unactive users" => "unactive users",
     "user activated successfully" => 'user activated successfully',
     "user deactivated successfully" => "user deactivated successfully",
-    "active user" => 'active user'
+    "active user" => 'active user',
+    "your account is not activated. please wait for it to be activated" => "your account is not activated. please wait for it to be activated",
+    "registered at" => "registered at",
+    "active users" => "active users",
 
 
 

@@ -18,15 +18,18 @@ Route::group(["prefix" => "user"], function () {
 
 
     Route::group(["middleware" => ["auth", "can:access_user_dashboard"]], function () {
-        Route::get("/", [HomeController::class, "index"])->name("user.home");
         Route::get("/logout", [UserController::class, "logout"])->name("user.logout");
 
-        Route::get("/profile", [ProfileController::class, "index"])->name("user.profile");
-        Route::post("/profile", [ProfileController::class, "update"])->name("user.profile.update");
+        Route::group(["middleware" => "check-if-user-is-active"], function () {
+            Route::get("/", [HomeController::class, "index"])->name("user.home");
+
+            Route::get("/profile", [ProfileController::class, "index"])->name("user.profile");
+            Route::post("/profile", [ProfileController::class, "update"])->name("user.profile.update");
 
 
 
-        Route::resource("land-offers", LandOfferController::class, ["as" => "user"]);
-        Route::post("land-offers/{landOffer}/accept", [LandOfferController::class, "accept"])->name("user.land-offers.accept");
+            Route::resource("land-offers", LandOfferController::class, ["as" => "user"]);
+            Route::post("land-offers/{landOffer}/accept", [LandOfferController::class, "accept"])->name("user.land-offers.accept");
+        });
     });
 });

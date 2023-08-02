@@ -8,12 +8,30 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+    public function all(Request $request)
     {
 
         $users = User::latest()->paginate(10);
 
         return view("admin.users.all", compact("users"));
+    }
+    public function allActive(Request $request)
+    {
+
+        $users = User::latest()
+            ->where("is_active", 1)
+            ->paginate(10);
+
+        return view("admin.users.active", compact("users"));
+    }
+    public function allUnActive(Request $request)
+    {
+
+        $users = User::latest()
+            ->where("is_active", 0)
+            ->paginate(10);
+
+        return view("admin.users.unactive", compact("users"));
     }
 
     public function active(Request $request, User $user)

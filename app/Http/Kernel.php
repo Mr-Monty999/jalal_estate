@@ -70,6 +70,6 @@ class Kernel extends HttpKernel
         "admin-guest" => \App\Http\Middleware\RedirectAdminIfAuth::class,
         "check-admin-can-access-dashboard" => \App\Http\Middleware\CheckIfAdminCanAccessDashboard::class,
         "check-user-can-access-dashboard" => \App\Http\Middleware\CheckIfUserCanAccessDashboard::class,
-
+        "check-if-user-is-active" => \App\Http\Middleware\CheckIfUserIsActive::class
     ];
 }
