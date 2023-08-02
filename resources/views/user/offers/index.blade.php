@@ -9,7 +9,7 @@
                     <div class="col-md-12 text-center">
                         <h1 class="text-center text-black">{{ trans('keywords.Estate Offers') }}</h1>
 
-                        @include('user.home.offers-modals.add-modal')
+                        @include('user.offers.offers-modals.add-modal')
 
                         <table class="table table-responsive">
                             <thead class="thead-dark">
@@ -33,16 +33,27 @@
                                         <td>{{ $landOffer->neighbourhood->name }}</td>
                                         <td>{{ $landOffer->street_name }}</td>
                                         <td>{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}</td>
-                                        <td>{{ trans('keywords.' . ucfirst($landOffer->type2)) }}</td>
+                                        <td>{{ trans('keywords.' . $landOffer->type2) }}</td>
                                         <td>{{ $landOffer->land_number }}</td>
                                         <td>{{ number_format($landOffer->price) }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                @include('user.home.offers-modals.accept-modal')
-                                                @include('user.home.offers-modals.view-modal')
-                                                @include('user.home.offers-modals.edit-modal')
-                                                @include('user.home.offers-modals.delete-modal')
+                                                @include('user.offers.offers-modals.accept-modal')
+                                                @include('user.offers.offers-modals.view-modal')
+                                                {{-- @include('user.offers.offers-modals.edit-modal') --}}
+                                                @can('edit_offers')
+                                                    <a href="{{ route('user.land-offers.edit', $landOffer->id) }}"
+                                                        class="btn btn-warning text-center text-white">{{ trans('keywords.Edit') }}</a>
+                                                @endcan
+
+                                                @include('user.offers.offers-modals.delete-modal')
                                             </div>
+                                            <style>
+                                                a.btn.btn-warning {
+                                                    border-radius: 10px;
+                                                    padding: 5px
+                                                }
+                                            </style>
                                         </td>
                                     </tr>
                                 @endforeach

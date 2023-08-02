@@ -5,7 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLandOfferRequest;
 use App\Http\Requests\UpdateLandOfferRequest;
+use App\Models\City;
 use App\Models\LandOffer;
+use App\Models\LandType;
 use App\Services\LandOfferService;
 
 class LandOfferController extends Controller
@@ -26,7 +28,10 @@ class LandOfferController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::orderBy("name")->get();
+        $landTypes = LandType::orderBy("name")->get();
+        $landOffers = LandOffer::with("city.neighbourhoods", "neighbourhood", "landTypes")->latest()->paginate(10);
+        return view("user.offers.index", compact("cities", "landTypes", "landOffers"));
     }
 
     /**
@@ -73,7 +78,9 @@ class LandOfferController extends Controller
      */
     public function edit(LandOffer $landOffer)
     {
-        abort(403);
+        $cities = City::orderBy("name")->get();
+        $landTypes = LandType::orderBy("name")->get();
+        return view("user.offers.edit", compact("cities", "landTypes", "landOffer"));
     }
 
     /**
@@ -91,7 +98,7 @@ class LandOfferController extends Controller
         LandOfferService::update($request, $landOffer);
 
         toastr()->success(trans('keywords.updated successfully'));
-        return back();
+        return redirect()->route("user.home");
     }
 
     /**

@@ -46,6 +46,26 @@
                         @endif
 
                         <div class="form-group col-12 col-md-6">
+                            <label for="type3">{{ trans('keywords.corner or one street') }}</label>
+                            <p class="text-black">
+                                {{ trans('keywords.' . $landOffer->type3) }}
+                            </p>
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="streets_count">{{ trans('keywords.streets count') }}</label>
+                            <p class="text-black">
+                                {{ number_format($landOffer->streets_count) }}
+                            </p>
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="schema_number">{{ trans('keywords.schema number') }}</label>
+                            <p class="text-black">
+                                {{ $landOffer->schema_number }}
+                            </p>
+
+                        </div>
+
+                        <div class="form-group col-12 col-md-6">
                             <label for="street_name">{{ trans('keywords.Street Name') }}</label>
                             <p class="text-black">
                                 {{ $landOffer->street_name }}
@@ -140,7 +160,7 @@
                         <div class="form-group col-12">
                             <label for="type2">{{ trans('keywords.Is Piece Or Block') }}:</label>
                             <p class="text-black">
-                                {{ trans('keywords.' . ucfirst($landOffer->type2)) }}
+                                {{ trans('keywords.' . $landOffer->type2) }}
                             </p>
 
                         </div>

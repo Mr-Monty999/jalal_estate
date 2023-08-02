@@ -119,7 +119,17 @@ return [
     "housing" => "housing",
     "deleted successfully" => "deleted successfully",
     "are you sure want to delete this offer?" => 'are you sure want to delete this offer?',
-    "updated successfully" => "updated successfully"
+    "updated successfully" => "updated successfully",
+    "corner or one street" => "corner or one street",
+    "corner" => "corner",
+    "one street" => "one street",
+    "streets count" => "streets count",
+    "schema number" => "schema number",
+    "one_street" => "one street",
+    "block header" => "block header",
+    "block_header" => "block header",
+    "block" => "block",
+    "piece" => "piece"
 
 
 

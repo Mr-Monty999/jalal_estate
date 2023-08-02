@@ -79,7 +79,7 @@ return [
     "Street" => "الشارع",
     "Operation Type" => "نوع العملية",
     "Estate Type" => "نوع العقار",
-    "Land Number" => "رقم الأرض",
+    "Land Number" => "رقم القطعة",
     "Price" => "السعر",
     "Estate Offers" => "عروض العقارات",
     "Add Offer" => "إضافة عرض",
@@ -117,7 +117,26 @@ return [
     "housing" => "سكني",
     "deleted successfully" => "تم الحذف بنجاح",
     "are you sure want to delete this offer?" => "هل أنت متأكد من حذف هذا العرض؟",
-    "updated successfully" => "تم التحديث بنجاح"
+    "updated successfully" => "تم التحديث بنجاح",
+    "corner or one street" => "زاوية أو شارع واحد",
+    "corner" => "زاوية",
+    "one street" => "شارع واحد",
+    "streets count" => "عدد الشوارع",
+    "schema number" => "رقم المخطط",
+    "one_street" => "شارع واحد",
+    "block header" => "رأس بُلك",
+    "block_header" => "رأس بُلك",
+    "block" => "بُلك",
+    "piece" => "قطعة"
+
+
+
+
+
+
+
+
+
 
 
 

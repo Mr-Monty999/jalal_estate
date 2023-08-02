@@ -41,9 +41,12 @@ class StoreLandOfferRequest extends FormRequest
             "price" => "required|numeric",
             "adjective" => "required|string",
             "contact_info" => "required|string",
-            "type2" => "required|string|in:piece,block",
+            "type2" => "required|string|in:piece,block,block_header",
             "land_type_ids" => "required|array|exists:land_types,id",
-            "image" => "nullable|image"
+            "image" => "nullable|image",
+            "type3" => "required|string|in:corner,one_street",
+            "streets_count" => "required|numeric",
+            "schema_number" => "required|numeric"
 
 
         ];

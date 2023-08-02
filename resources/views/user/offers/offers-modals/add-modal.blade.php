@@ -27,6 +27,9 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
+                                                        @php
+                                                            $selectedCity = null;
+                                                        @endphp
                                                         <div class="form-group col-12 col-md-6">
                                                             <label for="city_id">{{ trans('keywords.City') }}</label>
                                                             <select required name="city_id" class="form-control city_id"
@@ -34,6 +37,9 @@
                                                                 <option value="" disabled selected>
                                                                     {{ trans('keywords.Choose') }}</option>
                                                                 @foreach ($cities as $city)
+                                                                    @php
+                                                                        old('city_id') == $city->id ? ($selectedCity = $city) : null;
+                                                                    @endphp
                                                                     <option
                                                                         @if (old('city_id') == $city->id) selected @endif
                                                                         value="{{ $city->id }}">{{ $city->name }}
@@ -52,7 +58,17 @@
                                                                 for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
                                                             <select required name="neighbourhood_id"
                                                                 class="form-control neighbourhood_id" id="neighbourhood_id">
+                                                                @if ($selectedCity)
+                                                                    @foreach ($selectedCity->neighbourhoods as $neighbourhood)
+                                                                        <option
+                                                                            @if ($neighbourhood->id == old('neighbourhood_id')) selected @endif
+                                                                            value="{{ $neighbourhood->id }}">
+                                                                            {{ $neighbourhood->name }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                @endif
                                                             </select>
+
                                                             @error('neighbourhood_id')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">
@@ -103,6 +119,48 @@
                                                                 </label>
                                                             </div>
                                                             @error('is_commercial')
+                                                                <div style="border-radius: 30px"
+                                                                    class="alert alert-danger text-center mt-1">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-group col-12 col-md-6">
+                                                            <label
+                                                                for="type3">{{ trans('keywords.corner or one street') }}</label>
+                                                            <select name="type3" class="form-control" id="type3">
+                                                                <option @if (old('type3') == 'corner') selected @endif
+                                                                    value="corner">{{ trans('keywords.corner') }}
+                                                                </option>
+                                                                <option @if (old('type3') == 'one_street') selected @endif
+                                                                    value="one_street">{{ trans('keywords.one street') }}
+                                                                </option>
+                                                            </select>
+                                                            @error('type3')
+                                                                <div style="border-radius: 30px"
+                                                                    class="alert alert-danger text-center mt-1">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-group col-12 col-md-6">
+                                                            <label
+                                                                for="streets_count">{{ trans('keywords.streets count') }}</label>
+                                                            <input name="streets_count" value="{{ old('streets_count') }}"
+                                                                type="number" class="form-control" id="streets_count">
+                                                            @error('streets_count')
+                                                                <div style="border-radius: 30px"
+                                                                    class="alert alert-danger text-center mt-1">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-group col-12 col-md-6">
+                                                            <label
+                                                                for="schema_number">{{ trans('keywords.schema number') }}</label>
+                                                            <input name="schema_number" value="{{ old('schema_number') }}"
+                                                                type="number" class="form-control" id="schema_number">
+                                                            @error('schema_number')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">
                                                                     {{ $message }}
@@ -277,8 +335,8 @@
                                                                 <input type="radio" class="form-check-input mx-1"
                                                                     name="type2"
                                                                     @if (old('type2') == 'piece') checked @endif
-                                                                    id="type2_piece" value="piece">
-                                                                <label class="form-check-label" for="type2_piece">
+                                                                    id="piece" value="piece">
+                                                                <label class="form-check-label" for="piece">
                                                                     {{ trans('keywords.Piece') }}
                                                                 </label>
                                                             </div>
@@ -286,9 +344,18 @@
                                                                 <input type="radio" class="form-check-input mx-1"
                                                                     name="type2"
                                                                     @if (old('type2') == 'block') checked @endif
-                                                                    id="type2_block" value="block">
-                                                                <label class="form-check-label" for="type2_block">
+                                                                    id="block" value="block">
+                                                                <label class="form-check-label" for="block">
                                                                     {{ trans('keywords.Block') }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input type="radio" class="form-check-input mx-1"
+                                                                    name="type2"
+                                                                    @if (old('type2') == 'block_header') checked @endif
+                                                                    id="block_header" value="block_header">
+                                                                <label class="form-check-label" for="block_header">
+                                                                    {{ trans('keywords.block header') }}
                                                                 </label>
                                                             </div>
                                                             @error('type2')

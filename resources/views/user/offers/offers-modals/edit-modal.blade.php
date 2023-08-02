@@ -111,6 +111,45 @@
                                     </div>
                                     <div class="form-group col-12 col-md-6">
                                         <label
+                                            for="type3{{ $landOffer->id }}">{{ trans('keywords.corner or one street') }}</label>
+                                        <select name="type3" class="form-control" id="type3{{ $landOffer->id }}">
+                                            <option @if ($landOffer->type3 == 'corner') selected @endif value="corner">
+                                                {{ trans('keywords.corner') }}
+                                            </option>
+                                            <option @if ($landOffer->type3 == 'one_street') selected @endif value="one_street">
+                                                {{ trans('keywords.one_street') }}
+                                            </option>
+                                        </select>
+                                        @error('type3')
+                                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label
+                                            for="streets_count{{ $landOffer->id }}">{{ trans('keywords.streets count') }}</label>
+                                        <input name="streets_count" value="{{ $landOffer->streets_count }}" type="text"
+                                            class="form-control" id="streets_count{{ $landOffer->id }}">
+                                        @error('streets_count')
+                                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label
+                                            for="schema_number{{ $landOffer->id }}">{{ trans('keywords.schema number') }}</label>
+                                        <input name="schema_number" value="{{ $landOffer->schema_number }}" type="text"
+                                            class="form-control" id="schema_number{{ $landOffer->id }}">
+                                        @error('schema_number')
+                                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label
                                             for="street_name{{ $landOffer->id }}">{{ trans('keywords.Street Name') }}</label>
                                         <input name="street_name" value="{{ $landOffer->street_name }}" type="text"
                                             class="form-control" id="street_name{{ $landOffer->id }}">
@@ -250,8 +289,8 @@
                                     <div class="form-group col-12 col-md-6">
                                         <label
                                             for="contact_info{{ $landOffer->id }}">{{ trans('keywords.Contact Info') }}</label>
-                                        <input name="contact_info" value="{{ $landOffer->contact_info }}" type="text"
-                                            class="form-control" id="contact_info{{ $landOffer->id }}">
+                                        <input name="contact_info" value="{{ $landOffer->contact_info }}"
+                                            type="text" class="form-control" id="contact_info{{ $landOffer->id }}">
                                         @error('contact_info')
                                             <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                                                 {{ $message }}
