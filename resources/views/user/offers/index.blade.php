@@ -9,7 +9,7 @@
                     <div class="col-md-12 text-center">
                         <h1 class="text-center text-black">{{ trans('keywords.Estate Offers') }}</h1>
 
-                        @include('user.offers.offers-modals.add-modal')
+                        @include('user.offers.modals.add-modal')
 
                         <table class="table table-responsive">
                             <thead class="thead-dark">
@@ -38,15 +38,16 @@
                                         <td>{{ number_format($landOffer->price) }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                @include('user.offers.offers-modals.accept-modal')
-                                                @include('user.offers.offers-modals.view-modal')
-                                                {{-- @include('user.offers.offers-modals.edit-modal') --}}
-                                                @can('edit_offers')
-                                                    <a href="{{ route('user.land-offers.edit', $landOffer->id) }}"
-                                                        class="btn btn-warning text-center text-white">{{ trans('keywords.Edit') }}</a>
-                                                @endcan
-
-                                                @include('user.offers.offers-modals.delete-modal')
+                                                @include('user.offers.modals.accept-modal')
+                                                @include('user.offers.modals.view-modal')
+                                                {{-- @include('user.offers.modals.edit-modal') --}}
+                                                @if ($landOffer->user_id == auth()->id())
+                                                    @can('edit_offers')
+                                                        <a href="{{ route('user.land-offers.edit', $landOffer->id) }}"
+                                                            class="btn btn-warning text-center text-white">{{ trans('keywords.Edit') }}</a>
+                                                    @endcan
+                                                @endif
+                                                @include('user.offers.modals.delete-modal')
                                             </div>
                                             <style>
                                                 a.btn.btn-warning {

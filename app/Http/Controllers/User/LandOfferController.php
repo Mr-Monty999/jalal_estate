@@ -18,6 +18,7 @@ class LandOfferController extends Controller
         $this->middleware("can:edit_offers")->only(["edit", "update"]);
         $this->middleware("can:create_offers")->only(["create", "store"]);
         $this->middleware("can:delete_offers")->only(["destroy"]);
+        $this->middleware("can:accept_offers")->only(["accept"]);
     }
 
 
@@ -30,7 +31,10 @@ class LandOfferController extends Controller
     {
         $cities = City::orderBy("name")->get();
         $landTypes = LandType::orderBy("name")->get();
-        $landOffers = LandOffer::with("city.neighbourhoods", "neighbourhood", "landTypes")->latest()->paginate(10);
+        $landOffers = LandOffer::with("city.neighbourhoods", "neighbourhood", "landTypes")
+            ->whereNull("accepted_by")
+            ->latest()
+            ->paginate(10);
         return view("user.offers.index", compact("cities", "landTypes", "landOffers"));
     }
 
@@ -70,6 +74,16 @@ class LandOfferController extends Controller
         abort(403);
     }
 
+    public function accept(LandOffer $landOffer)
+    {
+
+        $landOffer->update([
+            "accepted_by" => auth()->id()
+        ]);
+
+        toastr()->success(trans('keywords.offer accepted successfully'));
+        return back();
+    }
     /**
      * Show the form for editing the specified resource.
      *

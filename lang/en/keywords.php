@@ -129,7 +129,9 @@ return [
     "block header" => "block header",
     "block_header" => "block header",
     "block" => "block",
-    "piece" => "piece"
+    "piece" => "piece",
+    "are you sure want to accept this offer" => "are you sure want to accept this offer",
+    "offer accepted successfully" => "offer accepted successfully"
 
 
 

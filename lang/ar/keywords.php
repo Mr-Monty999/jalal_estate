@@ -127,7 +127,9 @@ return [
     "block header" => "رأس بُلك",
     "block_header" => "رأس بُلك",
     "block" => "بُلك",
-    "piece" => "قطعة"
+    "piece" => "قطعة",
+    "are you sure want to accept this offer?" => "هل أنت متأكد من قبول هذا العرض؟",
+    "offer accepted successfully" => "تم قبول العرض بنجاح"
 
 
 
