@@ -99,7 +99,7 @@
                                                             <label
                                                                 for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
                                                             <div class="form-check form-check-inline">
-                                                                <input disabled
+                                                                <input @if (old('commercial_or_housing') != 'housing') disabled @endif
                                                                     @if (old('is_commercial') == '0') checked @endif
                                                                     type="radio" class="form-check-input mx-1"
                                                                     name="is_commercial" id="is_commercial_no"
@@ -109,7 +109,7 @@
                                                                 </label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input disabled
+                                                                <input @if (old('commercial_or_housing') != 'housing') disabled @endif
                                                                     @if (old('is_commercial') == '1') checked @endif
                                                                     type="radio" class="form-check-input mx-1"
                                                                     name="is_commercial" id="is_commercial_yes"
@@ -242,7 +242,7 @@
                                                             <label
                                                                 for="land_number">{{ trans('keywords.Land Number') }}</label>
                                                             <input name="land_number" value="{{ old('land_number') }}"
-                                                                type="text" class="form-control" id="land_number">
+                                                                type="number" class="form-control" id="land_number">
                                                             @error('land_number')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">

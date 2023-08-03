@@ -215,7 +215,7 @@
                                     <div class="form-group col-12 col-md-6">
                                         <label
                                             for="land_number{{ $landOffer->id }}">{{ trans('keywords.Land Number') }}</label>
-                                        <input name="land_number" value="{{ $landOffer->land_number }}" type="text"
+                                        <input name="land_number" value="{{ $landOffer->land_number }}" type="number"
                                             class="form-control" id="land_number{{ $landOffer->id }}">
                                         @error('land_number')
                                             <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
