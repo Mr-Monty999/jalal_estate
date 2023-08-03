@@ -52,7 +52,7 @@
         </div>
 
 
-        <style>
+        {{-- <style>
             header {
                 width: 1351px;
                 position: fixed;
@@ -87,72 +87,61 @@
             label {
                 color: #0f2d52
             }
-        </style>
-        <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+        </style> --}}
+        <header>
+            <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" style="font-size: 35px"
+                    href="{{ route('guest.home') }}">{{ env('APP_NAME') }}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="container">
-                <div class="row align-items-center">
-
-                    <div class="col-6 col-xl-2">
-                        <h1 class="mb-0 site-logo m-0 p-0"><a style="color:white !important" href="index.html"
-                                class="mb-0">{{ trans('keywords.Jalal') }}</a></h1>
-                    </div>
-
-                    <div class="col-12 col-md-10 d-none d-xl-block">
-                        <nav class="site-navigation position-relative text-right" role="navigation">
-
-                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                                <li><a href="{{ route('guest.home') }}"
-                                        class="nav-link">{{ trans('keywords.Home') }}</a></li>
-                                <li><a href="{{ route('user.login') }}"
-                                        class="nav-link">{{ trans('keywords.Login') }}</a></li>
-                                <li>
-                                    <div class="dropdown show">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            {{ trans('keywords.Join Us') }}
-                                        </a>
-
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item text-black"
-                                                href="{{ route('guest.companies.register') }}">{{ trans('keywords.Create Company Account') }}</a>
-                                            <a class="dropdown-item text-black"
-                                                href="{{ route('guest.marketers.register') }}">{{ trans('keywords.Create Marketer Account') }}</a>
-
-                                            <a class="dropdown-item text-black"
-                                                href="{{ route('guest.offices.register') }}">{{ trans('keywords.Create Office Account') }}</a>
-
-
-                                            <a class="dropdown-item text-black"
-                                                href="{{ route('guest.landlords.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
-
-                                            <a class="dropdown-item text-black"
-                                                href="{{ route('guest.service-providers.register') }}">{{ trans('keywords.Create Service Provider Account') }}</a>
-
-                                            {{-- <a class="dropdown-item text-black" href="#">Another action</a>
-                                            <a class="dropdown-item text-black" href="#">Something else here</a> --}}
-                                        </div>
-                                    </div>
-                                </li>
-                                {{-- <li><a href="#agents-section" class="nav-link">{{ trans('keywords.Agents') }}</a></li> --}}
-                                <li><a href="#about-section" class="nav-link">{{ trans('keywords.About') }}</a></li>
-                                {{-- <li><a href="#news-section" class="nav-link">News</a></li> --}}
-                                <li><a href="#contact-section" class="nav-link">{{ trans('keywords.Contact Us') }}</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item @if (Request::is('/')) active @endif">
+                            <a class="nav-link" href="{{ route('guest.home') }}">{{ trans('keywords.Home') }} <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item @if (Request::is('user/login')) active @endif">
+                            <a class="nav-link" href="{{ route('user.login') }}">{{ trans('keywords.login') }}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ trans('keywords.Join Us') }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                    href="{{ route('guest.companies.register') }}">{{ trans('keywords.Create Company Account') }}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('guest.marketers.register') }}">{{ trans('keywords.Create Marketer Account') }}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('guest.offices.register') }}">{{ trans('keywords.Create Office Account') }}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('guest.landlords.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('guest.service-providers.register') }}">{{ trans('keywords.Create Service Provider Account') }}</a>
+                            </div>
+                        </li>
+                        <li class="nav-item @if (Request::is('user/profile')) active @endif">
+                            <a href="#about-section" class="nav-link">{{ trans('keywords.About') }}</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('user/profile')) active @endif">
+                            <a href="#contact-section" class="nav-link">{{ trans('keywords.Contact Us') }}</a>
+                        </li>
 
 
-                    <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#"
-                            class="site-menu-toggle js-menu-toggle text-black float-left"><span
-                                class="icon-menu h3"></span></a></div>
-
+                    </ul>
+                    {{-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> --}}
                 </div>
-            </div>
-
+            </nav>
         </header>
+
 
 
 

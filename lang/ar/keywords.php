@@ -152,6 +152,11 @@ return [
     "your account is not activated. please wait for it to be activated" => "حسابك غير مفعل الرجاء الإنتظار حتى يتم تفعيله",
     "registered at" => "مسجل منذ",
     "active users" => "المستخدمين المفعلين",
+    "my offers" => "عروضي",
+    "logout" => "تسجيل خروج",
+    "login" => "تسجيل الدخول",
+
+
 
 
 

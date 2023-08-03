@@ -59,7 +59,9 @@
             <div class="site-mobile-menu-body"></div>
         </div>
 
-        @role('company')
+
+        @include('layouts.user.includes.header')
+        {{-- @role('company')
             @include('layouts.user.includes.company-header')
         @endrole
         @role('marketer')
@@ -70,7 +72,7 @@
         @endrole
         @role('service-provider')
             @include('layouts.user.includes.service-provider-header')
-        @endrole
+        @endrole --}}
 
 
         {{-- <div class="site-blocks-cover overlay" style="background-image: url(images/hero_1.jpg);" data-aos="fade"

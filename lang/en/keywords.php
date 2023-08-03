@@ -154,6 +154,9 @@ return [
     "your account is not activated. please wait for it to be activated" => "your account is not activated. please wait for it to be activated",
     "registered at" => "registered at",
     "active users" => "active users",
+    "my offers" => "my offers",
+    "logout" => "logout",
+    "login" => "login"
 
 
 
