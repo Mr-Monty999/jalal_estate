@@ -4,11 +4,11 @@
     <br><br><br><br><br>
 
     <div class="container">
-        <form method="POST" class="row" action="{{ route('user.companies.profile.update') }}" enctype="multipart/form-data">
+        <form method="POST" class="row" action="{{ route('user.marketers.profile.update') }}" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="form-group col-12 col-md-6">
-                <label for="name">{{ trans('keywords.Company Name') }}</label>
+                <label for="name">{{ trans('keywords.Marketer Name') }}</label>
                 <input name="name" value="{{ auth()->user()->name }}" type="text" class="form-control" id="name">
                 @error('name')
                     <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
@@ -36,13 +36,13 @@
                 @enderror
             </div>
             <div class="form-group col-12 col-md-6">
-                <label for="logo">{{ trans('keywords.Logo') }}</label>
-                <input name="logo" type="file" class="form-control" id="logo">
+                <label for="photo">{{ trans('keywords.Photo') }}</label>
+                <input name="photo" type="file" class="form-control" id="photo">
                 <div>
-                    @if (auth()->user()->company->logo)
+                    @if (auth()->user()->marketer->photo)
                         <div>
                             <img style="width: 200px;height:200px"
-                                src="{{ asset('storage/' . auth()->user()->company->logo) }}" alt="">
+                                src="{{ asset('storage/' . auth()->user()->marketer->photo) }}" alt="">
                         </div>
                     @else
                         <p class="text-black">
@@ -50,7 +50,7 @@
                         </p>
                     @endif
                 </div>
-                @error('logo')
+                @error('photo')
                     <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                         {{ $message }}
                     </div>

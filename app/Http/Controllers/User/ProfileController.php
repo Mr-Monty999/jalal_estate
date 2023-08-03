@@ -15,7 +15,7 @@ class ProfileController extends Controller
             return view("user.profile.companies.index");
         elseif (auth()->user()->hasRole("office"))
             return view("user.profile.offices.index");
-        elseif (auth()->user()->hasRole("marketers"))
+        elseif (auth()->user()->hasRole("marketer"))
             return view("user.profile.marketers.index");
         elseif (auth()->user()->hasRole("landlord"))
             return view("user.profile.landlords.index");

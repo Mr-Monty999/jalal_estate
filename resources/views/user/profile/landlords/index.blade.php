@@ -36,7 +36,7 @@
                 @enderror
             </div>
             <div class="form-group col-12 col-md-6">
-                <label for="photo">{{ trans('keywords.Logo') }}</label>
+                <label for="photo">{{ trans('keywords.Photo') }}</label>
                 <input name="photo" type="file" class="form-control" id="photo">
                 <div>
                     @if (auth()->user()->landlord->photo)
