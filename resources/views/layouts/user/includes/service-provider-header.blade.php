@@ -1,66 +1,45 @@
-<style>
-    header {
-        width: 1351px;
-        position: fixed;
-        top: 0px;
-        z-index: inherit;
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
-        background-color: #333333 !important;
-    }
+<header>
+    <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" style="font-size: 35px" href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    /* .nav-link {
-                color: #999999 !important;
-            } */
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item @if (Request::is('user/land-offers')) active @endif">
+                    <a class="nav-link" href="{{ route('user.home') }}">{{ trans('keywords.Home') }} <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                {{-- <li class="nav-item @if (Request::is('user/profile')) active @endif">
+                    <a class="nav-link" href="{{ route('user.profile') }}">{{ trans('keywords.my offers') }}</a>
+                </li> --}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @if (auth()->user()->serviceProvider->photo)
+                            <img src="{{ asset('storage/' . auth()->user()->serviceProvider->photo) }}"
+                                style="width:30px;height:30px;border-radius:50%" alt="">
+                        @else
+                            <img src="{{ asset('assets/front-end/img/5_1-placeholder.png') }}"
+                                style="width:30px;height:30px;border-radius:50%" alt="">
+                        @endif
 
-    .sticky-wrapper.is-sticky .site-navbar ul li a {
-        color: #999999 !important
-    }
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('user.profile') }}"> {{ trans('keywords.Profile') }}</a>
+                        {{-- <a class="dropdown-item" href="#">Another action</a> --}}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('user.logout') }}">{{ trans('keywords.logout') }}</a>
+                    </div>
+                </li>
 
-    .sticky-wrapper.is-sticky .site-navbar ul li a:hover {
-        color: white !important
-    }
-
-    .icon-menu.h3 {
-        color: white;
-    }
-</style>
-<header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-
-    <div class="container">
-        <div class="row align-items-center">
-
-            <div class="col-6 col-xl-2">
-                <h1 class="mb-0 site-logo m-0 p-0"><a style="color:white !important" href="index.html"
-                        class="mb-0">{{ trans('keywords.Jalal') }}</a></h1>
-            </div>
-
-            <div class="col-12 col-md-10 d-none d-xl-block">
-                <nav class="site-navigation position-relative text-right" role="navigation">
-
-                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li><a href="{{ route('user.home') }}" class="nav-link">{{ trans('keywords.Home') }}</a></li>
-                        <li>
-                            <div>
-                                <img style="width: 50px;height:50px;border-radius:50%"
-                                    src="{{ asset('storage') . '/' . auth()->user()->serviceProvider->photos }}"
-                                    alt="">
-                                <a href="{{ route('user.profile') }}"
-                                    class="nav-link">{{ trans('keywords.Profile') }}</a>
-                            </div>
-                        </li>
-                        <li><a href="{{ route('user.logout') }}" class="nav-link">{{ trans('keywords.Sign Out') }}</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-
-            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#"
-                    class="site-menu-toggle js-menu-toggle text-black float-left"><span class="icon-menu h3"></span></a>
-            </div>
-
+            </ul>
+            {{-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> --}}
         </div>
-    </div>
-
+    </nav>
 </header>

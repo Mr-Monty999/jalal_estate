@@ -18,8 +18,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @if (auth()->user()->office->logo)
-                            <img src="{{ asset('storage/' . auth()->user()->office->logo) }}"
+                        @if (auth()->user()->landlord->photo)
+                            <img src="{{ asset('storage/' . auth()->user()->landlord->photo) }}"
                                 style="width:30px;height:30px;border-radius:50%" alt="">
                         @else
                             <img src="{{ asset('assets/front-end/img/5_1-placeholder.png') }}"
