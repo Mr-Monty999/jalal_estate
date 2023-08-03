@@ -32,7 +32,7 @@ class RegisterOfficeRequest extends FormRequest
             "commercial_registration_number" => "required|numeric|unique:companies,commercial_registration_number|unique:offices,commercial_registration_number",
             "password" => "required|string",
             "password_confirmation" => "required|same:password",
-            "logo" => "nullable|image",
+            "logo" => "nullable|image|max:10240",
             "city_id" => "required|exists:cities,id",
             "neighbourhood_id" => "required|exists:neighbourhoods,id"
 

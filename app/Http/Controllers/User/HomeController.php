@@ -17,6 +17,11 @@ class HomeController extends Controller
     public function index()
     {
 
+        if (auth()->user()->hasAnyRole(["landlord", "service-provider"]))
+            return redirect()->route("user.profile");
+
+
+
         return redirect()->route("user.land-offers.index");
     }
 }

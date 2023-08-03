@@ -156,7 +156,9 @@ return [
     "active users" => "active users",
     "my offers" => "my offers",
     "logout" => "logout",
-    "login" => "login"
+    "login" => "login",
+    "update" => "update",
+    "profile updated successfully" => "profile updated successfully"
 
 
 

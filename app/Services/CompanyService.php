@@ -28,4 +28,20 @@ class CompanyService
 
         return $company;
     }
+    public static function update($request, $company)
+    {
+        $data = $request->validated();
+
+        if ($request->hasFile("logo")) {
+            $name = time() . "-" . $request->file("logo")->getClientOriginalName();
+            $data["logo"] = $request->file("logo")->storeAs("images/companies", $name, "public");
+
+            if ($company->logo)
+                Storage::disk("public")->delete($company->logo);
+        }
+        $company->update($data);
+
+
+        return $company;
+    }
 }

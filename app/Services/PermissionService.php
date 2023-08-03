@@ -49,11 +49,11 @@ class PermissionService
     {
         return [
             "access_user_dashboard",
-            "view_offers",
-            "create_offers",
-            "edit_offers",
-            "delete_offers",
-            "accept_offers",
+            // "view_offers",
+            // "create_offers",
+            // "edit_offers",
+            // "delete_offers",
+            // "accept_offers",
         ];
     }
 
@@ -62,11 +62,11 @@ class PermissionService
     {
         return [
             "access_user_dashboard",
-            "view_offers",
-            "create_offers",
-            "edit_offers",
-            "delete_offers",
-            "accept_offers",
+            // "view_offers",
+            // "create_offers",
+            // "edit_offers",
+            // "delete_offers",
+            // "accept_offers",
         ];
     }
 

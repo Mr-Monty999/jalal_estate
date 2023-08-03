@@ -155,6 +155,9 @@ return [
     "my offers" => "عروضي",
     "logout" => "تسجيل خروج",
     "login" => "تسجيل الدخول",
+    "update" => "تحديث",
+    "profile updated successfully" => "تم تحديث البيانات الشخصية بنجاح",
+
 
 
 
