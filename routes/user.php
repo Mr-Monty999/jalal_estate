@@ -34,7 +34,7 @@ Route::group(["prefix" => "user"], function () {
             Route::put("/offices/profile", [OfficeController::class, "updateProfile"])->name("user.offices.profile.update");
             Route::put("/marketers/profile", [MarketerController::class, "updateProfile"])->name("user.marketers.profile.update");
             Route::put("/landlords/profile", [LandlordController::class, "updateProfile"])->name("user.landlords.profile.update");
-            Route::put("/service-provider/profile", [ServiceProviderController::class, "updateProfile"])->name("user.service-provider.profile.update");
+            Route::put("/service-provider/profile", [ServiceProviderController::class, "updateProfile"])->name("user.service-providers.profile.update");
 
 
 

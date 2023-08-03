@@ -13,7 +13,7 @@ class UpdateServiceProviderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateServiceProviderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "nullable|string",
+            "password" => "nullable|string",
+            "password_confirmation" => "nullable|string|same:password",
+            "photo" => "nullable|image|max:10240"
         ];
     }
 }
