@@ -14,8 +14,10 @@ class CompanyController extends Controller
     {
         $data = $request->validated();
 
-        if (isset($data['password']))
+        if ($data['password'] != null)
             $data['password'] = Hash::make($data['password']);
+        else
+            unset($data['password']);
 
         $user =  auth()->user();
         $user->update($data);
