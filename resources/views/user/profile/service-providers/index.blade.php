@@ -18,7 +18,9 @@
                 @enderror
             </div>
             <div class="form-group col-12 col-md-6">
-                <label for="password">{{ trans('keywords.Password') }}</label>
+                <label for="password">{{ trans('keywords.Password') }}
+                    <b
+                        class="text-danger">({{ trans('keywords.leave empty if you dont want to change your password') }})</b></label>
                 <input name="password" value="{{ old('password') }}" type="text" class="form-control" id="password">
                 @error('password')
                     <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
@@ -27,7 +29,8 @@
                 @enderror
             </div>
             <div class="form-group col-12 col-md-6">
-                <label for="password_confimation">{{ trans('keywords.Password Confirmation') }}</label>
+                <label for="password_confimation">{{ trans('keywords.Password Confirmation') }} <b
+                        class="text-danger">({{ trans('keywords.leave empty if you dont want to change your password') }})</b></label>
                 <input name="password_confirmation" value="{{ old('password_confirmation') }}" type="text"
                     class="form-control" id="password_confirmation">
                 @error('password_confirmation')

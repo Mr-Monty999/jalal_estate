@@ -157,6 +157,7 @@ return [
     "login" => "تسجيل الدخول",
     "update" => "تحديث",
     "profile updated successfully" => "تم تحديث البيانات الشخصية بنجاح",
+    "leave empty if you dont want to change your password" => "إترك هذا الحقل فارغا إذا كنت لاتريد تغيير كلمة السر"
 
 
 
