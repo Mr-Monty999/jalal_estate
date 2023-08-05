@@ -161,6 +161,7 @@ return [
     "profile updated successfully" => "profile updated successfully",
     "leave empty if you dont want to change your password" => "leave empty if you dont want to change your password",
     "update profile" => "update profile",
+    "type2" => "type2"
 
 
 

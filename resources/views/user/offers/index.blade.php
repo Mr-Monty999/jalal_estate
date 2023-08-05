@@ -15,11 +15,12 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">{{ trans('keywords.ID') }}</th>
+                                    <th scope="col">{{ trans('keywords.Estate Type') }}</th>
                                     <th scope="col">{{ trans('keywords.City') }}</th>
                                     <th scope="col">{{ trans('keywords.Neighbourhood') }}</th>
                                     <th scope="col">{{ trans('keywords.Street') }}</th>
                                     <th scope="col">{{ trans('keywords.Operation Type') }}</th>
-                                    <th scope="col">{{ trans('keywords.Type') }}</th>
+                                    <th scope="col">{{ trans('keywords.type2') }}</th>
                                     <th scope="col">{{ trans('keywords.Land Number') }}</th>
                                     <th scope="col">{{ trans('keywords.Price') }}</th>
                                     <th scope="col">{{ trans('keywords.created at') }}</th>
@@ -32,6 +33,15 @@
                                 @foreach ($landOffers as $index => $landOffer)
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
+                                        <td>
+                                            <div class="d-flex">
+                                                @foreach ($landOffer->landTypes as $index => $landType)
+                                                    {{ $landType->name }} @if ($index < count($landOffer->landTypes) - 1)
+                                                        -
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </td>
                                         <td>{{ $landOffer->city->name }}</td>
                                         <td>{{ $landOffer->neighbourhood->name }}</td>
                                         <td>{{ $landOffer->street_name }}</td>
