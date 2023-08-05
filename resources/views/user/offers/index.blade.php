@@ -67,6 +67,8 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">{{ trans('keywords.ID') }}</th>
+                                    <th scope="col">{{ trans('keywords.estate classification') }}
+                                    </th>
                                     <th scope="col">{{ trans('keywords.Estate Type') }}
                                     </th>
                                     <th scope="col">{{ trans('keywords.City') }}</th>
@@ -86,6 +88,7 @@
                                 @foreach ($landOffers as $index => $landOffer)
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
+                                        <td class="text-black">{{ trans('keywords.' . $landOffer->commercial_or_housing) }}</td>
                                         <td class="text-black">
                                             <div class="d-flex">
                                                 @foreach ($landOffer->landTypes as $index => $landType)

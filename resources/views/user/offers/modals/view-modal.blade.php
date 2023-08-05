@@ -30,7 +30,7 @@
 
                         </div>
                         <div class="form-group col-12 col-md-6">
-                            <label for="commercial_or_housing">{{ trans('keywords.Commercial Or Housing') }}</label>
+                            <label for="commercial_or_housing">{{ trans('keywords.estate classification') }}</label>
                             <p class="text-black">
                                 {{ trans('keywords.' . $landOffer->commercial_or_housing) }}
                             </p>

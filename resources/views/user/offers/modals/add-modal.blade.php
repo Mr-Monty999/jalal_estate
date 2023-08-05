@@ -78,7 +78,7 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="commercial_or_housing">{{ trans('keywords.Commercial Or Housing') }}</label>
+                                                                for="commercial_or_housing">{{ trans('keywords.estate classification') }}</label>
                                                             <select name="commercial_or_housing" class="form-control"
                                                                 id="commercial_or_housing">
                                                                 <option @if (old('commercial_or_housing') == 'commercial') selected @endif

@@ -161,7 +161,8 @@ return [
     "update profile" => "تحديث الملف الشخصي",
     "type2" => "النوع2",
     "all" => "الجميع",
-    "search" => "بحث"
+    "search" => "بحث",
+    "estate classification" => "تصنيف العقار",
 
 
 

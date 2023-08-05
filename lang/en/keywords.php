@@ -163,7 +163,8 @@ return [
     "update profile" => "update profile",
     "type2" => "type2",
     "all" => "all",
-    "search" => "search"
+    "search" => "search",
+    "estate classification" => 'estate classification'
 
 
 
