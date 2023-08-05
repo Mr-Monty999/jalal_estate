@@ -33,7 +33,7 @@
                                 @foreach ($landOffers as $index => $landOffer)
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
-                                        <td>
+                                        <td class="text-black">
                                             <div class="d-flex">
                                                 @foreach ($landOffer->landTypes as $index => $landType)
                                                     {{ $landType->name }} @if ($index < count($landOffer->landTypes) - 1)
@@ -42,15 +42,16 @@
                                                 @endforeach
                                             </div>
                                         </td>
-                                        <td>{{ $landOffer->city->name }}</td>
-                                        <td>{{ $landOffer->neighbourhood->name }}</td>
-                                        <td>{{ $landOffer->street_name }}</td>
-                                        <td>{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}</td>
-                                        <td>{{ trans('keywords.' . $landOffer->type2) }}</td>
-                                        <td>{{ $landOffer->land_number }}</td>
-                                        <td>{{ number_format($landOffer->price) }}</td>
-                                        <td>{{ $landOffer->created_at->diffForHumans() }}</td>
-                                        <td>{{ $landOffer->user->name }}</td>
+                                        <td class="text-black">{{ $landOffer->city->name }}</td>
+                                        <td class="text-black">{{ $landOffer->neighbourhood->name }}</td>
+                                        <td class="text-black">{{ $landOffer->street_name }}</td>
+                                        <td class="text-black">{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}
+                                        </td>
+                                        <td class="text-black">{{ trans('keywords.' . $landOffer->type2) }}</td>
+                                        <td class="text-black">{{ $landOffer->land_number }}</td>
+                                        <td class="text-black">{{ number_format($landOffer->price) }}</td>
+                                        <td class="text-black">{{ $landOffer->created_at->diffForHumans() }}</td>
+                                        <td class="text-black">{{ $landOffer->user->name }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 @include('user.offers.modals.accept-modal')
