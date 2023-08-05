@@ -61,26 +61,52 @@
                             {{ $message }}
                         </div>
                     @enderror
+                    <div class="form-group">
+                        <label for="is_commercial{{ $landOffer->id }}">{{ trans('keywords.Is Commercial') }}</label>
+                        <div class="form-check form-check-inline">
+                            <input @if ($landOffer->commercial_or_housing != 'housing') disabled @endif
+                                @if ($landOffer->is_commercial == '0') checked @endif type="radio"
+                                class="form-check-input mx-1" name="is_commercial"
+                                id="is_commercial_no{{ $landOffer->id }}" value="0">
+                            <label class="form-check-label" for="is_commercial_no{{ $landOffer->id }}">
+                                {{ trans('keywords.No') }}
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input @if ($landOffer->commercial_or_housing != 'housing') disabled @endif
+                                @if ($landOffer->is_commercial == '1') checked @endif type="radio"
+                                class="form-check-input mx-1" name="is_commercial"
+                                id="is_commercial_yes{{ $landOffer->id }}" value="1">
+                            <label class="form-check-label" for="is_commercial_yes{{ $landOffer->id }}">
+                                {{ trans('keywords.Yes') }}
+                            </label>
+                        </div>
+                        @error('is_commercial')
+                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                 </div>
-                <div class="form-group col-12">
-                    <label for="is_commercial{{ $landOffer->id }}">{{ trans('keywords.Is Commercial') }}</label>
+                <div class="form-group col-12 col-md-6">
+                    {{-- <label for="type2{{ $landOffer->id }}">{{ trans('keywords.Is Piece Or Block') }}:</label> --}}
                     <div class="form-check form-check-inline">
-                        <input @if ($landOffer->commercial_or_housing != 'housing') disabled @endif
-                            @if ($landOffer->is_commercial == '0') checked @endif type="radio" class="form-check-input mx-1"
-                            name="is_commercial" id="is_commercial_no{{ $landOffer->id }}" value="0">
-                        <label class="form-check-label" for="is_commercial_no{{ $landOffer->id }}">
-                            {{ trans('keywords.No') }}
+                        <input type="radio" class="form-check-input mx-1" name="type2"
+                            @if ($landOffer->type2 == 'piece') checked @endif id="type2_piece{{ $landOffer->id }}"
+                            value="piece">
+                        <label class="form-check-label" for="type2_piece{{ $landOffer->id }}">
+                            {{ trans('keywords.Piece') }}
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input @if ($landOffer->commercial_or_housing != 'housing') disabled @endif
-                            @if ($landOffer->is_commercial == '1') checked @endif type="radio" class="form-check-input mx-1"
-                            name="is_commercial" id="is_commercial_yes{{ $landOffer->id }}" value="1">
-                        <label class="form-check-label" for="is_commercial_yes{{ $landOffer->id }}">
-                            {{ trans('keywords.Yes') }}
+                        <input type="radio" class="form-check-input mx-1" name="type2"
+                            @if ($landOffer->type2 == 'block') checked @endif id="type2_block{{ $landOffer->id }}"
+                            value="block">
+                        <label class="form-check-label" for="type2_block{{ $landOffer->id }}">
+                            {{ trans('keywords.Block') }}
                         </label>
                     </div>
-                    @error('is_commercial')
+                    @error('type2')
                         <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                             {{ $message }}
                         </div>
@@ -88,12 +114,16 @@
                 </div>
                 <div class="form-group col-12 col-md-6">
                     <label for="type3{{ $landOffer->id }}">{{ trans('keywords.corner or one street') }}</label>
-                    <select name="type3" class="form-control" id="type3{{ $landOffer->id }}">
+                    <select @if ($landOffer->type2 != 'piece') disabled @endif name="type3" class="form-control"
+                        id="type3{{ $landOffer->id }}">
                         <option @if ($landOffer->type3 == 'corner') selected @endif value="corner">
                             {{ trans('keywords.corner') }}
                         </option>
                         <option @if ($landOffer->type3 == 'one_street') selected @endif value="one_street">
                             {{ trans('keywords.one_street') }}
+                        </option>
+                        <option @if ($landOffer->type3 == 'block_header') selected @endif value="block_header">
+                            {{ trans('keywords.block_header') }}
                         </option>
                     </select>
                     @error('type3')
@@ -152,6 +182,7 @@
                         </div>
                     @enderror
                 </div>
+
                 <div class="form-group col-12 col-md-6">
                     <label for="street_height{{ $landOffer->id }}">{{ trans('keywords.Height On Street') }}</label>
                     <input name="street_height" value="{{ $landOffer->street_height }}" type="text"
@@ -259,38 +290,7 @@
                         </div>
                     @enderror
                 </div>
-                <div class="form-group col-12">
-                    <label for="type2{{ $landOffer->id }}">{{ trans('keywords.Is Piece Or Block') }}:</label>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input mx-1" name="type2"
-                            @if ($landOffer->type2 == 'piece') checked @endif id="type2_piece{{ $landOffer->id }}"
-                            value="piece">
-                        <label class="form-check-label" for="type2_piece{{ $landOffer->id }}">
-                            {{ trans('keywords.Piece') }}
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input mx-1" name="type2"
-                            @if ($landOffer->type2 == 'block') checked @endif id="type2_block{{ $landOffer->id }}"
-                            value="block">
-                        <label class="form-check-label" for="type2_block{{ $landOffer->id }}">
-                            {{ trans('keywords.Block') }}
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input mx-1" name="type2"
-                            @if ($landOffer->type2 == 'block_header') checked @endif id="block_header{{ $landOffer->id }}"
-                            value="block_header">
-                        <label class="form-check-label" for="block_header{{ $landOffer->id }}">
-                            {{ trans('keywords.Block') }}
-                        </label>
-                    </div>
-                    @error('type2')
-                        <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+
                 <div class="form-group col-12">
                     <label for="land_type_ids{{ $landOffer->id }}">{{ trans('keywords.Estate Type') }}:</label>
                     <br>
@@ -459,5 +459,23 @@
                 }
 
             });
+
+        let type2 = $("[name='type2']");
+        let inputs = $("[name='type3']");
+        type2.on("click", function() {
+
+            if (this.value == "piece") {
+
+                inputs.removeAttr("disabled");
+
+
+            } else {
+
+                inputs.attr("disabled", "true");
+
+
+            }
+
+        })
     </script>
 @endpush

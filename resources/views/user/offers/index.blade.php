@@ -190,5 +190,25 @@
                 }
 
             });
+
+
+
+        let type2 = $("[name='type2']");
+        let inputs = $("[name='type3']");
+        type2.on("click", function() {
+
+            if (this.value == "piece") {
+
+                inputs.removeAttr("disabled");
+
+
+            } else {
+
+                inputs.attr("disabled", "true");
+
+
+            }
+
+        });
     </script>
 @endpush

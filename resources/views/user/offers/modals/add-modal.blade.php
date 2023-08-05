@@ -94,31 +94,60 @@
                                                                     {{ $message }}
                                                                 </div>
                                                             @enderror
+                                                            <div class="form-group">
+                                                                <label
+                                                                    for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input @if (old('commercial_or_housing') != 'housing') disabled @endif
+                                                                        @if (old('is_commercial') == '0') checked @endif
+                                                                        type="radio" class="form-check-input mx-1"
+                                                                        name="is_commercial" id="is_commercial_no"
+                                                                        value="0">
+                                                                    <label class="form-check-label" for="is_commercial_no">
+                                                                        {{ trans('keywords.No') }}
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input @if (old('commercial_or_housing') != 'housing') disabled @endif
+                                                                        @if (old('is_commercial') == '1') checked @endif
+                                                                        type="radio" class="form-check-input mx-1"
+                                                                        name="is_commercial" id="is_commercial_yes"
+                                                                        value="1">
+                                                                    <label class="form-check-label" for="is_commercial_yes">
+                                                                        {{ trans('keywords.Yes') }}
+                                                                    </label>
+                                                                </div>
+                                                                @error('is_commercial')
+                                                                    <div style="border-radius: 30px"
+                                                                        class="alert alert-danger text-center mt-1">
+                                                                        {{ $message }}
+                                                                    </div>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group col-12">
-                                                            <label
-                                                                for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
+
+                                                        <div class="form-group col-12 col-md-6">
+                                                            {{-- <label
+                                                                for="type2">{{ trans('keywords.Is Piece Or Block') }}:</label> --}}
                                                             <div class="form-check form-check-inline">
-                                                                <input @if (old('commercial_or_housing') != 'housing') disabled @endif
-                                                                    @if (old('is_commercial') == '0') checked @endif
-                                                                    type="radio" class="form-check-input mx-1"
-                                                                    name="is_commercial" id="is_commercial_no"
-                                                                    value="0">
-                                                                <label class="form-check-label" for="is_commercial_no">
-                                                                    {{ trans('keywords.No') }}
+                                                                <input type="radio" class="form-check-input mx-1"
+                                                                    name="type2"
+                                                                    @if (old('type2') == 'piece') checked @endif
+                                                                    id="piece" value="piece">
+                                                                <label class="form-check-label" for="piece">
+                                                                    {{ trans('keywords.Piece') }}
                                                                 </label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input @if (old('commercial_or_housing') != 'housing') disabled @endif
-                                                                    @if (old('is_commercial') == '1') checked @endif
-                                                                    type="radio" class="form-check-input mx-1"
-                                                                    name="is_commercial" id="is_commercial_yes"
-                                                                    value="1">
-                                                                <label class="form-check-label" for="is_commercial_yes">
-                                                                    {{ trans('keywords.Yes') }}
+                                                                <input type="radio" class="form-check-input mx-1"
+                                                                    name="type2"
+                                                                    @if (old('type2') == 'block') checked @endif
+                                                                    id="block" value="block">
+                                                                <label class="form-check-label" for="block">
+                                                                    {{ trans('keywords.Block') }}
                                                                 </label>
                                                             </div>
-                                                            @error('is_commercial')
+                                                            @error('type2')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">
                                                                     {{ $message }}
@@ -128,12 +157,17 @@
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
                                                                 for="type3">{{ trans('keywords.corner or one street') }}</label>
-                                                            <select name="type3" class="form-control" id="type3">
+                                                            <select @if (old('type2') != 'piece') disabled @endif
+                                                                name="type3" class="form-control" id="type3">
                                                                 <option @if (old('type3') == 'corner') selected @endif
                                                                     value="corner">{{ trans('keywords.corner') }}
                                                                 </option>
                                                                 <option @if (old('type3') == 'one_street') selected @endif
                                                                     value="one_street">{{ trans('keywords.one street') }}
+                                                                </option>
+                                                                <option @if (old('type3') == 'block_header') selected @endif
+                                                                    value="block_header">
+                                                                    {{ trans('keywords.block header') }}
                                                                 </option>
                                                             </select>
                                                             @error('type3')
@@ -146,8 +180,9 @@
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
                                                                 for="streets_count">{{ trans('keywords.streets count') }}</label>
-                                                            <input name="streets_count" value="{{ old('streets_count') }}"
-                                                                type="number" class="form-control" id="streets_count">
+                                                            <input name="streets_count"
+                                                                value="{{ old('streets_count') }}" type="number"
+                                                                class="form-control" id="streets_count">
                                                             @error('streets_count')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">
@@ -158,8 +193,9 @@
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
                                                                 for="schema_number">{{ trans('keywords.schema number') }}</label>
-                                                            <input name="schema_number" value="{{ old('schema_number') }}"
-                                                                type="number" class="form-control" id="schema_number">
+                                                            <input name="schema_number"
+                                                                value="{{ old('schema_number') }}" type="number"
+                                                                class="form-control" id="schema_number">
                                                             @error('schema_number')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">
@@ -328,43 +364,7 @@
                                                                 </div>
                                                             @enderror
                                                         </div>
-                                                        <div class="form-group col-12">
-                                                            <label
-                                                                for="type2">{{ trans('keywords.Is Piece Or Block') }}:</label>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" class="form-check-input mx-1"
-                                                                    name="type2"
-                                                                    @if (old('type2') == 'piece') checked @endif
-                                                                    id="piece" value="piece">
-                                                                <label class="form-check-label" for="piece">
-                                                                    {{ trans('keywords.Piece') }}
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" class="form-check-input mx-1"
-                                                                    name="type2"
-                                                                    @if (old('type2') == 'block') checked @endif
-                                                                    id="block" value="block">
-                                                                <label class="form-check-label" for="block">
-                                                                    {{ trans('keywords.Block') }}
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="radio" class="form-check-input mx-1"
-                                                                    name="type2"
-                                                                    @if (old('type2') == 'block_header') checked @endif
-                                                                    id="block_header" value="block_header">
-                                                                <label class="form-check-label" for="block_header">
-                                                                    {{ trans('keywords.block header') }}
-                                                                </label>
-                                                            </div>
-                                                            @error('type2')
-                                                                <div style="border-radius: 30px"
-                                                                    class="alert alert-danger text-center mt-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
+
                                                         <div class="form-group col-12">
                                                             <label
                                                                 for="land_type_ids">{{ trans('keywords.Estate Type') }}:</label>

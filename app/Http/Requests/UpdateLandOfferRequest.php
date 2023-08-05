@@ -41,10 +41,10 @@ class UpdateLandOfferRequest extends FormRequest
             "price" => "required|numeric",
             "adjective" => "required|string",
             "contact_info" => "required|string",
-            "type2" => "required|string|in:piece,block,,block_header",
+            "type2" => "required|string|in:piece,block",
             "land_type_ids" => "required|array|exists:land_types,id",
             "image" => "nullable|image",
-            "type3" => "required|string|in:corner,one_street",
+            "type3" => "required_if:type2,piece|string|in:corner,one_street,block_header",
             "streets_count" => "required|numeric",
             "schema_number" => "required|numeric"
 

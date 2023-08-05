@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string("image")->nullable();
             $table->string("operation_type");
             $table->string("type2");
-            $table->string("type3");
+            $table->string("type3")->nullable();
             $table->string("adjective");
             // $table->bigInteger("marketing_certificate_number");
             $table->string("rent_period")->nullable();

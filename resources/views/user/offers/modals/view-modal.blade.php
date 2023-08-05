@@ -44,13 +44,14 @@
                                 </p>
                             </div>
                         @endif
-
-                        <div class="form-group col-12 col-md-6">
-                            <label for="type3">{{ trans('keywords.corner or one street') }}</label>
-                            <p class="text-black">
-                                {{ trans('keywords.' . $landOffer->type3) }}
-                            </p>
-                        </div>
+                        @if ($landOffer->type3)
+                            <div class="form-group col-12 col-md-6">
+                                <label for="type3">{{ trans('keywords.corner or one street') }}</label>
+                                <p class="text-black">
+                                    {{ trans('keywords.' . $landOffer->type3) }}
+                                </p>
+                            </div>
+                        @endif
                         <div class="form-group col-12 col-md-6">
                             <label for="streets_count">{{ trans('keywords.streets count') }}</label>
                             <p class="text-black">
