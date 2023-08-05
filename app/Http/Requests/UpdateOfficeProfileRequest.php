@@ -26,7 +26,7 @@ class UpdateOfficeProfileRequest extends FormRequest
         return [
             "name" => "nullable|string",
             "password" => "nullable|string",
-            "password_confirmation" => "nullable|string|same:password",
+            "password_confirmation" => "required_with:password|string|same:password",
             "logo" => "nullable|image|max:10240"
         ];
     }
