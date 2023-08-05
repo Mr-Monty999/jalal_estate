@@ -9,6 +9,9 @@ use App\Models\City;
 use App\Models\LandOffer;
 use App\Models\LandType;
 use App\Services\LandOfferService;
+use Illuminate\Encryption\Encrypter;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class LandOfferController extends Controller
 {
@@ -27,12 +30,22 @@ class LandOfferController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+
         $cities = City::orderBy("name")->get();
         $landTypes = LandType::orderBy("name")->get();
-        $landOffers = LandOffer::with("city.neighbourhoods", "neighbourhood", "landTypes")
+        $landOffers = LandOffer::with([
+            "city.neighbourhoods" => function ($query) {
+                $query->orderBy("name");
+            },
+            "neighbourhood",
+            "landTypes"
+        ])
             ->whereNull("accepted_by")
+            ->where("city_id", "LIKE", "%$request->city_id%")
+            ->where("neighbourhood_id", "LIKE", "%$request->neighbourhood_id%")
             ->latest()
             ->paginate(10);
         return view("user.offers.index", compact("cities", "landTypes", "landOffers"));

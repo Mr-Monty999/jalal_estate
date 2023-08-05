@@ -159,7 +159,11 @@ return [
     "profile updated successfully" => "تم تحديث البيانات الشخصية بنجاح",
     "leave empty if you dont want to change your password" => "إترك هذا الحقل فارغا إذا كنت لاتريد تغيير كلمة السر",
     "update profile" => "تحديث الملف الشخصي",
-    "type2" => "النوع2"
+    "type2" => "النوع2",
+    "all" => "الجميع",
+    "search" => "بحث"
+
+
 
 
 
