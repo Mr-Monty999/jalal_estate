@@ -88,7 +88,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="form-group col-12 col-md-6">
+                <div class="form-group col-12 col-md-6 my-md-5">
                     {{-- <label for="type2{{ $landOffer->id }}">{{ trans('keywords.Is Piece Or Block') }}:</label> --}}
                     <div class="form-check form-check-inline">
                         <input type="radio" class="form-check-input mx-1" name="type2"
