@@ -160,6 +160,7 @@ return [
     "update" => "update",
     "profile updated successfully" => "profile updated successfully",
     "leave empty if you dont want to change your password" => "leave empty if you dont want to change your password",
+    "update profile" => "update profile",
 
 
 

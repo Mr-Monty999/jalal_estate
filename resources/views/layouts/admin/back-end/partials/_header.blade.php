@@ -63,7 +63,7 @@
                                 <div class="avatar border avatar-circle">
                                     <img class="avatar-img"
                                         onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
-                                        src="{{ asset('storage/app/admin') }}/{{ auth()->user()->image }}"
+                                        src="{{ asset('storage/' . auth()->user()->admin->photo) }}"
                                         alt="Image Description">
                                     <span class="d-none avatar-status avatar-sm-status avatar-status-success"></span>
                                 </div>
@@ -74,10 +74,17 @@
                                 <div class="dropdown-item-text">
                                     <div class="media align-items-center text-break">
                                         <div class="avatar avatar-sm avatar-circle mr-2">
+                                            {{-- @if (auth()->user()->admin->photo) --}}
                                             <img class="avatar-img"
                                                 onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
-                                                src="{{ asset('storage/app/admin') }}/{{ auth()->user()->image }}"
+                                                src="{{ asset('storage/' . auth()->user()->admin->photo) }}"
                                                 alt="Image Description">
+                                            {{-- @else
+                                                <img class="avatar-img"
+                                                    onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                    src="{{ asset('storage/app/admin') }}/{{ auth()->user()->image }}"
+                                                    alt="Image Description">
+                                            @endif --}}
                                         </div>
                                         <div class="media-body">
                                             <span class="card-title h5">{{ auth()->user()->name }}</span>
@@ -95,6 +102,11 @@
                                 </a> --}}
 
                                 <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="{{ route('admin.profile.index') }}">
+                                    <span class="text-truncate pr-2"
+                                        title="{{ trans('keywords.Profile') }}">{{ trans('keywords.Profile') }}</span>
+                                </a>
 
                                 <a class="dropdown-item" href="{{ route('admin.logout') }}">
                                     <span class="text-truncate pr-2"
