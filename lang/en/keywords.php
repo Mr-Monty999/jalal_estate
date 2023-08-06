@@ -164,7 +164,8 @@ return [
     "type2" => "type2",
     "all" => "all",
     "search" => "search",
-    "estate classification" => 'estate classification'
+    "estate classification" => 'estate classification',
+    "select all" => "select all",
 
 
 

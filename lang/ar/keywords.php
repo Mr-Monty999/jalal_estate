@@ -163,6 +163,8 @@ return [
     "all" => "الجميع",
     "search" => "بحث",
     "estate classification" => "تصنيف العقار",
+    "select all" => "إختيار الكل",
+
 
 
 

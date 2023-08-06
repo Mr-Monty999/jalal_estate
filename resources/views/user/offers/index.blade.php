@@ -10,58 +10,7 @@
                         <h1 class="text-center text-black">{{ trans('keywords.Estate Offers') }}</h1>
 
                         @include('user.offers.modals.add-modal')
-                        <br>
-                        <form class="row" method="GET" action="{{ route('user.land-offers.index') }}">
-                            @csrf
-                            <div class="form-group col-12 col-md-3">
-                                <label for="city_id">{{ trans('keywords.City') }}</label>
-                                @php
-                                    $selectedCity = null;
-                                @endphp
-                                <select name="city_id" class="form-control city_id" id="city_id">
-                                    <option value="" selected>
-                                        {{ trans('keywords.all') }}</option>
-                                    @foreach ($cities as $city)
-                                        @php
-                                            request('city_id') == $city->id ? ($selectedCity = $city) : null;
-                                        @endphp
-                                        <option @if (request('city_id') == $city->id) selected @endif value="{{ $city->id }}">
-                                            {{ $city->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('city_id')
-                                    <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group col-12 col-md-3">
-                                <label for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
-                                <select name="neighbourhood_id" class="form-control neighbourhood_id" id="neighbourhood_id">
-                                    <option id="all" value="" selected>
-                                        {{ trans('keywords.all') }}</option>
-                                    @if ($selectedCity)
-                                        @foreach ($selectedCity->neighbourhoods as $neighbourhood)
-                                            <option @if ($neighbourhood->id == request('neighbourhood_id')) selected @endif
-                                                value="{{ $neighbourhood->id }}">
-                                                {{ $neighbourhood->name }}
-                                            </option>
-                                        @endforeach
-                                    @endif
-                                </select>
-
-                                @error('neighbourhood_id')
-                                    <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">{{ trans('keywords.search') }}</button>
-                            </div>
-                        </form>
-                        <br>
+                        @include('user.offers.table-filters')
                         <table class="table
                                 table-responsive">
                             <thead class="thead-dark">
@@ -88,7 +37,18 @@
                                 @foreach ($landOffers as $index => $landOffer)
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
-                                        <td class="text-black">{{ trans('keywords.' . $landOffer->commercial_or_housing) }}</td>
+                                        <td class="text-black">
+                                            @if ($landOffer->commercial_or_housing == 'housing')
+                                                <div style="border-radius: 10px;padding:10px" class="btn btn-success">
+                                                    {{ trans('keywords.' . $landOffer->commercial_or_housing) }}
+                                                </div>
+                                            @else
+                                                <div style="border-radius: 10px;padding:10px" class="btn btn-warning">
+                                                    {{ trans('keywords.' . $landOffer->commercial_or_housing) }}
+                                                </div>
+                                            @endif
+                                        </td>
+
                                         <td class="text-black">
                                             <div class="d-flex">
                                                 @foreach ($landOffer->landTypes as $index => $landType)
@@ -160,12 +120,12 @@
             let city = $(".city_id");
             city.on("change", function() {
                 let neighbourhood = $(this).parent().parent().find(".neighbourhood_id");
+                neighbourhood.find(":not(#all)").remove();
 
                 $.ajax({
                     type: "get",
                     url: "/api/cities/" + this.value + "/neighbourhoods",
                     success: function(response) {
-                        neighbourhood.find(":not(#all)").remove();
                         // let oldId =
                         //     "{{ old('neighbourhood_id') }}";
 

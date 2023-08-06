@@ -26,7 +26,7 @@ class UpdateMarketerProfileRequest extends FormRequest
         return [
             "name" => "nullable|string",
             "password" => "nullable|string",
-            "password_confirmation" => "required_with:password|string|same:password",
+            "password_confirmation" => "nullable|required_with:password|string|same:password",
             "photo" => "nullable|image|max:10240"
         ];
     }

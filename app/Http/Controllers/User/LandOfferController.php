@@ -34,6 +34,7 @@ class LandOfferController extends Controller
     {
 
 
+
         $cities = City::orderBy("name")->get();
         $landTypes = LandType::orderBy("name")->get();
         $landOffers = LandOffer::with([
@@ -43,11 +44,24 @@ class LandOfferController extends Controller
             "neighbourhood",
             "landTypes"
         ])
-            ->whereNull("accepted_by")
-            ->where("city_id", "LIKE", "%$request->city_id%")
-            ->where("neighbourhood_id", "LIKE", "%$request->neighbourhood_id%")
-            ->latest()
+            ->whereNull("accepted_by");
+
+        if ($request->city_id)
+            $landOffers->where("city_id", $request->city_id);
+
+        if ($request->neighbourhood_id)
+            $landOffers->whereIn("neighbourhood_id", $request->neighbourhood_id);
+
+        if ($request->commercial_or_housing)
+            $landOffers->whereIn("commercial_or_housing", $request->commercial_or_housing);
+
+        // if ($request->land_type_ids)
+        //     $landOffers->whereIn("landTypes.id", $request->land_type_ids);
+
+        $landOffers =
+            $landOffers->latest()
             ->paginate(10);
+
         return view("user.offers.index", compact("cities", "landTypes", "landOffers"));
     }
 
