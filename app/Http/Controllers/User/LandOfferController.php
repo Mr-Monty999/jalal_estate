@@ -83,8 +83,9 @@ class LandOfferController extends Controller
             ->paginate(10);
 
 
+        $user = auth()->user();
 
-        return view("user.offers.index", compact("cities", "landTypes", "landOffers"));
+        return view("user.offers.index", compact("cities", "landTypes", "landOffers", "user"));
     }
 
     /**

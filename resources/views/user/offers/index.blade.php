@@ -1,12 +1,41 @@
 @extends('layouts.user.main')
 
 @section('content')
-    <br><br><br>
+    <br>
     @can('view_offers')
         <div class="bg-light site-section bg-white my-4" id="offers">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-12 text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            @if ($user->hasRole('company'))
+                                @if ($user->company->logo)
+                                    <img src="{{ asset('storage/' . $user->company->logo) }}" style="width: 100px;height: 100px;"
+                                        alt="">
+                                @endif
+                            @elseif ($user->hasRole('landlord'))
+                                @if ($user->landlord->photo)
+                                    <img src="{{ asset('storage/' . $user->landlord->photo) }}"
+                                        style="width: 100px;height: 100px;" alt="">
+                                @endif
+                            @elseif ($user->hasRole('marketer'))
+                                @if ($user->marketer->photo)
+                                    <img src="{{ asset('storage/' . $user->marketer->photo) }}"
+                                        style="width: 100px;height: 100px;" alt="">
+                                @endif
+                            @elseif($user->hasRole('office'))
+                                @if ($user->office->logo)
+                                    <img src="{{ asset('storage/' . $user->office->logo) }}" style="width: 100px;height: 100px;"
+                                        alt="">
+                                @endif
+                            @elseif($user->hasRole('service-provider'))
+                                @if ($user->serviceProvider->photo)
+                                    <img src="{{ asset('storage/' . $user->serviceProvider->photo) }}"
+                                        style="width: 100px;height: 100px;" alt="">
+                                @endif
+                            @endif
+                        </div>
+                        <br><br>
                         <h1 class="text-center text-black">{{ trans('keywords.Estate Offers') }}</h1>
 
                         @include('user.offers.modals.add-modal')
