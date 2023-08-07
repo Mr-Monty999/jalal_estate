@@ -164,6 +164,9 @@ return [
     "search" => "بحث",
     "estate classification" => "تصنيف العقار",
     "select all" => "إختيار الكل",
+    "min price" => "أقل سعر",
+    "max price" => "أعلى سعر",
+
 
 
 

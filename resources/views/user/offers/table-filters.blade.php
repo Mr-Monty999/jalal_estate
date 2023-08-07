@@ -1,7 +1,7 @@
            <br>
            <form class="row" method="GET" action="{{ route('user.land-offers.index') }}">
                @csrf
-               <div class="form-group col-12 col-md-3">
+               <div class="form-group col-12 col-md-4">
                    <label for="city_id">{{ trans('keywords.City') }}</label>
                    @php
                        $selectedCity = null;
@@ -25,7 +25,7 @@
                        </div>
                    @enderror
                </div>
-               <div class="form-group col-12 col-md-3">
+               <div class="form-group col-12 col-md-4">
                    <label for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
                    <select name="neighbourhood_id" class="form-control neighbourhood_id" id="neighbourhood_id">
                        <option class="text-black" id="all" value="" selected>
@@ -46,7 +46,7 @@
                        </div>
                    @enderror
                </div>
-               <div class="form-group col-12 col-md-3 d-flex flex-column">
+               <div class="form-group col-12 col-md-4 d-flex flex-column">
                    <label for="commercial_or_housing">{{ trans('keywords.estate classification') }}</label>
                    <select multiple name="commercial_or_housing[]" class="form-control multiple-select-checkbox"
                        id="commercial_or_housing">
@@ -66,7 +66,7 @@
                        </div>
                    @enderror
                </div>
-               <div class="form-group col-12 d-flex flex-column">
+               <div class="form-group col-12 col-md-4 d-flex flex-column">
                    <label for="land_type_ids">{{ trans('keywords.Estate Type') }}</label>
                    <select multiple name="land_type_ids[]" class="form-control multiple-select-checkbox"
                        id="land_type_ids">
@@ -79,6 +79,28 @@
                        @endforeach
                    </select>
                    @error('land_type_ids')
+                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                           {{ $message }}
+                       </div>
+                   @enderror
+               </div>
+               <div class="form-group col-12 col-md-4">
+                   <label for="min_price">{{ trans('keywords.min price') }}</label>
+
+                   <input type="number" name="min_price" class="form-control" value="{{ request('min_price') }}">
+
+                   @error('min_price')
+                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                           {{ $message }}
+                       </div>
+                   @enderror
+               </div>
+               <div class="form-group col-12 col-md-4">
+                   <label for="max_price">{{ trans('keywords.max price') }}</label>
+
+                   <input type="number" name="max_price" class="form-control" value="{{ request('max_price') }}">
+
+                   @error('max_price')
                        <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                            {{ $message }}
                        </div>

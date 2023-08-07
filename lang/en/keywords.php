@@ -166,6 +166,8 @@ return [
     "search" => "search",
     "estate classification" => 'estate classification',
     "select all" => "select all",
+    "min price" => "min price",
+    "max price" => "max price",
 
 
 

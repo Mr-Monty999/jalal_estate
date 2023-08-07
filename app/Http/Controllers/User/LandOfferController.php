@@ -61,8 +61,14 @@ class LandOfferController extends Controller
             });
 
 
+        if ($request->min_price)
+            $landOffers->where("price", ">=", $request->min_price);
 
-        // return $landOffers->get();
+
+        if ($request->max_price)
+            $landOffers->where("price", "<=", $request->max_price);
+
+
 
 
         $landOffers =
