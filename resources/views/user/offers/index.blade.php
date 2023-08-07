@@ -63,7 +63,7 @@
                                         <td class="text-black">{{ $landOffer->street_name }}</td>
                                         <td class="text-black">{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}
                                         </td>
-                                        <td class="text-black">{{ $landOffer->space }}</td>
+                                        <td class="text-black">{{ number_format($landOffer->space) }}</td>
                                         <td class="text-black">{{ $landOffer->land_number }}</td>
                                         <td class="text-black">{{ number_format($landOffer->price) }}</td>
                                         <td class="text-black">{{ $landOffer->created_at->diffForHumans() }}</td>
