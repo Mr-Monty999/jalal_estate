@@ -106,6 +106,28 @@
                        </div>
                    @enderror
                </div>
+               <div class="form-group col-12 col-md-4">
+                   <label for="min_space">{{ trans('keywords.min space') }}</label>
+
+                   <input type="number" name="min_space" class="form-control" value="{{ request('min_space') }}">
+
+                   @error('min_space')
+                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                           {{ $message }}
+                       </div>
+                   @enderror
+               </div>
+               <div class="form-group col-12 col-md-4">
+                   <label for="max_space">{{ trans('keywords.max space') }}</label>
+
+                   <input type="number" name="max_space" class="form-control" value="{{ request('max_space') }}">
+
+                   @error('max_space')
+                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                           {{ $message }}
+                       </div>
+                   @enderror
+               </div>
                <div class="col-12">
                    <button class="btn btn-primary" type="submit">{{ trans('keywords.search') }}</button>
                </div>

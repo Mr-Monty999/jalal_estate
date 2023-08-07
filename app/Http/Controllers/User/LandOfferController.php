@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateLandOfferRequest;
 use App\Models\City;
 use App\Models\LandOffer;
 use App\Models\LandType;
+use App\Services\EncryptionService;
 use App\Services\LandOfferService;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
@@ -68,12 +69,20 @@ class LandOfferController extends Controller
         if ($request->max_price)
             $landOffers->where("price", "<=", $request->max_price);
 
+        if ($request->min_space)
+            $landOffers->where("space", ">=", $request->min_space);
+
+
+        if ($request->max_space)
+            $landOffers->where("space", "<=", $request->max_space);
 
 
 
         $landOffers =
             $landOffers->latest()
             ->paginate(10);
+
+
 
         return view("user.offers.index", compact("cities", "landTypes", "landOffers"));
     }

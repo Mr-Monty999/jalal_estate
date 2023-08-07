@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string("street_width");
             $table->string("street_height");
             $table->string("dept");
-            $table->string("space");
+            $table->double("space");
             $table->bigInteger("instrument_number");
             $table->string("image")->nullable();
             $table->string("operation_type");

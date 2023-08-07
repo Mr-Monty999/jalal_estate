@@ -166,6 +166,9 @@ return [
     "select all" => "إختيار الكل",
     "min price" => "أقل سعر",
     "max price" => "أعلى سعر",
+    "min space" => "أقل مساحة",
+    "max space" => "أعلى مساحة",
+    "space (in metres)" => "المساحة (متر)"
 
 
 

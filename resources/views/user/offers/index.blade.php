@@ -24,7 +24,7 @@
                                     <th scope="col">{{ trans('keywords.Neighbourhood') }}</th>
                                     <th scope="col">{{ trans('keywords.Street') }}</th>
                                     <th scope="col">{{ trans('keywords.Operation Type') }}</th>
-                                    <th scope="col">{{ trans('keywords.type2') }}</th>
+                                    <th scope="col">{{ trans('keywords.space (in metres)') }}</th>
                                     <th scope="col">{{ trans('keywords.Land Number') }}</th>
                                     <th scope="col">{{ trans('keywords.Price') }}</th>
                                     <th scope="col">{{ trans('keywords.created at') }}</th>
@@ -63,7 +63,7 @@
                                         <td class="text-black">{{ $landOffer->street_name }}</td>
                                         <td class="text-black">{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}
                                         </td>
-                                        <td class="text-black">{{ trans('keywords.' . $landOffer->type2) }}</td>
+                                        <td class="text-black">{{ $landOffer->space }}</td>
                                         <td class="text-black">{{ $landOffer->land_number }}</td>
                                         <td class="text-black">{{ number_format($landOffer->price) }}</td>
                                         <td class="text-black">{{ $landOffer->created_at->diffForHumans() }}</td>

@@ -29,7 +29,7 @@ class StoreLandOfferRequest extends FormRequest
             "street_name" => "required|string",
             "commercial_or_housing" => "required|string|in:commercial,housing",
             "direction" => "required|string",
-            "space" => "required|string",
+            "space" => "required|numeric",
             "is_commercial" => "required_if:commercial_or_housing,housing|string",
             "street_height" => "required|string",
             "dept" => "required|string",
