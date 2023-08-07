@@ -170,7 +170,7 @@ return [
     "max price" => "max price",
     "min space" => "min space",
     "max space" => "max space",
-    "space (in metres)"=>"space (in metres)
+    "space (in metres)" => "space (in metres)"
 
 
 
