@@ -66,12 +66,12 @@
                        </div>
                    @enderror
                </div>
-               {{-- <div class="form-group col-12 d-flex flex-column">
+               <div class="form-group col-12 d-flex flex-column">
                    <label for="land_type_ids">{{ trans('keywords.Estate Type') }}</label>
                    <select multiple name="land_type_ids[]" class="form-control multiple-select-checkbox"
                        id="land_type_ids">
-                       <option class="text-black select-all" value="">
-                           {{ trans('keywords.select all') }}</option>
+                       {{-- <option class="text-black select-all" value="">
+                           {{ trans('keywords.select all') }}</option> --}}
                        @foreach ($landTypes as $landType)
                            <option @if (request('land_type_ids') && in_array($landType->id, request('land_type_ids'))) selected @endif value="{{ $landType->id }}">
                                {{ $landType->name }}
@@ -83,7 +83,7 @@
                            {{ $message }}
                        </div>
                    @enderror
-               </div> --}}
+               </div>
                <div class="col-12">
                    <button class="btn btn-primary" type="submit">{{ trans('keywords.search') }}</button>
                </div>

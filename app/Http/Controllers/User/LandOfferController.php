@@ -55,8 +55,15 @@ class LandOfferController extends Controller
         if ($request->commercial_or_housing)
             $landOffers->whereIn("commercial_or_housing", $request->commercial_or_housing);
 
-        // if ($request->land_type_ids)
-        //     $landOffers->whereIn("landTypes.id", $request->land_type_ids);
+        if ($request->land_type_ids)
+            $landOffers->whereHas("landTypes", function ($query) use ($request) {
+                $query->whereIn("type_id", $request->land_type_ids);
+            });
+
+
+
+        // return $landOffers->get();
+
 
         $landOffers =
             $landOffers->latest()
