@@ -214,6 +214,6 @@ return [
         'year'                     => 'year',
         "city_id" => "city",
         "neighbourhood_id" => "neighbourhood",
-        "land_type_ids" => "land type"
+        "land_type_ids" => "land type",
     ],
 ];

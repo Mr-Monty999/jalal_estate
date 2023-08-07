@@ -232,7 +232,12 @@ return [
         "contact_info" => "معلومات التواصل",
         "type2" => "النوع",
         "rent" => "إيجار",
-        "sell" => "بيع"
+        "sell" => "بيع",
+        "land_type_ids" => "نوع الأرض",
+        "street_name" => "إسم الشارع",
+        "schema_number" => "رقم المخطط",
+        "streets_count" => "عدد الشوارع"
+
 
 
     ],

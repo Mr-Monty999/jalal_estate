@@ -19,11 +19,7 @@
                            </option>
                        @endforeach
                    </select>
-                   @error('city_id')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="form-group col-12 col-md-4">
                    <label for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
@@ -40,11 +36,7 @@
                        @endif
                    </select>
 
-                   @error('neighbourhood_id')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="form-group col-12 col-md-4 d-flex flex-column">
                    <label for="commercial_or_housing">{{ trans('keywords.estate classification') }}</label>
@@ -60,11 +52,7 @@
                            {{ trans('keywords.housing') }}
                        </option>
                    </select>
-                   @error('commercial_or_housing')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="form-group col-12 col-md-4 d-flex flex-column">
                    <label for="land_type_ids">{{ trans('keywords.Estate Type') }}</label>
@@ -78,55 +66,35 @@
                            </option>
                        @endforeach
                    </select>
-                   @error('land_type_ids')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="form-group col-12 col-md-4">
                    <label for="min_price">{{ trans('keywords.min price') }}</label>
 
                    <input type="number" name="min_price" class="form-control" value="{{ request('min_price') }}">
 
-                   @error('min_price')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="form-group col-12 col-md-4">
                    <label for="max_price">{{ trans('keywords.max price') }}</label>
 
                    <input type="number" name="max_price" class="form-control" value="{{ request('max_price') }}">
 
-                   @error('max_price')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="form-group col-12 col-md-4">
                    <label for="min_space">{{ trans('keywords.min space') }}</label>
 
                    <input type="number" name="min_space" class="form-control" value="{{ request('min_space') }}">
 
-                   @error('min_space')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="form-group col-12 col-md-4">
                    <label for="max_space">{{ trans('keywords.max space') }}</label>
 
                    <input type="number" name="max_space" class="form-control" value="{{ request('max_space') }}">
 
-                   @error('max_space')
-                       <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                           {{ $message }}
-                       </div>
-                   @enderror
+
                </div>
                <div class="col-12">
                    <button class="btn btn-primary" type="submit">{{ trans('keywords.search') }}</button>
