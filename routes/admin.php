@@ -2,6 +2,7 @@
 
 <?php
 
+use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CityController;
@@ -39,5 +40,8 @@ Route::group(["prefix" => "admin"], function () {
 
         Route::post('/users/{user}/active', [UserController::class, "active"])->name("admin.users.active");
         Route::post('/users/{user}/deactive', [UserController::class, "deactive"])->name("admin.users.deactive");
+
+
+        Route::resource("ads", AdController::class, ["as" => "admin"]);
     });
 });
