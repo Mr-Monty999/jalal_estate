@@ -176,6 +176,40 @@
 
                         {{-- end user --}}
 
+                        <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/ads*') ? 'active' : '' }}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                title="{{ trans('keywords.ads') }}">
+                                <i class="tio-filter-list nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{ trans('keywords.ads') }}
+                                </span>
+                            </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/ads*') ? 'block' : '' }}">
+                                @can('create_ads')
+                                    <li class="nav-item {{ Request::is('admin/ads/create') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.ads.create') }}"
+                                            title="{{ trans('keywords.add ad') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.add ad') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                                @can('view_ads')
+                                    <li class="nav-item {{ Request::is('admin/ads') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.ads.index') }}"
+                                            title="{{ trans('keywords.ads list') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.ads list') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                            </ul>
+                        </li>
+
                     </ul>
 
                 </div>

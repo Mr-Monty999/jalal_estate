@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAdRequest;
 use App\Http\Requests\UpdateAdRequest;
 use App\Models\Ad;
+use App\Services\AdService;
 
 class AdController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("can:view_ads")->only(["index", "show"]);
+        $this->middleware("can:edit_ads")->only(["edit", "update"]);
+        $this->middleware("can:create_ads")->only(["create", "store"]);
+        $this->middleware("can:delete_ads")->only(["destroy"]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +24,8 @@ class AdController extends Controller
      */
     public function index()
     {
-        //
+        $ads  = Ad::latest()->paginate(10);
+        return view("admin.ads.index", compact("ads"));
     }
 
     /**
@@ -26,7 +35,7 @@ class AdController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.ads.create");
     }
 
     /**
@@ -37,7 +46,10 @@ class AdController extends Controller
      */
     public function store(StoreAdRequest $request)
     {
-        //
+        AdService::store($request);
+
+        toastr()->success(trans("keywords.Added Successfully"));
+        return redirect()->route("admin.ads.index");
     }
 
     /**
@@ -59,7 +71,7 @@ class AdController extends Controller
      */
     public function edit(Ad $ad)
     {
-        //
+        return view("admin.ads.edit", compact("ad"));
     }
 
     /**
@@ -71,7 +83,10 @@ class AdController extends Controller
      */
     public function update(UpdateAdRequest $request, Ad $ad)
     {
-        //
+        AdService::update($request, $ad);
+
+        toastr()->success(trans("keywords.Updated Successfully"));
+        return redirect()->route("admin.ads.index");
     }
 
     /**
@@ -82,6 +97,9 @@ class AdController extends Controller
      */
     public function destroy(Ad $ad)
     {
-        //
+        $ad->delete();
+
+
+        return response()->json();
     }
 }

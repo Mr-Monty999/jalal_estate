@@ -13,7 +13,7 @@ class StoreAdRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreAdRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "company_name" => "required|string",
+            "company_logo" => "required|image|mimes:jpeg,png,jpg,gif",
+            "description" => "nullable|string",
         ];
     }
 }

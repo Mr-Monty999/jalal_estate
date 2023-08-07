@@ -168,7 +168,19 @@ return [
     "max price" => "أعلى سعر",
     "min space" => "أقل مساحة",
     "max space" => "أعلى مساحة",
-    "space (in metres)" => "المساحة (متر)"
+    "space (in metres)" => "المساحة (متر)",
+    "ads" => "الإعلانات",
+    "add ad" => "إضافة إعلان",
+    "ads list" => "قائمة الإعلانات",
+    "company name" => "إسم الشركة",
+    "company logo" => "شعار الشركة",
+    "description" => "الوصف",
+    "add an ad" => "إضافة إعلان",
+    "edit an ad" => "تعديل إعلان",
+    "Are You Sure Want To Delete This Ad" => 'هل أنت متأكد من حذف هذا الإعلان'
+
+
+
 
 
 

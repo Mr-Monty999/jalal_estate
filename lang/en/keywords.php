@@ -170,7 +170,16 @@ return [
     "max price" => "max price",
     "min space" => "min space",
     "max space" => "max space",
-    "space (in metres)" => "space (in metres)"
+    "space (in metres)" => "space (in metres)",
+    "ads" => "ads",
+    "add ad" => "add ad",
+    "ads list" => "ads list",
+    "company name" => "company name",
+    "company logo" => "company logo",
+    "description" => "description",
+    "add an ad" => "add an ad",
+    "edit an ad" => "edit an ad",
+    "Are You Sure Want To Delete This Ad" => "Are You Sure Want To Delete This Ad"
 
 
 

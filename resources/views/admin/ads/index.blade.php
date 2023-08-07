@@ -1,6 +1,6 @@
       @extends('layouts.admin.back-end.app')
 
-      @section('title', trans('keywords.Cities List'))
+      @section('title', trans('keywords.ads list'))
 
       @push('css_or_js')
       @endpush
@@ -15,8 +15,8 @@
                               <div class="row align-items-center">
                                   <div class="col-sm-4 col-md-6 col-lg-8 mb-2 mb-sm-0">
                                       <h5 class="text-capitalize d-flex gap-1">
-                                          {{ trans('keywords.Cities List') }}
-                                          <span class="badge badge-soft-dark radius-50 fz-12">{{ $cities->total() }}</span>
+                                          {{ trans('keywords.ads list') }}
+                                          <span class="badge badge-soft-dark radius-50 fz-12">{{ $ads->total() }}</span>
                                       </h5>
                                   </div>
                                   {{-- <div class="col-sm-8 col-md-6 col-lg-4">
@@ -45,34 +45,39 @@
                                   <thead class="thead-light thead-50 text-capitalize">
                                       <tr>
                                           <th>{{ trans('keywords.ID') }}</th>
-                                          <th class="text-center">{{ trans('keywords.City Name') }}</th>
-                                          <th>{{ trans('keywords.Main City') }}</th>
+                                          <th class="text-center">{{ trans('keywords.company name') }}</th>
+                                          <th>{{ trans('keywords.company logo') }}</th>
+                                          <th>{{ trans('keywords.description') }}</th>
+
                                           <th class="text-center">{{ trans('keywords.Action') }}</th>
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      @foreach ($cities as $key => $city)
+                                      @foreach ($ads as $key => $ad)
                                           <tr>
-                                              <td>{{ $city->id }}</td>
+                                              <td>{{ $ad->id }}</td>
                                               {{-- <td class="text-center">
                                             <img class="rounded" width="64"
                                                 onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
-                                                src="{{ asset('storage/app/city') }}/{{ $city['icon'] }}">
+                                                src="{{ asset('storage/app/ad') }}/{{ $ad['icon'] }}">
                                         </td> --}}
-                                              <td>{{ $city->name }}</td>
-                                              <td>
-                                                  {{ $city->parentCity ? $city->parentCity->name : trans('keywords.None') }}
+                                              <td>{{ $ad->company_name }}</td>
+                                              <td class="text-center">
+                                                  <img class="rounded" width="64"
+                                                      onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                      src="{{ asset('storage/' . $ad->company_logo) }}">
                                               </td>
+                                              <td>{{ $ad->description }}</td>
 
                                               <td>
                                                   <div class="d-flex justify-content-center gap-10">
                                                       <a class="btn btn-outline-info btn-sm square-btn"
                                                           title="{{ trans('keywords.Edit') }}"
-                                                          href="{{ route('admin.cities.edit', [$city->id]) }}">
+                                                          href="{{ route('admin.ads.edit', [$ad->id]) }}">
                                                           <i class="tio-edit"></i>
                                                       </a>
                                                       <a class="btn btn-outline-danger btn-sm delete square-btn"
-                                                          title="{{ trans('keywords.Delete') }}" id="{{ $city->id }}">
+                                                          title="{{ trans('keywords.Delete') }}" id="{{ $ad->id }}">
                                                           <i class="tio-delete"></i>
                                                       </a>
                                                   </div>
@@ -87,10 +92,10 @@
                           <div class="table-responsive mt-4">
                               <div class="d-flex justify-content-lg-end">
                                   <!-- Pagination -->
-                                  {{ $cities->links() }}
+                                  {{ $ads->links() }}
                               </div>
                           </div>
-                          @if (count($cities) == 0)
+                          @if (count($ads) == 0)
                               <div class="text-center p-4">
                                   <img class="mb-3 w-160" src="{{ asset('assets/back-end') }}/svg/illustrations/sorry.svg"
                                       alt="Image Description">
@@ -108,7 +113,7 @@
                   var id = $(this).attr("id");
                   Swal.fire({
                       title: '{{ trans('keywords.Are You Sure?') }}',
-                      text: "{{ trans('keywords.Are You Sure Want To Delete This City') }}!",
+                      text: "{{ trans('keywords.Are You Sure Want To Delete This Ad') }}!",
                       showCancelButton: true,
                       type: 'warning',
                       confirmButtonColor: '#3085d6',
@@ -125,7 +130,7 @@
                               }
                           });
                           $.ajax({
-                              url: "{{ route('admin.cities.destroy', '') }}/" + id,
+                              url: "{{ route('admin.ads.destroy', '') }}/" + id,
                               method: 'delete',
                               data: {
                                   id: id,

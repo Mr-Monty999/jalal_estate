@@ -82,7 +82,11 @@ class PermissionService
             "create_neighbourhoods",
             "edit_neighbourhoods",
             "delete_neighbourhoods",
-            "view_users"
+            "view_users",
+            "view_ads",
+            "create_ads",
+            "edit_ads",
+            "delete_ads",
 
         ];
     }

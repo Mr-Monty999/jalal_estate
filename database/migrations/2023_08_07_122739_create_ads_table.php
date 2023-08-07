@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            // $table->
+            $table->string("company_name");
+            $table->string("company_logo");
+            $table->text("description")->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
