@@ -5,9 +5,11 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLandOfferRequest;
 use App\Http\Requests\UpdateLandOfferRequest;
+use App\Models\Ad;
 use App\Models\City;
 use App\Models\LandOffer;
 use App\Models\LandType;
+use App\Services\AdService;
 use App\Services\EncryptionService;
 use App\Services\LandOfferService;
 use Illuminate\Encryption\Encrypter;
@@ -85,7 +87,12 @@ class LandOfferController extends Controller
 
         $user = auth()->user();
 
-        return view("user.offers.index", compact("cities", "landTypes", "landOffers", "user"));
+        $ads = AdService::loadAds(5);
+
+        // return $ads;
+
+
+        return view("user.offers.index", compact("cities", "landTypes", "landOffers", "user", "ads"));
     }
 
     /**

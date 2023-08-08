@@ -47,4 +47,35 @@ class AdService
 
         return $ad;
     }
+
+    public static function loadAds($count)
+    {
+
+        if (!session()->has("current_ad"))
+            session()->put("current_ad", 1);
+
+        $currentAd = session()->get("current_ad");
+
+        // return $currentAd;s
+
+
+        $adsCount = Ad::count();
+
+        $ads = Ad::get()->shuffle();
+
+        // $ads->shuffle();
+        // shuffle($ads);
+        // unset($ads[$currentAd]);
+        // $ads = array_values($ads);
+
+        // return $adsCount % $currentAd;
+
+        // if ($adsCount > $count)
+
+        //     $ads = $ads->get();
+
+
+        session()->put("current_ad", $currentAd + 1);
+        return $ads;
+    }
 }

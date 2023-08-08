@@ -12,6 +12,35 @@
 
 namespace App\Models{
 /**
+ * App\Models\Ad
+ *
+ * @property int $id
+ * @property string $company_name
+ * @property string $company_logo
+ * @property string|null $description
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Database\Factories\AdFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad whereCompanyLogo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad whereCompanyName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ad withoutTrashed()
+ */
+	class Ad extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Admin
  *
  * @property int $id
@@ -137,7 +166,7 @@ namespace App\Models{
  * @property string $street_width
  * @property string $street_height
  * @property string $dept
- * @property string $space
+ * @property float $space
  * @property int $instrument_number
  * @property string|null $image
  * @property string $operation_type

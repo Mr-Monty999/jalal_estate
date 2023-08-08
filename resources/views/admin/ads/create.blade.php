@@ -33,14 +33,23 @@
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-12 col-md-6 form-group">
-                                    <label class="title-color">
-                                        {{ trans('keywords.company logo') }}<span class="text-danger">*</span></label>
-                                    <input value="{{ old('company_logo') }}" type="file" name="company_logo"
-                                        class="form-control" placeholder="">
-                                    @error('company_logo')
-                                        <div class="alert alert-danger text-center">{{ $message }}</div>
-                                    @enderror
+                                <div class="from_part_2 col-12 col-md-6">
+                                    <label class="title-color">{{ trans('keywords.company logo') }}</label>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
+                                    <div class="text-left">
+                                        <input type="file" name="company_logo" id="customFileEg1" class="form-control"
+                                            accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    </div>
+                                    <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
+                                        <div class="form-group">
+                                            <center>
+
+                                                <img class="upload-img-view" id="viewer"
+                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                    alt="image" />
+                                            </center>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-md-6 form-group">
                                     <label class="title-color">
