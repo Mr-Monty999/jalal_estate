@@ -34,6 +34,21 @@
                         <a class="dropdown-item" href="{{ route('user.logout') }}">{{ trans('keywords.logout') }}</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell text-white"></i>
+
+                    </a>
+                    <div style="padding-left: 10px;padding-right:10px" class="dropdown-menu"
+                        aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item alert alert-info" href="">
+                            {{ trans('keywords.notify ddddddddddddddddddddddddddd') }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item dropdown-item alert alert-info"
+                            href="">{{ trans('keywords.notify') }}</a>
+                    </div>
+                </li>
 
             </ul>
             {{-- <form class="form-inline my-2 my-lg-0">

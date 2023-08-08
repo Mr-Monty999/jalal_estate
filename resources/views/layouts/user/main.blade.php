@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('theme2/fonts/icomoon/style.css') }}">
 
     <link rel="stylesheet" href="{{ asset('theme2/css/bootstrap.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('theme2/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('theme2/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme2/css/owl.theme.default.min.css') }}">
@@ -25,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('theme2/css/bootstrap-datepicker.css') }}">
 
     <link rel="stylesheet" href="{{ asset('theme2/fonts/flaticon/font/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.3.0-web/css/all.min.css') }}">
+
 
     <link rel="stylesheet" href="{{ asset('theme2/css/aos.css') }}">
 
@@ -36,11 +39,13 @@
             border-radius: 10px !important
         }
 
-        * {
+        *:not(i) {
             text-transform: capitalize !important
         }
     </style>
     @if (app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('theme2/css/bootstrap.min.rtl.css') }}">
+
         @include('layouts.arabic')
     @endif
 
