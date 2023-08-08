@@ -34,6 +34,12 @@
                         <a class="dropdown-item" href="{{ route('user.logout') }}">{{ trans('keywords.logout') }}</a>
                     </div>
                 </li>
+                <li class="nav-item @if (Request::is('user/notifications')) active @endif">
+                    <a class="nav-link" href="{{ route('user.notifications.index') }}">
+                        <i id="notifications" class="fas fa-bell" style="font-size: 25px"></i>
+                        <span id="notification-count" class="badge badge-danger" hidden>0</span>
+                    </a>
+                </li>
 
             </ul>
             {{-- <form class="form-inline my-2 my-lg-0">
