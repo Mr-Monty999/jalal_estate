@@ -180,7 +180,9 @@ return [
     "Are You Sure Want To Delete This Ad" => 'هل أنت متأكد من حذف هذا الإعلان',
     "user" => "المستخدم",
     "has accepted your offer" => "لقد قبل عرضك",
-    "notifcations" => 'الإشعارات'
+    "notifcations" => 'الإشعارات',
+    "accepted by" => "قُبل بواسطة",
+
 
 
 

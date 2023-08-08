@@ -16,7 +16,7 @@
                     <a style="width: 100%; margin-bottom:1px;padding:20px;border-radius: 10px;" class="alert-info text-center"
                         @php
 $user = User::find($notification->data['user_id']); @endphp
-                        href="">{{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') }}</a>
+                        href="{{ route('user.land-offers.show', $notification->data['land_offer_id']) }}">{{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') }}</a>
                 @endif
                 {{-- @if ($index != count($notifications) - 1)
                     <div class="dropdown-divider"></div>

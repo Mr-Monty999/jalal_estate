@@ -182,7 +182,8 @@ return [
     "Are You Sure Want To Delete This Ad" => "Are You Sure Want To Delete This Ad",
     "user" => "user",
     "has accepted your offer" => "has accepted your offer",
-    "notifcations" => "notifcations"
+    "notifcations" => "notifcations",
+    "accepted by" => "accepted by",
 
 
 

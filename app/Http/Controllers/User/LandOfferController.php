@@ -129,7 +129,8 @@ class LandOfferController extends Controller
      */
     public function show(LandOffer $landOffer)
     {
-        abort(403);
+        $landOffer->load("acceptedBy", "city", "neighbourhood", "landTypes");
+        return view("user.offers.show", compact("landOffer"));
     }
 
     public function accept(LandOffer $landOffer)

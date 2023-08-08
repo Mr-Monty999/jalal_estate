@@ -32,4 +32,9 @@ class LandOffer extends Model
     {
         return $this->belongsToMany(LandType::class, "offer_type", "offer_id", "type_id");
     }
+
+    public function acceptedBy()
+    {
+        return $this->belongsTo(User::class, "accepted_by");
+    }
 }
