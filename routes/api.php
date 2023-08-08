@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get("cities/{cityId}/neighbourhoods", [CityController::class, "getNeighbourhoods"]);
+Route::get("users/{userId}/notifications-count", [UserController::class, "getNotificationsCount"]);
+Route::post("users/read-notifications", [UserController::class, "readNotifications"]);

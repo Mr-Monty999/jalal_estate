@@ -160,7 +160,7 @@ return [
     "leave empty if you dont want to change your password" => "إترك هذا الحقل فارغا إذا كنت لاتريد تغيير كلمة السر",
     "update profile" => "تحديث الملف الشخصي",
     "type2" => "النوع2",
-    "all" => "الجميع",
+    "all" => "الكل",
     "search" => "بحث",
     "estate classification" => "تصنيف العقار",
     "select all" => "إختيار الكل",
@@ -177,7 +177,11 @@ return [
     "description" => "الوصف",
     "add an ad" => "إضافة إعلان",
     "edit an ad" => "تعديل إعلان",
-    "Are You Sure Want To Delete This Ad" => 'هل أنت متأكد من حذف هذا الإعلان'
+    "Are You Sure Want To Delete This Ad" => 'هل أنت متأكد من حذف هذا الإعلان',
+    "user" => "المستخدم",
+    "has accepted your offer" => "لقد قبل عرضك",
+    "notifcations" => 'الإشعارات'
+
 
 
 

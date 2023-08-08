@@ -9,6 +9,7 @@ use App\Models\Ad;
 use App\Models\City;
 use App\Models\LandOffer;
 use App\Models\LandType;
+use App\Notifications\LandOfferAcceptedNotification;
 use App\Services\AdService;
 use App\Services\EncryptionService;
 use App\Services\LandOfferService;
@@ -137,6 +138,7 @@ class LandOfferController extends Controller
         $landOffer->update([
             "accepted_by" => auth()->id()
         ]);
+        $landOffer->user->notify(new LandOfferAcceptedNotification($landOffer));
 
         toastr()->success(trans('keywords.offer accepted successfully'));
         return back();

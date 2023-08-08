@@ -13,4 +13,15 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route("user.login");
     }
+
+    public function getNotifications()
+    {
+
+        $user = Auth::user();
+        $user->unreadNotifications->markAsRead();
+        $notifications = $user->notifications()->paginate(20);
+
+
+        return view("user.notificaitions.index", compact("notifications"));
+    }
 }

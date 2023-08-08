@@ -28,6 +28,7 @@ Route::group(["prefix" => "user"], function () {
             Route::get("/", [HomeController::class, "index"])->name("user.home");
 
             Route::get("/profile", [ProfileController::class, "index"])->name("user.profile");
+            Route::get("/notifications", [UserController::class, "getNotifications"])->name("user.notifications.index");
 
 
             Route::put("/companies/profile", [CompanyController::class, "updateProfile"])->name("user.companies.profile.update");

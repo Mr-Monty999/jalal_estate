@@ -127,6 +127,53 @@
     <script src="{{ asset('theme2/js/main.js') }}"></script>
     @stack('scripts')
 
+    <script>
+        function getUserNotifications(userId) {
+            $.ajax({
+                type: "get",
+                url: "/api/users/" + userId + "/notifications-count",
+                success: function(response) {
+                    if (response.unread_notifications_count > 0) {
+                        let notificationCount = $("#notification-count");
+                        notificationCount.text(response.unread_notifications_count);
+                        notificationCount.removeAttr("hidden");
+                    }
+
+                }
+            });
+        }
+
+        function readUserNotifications(userId) {
+            let notificationCount = $("#notification-count");
+            let notifications = $("#notifications");
+            notifications.on("click", function() {
+                notificationCount.attr("hidden", "hidden");
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/api/users/read-notifications",
+                    data: {
+                        "user_id": userId
+                    },
+                    success: function(response) {}
+                });
+
+
+            });
+        }
+        $(document).ready(function() {
+            let userId = "{{ auth()->user()->id }}";
+
+            getUserNotifications(userId);
+
+            setInterval(() => {
+                getUserNotifications(userId);
+
+            }, 5000);
+            // readUserNotifications(userId);
+        })
+    </script>
 </body>
 
 </html>

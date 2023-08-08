@@ -179,7 +179,10 @@ return [
     "description" => "description",
     "add an ad" => "add an ad",
     "edit an ad" => "edit an ad",
-    "Are You Sure Want To Delete This Ad" => "Are You Sure Want To Delete This Ad"
+    "Are You Sure Want To Delete This Ad" => "Are You Sure Want To Delete This Ad",
+    "user" => "user",
+    "has accepted your offer" => "has accepted your offer",
+    "notifcations" => "notifcations"
 
 
 
