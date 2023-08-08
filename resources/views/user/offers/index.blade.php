@@ -133,7 +133,7 @@
             </div>
         </div>
     @endcan
-    @include('user.offers.ads.view')
+    {{-- @include('user.offers.ads.view') --}}
     <br><br><br>
 @endsection
 
