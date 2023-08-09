@@ -2,11 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class CheckIfAdminCanAccessDashboard
+class RedirectUserToDashboard
 {
     /**
      * Handle an incoming request.
@@ -21,17 +21,12 @@ class CheckIfAdminCanAccessDashboard
             return route('user.login');
 
         $user = Auth::user();
-
-        if (!$user->can("access_admin_dashboard") && !$user->can("access_user_dashboard"))
-            abort(403);
-
-        if (!$user->can("access_admin_dashboard"))
+        if ($user->can("access_admin_dashboard"))
+            return redirect()->route("admin.home");
+        else if ($user->can("access_user_dashboard"))
             return redirect()->route("user.home");
-
-
-
-
-
+        else
+            abort(403);
 
         return $next($request);
     }

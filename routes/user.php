@@ -21,7 +21,7 @@ Route::group(["prefix" => "user"], function () {
     });
 
 
-    Route::group(["middleware" => ["auth", "can:access_user_dashboard"]], function () {
+    Route::group(["middleware" => ["auth", "check-user-can-access-dashboard"]], function () {
         Route::get("/logout", [UserController::class, "logout"])->name("user.logout");
 
         Route::group(["middleware" => "check-if-user-is-active"], function () {

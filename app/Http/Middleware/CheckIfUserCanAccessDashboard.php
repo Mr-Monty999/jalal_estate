@@ -17,12 +17,19 @@ class CheckIfUserCanAccessDashboard
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()) {
-            if (!Auth::user()->can("access_user_dashboard")) {
-                toastr()->error(trans('keywords.Please Logout First') . "!");
-                return redirect()->route("admin.home");
-            }
-        }
+        if (!Auth::check())
+            return route('user.login');
+
+        $user = Auth::user();
+
+        if (!$user->can("access_admin_dashboard") && !$user->can("access_user_dashboard"))
+            abort(403);
+
+
+        if (!$user->can("access_user_dashboard"))
+            return redirect()->route("admin.home");
+
+
         return $next($request);
     }
 }

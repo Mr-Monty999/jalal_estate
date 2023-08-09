@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(["prefix" => "admin"], function () {
 
-    Route::group(["middleware" => "admin-guest"], function () {
-        Route::get("/login", [AuthController::class, "loginPage"])->name("admin.login");
-        Route::post("/login", [AuthController::class, "loginAttempt"])->name("admin.login.attempt");
-    });
+    // Route::group(["middleware" => "admin-guest"], function () {
+    //     Route::get("/login", [AuthController::class, "loginPage"])->name("admin.login");
+    //     Route::post("/login", [AuthController::class, "loginAttempt"])->name("admin.login.attempt");
+    // });
 
-    Route::group(["middleware" => ["admin-auth", "can:access_admin_dashboard"]], function () {
+    Route::group(["middleware" => ["auth", "check-admin-can-access-dashboard"]], function () {
         Route::get("/", [HomeController::class, "index"])->name("admin.home");
 
         Route::get("/logout", [AuthController::class, "logout"])->name("admin.logout");
