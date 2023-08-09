@@ -1,8 +1,8 @@
 <div class="fixed-bottom bg-white" style="padding: 10px">
     <style>
         .banner {
-            width: 40px;
-            height: 40px;
+            width: 100px;
+            height: 100px;
             margin-left: 8px;
             margin-right: 8px
         }
