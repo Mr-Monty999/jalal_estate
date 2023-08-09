@@ -40,6 +40,12 @@
                         <span id="notification-count" class="badge badge-danger" hidden>0</span>
                     </a>
                 </li>
+                <li class="nav-item @if (Request::is('user/chat')) active @endif">
+                    <a class="nav-link" href="{{ route('user.chat.index') }}">
+                        <i style="font-size: 25px" class="fa-solid fa-message"></i>
+                        <span id="chat-count" class="badge badge-danger" hidden>0</span>
+                    </a>
+                </li>
             </ul>
 
             {{-- <form class="form-inline my-2 my-lg-0">

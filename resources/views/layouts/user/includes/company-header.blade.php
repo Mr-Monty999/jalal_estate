@@ -40,6 +40,12 @@
                         <span id="notification-count" class="badge badge-danger" hidden>0</span>
                     </a>
                 </li>
+                <li class="nav-item @if (Request::is('user/chat')) active @endif">
+                    <a class="nav-link" href="{{ route('user.chat.index') }}">
+                        <i style="font-size: 25px" class="fa-solid fa-message"></i>
+                        <span id="chat-count" class="badge badge-danger" hidden>0</span>
+                    </a>
+                </li>
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

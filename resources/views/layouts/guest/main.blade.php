@@ -33,6 +33,8 @@
         }
     </style>
     @if (app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('theme2/css/bootstrap.min.rtl.css') }}">
+
         @include('layouts.arabic')
     @endif
 
