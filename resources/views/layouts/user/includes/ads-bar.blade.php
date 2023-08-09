@@ -1,4 +1,4 @@
-<div class="fixed-bottom bg-dark" style="padding: 10px">
+<div class="fixed-bottom bg-white" style="padding: 10px">
     <style>
         .banner {
             width: 40px;
