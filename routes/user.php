@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\ChatController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\CompanyController;
 use App\Http\Controllers\User\HomeController;
@@ -29,7 +30,7 @@ Route::group(["prefix" => "user"], function () {
 
             Route::get("/profile", [ProfileController::class, "index"])->name("user.profile");
             Route::get("/notifications", [UserController::class, "getNotifications"])->name("user.notifications.index");
-            Route::get("/chat", [UserController::class, "getChat"])->name("user.chat.index");
+            Route::get("/chat", [ChatController::class, "index"])->name("user.chat.index");
 
 
             Route::put("/companies/profile", [CompanyController::class, "updateProfile"])->name("user.companies.profile.update");
@@ -42,6 +43,13 @@ Route::group(["prefix" => "user"], function () {
 
             Route::resource("land-offers", LandOfferController::class, ["as" => "user"]);
             Route::post("land-offers/{landOffer}/accept", [LandOfferController::class, "accept"])->name("user.land-offers.accept");
+
+
+
+            /// Chat //
+            Route::group(["prefix" => "chat"], function () {
+                Route::post("message/send", [ChatController::class, "sendMessage"])->name("user.chat.message.send");
+            });
         });
     });
 });

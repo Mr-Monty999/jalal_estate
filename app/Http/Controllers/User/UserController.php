@@ -24,10 +24,4 @@ class UserController extends Controller
 
         return view("user.notificaitions.index", compact("notifications"));
     }
-
-    public function getChat()
-    {
-
-        return view("user.chat.index");
-    }
 }

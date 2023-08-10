@@ -49,6 +49,9 @@
         @include('layouts.arabic')
     @endif
 
+    @livewireStyles
+
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -174,6 +177,9 @@
             // readUserNotifications(userId);
         })
     </script>
+
+    @livewireScripts
+
 </body>
 
 </html>
