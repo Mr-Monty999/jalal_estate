@@ -113,7 +113,7 @@
                 <div class="mesgs">
                     <div wire:poll="getConversationMessages()" class="msg_history">
                         @foreach ($chatMessages as $message)
-                            @if ($message->sender_id == Auth::id())
+                            @if ($message->participation->messageable_id != Auth::id())
                                 <div class="incoming_msg">
                                     <div class="incoming_msg_img"> <img
                                             src="https://ptetutorials.com/images/user-profile.png" alt="sunil">

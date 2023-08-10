@@ -62,7 +62,9 @@ class Chat extends Component
             ->first()->messageable_id;
 
 
-        $this->chatMessages = $conversation->messages()->get();
+        $this->chatMessages = $conversation->messages;
+
+        // dd($this->chatMessages);
     }
     public function mount()
     {
@@ -78,7 +80,7 @@ class Chat extends Component
     }
     public function render()
     {
-
+        // dd(auth()->user());
         // all conversations
         $conversations = $this->getConversations();
 
