@@ -113,10 +113,35 @@
                 <div class="mesgs">
                     <div wire:poll="getConversationMessages()" class="msg_history">
                         @foreach ($chatMessages as $message)
-                            @if ($message->participation->messageable_id != Auth::id())
+                            @php
+                                $participation = $message->participation->messageable;
+                            @endphp
+                            @if ($participation->id != Auth::id())
                                 <div class="incoming_msg">
-                                    <div class="incoming_msg_img"> <img
-                                            src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                                    <div class="incoming_msg_img">
+                                        {{-- <img
+                                            src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> --}}
+                                        @if ($participation->hasRole('company'))
+                                            <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                src="{{ asset('storage/' . $participation->company->logo) }}"
+                                                alt="">
+                                        @elseif ($participation->hasRole('landlord'))
+                                            <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                src="{{ asset('storage/' . $participation->landlord->photo) }}"
+                                                alt="">
+                                        @elseif ($participation->hasRole('marketer'))
+                                            <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                src="{{ asset('storage/' . $participation->marketer->photo) }}"
+                                                alt="">
+                                        @elseif($participation->hasRole('office'))
+                                            <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                src="{{ asset('storage/' . $participation->office->logo) }}"
+                                                alt="">
+                                        @elseif($participation->hasRole('service-provider'))
+                                            <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                src="{{ asset('storage/' . $participation->serviceProvider->logo) }}"
+                                                alt="">
+                                        @endif
                                     </div>
                                     <div class="received_msg">
                                         <div class="received_withd_msg">
@@ -140,8 +165,8 @@
                     <div class="type_msg">
                         <div class="input_msg_write">
                             {{-- <form id="send-message" method="POST" action="{{ route('user.chat.message.send') }}"> --}}
-                            <input wire:model.lazy="message" name="message" id="message" type="text"
-                                class="write_msg" placeholder="Type a message" />
+                            <input wire:keydown.enter="sendMessage()" wire:model.lazy="message" name="message"
+                                id="message" type="text" class="write_msg" placeholder="Type a message" />
                             <button wire:click="sendMessage()" class="msg_send_btn" type="button"><i
                                     class="fa-solid fa-paper-plane"></i></button>
                             {{-- </form> --}}
