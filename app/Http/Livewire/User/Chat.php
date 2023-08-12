@@ -22,8 +22,8 @@ class Chat extends Component
     {
         $this->validate([
             "receiverId" => "required|numeric",
-            "message" => "nullable|string",
-            "image" => "nullable|image"
+            "image" => "nullable|image",
+            "message" => "nullable:image|string",
         ]);
 
         $sender = auth()->user();

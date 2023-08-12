@@ -182,6 +182,8 @@ return [
     "has accepted your offer" => "لقد قبل عرضك",
     "notifcations" => 'الإشعارات',
     "accepted by" => "قُبل بواسطة",
+    "messages" => "الرسائل",
+    "recent" => "الأخيرة",
 
 
 

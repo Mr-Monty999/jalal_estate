@@ -9,17 +9,18 @@
                 use Musonza\Chat\Facades\ChatFacade;
                 
             @endphp
-            <h3 class=" text-center">Messaging</h3>
+            <h3 class=" text-center">{{ trans('keywords.messages') }}</h3>
             <div class="messaging">
                 <div class="inbox_msg d-flex">
                     <div class="inbox_people">
                         <div class="headind_srch">
                             <div class="recent_heading">
-                                <h4>Recent</h4>
+                                <h4>{{ trans('keywords.recent') }}</h4>
                             </div>
                             <div class="srch_bar">
                                 <div class="stylish-input-group">
-                                    <input type="text" class="search-bar" placeholder="Search">
+                                    <input type="text" class="search-bar"
+                                        placeholder="{{ trans('keywords.search') }}">
                                     <span class="input-group-addon">
                                         <button type="button"> <i class="fa fa-search" aria-hidden="true"></i>
                                         </button>
@@ -174,9 +175,11 @@
                                         </div>
                                         <div class="received_msg">
                                             <div class="received_withd_msg">
-                                                <p>{{ $message->body }}</p>
+                                                @if ($message->body != 'attachment')
+                                                    <p>{{ $message->body }}</p>
+                                                @endif
                                                 @if ($message->data)
-                                                    <img style="width: 100px;height:100px"
+                                                    <img class="my-1" style="width: 100px;height:100px"
                                                         src="{{ asset('storage/' . $message->data['image']) }}"
                                                         alt="">
                                                 @endif
@@ -188,9 +191,11 @@
                                 @else
                                     <div class="outgoing_msg">
                                         <div class="sent_msg">
-                                            <p>{{ $message->body }}</p>
+                                            @if ($message->body != 'attachment')
+                                                <p>{{ $message->body }}</p>
+                                            @endif
                                             @if ($message->data)
-                                                <img style="width: 100px;height:100px"
+                                                <img class="my-1" style="width: 100px;height:100px"
                                                     src="{{ asset('storage/' . $message->data['image']) }}"
                                                     alt="">
                                             @endif

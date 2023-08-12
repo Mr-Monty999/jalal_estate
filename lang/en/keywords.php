@@ -184,6 +184,8 @@ return [
     "has accepted your offer" => "has accepted your offer",
     "notifcations" => "notifcations",
     "accepted by" => "accepted by",
+    "messages" => "messages",
+    "recent" => "recent",
 
 
 
