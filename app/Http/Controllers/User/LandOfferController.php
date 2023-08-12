@@ -199,7 +199,7 @@ class LandOfferController extends Controller
     {
 
         $user = auth()->user();
-        if ($landOffer->accepted_by != $user->id)
+        if ($landOffer->accepted_by != $user->id && $landOffer->user_id != $user->id)
             abort(403);
 
         session()->remove("print_offer_id");

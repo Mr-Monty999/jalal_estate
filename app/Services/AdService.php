@@ -48,7 +48,7 @@ class AdService
         return $ad;
     }
 
-    public static function loadAds($count)
+    public static function loadAds($count = null)
     {
 
         if (!session()->has("current_ad"))

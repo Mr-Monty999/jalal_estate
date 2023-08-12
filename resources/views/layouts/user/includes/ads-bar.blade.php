@@ -8,7 +8,7 @@
         }
     </style>
     @php
-        $ads = App\Services\AdService::loadAds(5);
+        $ads = App\Services\AdService::loadAds();
         
         $banner1 = isset($ads[0]) ? $ads[0]->company_logo : '';
         $banner2 = isset($ads[1]) ? $ads[1]->company_logo : '';
