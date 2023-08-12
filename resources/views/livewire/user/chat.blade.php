@@ -5,6 +5,10 @@
 
                 @include('layouts.arabic')
             @endif
+            @php
+                use Musonza\Chat\Facades\ChatFacade;
+                
+            @endphp
             <h3 class=" text-center">Messaging</h3>
             <div class="messaging">
                 <div class="inbox_msg d-flex">
@@ -39,6 +43,9 @@
                                     
                                     // $lastMessage = $conversation->last_message->whereRelation([]""->where('id', '!=', auth()->id());
                                     
+                                    $unreadMessagesCount = ChatFacade::conversation($conversation)
+                                        ->setParticipant(auth()->user())
+                                        ->unreadCount();
                                 @endphp
                                 <div wire:click="getConversationMessages({{ $conversation->id }})"
                                     class="chat_list @if ($conversationId == $conversation->id) active_chat @endif">
@@ -50,6 +57,13 @@
                                             <h5 class="text-black">
                                                 {{ $participant->name }}
                                             </h5>
+                                            @if ($unreadMessagesCount > 0)
+                                                <span
+                                                    style="border-radius: 30%;height:fit-content;width:fit-content;padding:10px"
+                                                    class="bg-danger text-white">
+                                                    {{ $unreadMessagesCount }}
+                                                </span>
+                                            @endif
                                             <span
                                                 class="chat_date">{{ $conversation->created_at->diffForHumans() }}</span>
                                         </div>
