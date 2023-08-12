@@ -184,6 +184,10 @@ return [
     "accepted by" => "قُبل بواسطة",
     "messages" => "الرسائل",
     "recent" => "الأخيرة",
+    "direct owner (I have half the quest)" => "مباشر المالك (لي نصف السعي)",
+    "direct buyer (me half quest)" => "مباشر المشتري (لي نصف السعي)"
+
+
 
 
 

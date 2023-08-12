@@ -270,21 +270,23 @@
                         </div>
                     @enderror
                 </div>
-                <div class="form-group col-12 col-md-6">
-                    <label for="adjective{{ $landOffer->id }}">{{ trans('keywords.Adjective') }}</label>
-                    <input name="adjective" value="{{ $landOffer->adjective }}" type="text" class="form-control"
-                        id="adjective{{ $landOffer->id }}">
-                    @error('adjective')
-                        <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+
                 <div class="form-group col-12 col-md-6">
                     <label for="contact_info{{ $landOffer->id }}">{{ trans('keywords.Contact Info') }}</label>
                     <input name="contact_info" value="{{ $landOffer->contact_info }}" type="text"
                         class="form-control" id="contact_info{{ $landOffer->id }}">
                     @error('contact_info')
+                        <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="form-group col-12">
+                    <label for="adjective{{ $landOffer->id }}">{{ trans('keywords.Adjective') }}</label>
+                    <input readonly name="adjective" value=""
+                        placeholder="{{ trans('keywords.direct owner (I have half the quest)') }}" type="text"
+                        class="form-control" id="adjective{{ $landOffer->id }}">
+                    @error('adjective')
                         <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                             {{ $message }}
                         </div>

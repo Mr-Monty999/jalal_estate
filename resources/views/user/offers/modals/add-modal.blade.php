@@ -342,18 +342,6 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="adjective">{{ trans('keywords.Adjective') }}</label>
-                                                            <input name="adjective" value="{{ old('adjective') }}"
-                                                                type="text" class="form-control" id="adjective">
-                                                            @error('adjective')
-                                                                <div style="border-radius: 30px"
-                                                                    class="alert alert-danger text-center mt-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="form-group col-12 col-md-6">
-                                                            <label
                                                                 for="contact_info">{{ trans('keywords.Contact Info') }}</label>
                                                             <input name="contact_info" value="{{ old('contact_info') }}"
                                                                 type="text" class="form-control" id="contact_info">
@@ -364,6 +352,21 @@
                                                                 </div>
                                                             @enderror
                                                         </div>
+                                                        <div class="form-group col-12">
+                                                            <label
+                                                                for="adjective">{{ trans('keywords.Adjective') }}</label>
+                                                            <input readonly
+                                                                placeholder="{{ trans('keywords.direct owner (I have half the quest)') }}"
+                                                                name="adjective" value="" type="text"
+                                                                class="form-control" id="adjective">
+                                                            @error('adjective')
+                                                                <div style="border-radius: 30px"
+                                                                    class="alert alert-danger text-center mt-1">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
+                                                        </div>
+
 
                                                         <div class="form-group col-12">
                                                             <label

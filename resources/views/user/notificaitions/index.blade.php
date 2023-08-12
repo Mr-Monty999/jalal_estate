@@ -43,7 +43,7 @@
                                     src="{{ asset('storage/' . $user->serviceProvider->logo) }}" alt="">
                             @endif
                             <span class="text-black">
-                                {{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') }}
+                                {{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') . ' [' . trans('keywords.direct buyer (me half quest)') . ']' }}
                             </span>
                         </div>
                         <div>
