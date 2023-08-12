@@ -22,13 +22,15 @@ class Chat extends Component
     {
         $this->validate([
             "receiverId" => "required|numeric",
-            "message" => "required|string",
+            "message" => "nullable|string",
             "image" => "nullable|image"
         ]);
 
         $sender = auth()->user();
         $receiver = User::find($this->receiverId);
 
+        if (!$this->message)
+            $this->message = "attachment";
 
         $participants = [
             $sender, $receiver
@@ -39,13 +41,25 @@ class Chat extends Component
         if ($conversation == null)
             $conversation = ChatFacade::makeDirect()->createConversation($participants);
 
+
         $message = ChatFacade::message($this->message)
-            ->from($sender)
+            ->from($sender);
+
+
+        if ($this->image) {
+            $image = $this->image->storeAs('images/chat', time() . '.' . $this->image->extension(), "public");
+            $message->data(['image' => $image]);
+        }
+
+
+
+        $message
             ->to($conversation)
             ->send();
 
         $this->getConversationMessages();
         $this->message = '';
+        $this->image = null;
     }
     public function getConversationMessages($conversationId = null)
     {
@@ -53,6 +67,7 @@ class Chat extends Component
         //     "conversationId" => "required|numeric"
         // ]);
 
+        $user = auth()->user();
         if ($conversationId != null)
             $this->conversationId = $conversationId;
 
@@ -61,8 +76,11 @@ class Chat extends Component
 
         $conversation = ChatFacade::conversations()->getById($this->conversationId);
 
+        ChatFacade::conversation($conversation)->setParticipant($user)->readAll();
+
+
         $this->receiverId = $conversation->participants()
-            ->where('messageable_id', '!=', auth()->id())
+            ->where('messageable_id', '!=', $user->id)
             ->first()->messageable_id;
 
 

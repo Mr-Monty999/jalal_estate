@@ -109,7 +109,7 @@
 
         @include('layouts.user.includes.footer')
 
-        @include('layouts.user.includes.ads-bar')
+        {{-- @include('layouts.user.includes.ads-bar') --}}
     </div> <!-- .site-wrap -->
 
     <script src="{{ asset('theme2/js/jquery-3.3.1.min.js') }}"></script>
@@ -136,10 +136,32 @@
                 type: "get",
                 url: "/api/users/" + userId + "/notifications-count",
                 success: function(response) {
+                    let notificationCount = $("#notification-count");
+
                     if (response.unread_notifications_count > 0) {
-                        let notificationCount = $("#notification-count");
                         notificationCount.text(response.unread_notifications_count);
                         notificationCount.removeAttr("hidden");
+                    } else {
+                        notificationCount.text(0);
+                        notificationCount.attr("hidden", true);
+                    }
+
+                }
+            });
+        }
+
+        function getUserMessagesCount(userId) {
+            $.ajax({
+                type: "get",
+                url: "/api/chat/users/" + userId + "/unread-messages-count",
+                success: function(response) {
+                    let unreadMessagesCount = $("#chat-count");
+                    if (response.unread_messages_count > 0) {
+                        unreadMessagesCount.text(response.unread_messages_count);
+                        unreadMessagesCount.removeAttr("hidden");
+                    } else {
+                        unreadMessagesCount.text(0);
+                        unreadMessagesCount.attr("hidden", true);
                     }
 
                 }
@@ -169,9 +191,11 @@
             let userId = "{{ auth()->user()->id }}";
 
             getUserNotifications(userId);
+            getUserMessagesCount(userId);
 
             setInterval(() => {
                 getUserNotifications(userId);
+                getUserMessagesCount(userId);
 
             }, 5000);
             // readUserNotifications(userId);

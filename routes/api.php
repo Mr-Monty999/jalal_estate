@@ -29,6 +29,7 @@ Route::post("users/read-notifications", [UserController::class, "readNotificatio
 
 
 //// Chat Api ////
-// Route::group(["prefix" => "chat"], function () {
-//     Route::post("message/send", [ChatController::class, "sendMessage"]);
-// });
+Route::group(["prefix" => "chat"], function () {
+    // Route::post("message/send", [ChatController::class, "sendMessage"]);
+    Route::get("users/{userId}/unread-messages-count", [ChatController::class, "getUnreadMessagesCount"]);
+});
