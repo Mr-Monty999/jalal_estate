@@ -16,7 +16,12 @@
                             </div>
                         </div>
                     </div>
-                    <div wire:poll="getConversations()" class="inbox_chat">
+                    <style>
+                        .active_chat {
+                            background-color: cyan
+                        }
+                    </style>
+                    <div wire:poll.5s="getConversations()" class="inbox_chat">
                         @foreach ($conversations as $index => $conversation)
                             @php
                                 $conversation = $conversation->conversation;
@@ -29,7 +34,7 @@
                                 
                             @endphp
                             <div wire:click="getConversationMessages({{ $conversation->id }})"
-                                class="chat_list active_chat">
+                                class="chat_list @if ($conversationId == $conversation->id) active_chat @endif">
                                 <div class="chat_people d-flex">
                                     <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
                                             alt="sunil"> </div>
@@ -111,11 +116,12 @@
                     </div>
                 </div>
                 <div class="mesgs">
-                    <div wire:poll="getConversationMessages()" class="msg_history">
+                    <div id="messages" wire:poll.5s="getConversationMessages()" class="msg_history">
                         @foreach ($chatMessages as $message)
                             @php
                                 $participation = $message->participation->messageable;
                             @endphp
+
                             @if ($participation->id != Auth::id())
                                 <div class="incoming_msg">
                                     <div class="incoming_msg_img">
@@ -158,15 +164,25 @@
                                     </div>
                                 </div>
                             @endif
+
+                            <script>
+                                let messages = document.getElementById('messages');
+                                messages.scrollTop = messages.scrollHeight;
+                            </script>
                         @endforeach
 
 
                     </div>
+
                     <div class="type_msg">
                         <div class="input_msg_write">
                             {{-- <form id="send-message" method="POST" action="{{ route('user.chat.message.send') }}"> --}}
                             <input wire:keydown.enter="sendMessage()" wire:model.lazy="message" name="message"
                                 id="message" type="text" class="write_msg" placeholder="Type a message" />
+                            <input hidden type="file" wire:model="image" id="image" />
+
+                            <i id="image-attach" class="fa-solid fa-paperclip"></i>
+
                             <button wire:click="sendMessage()" class="msg_send_btn" type="button"><i
                                     class="fa-solid fa-paper-plane"></i></button>
                             {{-- </form> --}}
@@ -176,8 +192,17 @@
             </div>
 
 
+
             <p class="text-center top_spac"> Design by <a target="_blank"
                     href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil Rajput</a></p>
 
         </div>
     </div>
+
+    <script src="{{ asset('theme2/js/jquery-3.3.1.min.js') }}"></script>
+
+    <script>
+        $("#image-attach").on("click", function() {
+            $("#image").click();
+        });
+    </script>

@@ -5,21 +5,25 @@ namespace App\Http\Livewire\User;
 use App\Models\User;
 use Livewire\Component;
 use Musonza\Chat\Facades\ChatFacade;
+use Livewire\WithFileUploads;
 
 class Chat extends Component
 {
+    use WithFileUploads;
 
 
     public $chatMessages;
     public $message;
     public $receiverId;
     public $conversationId;
+    public $image;
 
     public function sendMessage()
     {
         $this->validate([
             "receiverId" => "required|numeric",
-            "message" => "required|string"
+            "message" => "required|string",
+            "image" => "nullable|image"
         ]);
 
         $sender = auth()->user();
