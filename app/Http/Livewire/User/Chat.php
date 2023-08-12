@@ -17,6 +17,7 @@ class Chat extends Component
     public $receiverId;
     public $conversationId;
     public $image;
+    public $search;
 
     public function sendMessage()
     {
@@ -96,7 +97,15 @@ class Chat extends Component
     {
         $user = auth()->user();
 
-        $conversations = ChatFacade::conversations()->setParticipant($user)->get();
+        $conversations = ChatFacade::conversations()
+            // ->join('chat_participation', 'chat_participation.id', '=', 'conversations.id')
+            ->setParticipant($user)
+            // ->join('chat_participation', 'chat_participation.id', '=', 'conversations.id')
+            // ->where()
+            // ->paginate(1);
+            ->get();
+
+        // dd($conversations);
 
         return $conversations;
     }
