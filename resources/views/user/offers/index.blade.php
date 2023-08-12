@@ -51,9 +51,10 @@
                                     </th>
                                     <th scope="col">{{ trans('keywords.City') }}</th>
                                     <th scope="col">{{ trans('keywords.Neighbourhood') }}</th>
-                                    <th scope="col">{{ trans('keywords.Street') }}</th>
-                                    <th scope="col">{{ trans('keywords.Operation Type') }}</th>
                                     <th scope="col">{{ trans('keywords.space (in metres)') }}</th>
+                                    <th scope="col">{{ trans('keywords.streets count') }}</th>
+                                    <th scope="col">{{ trans('keywords.Street Width') }}</th>
+                                    <th scope="col">{{ trans('keywords.schema number') }}</th>
                                     <th scope="col">{{ trans('keywords.Land Number') }}</th>
                                     <th scope="col">{{ trans('keywords.Price') }}</th>
                                     <th scope="col">{{ trans('keywords.created at') }}</th>
@@ -89,10 +90,12 @@
                                         </td>
                                         <td class="text-black">{{ $landOffer->city->name }}</td>
                                         <td class="text-black">{{ $landOffer->neighbourhood->name }}</td>
-                                        <td class="text-black">{{ $landOffer->street_name }}</td>
-                                        <td class="text-black">{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}
-                                        </td>
+                                        {{-- <td class="text-black">{{ trans('keywords.' . ucfirst($landOffer->operation_type)) }}
+                                        </td> --}}
                                         <td class="text-black">{{ number_format($landOffer->space) }}</td>
+                                        <td class="text-black">{{ number_format($landOffer->streets_count) }}</td>
+                                        <td class="text-black">{{ $landOffer->street_width }}</td>
+                                        <td class="text-black">{{ $landOffer->schema_number }}</td>
                                         <td class="text-black">{{ $landOffer->land_number }}</td>
                                         <td class="text-black">{{ number_format($landOffer->price) }}</td>
                                         <td class="text-black">{{ $landOffer->created_at->diffForHumans() }}</td>
