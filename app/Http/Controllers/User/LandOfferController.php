@@ -136,10 +136,13 @@ class LandOfferController extends Controller
     public function accept(LandOffer $landOffer)
     {
 
+        session()->put("print_offer_id", $landOffer->id);
+
         $landOffer->update([
             "accepted_by" => auth()->id()
         ]);
         $landOffer->user->notify(new LandOfferAcceptedNotification($landOffer));
+
 
         toastr()->success(trans('keywords.offer accepted successfully'));
         return back();
@@ -190,5 +193,17 @@ class LandOfferController extends Controller
 
         toastr()->success(trans('keywords.deleted successfully'));
         return back();
+    }
+
+    public function print(LandOffer $landOffer)
+    {
+
+        $user = auth()->user();
+        if ($landOffer->accepted_by != $user->id)
+            abort(403);
+
+        session()->remove("print_offer_id");
+
+        return view("user.offers.print", compact("landOffer", "user"));
     }
 }

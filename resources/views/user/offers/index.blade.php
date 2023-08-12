@@ -138,6 +138,19 @@
 @endsection
 
 @push('scripts')
+    @if (session()->has('print_offer_id'))
+        @php
+            $offerId = session()->get('print_offer_id');
+            $printRoute = route('user.land-offers.print', $offerId);
+        @endphp
+        <script>
+            window.open("{{ $printRoute }}", "_blank").focus();
+            // let hyperText = '<a hidden href="{{ $printRoute }}" id="print-offer" target="_blank"></a>';
+            // $("body").append(hyperText);
+
+            // document.getElementById("print-offer").click();
+        </script>
+    @endif
     @if ($errors->any())
         <script>
             // $("#open-modal-button").click();
