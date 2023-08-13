@@ -12,7 +12,8 @@
 
             <div class="row">
                 <div class="form-group col-12 col-md-6">
-                    <label for="city_id{{ $landOffer->id }}">{{ trans('keywords.City') }}</label>
+                    <label for="city_id{{ $landOffer->id }}">{{ trans('keywords.City') }}<span class="text-danger"
+                            style="font-weight: bold">*</span></label>
                     <select required name="city_id" class="form-control city_id" id="city_id{{ $landOffer->id }}">
                         <option value="" disabled selected>
                             {{ trans('keywords.Choose') }}
@@ -29,7 +30,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="neighbourhood_id{{ $landOffer->id }}">{{ trans('keywords.Neighbourhood') }}</label>
+                    <label for="neighbourhood_id{{ $landOffer->id }}">{{ trans('keywords.Neighbourhood') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <select required name="neighbourhood_id" class="form-control neighbourhood_id"
                         id="neighbourhood_id{{ $landOffer->id }}">
                         @foreach ($landOffer->city->neighbourhoods as $neighbourhood)
@@ -46,7 +48,8 @@
                 </div>
                 <div class="form-group col-12 col-md-6">
                     <label
-                        for="commercial_or_housing{{ $landOffer->id }}">{{ trans('keywords.estate classification') }}</label>
+                        for="commercial_or_housing{{ $landOffer->id }}">{{ trans('keywords.estate classification') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <select name="commercial_or_housing" class="form-control"
                         id="commercial_or_housing{{ $landOffer->id }}">
                         <option @if ($landOffer->commercial_or_housing == 'commercial') selected @endif value="commercial">
@@ -113,7 +116,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="type3{{ $landOffer->id }}">{{ trans('keywords.corner or one street') }}</label>
+                    <label for="type3{{ $landOffer->id }}">{{ trans('keywords.corner or one street') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <select @if ($landOffer->type2 != 'piece') disabled @endif name="type3" class="form-control"
                         id="type3{{ $landOffer->id }}">
                         <option @if ($landOffer->type3 == 'corner') selected @endif value="corner">
@@ -133,7 +137,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="streets_count{{ $landOffer->id }}">{{ trans('keywords.streets count') }}</label>
+                    <label for="streets_count{{ $landOffer->id }}">{{ trans('keywords.streets count') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="streets_count" value="{{ $landOffer->streets_count }}" type="text" class="form-control"
                         id="streets_count{{ $landOffer->id }}">
                     @error('streets_count')
@@ -143,9 +148,10 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="schema_number{{ $landOffer->id }}">{{ trans('keywords.schema number') }}</label>
-                    <input name="schema_number" value="{{ $landOffer->schema_number }}" type="text" class="form-control"
-                        id="schema_number{{ $landOffer->id }}">
+                    <label for="schema_number{{ $landOffer->id }}">{{ trans('keywords.schema number') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
+                    <input name="schema_number" value="{{ $landOffer->schema_number }}" type="text"
+                        class="form-control" id="schema_number{{ $landOffer->id }}">
                     @error('schema_number')
                         <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                             {{ $message }}
@@ -153,7 +159,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="street_name{{ $landOffer->id }}">{{ trans('keywords.Street Name') }}</label>
+                    <label for="street_name{{ $landOffer->id }}">{{ trans('keywords.Street Name') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="street_name" value="{{ $landOffer->street_name }}" type="text" class="form-control"
                         id="street_name{{ $landOffer->id }}">
                     @error('street_name')
@@ -163,7 +170,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="direction{{ $landOffer->id }}">{{ trans('keywords.Directions') }}</label>
+                    <label for="direction{{ $landOffer->id }}">{{ trans('keywords.Directions') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="direction" value="{{ $landOffer->direction }}" type="text" class="form-control"
                         id="direction{{ $landOffer->id }}">
                     @error('direction')
@@ -173,7 +181,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="space{{ $landOffer->id }}">{{ trans('keywords.Space') }}</label>
+                    <label for="space{{ $landOffer->id }}">{{ trans('keywords.Space') }}<span class="text-danger"
+                            style="font-weight: bold">*</span></label>
                     <input name="space" value="{{ $landOffer->space }}" type="text" class="form-control"
                         id="space{{ $landOffer->id }}">
                     @error('space')
@@ -184,7 +193,8 @@
                 </div>
 
                 <div class="form-group col-12 col-md-6">
-                    <label for="street_height{{ $landOffer->id }}">{{ trans('keywords.Height On Street') }}</label>
+                    <label for="street_height{{ $landOffer->id }}">{{ trans('keywords.Height On Street') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="street_height" value="{{ $landOffer->street_height }}" type="text"
                         class="form-control" id="street_height{{ $landOffer->id }}">
                     @error('street_height')
@@ -194,7 +204,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="dept{{ $landOffer->id }}">{{ trans('keywords.Dept') }}</label>
+                    <label for="dept{{ $landOffer->id }}">{{ trans('keywords.Dept') }}<span class="text-danger"
+                            style="font-weight: bold">*</span></label>
                     <input name="dept" value="{{ $landOffer->dept }}" type="text" class="form-control"
                         id="dept{{ $landOffer->id }}">
                     @error('dept')
@@ -204,7 +215,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="street_width{{ $landOffer->id }}">{{ trans('keywords.Street Width') }}</label>
+                    <label for="street_width{{ $landOffer->id }}">{{ trans('keywords.Street Width') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="street_width" value="{{ $landOffer->street_width }}" type="text"
                         class="form-control" id="street_width{{ $landOffer->id }}">
                     @error('street_width')
@@ -214,7 +226,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="land_number{{ $landOffer->id }}">{{ trans('keywords.Land Number') }}</label>
+                    <label for="land_number{{ $landOffer->id }}">{{ trans('keywords.Land Number') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="land_number" value="{{ $landOffer->land_number }}" type="text" class="form-control"
                         id="land_number{{ $landOffer->id }}">
                     @error('land_number')
@@ -224,7 +237,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="instrument_number{{ $landOffer->id }}">{{ trans('keywords.Instrument Number') }}</label>
+                    <label for="instrument_number{{ $landOffer->id }}">{{ trans('keywords.Instrument Number') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="instrument_number" value="{{ $landOffer->instrument_number }}" type="number"
                         class="form-control" id="instrument_number{{ $landOffer->id }}">
                     @error('instrument_number')
@@ -234,7 +248,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="operation_type{{ $landOffer->id }}">{{ trans('keywords.Operation Type') }}</label>
+                    <label for="operation_type{{ $landOffer->id }}">{{ trans('keywords.Operation Type') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <select name="operation_type" class="form-control" id="operation_type{{ $landOffer->id }}">
                         <option @if ($landOffer->operation_type == 'sell') selected @endif value="sell">
                             {{ trans('keywords.Sell') }}
@@ -261,7 +276,8 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="price{{ $landOffer->id }}">{{ trans('keywords.Price') }}</label>
+                    <label for="price{{ $landOffer->id }}">{{ trans('keywords.Price') }}<span class="text-danger"
+                            style="font-weight: bold">*</span></label>
                     <input name="price" value="{{ $landOffer->price }}" type="number" class="form-control"
                         id="price{{ $landOffer->id }}">
                     @error('price')
@@ -272,7 +288,8 @@
                 </div>
 
                 <div class="form-group col-12 col-md-6">
-                    <label for="contact_info{{ $landOffer->id }}">{{ trans('keywords.Contact Info') }}</label>
+                    <label for="contact_info{{ $landOffer->id }}">{{ trans('keywords.Contact Info') }}<span
+                            class="text-danger" style="font-weight: bold">*</span></label>
                     <input name="contact_info" value="{{ $landOffer->contact_info }}" type="text"
                         class="form-control" id="contact_info{{ $landOffer->id }}">
                     @error('contact_info')
@@ -294,7 +311,8 @@
                 </div>
 
                 <div class="form-group col-12">
-                    <label for="land_type_ids{{ $landOffer->id }}">{{ trans('keywords.Estate Type') }}:</label>
+                    <label for="land_type_ids{{ $landOffer->id }}">{{ trans('keywords.Estate Type') }}<span
+                            class="text-danger" style="font-weight: bold">*</span>:</label>
                     <br>
                     @php
                         $landOfferTypes = $landOffer
