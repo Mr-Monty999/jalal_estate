@@ -51,9 +51,32 @@
                                 <div wire:click="setConversationId({{ $conversation->id }})"
                                     class="chat_list @if ($conversationId == $conversation->id) active_chat @endif">
                                     <div class="chat_people d-flex">
-                                        <div class="chat_img"> <img
-                                                src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                                        <div class="chat_img">
+                                            {{-- <img
+                                                src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> --}}
+                                            @if ($participant->hasRole('company'))
+                                                <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                    src="{{ asset('storage/' . $participant->company->logo) }}"
+                                                    alt="">
+                                            @elseif ($participant->hasRole('landlord'))
+                                                <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                    src="{{ asset('storage/' . $participant->landlord->photo) }}"
+                                                    alt="">
+                                            @elseif ($participant->hasRole('marketer'))
+                                                <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                    src="{{ asset('storage/' . $participant->marketer->photo) }}"
+                                                    alt="">
+                                            @elseif($participant->hasRole('office'))
+                                                <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                    src="{{ asset('storage/' . $participant->office->logo) }}"
+                                                    alt="">
+                                            @elseif($participant->hasRole('service-provider'))
+                                                <img onerror="this.src='https://ptetutorials.com/images/user-profile.png'"
+                                                    src="{{ asset('storage/' . $participant->serviceProvider->logo) }}"
+                                                    alt="">
+                                            @endif
                                         </div>
+
                                         <div class="chat_ib mx-1 d-flex justify-content-between">
                                             <h5 class="text-black">
                                                 {{ $participant->name }}
