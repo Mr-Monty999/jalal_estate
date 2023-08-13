@@ -187,7 +187,8 @@ return [
     "messages" => "messages",
     "recent" => "recent",
     "direct owner (I have half the quest)" => "direct owner (I have half the quest)",
-    "direct buyer (me half quest)" => "direct buyer (me half quest)"
+    "direct buyer (me half quest)" => "direct buyer (me half quest)",
+    "type a message" => "type a message"
 
 
 

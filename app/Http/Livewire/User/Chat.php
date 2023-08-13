@@ -6,25 +6,28 @@ use App\Models\User;
 use Livewire\Component;
 use Musonza\Chat\Facades\ChatFacade;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class Chat extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, WithPagination;
 
 
-    public $chatMessages;
+    // public $chatMessages;
     public $message;
     public $receiverId;
     public $conversationId;
     public $image;
     public $search;
+    protected $paginationTheme = 'bootstrap';
+
 
     public function sendMessage()
     {
         $this->validate([
             "receiverId" => "required|numeric",
             "image" => "nullable|image",
-            "message" => "nullable:image|string",
+            "message" => "required_without:image|string",
         ]);
 
         $sender = auth()->user();
@@ -62,7 +65,7 @@ class Chat extends Component
         $this->message = '';
         $this->image = null;
     }
-    public function getConversationMessages($conversationId = null)
+    public function getConversationMessages($conversationId = null, $perPage = 10)
     {
         // $this->validate([
         //     "conversationId" => "required|numeric"
@@ -85,14 +88,19 @@ class Chat extends Component
             ->first()->messageable_id;
 
 
-        $this->chatMessages = $conversation->messages;
+        $lastPage = $conversation->messages()->paginate($perPage)->lastPage();
+        return $conversation->messages()->paginate($perPage, ["*"], "page");
 
         // dd($this->chatMessages);
     }
-    public function mount()
+    public function setConversationId($conversationId)
     {
-        $this->chatMessages = [];
+        $this->conversationId = $conversationId;
     }
+    // public function mount()
+    // {
+    //     $this->chatMessages = [];
+    // }
     public function getConversations()
     {
         $user = auth()->user();
@@ -114,9 +122,11 @@ class Chat extends Component
         // dd(auth()->user());
         // all conversations
         $conversations = $this->getConversations();
+        $chatMessages = $this->getConversationMessages($this->conversationId, 10);
 
         return view('livewire.user.chat', [
-            "conversations" => $conversations
+            "conversations" => $conversations,
+            "chatMessages" => $chatMessages,
         ]);
     }
 }
