@@ -215,5 +215,6 @@ return [
         "city_id" => "city",
         "neighbourhood_id" => "neighbourhood",
         "land_type_ids" => "land type",
+        "terms_and_conditions" => "terms and conditions"
     ],
 ];

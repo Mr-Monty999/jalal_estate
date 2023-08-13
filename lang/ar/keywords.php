@@ -186,7 +186,12 @@ return [
     "recent" => "الأخيرة",
     "direct owner (I have half the quest)" => "مباشر المالك (لي نصف السعي)",
     "direct buyer (me half quest)" => "مباشر المشتري (لي نصف السعي)",
-    "type a message" => "أكتب رسالة"
+    "type a message" => "أكتب رسالة",
+    "I agree to these" => "أقر وأقبل بهذه",
+    "Terms and Conditions" => "الشروط والأحكام",
+    "settings" => "الإعدادات",
+    "terms & conditions settings" => "إعدادات الشروط والأحكام",
+
 
 
 

@@ -9,7 +9,6 @@ use Spatie\Permission\Models\Permission;
  */
 class PermissionService
 {
-
     public static function companyPermissions()
     {
         return [
@@ -87,6 +86,7 @@ class PermissionService
             "create_ads",
             "edit_ads",
             "delete_ads",
+            "view_terms_and_condition_settings"
 
         ];
     }

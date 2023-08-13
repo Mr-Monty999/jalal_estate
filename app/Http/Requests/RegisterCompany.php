@@ -34,7 +34,8 @@ class RegisterCompany extends FormRequest
             "password_confirmation" => "required|same:password",
             "logo" => "nullable|image",
             "city_id" => "required|exists:cities,id",
-            "neighbourhood_id" => "required|exists:neighbourhoods,id"
+            "neighbourhood_id" => "required|exists:neighbourhoods,id",
+            "terms_and_conditions" => "required|in:0,1"
         ];
     }
 }

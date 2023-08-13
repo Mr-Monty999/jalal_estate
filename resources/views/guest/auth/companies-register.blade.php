@@ -113,7 +113,27 @@
                         @enderror
                     </div>
                     <div class="col-12">
+                        <style>
+                            .tacbox {
+                                display: block;
+                                padding: 1em;
+                            }
 
+                            input {
+                                height: 2em;
+                                width: 2em;
+                                vertical-align: middle;
+                            }
+                        </style>
+                        <div class="tacbox">
+                            <input required name="terms_and_conditions" id="terms_and_conditions" type="checkbox" />
+                            <label for="terms_and_conditions"> {{ trans('keywords.I agree to these') }} <a
+                                    href="{{ route('guest.terms.index') }}">{{ trans('keywords.Terms and Conditions') }}</a>.</label>
+                        </div>
+                        @error('terms_and_conditions')
+                            <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">{{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     {{-- <div class="form-check">

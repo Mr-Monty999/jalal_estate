@@ -188,7 +188,12 @@ return [
     "recent" => "recent",
     "direct owner (I have half the quest)" => "direct owner (I have half the quest)",
     "direct buyer (me half quest)" => "direct buyer (me half quest)",
-    "type a message" => "type a message"
+    "type a message" => "type a message",
+    "I agree to these" => "I agree to these",
+    "Terms and Conditions" => "Terms and Conditions",
+    "settings" => "settings",
+    "terms & conditions settings" => 'terms & conditions settings'
+
 
 
 

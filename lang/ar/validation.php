@@ -236,7 +236,8 @@ return [
         "land_type_ids" => "نوع الأرض",
         "street_name" => "إسم الشارع",
         "schema_number" => "رقم المخطط",
-        "streets_count" => "عدد الشوارع"
+        "streets_count" => "عدد الشوارع",
+        "terms_and_conditions" => "الشروط والأحكام"
 
 
 

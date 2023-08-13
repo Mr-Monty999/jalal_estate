@@ -2,6 +2,7 @@
 
 <?php
 
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\HomeController;
@@ -42,6 +43,10 @@ Route::group(["prefix" => "admin"], function () {
         Route::post('/users/{user}/deactive', [UserController::class, "deactive"])->name("admin.users.deactive");
 
 
+
         Route::resource("ads", AdController::class, ["as" => "admin"]);
+
+        Route::get('/settings/terms-and-conditions', [SettingController::class, "termsAndConditions"])->name("admin.terms-and-conditions.index");
+        Route::put('/settings', [SettingController::class, "update"])->name("admin.settings.update");
     });
 });

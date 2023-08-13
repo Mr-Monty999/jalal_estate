@@ -7,6 +7,7 @@ use App\Http\Controllers\Guest\LoginController;
 use App\Http\Controllers\Guest\MarketerController;
 use App\Http\Controllers\Guest\OfficeController;
 use App\Http\Controllers\Guest\ServiceProviderController;
+use App\Http\Controllers\Guest\TermController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::group([], function () {
 
     Route::get("/", [HomeController::class, 'index'])->name("guest.home");
+    Route::get("/terms-and-conditions", [TermController::class, "index"])->name("guest.terms.index");
+
 
     Route::group(["middleware" => "guest"], function () {
         Route::get("/companies/register", [CompanyController::class, "index"])->name("guest.companies.register");
