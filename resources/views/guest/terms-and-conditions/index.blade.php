@@ -2,14 +2,15 @@
 
 @section('content')
     <br><br><br>
-    <div class="bg-light site-section bg-white" id="company-register">
+    <div class="bg-light site-section bg-white" id="terms-and-conditions">
         <div class="container">
             <h1 class="text-center">{{ trans('keywords.Terms and Conditions') }}</h1>
             <br><br><br>
-            <div style="font-size: 25px">
+            <p style="font-size: 25px">
                 {!! $termsAndConditions !!}
 
-            </div>
+
+            </p>
         </div>
     </div>
     <br><br><br>
