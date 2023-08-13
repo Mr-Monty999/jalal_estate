@@ -94,6 +94,9 @@
                                     </div>
                                 </div>
                             @endforeach
+                            <div>
+                                {!! $conversations->links() !!}
+                            </div>
 
                             {{-- <div class="chat_list">
                             <div class="chat_people d-flex">

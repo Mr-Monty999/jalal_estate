@@ -89,7 +89,9 @@ class Chat extends Component
 
 
         $lastPage = $conversation->messages()->paginate($perPage)->lastPage();
-        return $conversation->messages()->paginate($perPage, ["*"], "page");
+        // dd($conversation->messages()->paginate($perPage, ["*"], "messages"));
+
+        return $conversation->messages()->paginate($perPage, ["*"], "messages" . $this->conversationId);
 
         // dd($this->chatMessages);
     }
@@ -101,9 +103,13 @@ class Chat extends Component
     // {
     //     $this->chatMessages = [];
     // }
-    public function getConversations()
+    public function getConversations($perPage = 10)
     {
         $user = auth()->user();
+
+        $page = 1;
+        if (session()->has("conversation_current_page"))
+            $page = session()->get("conversation_current_page");
 
         $conversations = ChatFacade::conversations()
             // ->join('chat_participation', 'chat_participation.id', '=', 'conversations.id')
@@ -111,7 +117,24 @@ class Chat extends Component
             // ->join('chat_participation', 'chat_participation.id', '=', 'conversations.id')
             // ->where()
             // ->paginate(1);
+            //
+            // ->limit(1)
+            // ->page($page)
+
+            ->setPaginationParams([
+                'page' => 1,
+                'perPage' => $perPage,
+                'sorting' => "asc",
+                'columns' => [
+                    '*'
+                ],
+                'pageName' => 'conversations'
+            ])
             ->get();
+        // ->paginate();
+
+
+
 
         // dd($conversations);
 
@@ -121,7 +144,7 @@ class Chat extends Component
     {
         // dd(auth()->user());
         // all conversations
-        $conversations = $this->getConversations();
+        $conversations = $this->getConversations(100);
         $chatMessages = $this->getConversationMessages($this->conversationId, 10);
 
         return view('livewire.user.chat', [
