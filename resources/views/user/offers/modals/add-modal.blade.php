@@ -31,7 +31,9 @@
                                                             $selectedCity = null;
                                                         @endphp
                                                         <div class="form-group col-12 col-md-6">
-                                                            <label for="city_id">{{ trans('keywords.City') }}</label>
+                                                            <label for="city_id">{{ trans('keywords.City') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <select required name="city_id" class="form-control city_id"
                                                                 id="city_id">
                                                                 <option value="" disabled selected>
@@ -55,7 +57,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}</label>
+                                                                for="neighbourhood_id">{{ trans('keywords.Neighbourhood') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <select required name="neighbourhood_id"
                                                                 class="form-control neighbourhood_id" id="neighbourhood_id">
                                                                 @if ($selectedCity)
@@ -78,7 +82,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="commercial_or_housing">{{ trans('keywords.estate classification') }}</label>
+                                                                for="commercial_or_housing">{{ trans('keywords.estate classification') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <select name="commercial_or_housing" class="form-control"
                                                                 id="commercial_or_housing">
                                                                 <option @if (old('commercial_or_housing') == 'commercial') selected @endif
@@ -156,7 +162,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="type3">{{ trans('keywords.corner or one street') }}</label>
+                                                                for="type3">{{ trans('keywords.corner or one street') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <select @if (old('type2') != 'piece') disabled @endif
                                                                 name="type3" class="form-control" id="type3">
                                                                 <option @if (old('type3') == 'corner') selected @endif
@@ -179,7 +187,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="streets_count">{{ trans('keywords.streets count') }}</label>
+                                                                for="streets_count">{{ trans('keywords.streets count') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="streets_count"
                                                                 value="{{ old('streets_count') }}" type="number"
                                                                 class="form-control" id="streets_count">
@@ -192,7 +202,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="schema_number">{{ trans('keywords.schema number') }}</label>
+                                                                for="schema_number">{{ trans('keywords.schema number') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="schema_number"
                                                                 value="{{ old('schema_number') }}" type="number"
                                                                 class="form-control" id="schema_number">
@@ -205,7 +217,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="street_name">{{ trans('keywords.Street Name') }}</label>
+                                                                for="street_name">{{ trans('keywords.Street Name') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="street_name" value="{{ old('street_name') }}"
                                                                 type="text" class="form-control" id="street_name">
                                                             @error('street_name')
@@ -216,8 +230,9 @@
                                                             @enderror
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
-                                                            <label
-                                                                for="direction">{{ trans('keywords.Directions') }}</label>
+                                                            <label for="direction">{{ trans('keywords.Directions') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="direction" value="{{ old('direction') }}"
                                                                 type="text" class="form-control" id="direction">
                                                             @error('direction')
@@ -228,7 +243,9 @@
                                                             @enderror
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
-                                                            <label for="space">{{ trans('keywords.Space') }}</label>
+                                                            <label for="space">{{ trans('keywords.Space') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="space" value="{{ old('space') }}"
                                                                 type="text" class="form-control" id="space">
                                                             @error('space')
@@ -240,7 +257,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="street_height">{{ trans('keywords.Height On Street') }}</label>
+                                                                for="street_height">{{ trans('keywords.Height On Street') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="street_height"
                                                                 value="{{ old('street_height') }}" type="text"
                                                                 class="form-control" id="street_height">
@@ -252,7 +271,9 @@
                                                             @enderror
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
-                                                            <label for="dept">{{ trans('keywords.Dept') }}</label>
+                                                            <label for="dept">{{ trans('keywords.Dept') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="dept" value="{{ old('dept') }}"
                                                                 type="text" class="form-control" id="dept">
                                                             @error('dept')
@@ -264,7 +285,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="street_width">{{ trans('keywords.Street Width') }}</label>
+                                                                for="street_width">{{ trans('keywords.Street Width') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="street_width" value="{{ old('street_width') }}"
                                                                 type="text" class="form-control" id="street_width">
                                                             @error('street_width')
@@ -276,7 +299,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="land_number">{{ trans('keywords.Land Number') }}</label>
+                                                                for="land_number">{{ trans('keywords.Land Number') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="land_number" value="{{ old('land_number') }}"
                                                                 type="number" class="form-control" id="land_number">
                                                             @error('land_number')
@@ -288,7 +313,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="instrument_number">{{ trans('keywords.Instrument Number') }}</label>
+                                                                for="instrument_number">{{ trans('keywords.Instrument Number') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="instrument_number"
                                                                 value="{{ old('instrument_number') }}" type="number"
                                                                 class="form-control" id="instrument_number">
@@ -301,7 +328,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="operation_type">{{ trans('keywords.Operation Type') }}</label>
+                                                                for="operation_type">{{ trans('keywords.Operation Type') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <select name="operation_type" class="form-control"
                                                                 id="operation_type">
                                                                 <option @if (old('operation_type') == 'sell') selected @endif
@@ -330,7 +359,9 @@
                                                             @enderror
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
-                                                            <label for="price">{{ trans('keywords.Price') }}</label>
+                                                            <label for="price">{{ trans('keywords.Price') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="price" value="{{ old('price') }}"
                                                                 type="number" class="form-control" id="price">
                                                             @error('price')
@@ -342,7 +373,9 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="contact_info">{{ trans('keywords.Contact Info') }}</label>
+                                                                for="contact_info">{{ trans('keywords.Contact Info') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span></label>
                                                             <input name="contact_info" value="{{ old('contact_info') }}"
                                                                 type="text" class="form-control" id="contact_info">
                                                             @error('contact_info')
@@ -370,7 +403,9 @@
 
                                                         <div class="form-group col-12">
                                                             <label
-                                                                for="land_type_ids">{{ trans('keywords.Estate Type') }}:</label>
+                                                                for="land_type_ids">{{ trans('keywords.Estate Type') }}<span
+                                                                    class="text-danger"
+                                                                    style="font-weight: bold">*</span>:</label>
                                                             <br>
                                                             @foreach ($landTypes as $landType)
                                                                 <div class="form-check form-check-inline">
