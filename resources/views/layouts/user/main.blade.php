@@ -109,7 +109,7 @@
 
         @include('layouts.user.includes.footer')
 
-        {{-- @include('layouts.user.includes.ads-bar') --}}
+        @include('layouts.user.includes.ads-bar')
     </div> <!-- .site-wrap -->
 
     <script src="{{ asset('theme2/js/jquery-3.3.1.min.js') }}"></script>
