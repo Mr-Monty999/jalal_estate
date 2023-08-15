@@ -57,7 +57,7 @@
 
 
                                 <div class="from_part_2 col-12">
-                                    <label class="title-color">{{ trans('keywords.banner') }}</label>
+                                    <label class="title-color">{{ trans('keywords.Estate Image') }}</label>
                                     <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="banner" id="customFileEg1"
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="from_part_2 col-12 col-md-3">
+                                {{-- <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 1') }}</label>
                                     <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
@@ -222,7 +222,7 @@
                                             </center>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 {{-- </div> --}}
 
                             </div>

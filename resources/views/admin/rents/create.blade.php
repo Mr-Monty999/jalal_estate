@@ -80,7 +80,7 @@
                                 </div>
                                 {{-- </div> --}}
 
-                                <div class="from_part_2 col-12 col-md-3">
+                                {{-- <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 1') }}</label>
                                     <span class="text-info"> </span>
                                     <div class="text-left">
@@ -192,7 +192,7 @@
                                             </center>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                             </div>
 
