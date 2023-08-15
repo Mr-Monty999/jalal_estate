@@ -1,6 +1,6 @@
 @extends('layouts.admin.back-end.app')
 
-@section('title', trans('keywords.add rent'))
+@section('title', trans('keywords.edit rent'))
 
 @push('css_or_js')
 @endpush
@@ -11,7 +11,7 @@
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-10">
                 <img src="{{ asset('/assets/back-end/img/brand-setup.png') }}" alt="">
-                {{ trans('keywords.add rent') }}
+                {{ trans('keywords.edit rent') }}
             </h2>
         </div>
         <!-- End Page Title -->
@@ -21,14 +21,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body" style="text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};">
-                        <form action="{{ route('admin.rents.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.rents.update', $rent->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
+                            @method('put')
                             <div class="row">
                                 {{-- <div class="col-lg-6"> --}}
                                 <div class="form-group col-12 col-md-6">
                                     <label class="title-color">
                                         {{ trans('keywords.Name') }}<span class="text-danger">*</span></label>
-                                    <input value="{{ old('name') }}" type="text" name="name" class="form-control"
+                                    <input value="{{ $rent->name }}" type="text" name="name" class="form-control"
                                         placeholder="">
                                     @error('name')
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
@@ -37,7 +39,7 @@
                                 <div class="form-group col-12 col-md-6">
                                     <label class="title-color">
                                         {{ trans('keywords.price') }}<span class="text-danger">*</span></label>
-                                    <input value="{{ old('price') }}" type="text" name="price" class="form-control"
+                                    <input value="{{ $rent->price }}" type="text" name="price" class="form-control"
                                         placeholder="">
                                     @error('price')
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
@@ -46,8 +48,8 @@
 
                                 <div class="form-group col-12">
                                     <label class="title-color">
-                                        {{ trans('keywords.description') }}</label>
-                                    <textarea class="form-control" name="description" id="" cols="30" rows="10">{{ old('description') }}</textarea>
+                                        {{ trans('keywords.description') }}<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" name="description" id="" cols="30" rows="10">{!! $rent->description !!}</textarea>
                                     @error('description')
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
                                     @enderror
@@ -55,8 +57,8 @@
 
 
                                 <div class="from_part_2 col-12">
-                                    <label class="title-color">{{ trans('keywords.Estate Image') }}</label>
-                                    <span class="text-info"> </span>
+                                    <label class="title-color">{{ trans('keywords.banner') }}</label>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="banner" id="customFileEg1"
                                             class="form-control image-input"
@@ -65,24 +67,21 @@
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
-                                                {{-- @if (auth()->user()->admin->banner)
-                                                    <img class="upload-img-view" id="viewer"
-                                                        src="{{ asset('storage/' . auth()->user()->admin->banner) }}"
+                                                @if ($rent->banner)
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('storage/' . $rent->banner) }}" alt="image" />
+                                                @else
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
                                                         alt="image" />
-                                                @else --}}
-                                                <img class="upload-img-view viewer" id="viewer"
-                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
-                                                    alt="image" />
-                                                {{-- @endif --}}
+                                                @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- </div> --}}
-
                                 <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 1') }}</label>
-                                    <span class="text-info"> </span>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="images[]" id="customFileEg1"
                                             class="form-control image-input"
@@ -91,17 +90,22 @@
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
-
-                                                <img class="upload-img-view viewer" id="viewer"
-                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
-                                                    alt="image" />
+                                                @if ($rent->images && isset($rent->images[0]))
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('storage/' . $rent->images[0]->path) }}"
+                                                        alt="image" />
+                                                @else
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                        alt="image" />
+                                                @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 2') }}</label>
-                                    <span class="text-info"> </span>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="images[]" id="customFileEg2"
                                             class="form-control image-input"
@@ -110,17 +114,22 @@
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
-
-                                                <img class="upload-img-view viewer" id="viewer"
-                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
-                                                    alt="image" />
+                                                @if ($rent->images && isset($rent->images[1]))
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('storage/' . $rent->images[1]->path) }}"
+                                                        alt="image" />
+                                                @else
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                        alt="image" />
+                                                @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 3') }}</label>
-                                    <span class="text-info"> </span>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="images[]" id="customFileEg3"
                                             class="form-control image-input"
@@ -129,17 +138,22 @@
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
-
-                                                <img class="upload-img-view viewer" id="viewer"
-                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
-                                                    alt="image" />
+                                                @if ($rent->images && isset($rent->images[2]))
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('storage/' . $rent->images[2]->path) }}"
+                                                        alt="image" />
+                                                @else
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                        alt="image" />
+                                                @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 4') }}</label>
-                                    <span class="text-info"> </span>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="images[]" id="customFileEg4"
                                             class="form-control image-input"
@@ -148,17 +162,22 @@
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
-
-                                                <img class="upload-img-view viewer" id="viewer"
-                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
-                                                    alt="image" />
+                                                @if ($rent->images && isset($rent->images[3]))
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('storage/' . $rent->images[3]->path) }}"
+                                                        alt="image" />
+                                                @else
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                        alt="image" />
+                                                @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 5') }}</label>
-                                    <span class="text-info"> </span>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="images[]" id="customFileEg5"
                                             class="form-control image-input"
@@ -167,16 +186,22 @@
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
-                                                <img class="upload-img-view viewer" id="viewer"
-                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
-                                                    alt="image" />
+                                                @if ($rent->images && isset($rent->images[4]))
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('storage/' . $rent->images[4]->path) }}"
+                                                        alt="image" />
+                                                @else
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                        alt="image" />
+                                                @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 6') }}</label>
-                                    <span class="text-info"> </span>
+                                    <span class="text-info"><span class="text-danger">*</span> </span>
                                     <div class="text-left">
                                         <input type="file" name="images[]" id="customFileEg6"
                                             class="form-control image-input"
@@ -185,14 +210,20 @@
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
-
-                                                <img class="upload-img-view viewer" id="viewer"
-                                                    src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
-                                                    alt="image" />
+                                                @if ($rent->images && isset($rent->images[5]))
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('storage/' . $rent->images[5]) }}"
+                                                        alt="image" />
+                                                @else
+                                                    <img class="upload-img-view viewer" id="viewer"
+                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                        alt="image" />
+                                                @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
+                                {{-- </div> --}}
 
                             </div>
 

@@ -196,6 +196,17 @@ return [
     "banner" => "الصورة الرئيسية",
     "price" => "السعر",
     "rents list" => "قائمة الإيجارات",
+    "name" => "الإسم",
+    "Are You Sure Want To Delete This Rent" => "هل أنت متأكد من حذف هذا الإيجار",
+    "edit rent" => "تعديل الإيجار",
+    "image 1" => "صورة 1",
+    "image 2" => "صورة 2",
+    "image 3" => "صورة 3",
+    "image 4" => "صورة 4",
+    "image 5" => "صورة 5",
+    "image 6" => "صورة 6",
+
+
 
 
 

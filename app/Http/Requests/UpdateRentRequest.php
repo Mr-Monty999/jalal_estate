@@ -13,7 +13,7 @@ class UpdateRentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateRentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required|string",
+            "price" => "required|numeric",
+            "description" => "nullable|string",
+            "banner" => "nullable|image",
+            "images" => "nullable|array"
         ];
     }
 }

@@ -27,7 +27,8 @@ class StoreRentRequest extends FormRequest
             "name" => "required|string",
             "price" => "required|numeric",
             "description" => "nullable|string",
-            "banner" => "nullable|image"
+            "banner" => "nullable|image",
+            "images" => "nullable|array"
         ];
     }
 }

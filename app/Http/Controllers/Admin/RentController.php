@@ -17,7 +17,11 @@ class RentController extends Controller
      */
     public function index()
     {
-        //
+        $rents = Rent::paginate(10);
+        $user = auth()->user();
+
+
+        return view("admin.rents.index", compact("rents", "user"));
     }
 
     /**
@@ -39,12 +43,14 @@ class RentController extends Controller
      */
     public function store(StoreRentRequest $request)
     {
+
+        // dd($request->all());
         RentService::store($request);
 
 
         toastr()->success(trans('keywords.Added Successfully'));
 
-        return back();
+        return redirect()->route("admin.rents.index");
     }
 
     /**
@@ -66,7 +72,13 @@ class RentController extends Controller
      */
     public function edit(Rent $rent)
     {
-        //
+
+        $rent->load([
+            "images" => function ($query) {
+                $query->latest()->limit(6);
+            }
+        ]);
+        return view("admin.rents.edit", compact("rent"));
     }
 
     /**
@@ -78,7 +90,11 @@ class RentController extends Controller
      */
     public function update(UpdateRentRequest $request, Rent $rent)
     {
-        //
+
+
+        RentService::update($request, $rent);
+        toastr()->success(trans('keywords.Updated Successfully'));
+        return redirect()->route("admin.rents.index");
     }
 
     /**
@@ -89,6 +105,9 @@ class RentController extends Controller
      */
     public function destroy(Rent $rent)
     {
-        //
+        $rent->delete();
+
+        toastr()->success(trans('keywords.deleted successfully'));
+        return response()->json();
     }
 }

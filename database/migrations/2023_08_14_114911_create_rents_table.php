@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("banner");
+            $table->string("banner")->nullable();
             $table->double("price");
-            $table->text("description");
+            $table->text("description")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

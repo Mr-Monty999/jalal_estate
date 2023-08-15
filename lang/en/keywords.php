@@ -198,6 +198,15 @@ return [
     "banner" => "banner",
     "price" => "price",
     "rents list" => "rents list",
+    "name" => "name",
+    "Are You Sure Want To Delete This Rent" => "Are You Sure Want To Delete This Rent",
+    "edit rent" => "edit rent",
+    "image 1" => "image 1",
+    "image 2" => "image 2",
+    "image 3" => "image 3",
+    "image 4" => "image 4",
+    "image 5" => "image 5",
+    "image 6" => "image 6",
 
 
 
