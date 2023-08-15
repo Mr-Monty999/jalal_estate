@@ -5,7 +5,9 @@
     <title>{{ env('APP_NAME') }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="description" content="{{ trans('keywords.a website to search and view real estate') }}" />
+    <meta name="author" content="{{ trans('keywords.created by tawreedtech') }}" />
+    <meta name="robots" content="index, follow" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Playfair+Display:400,700,900 "
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('theme2/fonts/icomoon/style.css') }}">
