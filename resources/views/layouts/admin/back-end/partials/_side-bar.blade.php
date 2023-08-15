@@ -246,6 +246,41 @@
                             </ul>
                         </li>
 
+                        {{-- Rents --}}
+                        <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/rents*') ? 'active' : '' }}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                title="{{ trans('keywords.rents') }}">
+                                <i class="tio-filter-list nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{ trans('keywords.rents') }}
+                                </span>
+                            </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/rents*') ? 'block' : '' }}">
+                                @can('create_rents')
+                                    <li class="nav-item {{ Request::is('admin/rents/create') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.rents.create') }}"
+                                            title="{{ trans('keywords.rents') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.add rent') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                                @can('view_rents')
+                                    <li class="nav-item {{ Request::is('admin/rents') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.rents.index') }}"
+                                            title="{{ trans('keywords.rents list') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.rents list') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                            </ul>
+                        </li>
+
                     </ul>
 
                 </div>

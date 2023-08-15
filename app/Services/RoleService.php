@@ -86,17 +86,22 @@ class RoleService
         return $user;
     }
 
-    public static function assignAdminRole($user)
+    public static function assignAdminRole($user, $superAdmin = false)
     {
         $role = Role::firstOrCreate([
             "name" => "admin"
         ]);
 
+        if ($superAdmin)
+            $role = Role::firstOrCreate([
+                "name" => "Super Admin"
+            ]);
+
         $permission = PermissionService::storePermissions(PermissionService::AdminPermissions());
 
         $role->syncPermissions(PermissionService::AdminPermissions());
 
-        $user->assignRole("admin");
+        $user->assignRole($role->name);
 
         return $user;
     }

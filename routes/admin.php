@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\NeighbourhoodController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\Admin\RentController;
 use App\Http\Controllers\Guest\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\ProfileController;
@@ -48,5 +49,7 @@ Route::group(["prefix" => "admin"], function () {
 
         Route::get('/settings/terms-and-conditions', [SettingController::class, "termsAndConditions"])->name("admin.terms-and-conditions.index");
         Route::put('/settings', [SettingController::class, "update"])->name("admin.settings.update");
+
+        Route::resource("rents", RentController::class, ["as" => "admin"]);
     });
 });

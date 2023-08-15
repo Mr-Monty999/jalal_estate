@@ -191,6 +191,14 @@ return [
     "Terms and Conditions" => "الشروط والأحكام",
     "settings" => "الإعدادات",
     "terms & conditions settings" => "إعدادات الشروط والأحكام",
+    "rents" => "الإيجارات",
+    "add rent" => "إضافة إيجار",
+    "banner" => "الصورة الرئيسية",
+    "price" => "السعر",
+    "rents list" => "قائمة الإيجارات",
+
+
+
 
 
 

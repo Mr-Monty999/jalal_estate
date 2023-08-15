@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRentRequest;
 use App\Http\Requests\UpdateRentRequest;
 use App\Models\Rent;
+use App\Services\RentService;
 
 class RentController extends Controller
 {
@@ -26,7 +27,8 @@ class RentController extends Controller
      */
     public function create()
     {
-        //
+        $user = auth()->user();
+        return view("admin.rents.create", compact("user"));
     }
 
     /**
@@ -37,7 +39,12 @@ class RentController extends Controller
      */
     public function store(StoreRentRequest $request)
     {
-        //
+        RentService::store($request);
+
+
+        toastr()->success(trans('keywords.Added Successfully'));
+
+        return back();
     }
 
     /**

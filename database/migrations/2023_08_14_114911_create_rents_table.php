@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("banner");
+            $table->double("price");
             $table->text("description");
-
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

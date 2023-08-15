@@ -40,7 +40,7 @@ return new class extends Migration
             "user_id" => $user->id
         ]);
 
-        RoleService::assignAdminRole($user);
+        RoleService::assignAdminRole($user, true);
     }
 
     /**

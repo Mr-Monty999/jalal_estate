@@ -192,7 +192,13 @@ return [
     "I agree to these" => "I agree to these",
     "Terms and Conditions" => "Terms and Conditions",
     "settings" => "settings",
-    "terms & conditions settings" => 'terms & conditions settings'
+    "terms & conditions settings" => 'terms & conditions settings',
+    "rents" => "rents",
+    "add rent" => "add rent",
+    "banner" => "banner",
+    "price" => "price",
+    "rents list" => "rents list",
+
 
 
 

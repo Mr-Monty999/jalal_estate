@@ -26,7 +26,7 @@ class CheckIfUserCanAccessDashboard
             abort(403);
 
 
-        if (!$user->can("access_user_dashboard"))
+        if (!$user->can("access_user_dashboard") || $user->hasRole("Super Admin"))
             return redirect()->route("admin.home");
 
 
