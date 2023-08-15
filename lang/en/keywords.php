@@ -207,6 +207,15 @@ return [
     "image 4" => "image 4",
     "image 5" => "image 5",
     "image 6" => "image 6",
+    "a website to search and view real estate" => "a website to search and view real estate",
+    "created by tawreedtech" => "created by tawreedtech",
+    "who we are?" => "who we are?",
+    "quick links" => "quick links",
+    "follow us" => "follow us",
+    "All rights reserved | This Website is made" => "All rights reserved | This Website is made",
+    "by" => "by",
+    "tawreed tech company" => "tawreed tech company"
+
 
 
 

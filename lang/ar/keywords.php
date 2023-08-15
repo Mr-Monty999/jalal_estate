@@ -205,6 +205,18 @@ return [
     "image 4" => "صورة 4",
     "image 5" => "صورة 5",
     "image 6" => "صورة 6",
+    "a website to search and view real estate" => "موقع للبحث وعرض العقارات",
+    "created by tawreedtech" => "تمت البرمجة والتصميم بواسطة شركة توريد",
+    "who we are?" => "من نحن؟",
+    "quick links" => "روابط سريعة",
+    "follow us" => "تابعنا",
+    "All rights reserved | This Website is made" => "جميع الحقوق محفوظة | هذا الموقع صنع",
+    "by" => "من قِبل",
+    "tawreed tech company" => "شركة توريد لتقنية المعلومات"
+
+
+
+
 
 
 

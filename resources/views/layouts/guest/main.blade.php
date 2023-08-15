@@ -129,12 +129,19 @@
                                     href="{{ route('guest.service-providers.register') }}">{{ trans('keywords.Create Service Provider Account') }}</a>
                             </div>
                         </li>
-                        <li class="nav-item @if (Request::is('user/profile')) active @endif">
-                            <a href="#about-section" class="nav-link">{{ trans('keywords.About') }}</a>
+                        <li class="nav-item @if (Request::is('/terms-and-conditions')) active @endif">
+                            <a href="{{ route('guest.terms.index') }}"
+                                class="nav-link">{{ trans('keywords.Terms and Conditions') }}</a>
                         </li>
-                        <li class="nav-item @if (Request::is('user/profile')) active @endif">
-                            <a href="#contact-section" class="nav-link">{{ trans('keywords.Contact Us') }}</a>
+                        <li class="nav-item @if (Request::is('/about')) active @endif">
+                            <a href="{{ route('guest.about.index') }}"
+                                class="nav-link">{{ trans('keywords.About') }}</a>
                         </li>
+                        <li class="nav-item @if (Request::is('/contact')) active @endif">
+                            <a href="{{ route('guest.contact.index') }}"
+                                class="nav-link">{{ trans('keywords.Contact Us') }}</a>
+                        </li>
+
 
 
                     </ul>
@@ -177,17 +184,20 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-5">
-                                <h2 class="footer-heading mb-4">About Stated</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium
-                                    magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                                <h2 class="footer-heading mb-4">{{ trans('keywords.who we are?') }}</h2>
+                                <p>نحن منصة تمكنك من البحث وعرض العقارات</p>
                             </div>
                             <div class="col-md-3 ml-auto">
-                                <h2 class="footer-heading mb-4">Quick Links</h2>
+                                <h2 class="footer-heading mb-4">{{ trans('keywords.quick links') }}</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a
+                                            href="{{ route('guest.contact.index') }}">{{ trans('keywords.Contact Us') }}</a>
+                                    </li>
+                                    <li><a
+                                            href="{{ route('guest.terms.index') }}">{{ trans('keywords.Terms and Conditions') }}</a>
+                                    </li>
+                                    <li><a href="{{ route('user.login') }}">{{ trans('keywords.login') }}</a></li>
+                                    <li><a href="{{ route('guest.home') }}">{{ trans('keywords.Home') }}</a></li>
                                 </ul>
                             </div>
 
@@ -211,7 +221,7 @@
                         </div> --}}
 
                         <div class="">
-                            <h2 class="footer-heading mb-4">Follow Us</h2>
+                            <h2 class="footer-heading mb-4">{{ trans('keywords.follow us') }}</h2>
                             <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
                             <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
                             <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
@@ -226,12 +236,13 @@
                         <div class="border-top pt-5">
                             <p>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
+                                &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i
-                                    class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                    target="_blank">Colorlib</a>
+                                </script>
+                                {{ trans('keywords.All rights reserved | This Website is made') }} </i>
+                                {{ trans('keywords.by') }} <a href="https://tawreedtech.com"
+                                    target="_blank">{{ trans('keywords.tawreed tech company') }}</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>
