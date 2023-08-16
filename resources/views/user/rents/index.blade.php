@@ -1,5 +1,14 @@
 @extends('layouts.rents.main')
 @push('head')
+    <style>
+        .rent-image {
+            transition: all .3s
+        }
+
+        .rent-image:hover {
+            transform: scale(1.3)
+        }
+    </style>
 @endpush
 @section('rents-content')
     <br><br><br><br><br><br>
@@ -18,7 +27,7 @@
                             <div class="item-loop card">
                                 <div class="thumb-image ">
                                     <a href="{{ route('user.rents.show', $rent->id) }}">
-                                        <img class='img-responsive' src="{{ asset('storage/' . $rent->banner) }}"
+                                        <img class='img-responsive rent-image' src="{{ asset('storage/' . $rent->banner) }}"
                                             onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'">
                                     </a>
                                     {{-- <div class="star-rate">
