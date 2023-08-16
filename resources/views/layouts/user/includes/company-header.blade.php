@@ -12,6 +12,9 @@
                     <a class="nav-link" href="{{ route('user.home') }}">{{ trans('keywords.Home') }} <span
                             class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item @if (Request::is('user/rents')) active @endif">
+                    <a class="nav-link" href="{{ route('user.rents.index') }}">{{ trans('keywords.rents') }}</a>
+                </li>
                 {{-- <li class="nav-item @if (Request::is('user/profile')) active @endif">
                     <a class="nav-link" href="{{ route('user.profile') }}">{{ trans('keywords.my offers') }}</a>
                 </li> --}}
