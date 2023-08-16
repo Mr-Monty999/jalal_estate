@@ -15,7 +15,7 @@
                         src="{{ asset('storage/' . App\Services\SettingService::get('about_page_image')) }}" alt="">
                 </div>
                 <div class="col-12">
-                    <pre style="font-size: 20px;overflow:unset" class="text-center">{!! App\Services\SettingService::get('about_page_description') !!}</pre>
+                    <pre style="font-size: 20px; overflow: unset;white-space:pre-line" class="text-center">{!! App\Services\SettingService::get('about_page_description') !!}</pre>
                 </div>
             </div>
         </div>

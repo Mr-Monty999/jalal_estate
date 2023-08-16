@@ -6,11 +6,9 @@
         <div class="container">
             <h1 class="text-center">{{ trans('keywords.Terms and Conditions') }}</h1>
             <br><br><br>
-            <p style="font-size: 25px">
-                {!! $termsAndConditions !!}
+            <pre style="font-size: 20px; overflow: unset;white-space:pre-line" class="text-center">{!! App\Services\SettingService::get('terms_and_conditions') !!}</pre>
 
 
-            </p>
         </div>
     </div>
     <br><br><br>
