@@ -91,6 +91,10 @@ class PermissionService
             "create_rents",
             "edit_rents",
             "delete_rents",
+            "view_land_types",
+            "create_land_types",
+            "edit_land_types",
+            "delete_land_types",
 
         ];
     }

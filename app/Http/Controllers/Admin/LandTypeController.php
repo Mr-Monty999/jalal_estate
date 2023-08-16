@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLandTypeRequest;
 use App\Http\Requests\UpdateLandTypeRequest;
 use App\Models\LandType;
+use App\Services\LandTypeService;
 
 class LandTypeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("can:view_land_types")->only(["index", "show"]);
+        $this->middleware("can:edit_land_types")->only(["edit", "update"]);
+        $this->middleware("can:create_land_types")->only(["create", "store"]);
+        $this->middleware("can:delete_land_types")->only(["destroy"]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +24,9 @@ class LandTypeController extends Controller
      */
     public function index()
     {
-        //
+        $landTypes = LandType::latest()->paginate(10);
+
+        return view('admin.land-types.index', compact('landTypes'));
     }
 
     /**
@@ -26,7 +36,9 @@ class LandTypeController extends Controller
      */
     public function create()
     {
-        //
+        $user = auth()->user();
+
+        return view("admin.land-types.create", compact("user"));
     }
 
     /**
@@ -37,7 +49,10 @@ class LandTypeController extends Controller
      */
     public function store(StoreLandTypeRequest $request)
     {
-        //
+        LandTypeService::store($request);
+
+        toastr()->success(trans('keywords.Added Successfully'));
+        return redirect()->route('admin.land-types.index');
     }
 
     /**
@@ -59,7 +74,9 @@ class LandTypeController extends Controller
      */
     public function edit(LandType $landType)
     {
-        //
+        $user = auth()->user();
+
+        return view("admin.land-types.edit", compact("landType", "user"));
     }
 
     /**
@@ -71,7 +88,10 @@ class LandTypeController extends Controller
      */
     public function update(UpdateLandTypeRequest $request, LandType $landType)
     {
-        //
+        LandTypeService::update($request, $landType);
+
+        toastr()->success(trans('keywords.updated successfully'));
+        return redirect()->route('admin.land-types.index');
     }
 
     /**
@@ -82,6 +102,9 @@ class LandTypeController extends Controller
      */
     public function destroy(LandType $landType)
     {
-        //
+        $landType->delete();
+
+        toastr()->success(trans('keywords.deleted successfully'));
+        return response()->json();
     }
 }

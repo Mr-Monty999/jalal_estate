@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\LandTypeController;
 use App\Http\Controllers\Admin\NeighbourhoodController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\RentController;
@@ -55,5 +56,10 @@ Route::group(["prefix" => "admin"], function () {
         Route::put('/settings', [SettingController::class, "update"])->name("admin.settings.update");
 
         Route::resource("rents", RentController::class, ["as" => "admin"]);
+
+
+        //// Land Types ////
+
+        Route::resource("land-types", LandTypeController::class, ["as" => "admin"]);
     });
 });

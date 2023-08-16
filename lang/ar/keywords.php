@@ -232,6 +232,14 @@ return [
     "twitter page link" => "رابط صفحة تويتر",
     "instagram page link" => "رابط صفحة إنستغرام",
     "linkedin page link" => "رابط صفحة لينكدإن",
+    "land types" => "أنواع العقارات",
+    "add land type" => "إضافة نوع عقار",
+    "land types list" => "قائمة أنواع العقارات",
+    "create land type" => "إضافة نوع عقار",
+    "land type name" => "إسم نوع العقار",
+    "Are You Sure Want To Delete This Land Type" => "هل أنت متأكد من حذف نوع العقار هذا؟",
+    "edit land type" => "تعديل نوع العقار"
+
 
 
 

@@ -234,6 +234,13 @@ return [
     "twitter page link" => "twitter page link",
     "instagram page link" => "instagram page link",
     "linkedin page link" => "linkedin page link",
+    "land types" => "land types",
+    "add land type" => "add land type",
+    "land types list" => "land types list",
+    "create land type" => "create land type",
+    "land type name" => "land type name",
+    "Are You Sure Want To Delete This Land Type" => "Are You Sure Want To Delete This Land Type",
+    "edit land type" => 'edit land type'
 
 
 

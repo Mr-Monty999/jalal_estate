@@ -10,6 +10,13 @@ use App\Services\RentService;
 
 class RentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("can:view_rents")->only(["index", "show"]);
+        $this->middleware("can:edit_rents")->only(["edit", "update"]);
+        $this->middleware("can:create_rents")->only(["create", "store"]);
+        $this->middleware("can:delete_rents")->only(["destroy"]);
+    }
     /**
      * Display a listing of the resource.
      *

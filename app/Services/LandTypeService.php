@@ -10,6 +10,25 @@ use App\Models\LandType;
 class LandTypeService
 {
 
+    public static function store($request)
+    {
+
+        $data = $request->validated();
+
+        $landType = LandType::create($data);
+
+        return $landType;
+    }
+
+    public static function update($request, $landType)
+    {
+
+        $data = $request->validated();
+
+        $landType->update($data);
+
+        return $landType;
+    }
     public static function createInitialData()
     {
         LandType::insert([
