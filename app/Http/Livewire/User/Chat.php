@@ -144,6 +144,12 @@ class Chat extends Component
     {
         // dd(auth()->user());
         // all conversations
+
+        if (session()->has("conversation_id")) {
+            $this->conversationId = session()->get("conversation_id");
+            session()->remove("conversation_id");
+        }
+
         $conversations = $this->getConversations(100);
         $chatMessages = $this->getConversationMessages($this->conversationId, 10);
 

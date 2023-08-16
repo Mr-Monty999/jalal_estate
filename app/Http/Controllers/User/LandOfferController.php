@@ -17,6 +17,7 @@ use App\Services\LandOfferService;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Musonza\Chat\Facades\ChatFacade;
 
 class LandOfferController extends Controller
 {
@@ -140,6 +141,21 @@ class LandOfferController extends Controller
     {
 
         session()->put("print_offer_id", $landOffer->id);
+        $user = auth()->user();
+
+        $participants = [$landOffer->user, $user];
+
+        $conversation = ChatFacade::conversations()->between($landOffer->user, $user);
+
+        if (!$conversation)
+            $conversation = ChatFacade::makeDirect()->createConversation($participants);
+
+        $message = ChatFacade::message("السلام عليكم لقد قبلتُ عرضك")
+            ->from($user)
+            ->to($conversation)
+            ->send();
+
+        session()->put("consversation_id", $conversation->id);
 
         $landOffer->update([
             "accepted_by" => auth()->id()

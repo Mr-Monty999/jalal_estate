@@ -13,8 +13,8 @@
         <div class="d-flex flex-column justify-content-center align-items-center">
             @foreach ($notifications as $index => $notification)
                 @if ($notification->type == 'App\Notifications\LandOfferAcceptedNotification')
-                    <a style="width: 100%; margin-bottom:1px;padding:20px;border-radius: 10px;" class="alert-info text-center"
-                        href="{{ route('user.land-offers.show', $notification->data['land_offer_id']) }}">
+                    <div style="width: 100%; margin-bottom:1px;padding:20px;border-radius: 10px;"
+                        class="alert-info text-center position-relative">
                         <div>
                             @php
                                 $user = User::find($notification->data['user_id']);
@@ -42,15 +42,23 @@
                                     onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
                                     src="{{ asset('storage/' . $user->serviceProvider->logo) }}" alt="">
                             @endif
-                            <span class="text-black">
-                                {{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') . ' [' . trans('keywords.direct buyer (me half quest)') . ']' }}
-                            </span>
+                            <a href="{{ route('user.land-offers.show', $notification->data['land_offer_id']) }}">
+                                <span class="text-black">
+                                    {{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') . ' [' . trans('keywords.direct buyer (me half quest)') . ']' }}
+                                </span>
+                            </a>
+
                         </div>
                         <div>
                             {{ $landOffer->created_at->diffForHumans() }}
                         </div>
+                        <div style="position: absolute;left:1%;bottom:10%">
+                            <a class="btn btn-primary" class="dropdown-item"
+                                href="{{ route('user.chat.open', $user->id) }}">
+                                {{ trans('keywords.send message') }}</a>
 
-                    </a>
+                        </div>
+                    </div>
                 @endif
             @endforeach
         </div>

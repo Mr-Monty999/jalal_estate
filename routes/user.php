@@ -51,6 +51,7 @@ Route::group(["prefix" => "user"], function () {
             /// Chat //
             Route::group(["prefix" => "chat"], function () {
                 Route::post("message/send", [ChatController::class, "sendMessage"])->name("user.chat.message.send");
+                Route::get("open/{user}", [ChatController::class, "openChat"])->name("user.chat.open");
             });
 
 

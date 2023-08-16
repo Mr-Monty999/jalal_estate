@@ -40,4 +40,20 @@ class ChatController extends Controller
 
         return response()->json();
     }
+
+    public function openChat(User $user)
+    {
+
+        $conversation = ChatFacade::conversations()->between($user, auth()->user());
+
+        $participants = [$user, auth()->user()];
+
+        if (!$conversation)
+            $conversation = ChatFacade::makeDirect()->createConversation($participants);
+
+
+        session()->put("conversation_id", $conversation->id);
+
+        return redirect()->route("user.chat.index");
+    }
 }
