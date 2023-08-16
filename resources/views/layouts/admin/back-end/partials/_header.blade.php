@@ -58,7 +58,7 @@
                                    }'>
                                 <div class="d-none d-md-block media-body text-right">
                                     <h5 class="profile-name mb-0">{{ auth()->user()->name }}</h5>
-                                    <span class="fz-12">Super Admin</span>
+                                    <span class="fz-12">{{ auth()->user()->roles->first()->name }}</span>
                                 </div>
                                 <div class="avatar border avatar-circle">
                                     <img class="avatar-img"
