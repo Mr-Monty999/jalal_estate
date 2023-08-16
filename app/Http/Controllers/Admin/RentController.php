@@ -91,6 +91,7 @@ class RentController extends Controller
     public function update(UpdateRentRequest $request, Rent $rent)
     {
 
+        // dd($request->all());
 
         RentService::update($request, $rent);
         toastr()->success(trans('keywords.Updated Successfully'));

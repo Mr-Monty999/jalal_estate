@@ -107,7 +107,7 @@
                                     <label class="title-color">{{ trans('keywords.image 1') }}</label>
                                     <span class="text-info"> </span>
                                     <div class="text-left">
-                                        <input type="file" name="images[]" id="customFileEg1"
+                                        <input type="file" name="image1" id="customFileEg1"
                                             class="form-control image-input"
                                             accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                     </div>
@@ -126,7 +126,7 @@
                                     <label class="title-color">{{ trans('keywords.image 2') }}</label>
                                     <span class="text-info"> </span>
                                     <div class="text-left">
-                                        <input type="file" name="images[]" id="customFileEg2"
+                                        <input type="file" name="image2" id="customFileEg2"
                                             class="form-control image-input"
                                             accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                     </div>
@@ -145,7 +145,7 @@
                                     <label class="title-color">{{ trans('keywords.image 3') }}</label>
                                     <span class="text-info"> </span>
                                     <div class="text-left">
-                                        <input type="file" name="images[]" id="customFileEg3"
+                                        <input type="file" name="image3" id="customFileEg3"
                                             class="form-control image-input"
                                             accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                     </div>
@@ -160,7 +160,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="from_part_2 col-12 col-md-3">
+                                {{-- <div class="from_part_2 col-12 col-md-3">
                                     <label class="title-color">{{ trans('keywords.image 4') }}</label>
                                     <span class="text-info"> </span>
                                     <div class="text-left">
@@ -215,7 +215,7 @@
                                             </center>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                             </div>
 
