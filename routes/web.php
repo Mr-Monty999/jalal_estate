@@ -20,6 +20,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get("/test", function () {
-    return view("guest.rents.index");
-});
+// Route::get("/test", function () {
+//     return view("guest.rents.index");
+// });

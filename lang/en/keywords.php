@@ -214,7 +214,12 @@ return [
     "follow us" => "follow us",
     "All rights reserved | This Website is made" => "All rights reserved | This Website is made",
     "by" => "by",
-    "tawreed tech company" => "tawreed tech company"
+    "tawreed tech company" => "tawreed tech company",
+    "location" => "location",
+    "rent period" => "rent period",
+    "daily" => "daily",
+    "monthly" => "monthly",
+    "yearly" => "yearly"
 
 
 

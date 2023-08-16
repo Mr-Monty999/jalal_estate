@@ -37,13 +37,36 @@
                                 <div class="form-group col-12 col-md-6">
                                     <label class="title-color">
                                         {{ trans('keywords.price') }}<span class="text-danger">*</span></label>
-                                    <input value="{{ old('price') }}" type="text" name="price" class="form-control"
+                                    <input value="{{ old('price') }}" type="number" name="price" class="form-control"
                                         placeholder="">
                                     @error('price')
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
                                     @enderror
                                 </div>
-
+                                <div class="form-group col-12 col-md-6">
+                                    <label class="title-color">
+                                        {{ trans('keywords.rent period') }}<span class="text-danger">*</span></label>
+                                    <select name="rent_period" class="form-control" id="rent_period">
+                                        <option @selected(old('rent_period') == 'daily') value="daily">{{ trans('keywords.daily') }}
+                                        </option>
+                                        <option @selected(old('rent_period') == 'monthly') value="monthly">
+                                            {{ trans('keywords.monthly') }}</option>
+                                        <option @selected(old('rent_period') == 'yearly') value="yearly">{{ trans('keywords.yearly') }}
+                                        </option>
+                                    </select>
+                                    @error('rent_period')
+                                        <div class="alert alert-danger text-center">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label class="title-color">
+                                        {{ trans('keywords.location') }}<span class="text-danger">*</span></label>
+                                    <input value="{{ old('location') }}" type="text" name="location"
+                                        class="form-control" placeholder="">
+                                    @error('location')
+                                        <div class="alert alert-danger text-center">{{ $message }}</div>
+                                    @enderror
+                                </div>
                                 <div class="form-group col-12">
                                     <label class="title-color">
                                         {{ trans('keywords.description') }}</label>

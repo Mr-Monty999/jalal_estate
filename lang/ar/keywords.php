@@ -212,7 +212,12 @@ return [
     "follow us" => "تابعنا",
     "All rights reserved | This Website is made" => "جميع الحقوق محفوظة | هذا الموقع صنع",
     "by" => "من قِبل",
-    "tawreed tech company" => "شركة توريد لتقنية المعلومات"
+    "tawreed tech company" => "شركة توريد لتقنية المعلومات",
+    "location" => "الموقع",
+    "rent period" => "مدة الإيجار",
+    "daily" => "يومي",
+    "monthly" => "شهري",
+    "yearly" => "سنوي"
 
 
 

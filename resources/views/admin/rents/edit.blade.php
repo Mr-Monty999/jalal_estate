@@ -45,10 +45,34 @@
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label class="title-color">
+                                        {{ trans('keywords.rent period') }}<span class="text-danger">*</span></label>
+                                    <select name="rent_period" class="form-control" id="rent_period">
+                                        <option @selected($rent->rent_period == 'daily') value="daily">{{ trans('keywords.daily') }}
+                                        </option>
+                                        <option @selected($rent->rent_period == 'monthly') value="monthly">
+                                            {{ trans('keywords.monthly') }}</option>
+                                        <option @selected($rent->rent_period == 'yearly') value="yearly">{{ trans('keywords.yearly') }}
+                                        </option>
+                                    </select>
+                                    @error('rent_period')
+                                        <div class="alert alert-danger text-center">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label class="title-color">
+                                        {{ trans('keywords.location') }}<span class="text-danger">*</span></label>
+                                    <input value="{{ $rent->location }}" type="text" name="location"
+                                        class="form-control" placeholder="">
+                                    @error('location')
+                                        <div class="alert alert-danger text-center">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
                                 <div class="form-group col-12">
                                     <label class="title-color">
-                                        {{ trans('keywords.description') }}<span class="text-danger">*</span></label>
+                                        {{ trans('keywords.description') }}</label>
                                     <textarea class="form-control" name="description" id="" cols="30" rows="10">{!! $rent->description !!}</textarea>
                                     @error('description')
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
@@ -58,7 +82,7 @@
 
                                 <div class="from_part_2 col-12">
                                     <label class="title-color">{{ trans('keywords.Estate Image') }}</label>
-                                    <span class="text-info"><span class="text-danger">*</span> </span>
+                                    <span class="text-info"> </span>
                                     <div class="text-left">
                                         <input type="file" name="banner" id="customFileEg1"
                                             class="form-control image-input"

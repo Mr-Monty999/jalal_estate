@@ -28,7 +28,9 @@ class UpdateRentRequest extends FormRequest
             "price" => "required|numeric",
             "description" => "nullable|string",
             "banner" => "nullable|image",
-            "images" => "nullable|array"
+            "images" => "nullable|array",
+            "location" => "required|string",
+            "rent_period" => "required|string",
         ];
     }
 }

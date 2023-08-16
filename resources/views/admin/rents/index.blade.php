@@ -47,6 +47,8 @@
                                           <th>{{ trans('keywords.ID') }}</th>
                                           <th class="text-center">{{ trans('keywords.name') }}</th>
                                           <th>{{ trans('keywords.price') }}</th>
+                                          <th>{{ trans('keywords.location') }}</th>
+                                          <th>{{ trans('keywords.rent period') }}</th>
                                           <th>{{ trans('keywords.Photo') }}</th>
                                           <th>{{ trans('keywords.description') }}</th>
 
@@ -64,6 +66,9 @@
                                         </td> --}}
                                               <td>{{ $rent->name }}</td>
                                               <td>{{ number_format($rent->price) }}</td>
+                                              <td>{{ $rent->location }}</td>
+                                              <td>{{ trans('keywords.' . $rent->rent_period) }}</td>
+
                                               <td class="text-center">
                                                   <img class="rounded" width="64"
                                                       onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"

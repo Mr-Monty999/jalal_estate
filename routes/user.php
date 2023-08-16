@@ -9,6 +9,7 @@ use App\Http\Controllers\User\LandOfferController;
 use App\Http\Controllers\User\MarketerController;
 use App\Http\Controllers\User\OfficeController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\RentController;
 use App\Http\Controllers\User\ServiceProviderController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,11 @@ Route::group(["prefix" => "user"], function () {
             Route::group(["prefix" => "chat"], function () {
                 Route::post("message/send", [ChatController::class, "sendMessage"])->name("user.chat.message.send");
             });
+
+
+            //// Rents ///
+            Route::get("/rents", [RentController::class, "index"])->name("user.rents.index");
+            Route::get("/rents/{rent}", [RentController::class, "show"])->name("user.rents.show");
         });
     });
 });
