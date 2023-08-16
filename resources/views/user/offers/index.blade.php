@@ -68,15 +68,11 @@
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
                                         <td class="text-black">
-                                            @if ($landOffer->commercial_or_housing == 'housing')
-                                                <div style="border-radius: 10px;padding:10px" class="btn btn-success">
-                                                    {{ trans('keywords.' . $landOffer->commercial_or_housing) }}
-                                                </div>
-                                            @else
-                                                <div style="border-radius: 10px;padding:10px" class="btn btn-warning">
-                                                    {{ trans('keywords.' . $landOffer->commercial_or_housing) }}
-                                                </div>
-                                            @endif
+                                            <div style="border-radius: 10px;padding:10px;background-color:{{ $landOffer->estateClassification->color }}"
+                                                class="btn">
+                                                {{ $landOffer->estateClassification->name }}
+                                            </div>
+
                                         </td>
 
                                         <td class="text-black">
@@ -246,13 +242,13 @@
         });
 
 
-        let CommercialOrHousing = $("[name=commercial_or_housing]");
-        CommercialOrHousing.on("change",
+        let estateClassification = $("[name=estate_classification_id]");
+        estateClassification.on("change",
             function() {
 
                 let isCommercial = $(this).parent().parent().find("[name='is_commercial']");
 
-                if (this.value == "housing") {
+                if ($(this).find("option:selected").hasClass("active-setting-1")) {
 
                     isCommercial.removeAttr("disabled");
 

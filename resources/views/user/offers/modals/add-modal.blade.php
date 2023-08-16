@@ -1,6 +1,7 @@
                         {{-- begin Modal --}}
                         @can('create_offers')
 
+
                             <div class="my-1">
                                 <!-- Button trigger modal -->
                                 <button id="open-modal-button" type="button" class="btn btn-info" data-toggle="modal"
@@ -82,29 +83,36 @@
                                                         </div>
                                                         <div class="form-group col-12 col-md-6">
                                                             <label
-                                                                for="commercial_or_housing">{{ trans('keywords.estate classification') }}<span
+                                                                for="estate_classification_id">{{ trans('keywords.estate classification') }}<span
                                                                     class="text-danger"
                                                                     style="font-weight: bold">*</span></label>
-                                                            <select name="commercial_or_housing" class="form-control"
-                                                                id="commercial_or_housing">
-                                                                <option @if (old('commercial_or_housing') == 'commercial') selected @endif
-                                                                    value="commercial">{{ trans('keywords.commercial') }}
-                                                                </option>
-                                                                <option @if (old('commercial_or_housing') == 'housing') selected @endif
-                                                                    value="housing">{{ trans('keywords.housing') }}
-                                                                </option>
+                                                            <select name="estate_classification_id" class="form-control"
+                                                                id="estate_classification_id">
+                                                                @foreach ($estateClassifications as $estateClassification)
+                                                                    <option
+                                                                        @if (old('estate_classification_id') == $estateClassification->id) selected @endif
+                                                                        class="@if ($estateClassification->active_setting_1 == 1) active-setting-1 @endif"
+                                                                        value="{{ $estateClassification->id }}">
+                                                                        {{ $estateClassification->name }}
+                                                                    </option>
+                                                                @endforeach
+
                                                             </select>
-                                                            @error('commercial_or_housing')
+                                                            @error('estate_classification_id')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">
                                                                     {{ $message }}
                                                                 </div>
                                                             @enderror
+
                                                             <div class="form-group">
+                                                                @php
+                                                                    $estateClassification = App\Models\EstateClassification::findOrNew(old('estate_classification_id'));
+                                                                @endphp
                                                                 <label
                                                                     for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input @if (old('commercial_or_housing') != 'housing') disabled @endif
+                                                                    <input @if ($estateClassification->active_setting_1 == false) disabled @endif
                                                                         @if (old('is_commercial') == '0') checked @endif
                                                                         type="radio" class="form-check-input mx-1"
                                                                         name="is_commercial" id="is_commercial_no"
@@ -114,7 +122,7 @@
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input @if (old('commercial_or_housing') != 'housing') disabled @endif
+                                                                    <input @if ($estateClassification->active_setting_1 == false) disabled @endif
                                                                         @if (old('is_commercial') == '1') checked @endif
                                                                         type="radio" class="form-check-input mx-1"
                                                                         name="is_commercial" id="is_commercial_yes"

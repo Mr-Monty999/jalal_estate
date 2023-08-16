@@ -48,6 +48,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="active_setting_1" class="title-color">
+                                            {{ trans('keywords.active setting 1') }}</label>
+
+                                        <input name="active_setting_1" id="active_setting_1" type="checkbox"
+                                            @checked(old('active_setting_1') == 'on') class="">
+                                        @error('active_setting_1')
+                                            <div class="alert alert-danger text-center">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="d-flex flex-wrap gap-2 justify-content-end">

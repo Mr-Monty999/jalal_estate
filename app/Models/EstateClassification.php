@@ -11,4 +11,10 @@ class EstateClassification extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = ["id"];
+
+
+    public function landOffers()
+    {
+        return $this->hasMany(LandOffer::class, "estate_classification_id");
+    }
 }

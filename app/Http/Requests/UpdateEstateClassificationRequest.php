@@ -26,6 +26,8 @@ class UpdateEstateClassificationRequest extends FormRequest
         return [
             "name" => "required|string",
             "color" => "nullable|string",
+            "active_setting_1" => "nullable"
+
         ];
     }
 }

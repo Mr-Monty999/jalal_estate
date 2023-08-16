@@ -246,7 +246,8 @@ return [
     "edit estate classification" => "تعديل تصنيف العقار",
     "estate classifications" => "تصنيف العقارات",
     "color" => "اللون",
-    "Are You Sure Want To Delete This Estate Classification?" => "هل أنت متأكد متأكد من حذف تصنيف العقار هذ؟"
+    "Are You Sure Want To Delete This Estate Classification?" => "هل أنت متأكد متأكد من حذف تصنيف العقار هذ؟",
+    "active setting 1" => "تفعيل الإعدادت 1"
 
 
 

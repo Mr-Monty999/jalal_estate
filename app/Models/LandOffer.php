@@ -37,4 +37,9 @@ class LandOffer extends Model
     {
         return $this->belongsTo(User::class, "accepted_by");
     }
+
+    public function estateClassification()
+    {
+        return $this->belongsTo(EstateClassification::class, "estate_classification_id");
+    }
 }

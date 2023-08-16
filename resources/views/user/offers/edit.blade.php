@@ -48,18 +48,19 @@
                 </div>
                 <div class="form-group col-12 col-md-6">
                     <label
-                        for="commercial_or_housing{{ $landOffer->id }}">{{ trans('keywords.estate classification') }}<span
+                        for="estate_classification_id{{ $landOffer->id }}">{{ trans('keywords.estate classification') }}<span
                             class="text-danger" style="font-weight: bold">*</span></label>
-                    <select name="commercial_or_housing" class="form-control"
-                        id="commercial_or_housing{{ $landOffer->id }}">
-                        <option @if ($landOffer->commercial_or_housing == 'commercial') selected @endif value="commercial">
-                            {{ trans('keywords.commercial') }}
-                        </option>
-                        <option @if ($landOffer->commercial_or_housing == 'housing') selected @endif value="housing">
-                            {{ trans('keywords.housing') }}
-                        </option>
+                    <select name="estate_classification_id" class="form-control"
+                        id="estate_classification_id{{ $landOffer->id }}">
+                        @foreach ($estateClassifications as $estateClassification)
+                            <option @if ($landOffer->estateClassification->id == $estateClassification->id) selected @endif
+                                class="@if ($estateClassification->active_setting_1 == 1) active-setting-1 @endif"
+                                value="{{ $estateClassification->id }}">
+                                {{ $estateClassification->name }}
+                            </option>
+                        @endforeach
                     </select>
-                    @error('commercial_or_housing')
+                    @error('estate_classification_id')
                         <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                             {{ $message }}
                         </div>
@@ -67,7 +68,7 @@
                     <div class="form-group">
                         <label for="is_commercial{{ $landOffer->id }}">{{ trans('keywords.Is Commercial') }}</label>
                         <div class="form-check form-check-inline">
-                            <input @if ($landOffer->commercial_or_housing != 'housing') disabled @endif
+                            <input @if ($landOffer->estateClassification->active_setting_1 == false) disabled @endif
                                 @if ($landOffer->is_commercial == '0') checked @endif type="radio"
                                 class="form-check-input mx-1" name="is_commercial"
                                 id="is_commercial_no{{ $landOffer->id }}" value="0">
@@ -76,7 +77,7 @@
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input @if ($landOffer->commercial_or_housing != 'housing') disabled @endif
+                            <input @if ($landOffer->estateClassification->active_setting_1 == false) disabled @endif
                                 @if ($landOffer->is_commercial == '1') checked @endif type="radio"
                                 class="form-check-input mx-1" name="is_commercial"
                                 id="is_commercial_yes{{ $landOffer->id }}" value="1">
@@ -459,13 +460,14 @@
         });
 
 
-        let CommercialOrHousing = $("[name=commercial_or_housing]");
-        CommercialOrHousing.on("change",
+
+        let estateClassification = $("[name=estate_classification_id]");
+        estateClassification.on("change",
             function() {
 
                 let isCommercial = $(this).parent().parent().find("[name='is_commercial']");
 
-                if (this.value == "housing") {
+                if ($(this).find("option:selected").hasClass("active-setting-1")) {
 
                     isCommercial.removeAttr("disabled");
 

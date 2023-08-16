@@ -28,13 +28,15 @@
 
             </div>
             <div class="form-group col-12 col-md-6">
-                <label for="commercial_or_housing">{{ trans('keywords.estate classification') }}</label>
-                <p class="text-black">
-                    {{ trans('keywords.' . $landOffer->commercial_or_housing) }}
-                </p>
+                <label for="commercial_or_housing">{{ trans('keywords.estate classification') }}:</label>
+                <br>
+                <div style="border-radius: 10px;padding:10px;background-color:{{ $landOffer->estateClassification->color }}"
+                    class="btn">
+                    {{ $landOffer->estateClassification->name }}
+                </div>
 
             </div>
-            @if ($landOffer->commercial_or_housing == 'housing')
+            @if ($landOffer->estateClassification->active_setting_1 == 1)
                 <div class="form-group col-12 col-md-6">
                     <label for="is_commercial">{{ trans('keywords.Is Commercial') }}</label>
                     <p class="text-black">
@@ -145,7 +147,7 @@
             <div class="form-group col-12 col-md-6">
                 <label for="adjective">{{ trans('keywords.Adjective') }}</label>
                 <p class="text-black">
-                    {{ $landOffer->adjective }}
+                    {{ trans('keywords.' . $landOffer->adjective) }}
                 </p>
 
             </div>

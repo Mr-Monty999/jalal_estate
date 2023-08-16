@@ -248,7 +248,8 @@ return [
     "edit estate classification" => "edit estate classification",
     "estate classifications" => "estate classifications",
     "color" => "color",
-    "Are You Sure Want To Delete This Estate Classification?" => "Are You Sure Want To Delete This Estate Classification?"
+    "Are You Sure Want To Delete This Estate Classification?" => "Are You Sure Want To Delete This Estate Classification?",
+    "active setting 1" => "active setting 1"
 
 
 

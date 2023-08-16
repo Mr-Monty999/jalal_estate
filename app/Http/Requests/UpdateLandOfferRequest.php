@@ -26,8 +26,9 @@ class UpdateLandOfferRequest extends FormRequest
         return [
             "city_id" => "required|numeric|exists:cities,id",
             "neighbourhood_id" => "required|numeric|exists:neighbourhoods,id",
+            "estate_classification_id" => "required|numeric|exists:estate_classifications,id",
             "street_name" => "required|string",
-            "commercial_or_housing" => "required|string|in:commercial,housing",
+            // "commercial_or_housing" => "required|string|in:commercial,housing",
             "direction" => "required|string",
             "space" => "required|numeric",
             "is_commercial" => "required_if:commercial_or_housing,housing|string",

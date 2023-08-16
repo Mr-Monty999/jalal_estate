@@ -39,18 +39,19 @@
 
                </div>
                <div class="form-group col-12 col-md-4 d-flex flex-column">
-                   <label for="commercial_or_housing">{{ trans('keywords.estate classification') }}</label>
-                   <select multiple name="commercial_or_housing[]" class="form-control multiple-select-checkbox"
-                       id="commercial_or_housing">
+                   <label for="estate_classification_id">{{ trans('keywords.estate classification') }}</label>
+                   <select multiple name="estate_classification_id[]" class="form-control multiple-select-checkbox"
+                       id="estate_classification_id">
                        {{-- <option class="text-black select-all" value="">
                            {{ trans('keywords.select all') }}</option> --}}
+                       @foreach ($estateClassifications as $estateClassification)
+                           <option @if (request('estate_classification_id') && in_array($estateClassification->id, request('estate_classification_id'))) selected @endif
+                               value="{{ $estateClassification->id }}">
+                               {{ $estateClassification->name }}
+                           </option>
+                       @endforeach
 
-                       <option @if (request('commercial_or_housing') && in_array('commercial', request('commercial_or_housing'))) selected @endif value="commercial">
-                           {{ trans('keywords.commercial') }}
-                       </option>
-                       <option @if (request('commercial_or_housing') && in_array('housing', request('commercial_or_housing'))) selected @endif value="housing">
-                           {{ trans('keywords.housing') }}
-                       </option>
+
                    </select>
 
                </div>

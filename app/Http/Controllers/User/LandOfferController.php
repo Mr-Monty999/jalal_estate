@@ -7,6 +7,7 @@ use App\Http\Requests\StoreLandOfferRequest;
 use App\Http\Requests\UpdateLandOfferRequest;
 use App\Models\Ad;
 use App\Models\City;
+use App\Models\EstateClassification;
 use App\Models\LandOffer;
 use App\Models\LandType;
 use App\Notifications\LandOfferAcceptedNotification;
@@ -41,6 +42,7 @@ class LandOfferController extends Controller
 
         $cities = City::orderBy("name")->get();
         $landTypes = LandType::orderBy("name")->get();
+        $estateClassifications = EstateClassification::orderBy("name")->get();
         $landOffers = LandOffer::with([
             "city.neighbourhoods" => function ($query) {
                 $query->orderBy("name");
@@ -56,8 +58,9 @@ class LandOfferController extends Controller
         if ($request->neighbourhood_id)
             $landOffers->whereIn("neighbourhood_id", $request->neighbourhood_id);
 
-        if ($request->commercial_or_housing)
-            $landOffers->whereIn("commercial_or_housing", $request->commercial_or_housing);
+        if ($request->estate_classification_id)
+            $landOffers->whereIn("estate_classification_id", $request->estate_classification_id);
+
 
         if ($request->land_type_ids)
             $landOffers->whereHas("landTypes", function ($query) use ($request) {
@@ -93,7 +96,7 @@ class LandOfferController extends Controller
         // return $ads;
 
 
-        return view("user.offers.index", compact("cities", "landTypes", "landOffers", "user", "ads"));
+        return view("user.offers.index", compact("cities", "landTypes", "landOffers", "user", "ads", "estateClassifications"));
     }
 
     /**
@@ -129,7 +132,7 @@ class LandOfferController extends Controller
      */
     public function show(LandOffer $landOffer)
     {
-        $landOffer->load("acceptedBy", "city", "neighbourhood", "landTypes");
+        $landOffer->load("acceptedBy", "city", "neighbourhood", "landTypes", "estateClassification");
         return view("user.offers.show", compact("landOffer"));
     }
 
@@ -157,7 +160,9 @@ class LandOfferController extends Controller
     {
         $cities = City::orderBy("name")->get();
         $landTypes = LandType::orderBy("name")->get();
-        return view("user.offers.edit", compact("cities", "landTypes", "landOffer"));
+        $estateClassifications = EstateClassification::orderBy("name")->get();
+
+        return view("user.offers.edit", compact("cities", "landTypes", "landOffer", "estateClassifications"));
     }
 
     /**
