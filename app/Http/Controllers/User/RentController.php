@@ -18,7 +18,17 @@ class RentController extends Controller
     public function show(Rent $rent)
     {
         $user = auth()->user();
+        $relatedRents = Rent::where("id", "!=", $rent->id)
+            ->where(function ($q) use ($rent) {
+                $q->where("price", "<=", $rent->price)
+                    ->orWhere("rent_period", "=", $rent->rent_period)
+                    ->orWhere("location", "LIKE", "%$rent->location%");
+            })
+            ->latest()
+            ->paginate(10);
+        $rent->load("images");
 
-        return view("user.rents.show", compact("user", "rent"));
+
+        return view("user.rents.show", compact("user", "rent", "relatedRents"));
     }
 }

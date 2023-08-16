@@ -217,7 +217,15 @@ return [
     "rent period" => "مدة الإيجار",
     "daily" => "يومي",
     "monthly" => "شهري",
-    "yearly" => "سنوي"
+    "yearly" => "سنوي",
+    "related rents" => "إيجارات مشابهة",
+    "SAR" => "ريال سعودي",
+    "day" => "يوم",
+    "month" => "شهر",
+    "year" => "سنة",
+
+
+
 
 
 

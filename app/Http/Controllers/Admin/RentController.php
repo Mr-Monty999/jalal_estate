@@ -75,7 +75,7 @@ class RentController extends Controller
 
         $rent->load([
             "images" => function ($query) {
-                $query->latest()->limit(6);
+                $query->limit(6);
             }
         ]);
         return view("admin.rents.edit", compact("rent"));

@@ -219,7 +219,12 @@ return [
     "rent period" => "rent period",
     "daily" => "daily",
     "monthly" => "monthly",
-    "yearly" => "yearly"
+    "yearly" => "yearly",
+    "related rents" => "related rents",
+    "SAR" => "SAR",
+    "day" => "day",
+    "month" => "month",
+    "year" => "year",
 
 
 

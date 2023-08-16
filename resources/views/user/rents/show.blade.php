@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="bravo_banner"
-                style="background-image: url('@if ($rent->banner) {{ asset('storage/'.$rent->banner)}} @else {{ asset('assets/front-end/img/placeholder.png') }} @endif')">
+                style="background-image: url('@if ($rent->banner) {{ asset('storage/' . $rent->banner) }} @else {{ asset('assets/front-end/img/placeholder.png') }} @endif')">
                 <div class="container">
                     <div class="bravo_gallery">
                         <div class="btn-group">
@@ -114,7 +114,7 @@
                                 </div>
                             </div> --}}
                             </div>
-                            <div class="g-gallery">
+                            {{-- <div class="g-gallery">
                                 <div class="fotorama" data-width="100%" data-thumbwidth="135" data-thumbheight="135"
                                     data-thumbmargin="15" data-nav="thumbs" data-allowfullscreen="true">
                                     <a href="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-1.jpg') }}"
@@ -162,11 +162,64 @@
                                         <i class="fa fa-heart-o"></i>
                                     </div>
                                 </div>
+                            </div> --}}
+                            <div style="" class="g-gallery">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        @if (count($rent->images) > 0)
+                                            @foreach ($rent->images as $index => $image)
+                                                <li data-target="#carouselExampleIndicators"
+                                                    data-slide-to="{{ $index }}"
+                                                    class="@if ($index == 0) active @endif">
+                                                </li>
+                                            @endforeach
+                                        @else
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                                            </li>
+                                        @endif
+
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        @if (count($rent->images) > 0)
+                                            @foreach ($rent->images as $index => $image)
+                                                <div class="carousel-item @if ($index == 0) active @endif">
+                                                    <img src="{{ asset('storage/' . $image->path) }}" class="d-block w-100"
+                                                        onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'">
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="carousel-item active">
+                                                <img src="{{ asset('assets/front-end/img/image-place-holder.png') }}"
+                                                    class="d-block w-100">
+                                            </div>
+                                        @endif
+
+
+                                    </div>
+
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                        data-slide="prev">
+                                        <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                        data-slide="next">
+                                        <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                    <style>
+                                        .carousel-control-next {
+                                            right: unset
+                                        }
+                                    </style>
+                                </div>
+
                             </div>
+
                             <div class="g-overview">
                                 <h3>{{ trans('keywords.description') }}</h3>
                                 <div class="description">
-                                    <p>{!! $rent->description !!}</p>
+                                    <p class="text-black">{!! $rent->description !!}</p>
                                     {{-- <h4>HIGHLIGHTS</h4> --}}
                                     {{-- <ul>
                                         <li>Visit the Museum of Modern Art in Manhattan</li>
@@ -1001,7 +1054,7 @@
                         </div> --}}
                         </div>
                         <div class="col-md-12 col-lg-3">
-                            <div class="owner-info widget-box">
+                            {{-- <div class="owner-info widget-box">
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="booking/profile/tawreed" class="avatar-cover"
@@ -1018,130 +1071,52 @@
                                         <p>Member Since Jul 2023</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="bravo-list-hotel-related-widget">
-                                <h3 class="heading">Related Hotel</h3>
+                                <h3 class="heading">{{ trans('keywords.related rents') }}</h3>
                                 <div class="list-item">
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a href="booking/hotel/hotel-wbf-homachi">
-                                                    <img class='img-responsive lazy'
-                                                        data-src={{ asset('booking/uploads/demo/space/space-6.jpg') }}
-                                                        alt='Hotel WBF Hommachi'>
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="star-rate">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="media-heading">
-                                                    <a href="{{ asset('booking/hotel/hotel-wbf-homachi') }}">
-                                                        Hotel WBF Hommachi
+                                    @foreach ($relatedRents as $relatedRent)
+                                        <div class="item">
+                                            <div class="media">
+                                                <div class="media-left mx-1">
+                                                    <a href="{{ route('user.rents.show', $relatedRent->id) }}">
+                                                        <img class='img-responsive'
+                                                            src="{{ asset('storage/' . $relatedRent->banner) }}"
+                                                            onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                            alt='{{ $relatedRent->name }}'>
                                                     </a>
-                                                </h4>
-                                                <div class="price-wrapper">
-                                                    from
-                                                    <span class="price">$350</span>
-                                                    <span class="unit">/night</span>
+                                                </div>
+                                                <div class="media-body">
+                                                    {{-- <div class="star-rate">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div> --}}
+                                                    <h4 class="media-heading">
+                                                        <a href="{{ route('user.rents.show', $relatedRent->id) }}">
+                                                            {{ $relatedRent->name }}
+                                                        </a>
+                                                    </h4>
+                                                    <div class="price-wrapper">
+
+                                                        <span
+                                                            class="price">{{ number_format($relatedRent->price) }}&ThinSpace;{{ trans('keywords.SAR') }}</span>
+                                                        <span class="unit">/&ThinSpace;
+                                                            @if ($relatedRent->rent_period == 'daily')
+                                                                {{ trans('keywords.day') }}
+                                                            @elseif ($relatedRent->rent_period == 'monthly')
+                                                                {{ trans('keywords.month') }}
+                                                            @else
+                                                                {{ trans('keywords.year') }}
+                                                            @endif
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a href="{{ asset('booking/hotel/castello-casole-hotel') }}">
-                                                    <img class='img-responsive lazy'
-                                                        data-src={{ asset('booking/uploads/demo/space/space-7.jpg') }}
-                                                        alt='Castello Casole Hotel'>
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="star-rate">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="media-heading">
-                                                    <a href="booking/hotel/castello-casole-hotel">
-                                                        Castello Casole Hotel
-                                                    </a>
-                                                </h4>
-                                                <div class="price-wrapper">
-                                                    from
-                                                    <span class="price">$350</span>
-                                                    <span class="unit">/night</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a href="booking/hotel/redac-gateway-hotel">
-                                                    <img class='img-responsive lazy'
-                                                        data-src={{ asset('booking/uploads/demo/space/space-8.jpg') }}
-                                                        alt='Redac Gateway Hotel'>
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="star-rate">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="media-heading">
-                                                    <a href="booking/hotel/redac-gateway-hotel">
-                                                        Redac Gateway Hotel
-                                                    </a>
-                                                </h4>
-                                                <div class="price-wrapper">
-                                                    from
-                                                    <span class="price">$500</span>
-                                                    <span class="unit">/night</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <a href="booking/hotel/parian-holiday-villas">
-                                                    <img class='img-responsive lazy'
-                                                        data-src={{ asset('booking/uploads/demo/space/space-13.jpg') }}
-                                                        alt='Parian Holiday Villas'>
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="star-rate">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <h4 class="media-heading">
-                                                    <a href="booking/hotel/parian-holiday-villas">
-                                                        Parian Holiday Villas
-                                                    </a>
-                                                </h4>
-                                                <div class="price-wrapper">
-                                                    from
-                                                    <span class="price">$550</span>
-                                                    <span class="unit">/night</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             {{-- <div class="g-all-attribute is_pc">
@@ -1258,8 +1233,7 @@
         <div id="cdn-browser-modal" class="modal fade">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div id="cdn-browser" class="cdn-browser d-flex flex-column" v-cloak
-                        :class="{ is_loading: isLoading }">
+                    <div id="cdn-browser" class="cdn-browser d-flex flex-column" v-cloak :class="{ is_loading: isLoading }">
                         <div class="files-nav flex-shrink-0">
                             <div class="d-flex justify-content-between">
                                 <div class="col-left d-flex align-items-center">
