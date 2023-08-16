@@ -1,6 +1,6 @@
 @extends('layouts.admin.back-end.app')
 
-@section('title', trans('keywords.Terms and Conditions'))
+@section('title', trans('keywords.about page settings'))
 
 @push('css_or_js')
 @endpush
@@ -11,7 +11,7 @@
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-10">
                 <img src="{{ asset('/assets/back-end/img/brand-setup.png') }}" alt="">
-                {{ trans('keywords.Terms and Conditions') }}
+                {{ trans('keywords.about page settings') }}
             </h2>
         </div>
         <!-- End Page Title -->
@@ -25,26 +25,18 @@
                             @csrf
                             @method('put')
                             <div class="row">
-                                <div class="form-group col-12">
+                                <div class="form-group col-12 col-md-6">
                                     <label class="title-color">
                                         {{ trans('keywords.title') }}</label>
-                                    <textarea class="form-control" name="about_page_title" id="" cols="30" rows="10">{{ App\Services\SettingService::get('about_page_title') }}</textarea>
+                                    <input value="{{ App\Services\SettingService::get('about_page_title') }}" type="text"
+                                        class="form-control" name="about_page_title">
                                     @error('about_page_title')
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="form-group col-12">
-                                    <label class="title-color">
-                                        {{ trans('keywords.description') }}</label>
-                                    <textarea class="form-control" name="about_page_description" id="" cols="30" rows="10">{{ App\Services\SettingService::get('about_page_description') }}</textarea>
-                                    @error('about_page_description')
-                                        <div class="alert alert-danger text-center">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
                                 <div class="from_part_2 col-12 col-md-6">
                                     <label class="title-color">{{ trans('keywords.image') }}</label>
-                                    <span class="text-info"><span class="text-danger">*</span> </span>
+                                    <span class="text-info"></span>
                                     <div class="text-left">
                                         <input type="file" name="about_page_image" id="customFileEg1"
                                             class="form-control"
@@ -55,17 +47,28 @@
                                             <center>
                                                 @if (App\Services\SettingService::get('about_page_image'))
                                                     <img class="upload-img-view" id="viewer"
-                                                        src="{{ asset('storage/' . {{ App\Services\SettingService::get('about_page_image') }}) }}"
+                                                        onerror="this.src='{{ asset('theme2/images/thinking-face-rafiki.svg') }}'"
+                                                        src="{{ asset('storage/' . App\Services\SettingService::get('about_page_image')) }}"
                                                         alt="image" />
                                                 @else
                                                     <img class="upload-img-view" id="viewer"
-                                                        src="{{ asset('assets/back-end/img/900x400/img1.jpg') }}"
+                                                        src="{{ asset('theme2/images/thinking-face-rafiki.svg') }}"
                                                         alt="image" />
                                                 @endif
                                             </center>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group col-12">
+                                    <label class="title-color">
+                                        {{ trans('keywords.description') }}</label>
+                                    <textarea class="form-control" name="about_page_description" id="" cols="30" rows="10">{{ App\Services\SettingService::get('about_page_description') }}</textarea>
+                                    @error('about_page_description')
+                                        <div class="alert alert-danger text-center">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
 
 
 

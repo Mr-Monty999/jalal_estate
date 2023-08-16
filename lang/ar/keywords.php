@@ -223,6 +223,17 @@ return [
     "day" => "يوم",
     "month" => "شهر",
     "year" => "سنة",
+    "contact page settings" => "إعدادات صفحة تواصل معنا",
+    "about page settings" => "إعدادات صفحة حول",
+    "footer settings" => "إعدادات التذييل",
+    "title" => "العنوان",
+    "image" => "الصورة",
+    "facebook page link" => "رابط صفحة الفيسبوك",
+    "twitter page link" => "رابط صفحة تويتر",
+    "instagram page link" => "رابط صفحة إنستغرام",
+    "linkedin page link" => "رابط صفحة لينكدإن",
+
+
 
 
 

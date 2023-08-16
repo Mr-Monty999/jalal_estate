@@ -42,10 +42,14 @@
 
                        <div class="">
                            <h2 class="footer-heading mb-4">{{ trans('keywords.follow us') }}</h2>
-                           <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                           <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                           <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                           <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                           <a href="{{ App\Services\SettingService::get('footer_facebook_link') }}" target="_blank"
+                               class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                           <a href="{{ App\Services\SettingService::get('footer_twitter_link') }}" target="_blank"
+                               class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                           <a href="{{ App\Services\SettingService::get('footer_instagram_link') }}" target="_blank"
+                               class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                           <a href="{{ App\Services\SettingService::get('footer_linkedin_link') }}" target="_blank"
+                               class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
                        </div>
 
 

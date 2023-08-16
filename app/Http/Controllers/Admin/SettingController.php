@@ -11,6 +11,10 @@ use App\Services\SettingService;
 class SettingController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware("can:settings");
+    }
     public function termsAndConditions()
     {
 
@@ -32,12 +36,12 @@ class SettingController extends Controller
     public function aboutPage()
     {
 
-        return view("admin.settings.about");
+        return view("admin.settings.about-page");
     }
     public function contactPage()
     {
 
-        return view("admin.settings.contact");
+        return view("admin.settings.contact-page");
     }
     public function footer()
     {

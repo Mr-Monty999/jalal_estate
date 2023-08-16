@@ -221,7 +221,7 @@
 
                             <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
                                 style="display: {{ Request::is('admin/settings*') ? 'block' : '' }}">
-                                @can('view_terms_and_condition_settings')
+                                @can('settings')
                                     <li
                                         class="nav-item {{ Request::is('admin/settings/terms-and-conditions') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.terms-and-conditions.index') }}"
@@ -231,17 +231,31 @@
                                                 class="text-truncate">{{ trans('keywords.terms & conditions settings') }}</span>
                                         </a>
                                     </li>
-                                @endcan
-
-                                {{-- @can('view_ads')
-                                    <li class="nav-item {{ Request::is('admin/ads') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.ads.index') }}"
-                                            title="{{ trans('keywords.ads list') }}">
+                                    <li class="nav-item {{ Request::is('admin/settings/about-page') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.about-page.index') }}"
+                                            title="{{ trans('keywords.about page settings') }}">
                                             <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.ads list') }}</span>
+                                            <span class="text-truncate">{{ trans('keywords.about page settings') }}</span>
                                         </a>
                                     </li>
-                                @endcan --}}
+                                    <li class="nav-item {{ Request::is('admin/settings/contact-page') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.contact-page.index') }}"
+                                            title="{{ trans('keywords.contact page settings') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span
+                                                class="text-truncate">{{ trans('keywords.contact page settings') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item {{ Request::is('admin/settings/footer') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.footer.index') }}"
+                                            title="{{ trans('keywords.footer settings') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.footer settings') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+
 
                             </ul>
                         </li>

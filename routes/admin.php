@@ -49,8 +49,8 @@ Route::group(["prefix" => "admin"], function () {
 
         Route::get('/settings/terms-and-conditions', [SettingController::class, "termsAndConditions"])->name("admin.terms-and-conditions.index");
         Route::get('/settings/about-page', [SettingController::class, "aboutPage"])->name("admin.about-page.index");
-        Route::get('/settings/contact', [SettingController::class, "contactPage"])->name("admin.contact.index");
-        Route::get('/settings/footer', [SettingController::class, "footerPage"])->name("admin.footer.index");
+        Route::get('/settings/contact-page', [SettingController::class, "contactPage"])->name("admin.contact-page.index");
+        Route::get('/settings/footer', [SettingController::class, "footer"])->name("admin.footer.index");
 
         Route::put('/settings', [SettingController::class, "update"])->name("admin.settings.update");
 

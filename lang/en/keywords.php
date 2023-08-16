@@ -225,6 +225,15 @@ return [
     "day" => "day",
     "month" => "month",
     "year" => "year",
+    "contact page settings" => "contact page settings",
+    "about page settings" => "about page settings",
+    "footer settings" => "footer settings",
+    "title" => "title",
+    "image" => "image",
+    "facebook page link" => "facebook page link",
+    "twitter page link" => "twitter page link",
+    "instagram page link" => "instagram page link",
+    "linkedin page link" => "linkedin page link",
 
 
 

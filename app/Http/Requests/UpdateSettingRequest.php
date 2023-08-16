@@ -25,6 +25,16 @@ class UpdateSettingRequest extends FormRequest
     {
         return [
             "terms_and_conditions" => "nullable|string",
+            "about_page_title" => "nullable|string",
+            "about_page_image" => "nullable|image",
+            "about_page_description" => "nullable|string",
+            "contact_page_title" => "nullable|string",
+            "contact_page_image" => "nullable|image",
+            "contact_page_description" => "nullable|string",
+            "footer_facebook_link" => "nullable|string",
+            "footer_instagram_link" => "nullable|string",
+            "footer_twitter_link" => "nullable|string",
+            "footer_linkedin_link" => "nullable|string",
         ];
     }
 }
