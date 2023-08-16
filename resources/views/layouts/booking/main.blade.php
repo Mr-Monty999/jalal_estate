@@ -1,15 +1,15 @@
 <head>
 
 
-    {{-- <link href="http://localhost:8001/libs/bootstrap/css/bootstrap.css" rel="stylesheet"> --}}
-    <link href="http://localhost:8001/libs/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="http://localhost:8001/libs/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="http://localhost:8001/libs/icofont/icofont.min.css" rel="stylesheet">
-    <link href="http://localhost:8001/libs/select2/css/select2.min.css" rel="stylesheet">
-    <link href="http://localhost:8001/dist/frontend/css/notification.css" rel="newest stylesheet">
-    <link href="http://localhost:8001/dist/frontend/css/app.css?_ver=3.2.1" rel="stylesheet">
+    {{-- <link href="{{asset('booking/libs/bootstrap/css/bootstrap.css')}}" rel="stylesheet"> --}}
+    <link href="{{ asset('booking/libs/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('booking/libs/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('booking/libs/icofont/icofont.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('booking/libs/select2/css/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('booking/dist/frontend/css/notification.css') }}" rel="newest stylesheet">
+    <link href="{{ asset('booking/dist/frontend/css/app.css?_ver=3.2.1') }}" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="http://localhost:8001/libs/daterange/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('booking/libs/daterange/daterangepicker.css') }}">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel='stylesheet' id='google-font-css-css'
@@ -18,13 +18,13 @@
 
 
 
-    <link href="http://localhost:8001/dist/frontend/module/hotel/css/hotel.css?_ver=3.2.1" rel="stylesheet">
+    <link href="{{ asset('booking/dist/frontend/module/hotel/css/hotel.css?_ver=3.2.1') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-        href="http://localhost:8001/libs/ion_rangeslider/css/ion.rangeSlider.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://localhost:8001/libs/fotorama/fotorama.css" />
+        href="{{ asset('booking/libs/ion_rangeslider/css/ion.rangeSlider.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('booking/libs/fotorama/fotorama.css') }}" />
 
-    <link href="http://localhost:8001/custom-css" rel="stylesheet">
-    <link href="http://localhost:8001/libs/carousel-2/owl.carousel.css" rel="stylesheet">
+    <link href="{{ asset('booking/custom-css') }}" rel="stylesheet">
+    <link href="{{ asset('booking/libs/carousel-2/owl.carousel.css') }}" rel="stylesheet">
 
 
 
@@ -706,17 +706,17 @@
             <div class="container">
                 {{-- <ol class="ul" itemscope itemtype="https://schema.org/BreadcrumbList">
                     <li class="" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="http://localhost:8001" itemprop="item"><span itemprop="name">Home</span></a>
+                        <a href="" itemprop="item"><span itemprop="name">Home</span></a>
                         <meta itemprop="position" content="1" />
                     </li>
                     <li class=" " itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="http://localhost:8001/hotel" itemscope itemtype="https://schema.org/WebPage"
-                            itemprop="item" itemid="http://localhost:8001/hotel"><span itemprop="name">Hotel</span></a>
+                        <a href="" itemscope itemtype="https://schema.org/WebPage"
+                            itemprop="item" itemid=""><span itemprop="name">Hotel</span></a>
                         <meta itemprop="position" content="2" />
                     </li>
                     <li class=" " itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="http://localhost:8001/location/paris" itemscope itemtype="https://schema.org/WebPage"
-                            itemprop="item" itemid="http://localhost:8001/location/paris"><span
+                        <a href="" itemscope itemtype="https://schema.org/WebPage"
+                            itemprop="item" itemid=""><span
                                 itemprop="name">Paris</span></a>
                         <meta itemprop="position" content="3" />
                     </li>
@@ -728,7 +728,7 @@
             </div>
         </div>
         <div class="bravo_banner"
-            style="background-image: url('http://localhost:8001/uploads/demo/hotel/hotel-featured-2.jpg')">
+            style="background-image: url('{{ asset('booking/uploads/demo/hotel/hotel-featured-2.jpg') }}')">
             <div class="container">
                 <div class="bravo_gallery">
                     <div class="btn-group">
@@ -816,23 +816,23 @@
                         <div class="g-gallery">
                             <div class="fotorama" data-width="100%" data-thumbwidth="135" data-thumbheight="135"
                                 data-thumbmargin="15" data-nav="thumbs" data-allowfullscreen="true">
-                                <a href="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-1.jpg"
-                                    data-thumb="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-1.jpg"
+                                <a href="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-1.jpg') }}"
+                                    data-thumb="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-1.jpg') }}"
                                     data-alt="Gallery"></a>
-                                <a href="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-2.jpg"
-                                    data-thumb="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-2.jpg"
+                                <a href="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-2.jpg') }}"
+                                    data-thumb="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-2.jpg') }}"
                                     data-alt="Gallery"></a>
-                                <a href="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-3.jpg"
-                                    data-thumb="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-3.jpg"
+                                <a href="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-3.jpg') }}"
+                                    data-thumb="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-3.jpg') }}"
                                     data-alt="Gallery"></a>
-                                <a href="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-4.jpg"
-                                    data-thumb="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-4.jpg"
+                                <a href="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-4.jpg') }}"
+                                    data-thumb="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-4.jpg') }}"
                                     data-alt="Gallery"></a>
-                                <a href="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-5.jpg"
-                                    data-thumb="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-5.jpg"
+                                <a href="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-5.jpg') }}"
+                                    data-thumb="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-5.jpg') }}"
                                     data-alt="Gallery"></a>
-                                <a href="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-6.jpg"
-                                    data-thumb="http://localhost:8001/uploads/demo/hotel/gallery/hotel-gallery-6.jpg"
+                                <a href="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-6.jpg') }}"
+                                    data-thumb="{{ asset('booking/uploads/demo/hotel/gallery/hotel-gallery-6.jpg') }}"
                                     data-alt="Gallery"></a>
                             </div>
                             <div class="social">
@@ -843,14 +843,14 @@
                                     <ul class="share-wrapper">
                                         <li>
                                             <a class="facebook"
-                                                href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8001/hotel/hotel-stanford&amp;title=Hotel Stanford"
+                                                href="https://www.facebook.com/sharer/sharer.php?u=&amp;title=Hotel Stanford"
                                                 target="_blank" rel="noopener" original-title="Facebook">
                                                 <i class="fa fa-facebook fa-lg"></i>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="twitter"
-                                                href="https://twitter.com/share?url=http://localhost:8001/hotel/hotel-stanford&amp;title=Hotel Stanford"
+                                                href="https://twitter.com/share?url=&amp;title=Hotel Stanford"
                                                 target="_blank" rel="noopener" original-title="Twitter">
                                                 <i class="fa fa-twitter fa-lg"></i>
                                             </a>
@@ -1002,7 +1002,7 @@
                                                                         <span class="c-pointer" data-dismiss="modal"
                                                                             aria-label="Close">
                                                                             <i class="input-icon field-icon fa">
-                                                                                <img src="http://localhost:8001/images/ico_close.svg"
+                                                                                <img src="{{asset('booking/images/ico_close.svg')}}"
                                                                                     alt="close">
                                                                             </i>
                                                                         </span>
@@ -1509,7 +1509,7 @@
                                     <div class="review-item-head">
                                         <div class="media">
                                             <div class="media-left">
-                                                <img class="avatar" src="http://localhost:8001/images/avatar.png"
+                                                <img class="avatar" src="{{asset('booking/images/avatar.png')}}"
                                                     alt=" ">
                                             </div>
                                             <div class="media-body">
@@ -1539,7 +1539,7 @@
                                     <div class="review-item-head">
                                         <div class="media">
                                             <div class="media-left">
-                                                <img class="avatar" src="http://localhost:8001/images/avatar.png"
+                                                <img class="avatar" src="{{asset('booking/images/avatar.png')}}"
                                                     alt="System Admin">
                                             </div>
                                             <div class="media-body">
@@ -1569,7 +1569,7 @@
                                     <div class="review-item-head">
                                         <div class="media">
                                             <div class="media-left">
-                                                <img class="avatar" src="http://localhost:8001/images/avatar.png"
+                                                <img class="avatar" src="{{asset('booking/images/avatar.png')}}"
                                                     alt=" ">
                                             </div>
                                             <div class="media-body">
@@ -1609,7 +1609,7 @@
                                     Write a review
                                 </div>
                                 <div class="form-wrapper">
-                                    <form action="http://localhost:8001/review" class="needs-validation" novalidate
+                                    <form action="booking/review" class="needs-validation" novalidate
                                         method="post">
                                         <input type="hidden" name="_token"
                                             value="vXshe4q7uxJCZyL1V8jPaNuOx2Cp89skdwSFD6BE">
@@ -1711,15 +1711,15 @@
                         <div class="owner-info widget-box">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="http://localhost:8001/profile/tawreed" class="avatar-cover"
-                                        style="background-image: url('http://localhost:8001/uploads/0000/1/2023/07/12/logo-t.png')">
+                                    <a href="booking/profile/tawreed" class="avatar-cover"
+                                        style="background-image: url('{{ asset('booking/uploads/0000/1/2023/07/12/logo-t.png') }}')">
                                     </a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading"><a class="author-link"
-                                            href="http://localhost:8001/profile/tawreed">tawreed tech</a>
+                                            href="{{ asset('booking/profile/tawreed') }}">tawreed tech</a>
                                         <img data-toggle="tooltip" data-placement="top"
-                                            src="http://localhost:8001/icon/ico-not-vefified-1.svg"
+                                            src="{{ asset('booking/icon/ico-not-vefified-1.svg') }}"
                                             title="Not verified" alt="Verified">
                                     </h4>
                                     <p>Member Since Jul 2023</p>
@@ -1732,9 +1732,9 @@
                                 <div class="item">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="http://localhost:8001/hotel/hotel-wbf-homachi">
+                                            <a href="booking/hotel/hotel-wbf-homachi">
                                                 <img class='img-responsive lazy'
-                                                    data-src=http://localhost:8001/uploads/demo/space/space-6.jpg
+                                                    data-src={{ asset('booking/uploads/demo/space/space-6.jpg') }}
                                                     alt='Hotel WBF Hommachi'>
                                             </a>
                                         </div>
@@ -1747,7 +1747,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <h4 class="media-heading">
-                                                <a href="http://localhost:8001/hotel/hotel-wbf-homachi">
+                                                <a href="{{ asset('booking/hotel/hotel-wbf-homachi') }}">
                                                     Hotel WBF Hommachi
                                                 </a>
                                             </h4>
@@ -1762,9 +1762,9 @@
                                 <div class="item">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="http://localhost:8001/hotel/castello-casole-hotel">
+                                            <a href="{{ asset('booking/hotel/castello-casole-hotel') }}">
                                                 <img class='img-responsive lazy'
-                                                    data-src=http://localhost:8001/uploads/demo/space/space-7.jpg
+                                                    data-src={{ asset('booking/uploads/demo/space/space-7.jpg') }}
                                                     alt='Castello Casole Hotel'>
                                             </a>
                                         </div>
@@ -1777,7 +1777,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <h4 class="media-heading">
-                                                <a href="http://localhost:8001/hotel/castello-casole-hotel">
+                                                <a href="booking/hotel/castello-casole-hotel">
                                                     Castello Casole Hotel
                                                 </a>
                                             </h4>
@@ -1792,9 +1792,9 @@
                                 <div class="item">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="http://localhost:8001/hotel/redac-gateway-hotel">
+                                            <a href="booking/hotel/redac-gateway-hotel">
                                                 <img class='img-responsive lazy'
-                                                    data-src=http://localhost:8001/uploads/demo/space/space-8.jpg
+                                                    data-src={{ asset('booking/uploads/demo/space/space-8.jpg') }}
                                                     alt='Redac Gateway Hotel'>
                                             </a>
                                         </div>
@@ -1807,7 +1807,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <h4 class="media-heading">
-                                                <a href="http://localhost:8001/hotel/redac-gateway-hotel">
+                                                <a href="booking/hotel/redac-gateway-hotel">
                                                     Redac Gateway Hotel
                                                 </a>
                                             </h4>
@@ -1822,9 +1822,9 @@
                                 <div class="item">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="http://localhost:8001/hotel/parian-holiday-villas">
+                                            <a href="booking/hotel/parian-holiday-villas">
                                                 <img class='img-responsive lazy'
-                                                    data-src=http://localhost:8001/uploads/demo/space/space-13.jpg
+                                                    data-src={{ asset('booking/uploads/demo/space/space-13.jpg') }}
                                                     alt='Parian Holiday Villas'>
                                             </a>
                                         </div>
@@ -1837,7 +1837,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <h4 class="media-heading">
-                                                <a href="http://localhost:8001/hotel/parian-holiday-villas">
+                                                <a href="booking/hotel/parian-holiday-villas">
                                                     Parian Holiday Villas
                                                 </a>
                                             </h4>
@@ -2144,13 +2144,13 @@
         </div>
     </div>
 </script>
-    <link rel="stylesheet" href="http://localhost:8001/libs/flags/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{{ asset('booking/libs/flags/css/flag-icon.min.css') }}">
 
 
 
 
-    <script src="http://localhost:8001/libs/lazy-load/intersection-observer.js"></script>
-    <script async src="http://localhost:8001/libs/lazy-load/lazyload.min.js"></script>
+    <script src="{{ asset('booking/libs/lazy-load/intersection-observer.js') }}"></script>
+    <script async src="{{ asset('booking/libs/lazy-load/lazyload.min.js') }}"></script>
     <script>
         // Set the options to make LazyLoad self-initialize
         window.lazyLoadOptions = {
@@ -2163,20 +2163,20 @@
             window.lazyLoadInstance = event.detail.instance;
         }, false);
     </script>
-    <script src="http://localhost:8001/libs/lodash.min.js"></script>
-    <script src="http://localhost:8001/libs/jquery-3.6.3.min.js"></script>
-    <script src="http://localhost:8001/libs/vue/vue.js"></script>
-    {{-- <script src="http://localhost:8001/libs/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
-    <script src="http://localhost:8001/libs/bootbox/bootbox.min.js"></script>
-    <script src="http://localhost:8001/module/media/js/browser.js?_ver=3.2.1"></script>
-    <script src="http://localhost:8001/libs/carousel-2/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="http://localhost:8001/libs/daterange/moment.min.js"></script>
-    <script type="text/javascript" src="http://localhost:8001/libs/daterange/daterangepicker.min.js"></script>
-    <script src="http://localhost:8001/libs/select2/js/select2.min.js"></script>
-    <script src="http://localhost:8001/js/functions.js?_ver=3.2.1"></script>
+    <script src="{{ asset('booking/libs/lodash.min.js') }}"></script>
+    <script src="{{ asset('booking/libs/jquery-3.6.3.min.js') }}"></script>
+    <script src="{{ asset('booking/libs/vue/vue.js') }}"></script>
+    {{-- <script src="{{asset('booking/libs/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+    <script src="{{ asset('booking/libs/bootbox/bootbox.min.js') }}"></script>
+    <script src="{{ asset('booking/module/media/js/browser.js?_ver=3.2.1') }}"></script>
+    <script src="{{ asset('booking/libs/carousel-2/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('booking/libs/daterange/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('booking/libs/daterange/daterangepicker.min.js') }}"></script>
+    <script src="{{ asset('booking/libs/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('booking/js/functions.js?_ver=3.2.1') }}"></script>
 
-    <script src="http://localhost:8001/libs/pusher.min.js"></script>
-    <script src="http://localhost:8001/js/home.js?_ver=3.2.1"></script>
+    <script src="{{ asset('booking/libs/pusher.min.js') }}"></script>
+    <script src="{{ asset('booking/js/home.js?_ver=3.2.1') }}"></script>
 
 
 
@@ -2185,8 +2185,8 @@
 
     <script src='https://maps.googleapis.com/maps/api/js?key=&libraries=places'></script>
     <script src='https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js'></script>
-    <script src='http://localhost:8001/libs/infobox.js'></script>
-    <script src='http://localhost:8001/module/core/js/map-engine.js?_ver=3.2.1'></script>
+    <script src='{{ asset(' booking/libs/infobox.js') }}'></script>
+    <script src='{{ asset(' booking/module/core/js/map-engine.js?_ver=3.2.1') }}'></script>
     {{-- <script>
             jQuery(function($) {
                 new BravoMapEngine('map_content', {
@@ -2197,7 +2197,7 @@
                     ready: function(engineMap) {
                         engineMap.addMarker([19.148665, 72.839670], {
                             icon_options: {
-                                iconUrl: "http://localhost:8001/images/icons/png/pin.png"
+                                iconUrl: "{{asset('booking/images/icons/png/pin.png"
                             }
                         });
                     }
@@ -2258,14 +2258,14 @@
             var bravo_booking_i18n = {
                 no_date_select: 'Please select Start and End date',
                 no_guest_select: 'Please select at least one guest',
-                load_dates_url: 'http://localhost:8001/user/space/availability/loadDates',
+                load_dates_url: '{{asset('booking/user/space/availability/loadDates',
                 name_required: 'Name is Required',
                 email_required: 'Email is Required',
             };
         </script> --}}
-    <script type="text/javascript" src="http://localhost:8001/libs/ion_rangeslider/js/ion.rangeSlider.min.js"></script>
-    <script type="text/javascript" src="http://localhost:8001/libs/fotorama/fotorama.js"></script>
-    <script type="text/javascript" src="http://localhost:8001/libs/sticky/jquery.sticky.js"></script>
-    <script type="text/javascript" src="http://localhost:8001/module/hotel/js/single-hotel.js?_ver=3.2.1"></script>
+    <script type="text/javascript" src="{{ asset('booking/libs/ion_rangeslider/js/ion.rangeSlider.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('booking/libs/fotorama/fotorama.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('booking/libs/sticky/jquery.sticky.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('booking/module/hotel/js/single-hotel.js?_ver=3.2.1') }}"></script>
 
 </div>
