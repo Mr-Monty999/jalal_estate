@@ -28,4 +28,20 @@ class SettingController extends Controller
 
         return back();
     }
+
+    public function aboutPage()
+    {
+
+        return view("admin.settings.about");
+    }
+    public function contactPage()
+    {
+
+        return view("admin.settings.contact");
+    }
+    public function footer()
+    {
+
+        return view("admin.settings.footer");
+    }
 }
