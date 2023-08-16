@@ -95,6 +95,11 @@ class PermissionService
             "create_land_types",
             "edit_land_types",
             "delete_land_types",
+            "view_estate_classifications",
+            "create_estate_classifications",
+            "edit_estate_classifications",
+            "delete_estate_classifications",
+
 
         ];
     }

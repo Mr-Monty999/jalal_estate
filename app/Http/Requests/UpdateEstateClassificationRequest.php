@@ -13,7 +13,7 @@ class UpdateEstateClassificationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateEstateClassificationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required|string",
+            "color" => "nullable|string",
         ];
     }
 }

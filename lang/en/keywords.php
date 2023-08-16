@@ -240,7 +240,15 @@ return [
     "create land type" => "create land type",
     "land type name" => "land type name",
     "Are You Sure Want To Delete This Land Type" => "Are You Sure Want To Delete This Land Type",
-    "edit land type" => 'edit land type'
+    "edit land type" => 'edit land type',
+    "add estate classification" => "add estate classification",
+    "create estate classification" => "create estate classification",
+    "estate classifications list" => "estate classifications list",
+    "estate classification name" => "estate classification name",
+    "edit estate classification" => "edit estate classification",
+    "estate classifications" => "estate classifications",
+    "color" => "color",
+    "Are You Sure Want To Delete This Estate Classification?" => "Are You Sure Want To Delete This Estate Classification?"
 
 
 

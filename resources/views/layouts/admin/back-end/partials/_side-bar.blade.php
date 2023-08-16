@@ -209,56 +209,8 @@
 
                             </ul>
                         </li>
-                        <li
-                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/settings*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.settings') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.settings') }}
-                                </span>
-                            </a>
-
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/settings*') ? 'block' : '' }}">
-                                @can('settings')
-                                    <li
-                                        class="nav-item {{ Request::is('admin/settings/terms-and-conditions') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.terms-and-conditions.index') }}"
-                                            title="{{ trans('keywords.terms & conditions settings') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span
-                                                class="text-truncate">{{ trans('keywords.terms & conditions settings') }}</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item {{ Request::is('admin/settings/about-page') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.about-page.index') }}"
-                                            title="{{ trans('keywords.about page settings') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.about page settings') }}</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item {{ Request::is('admin/settings/contact-page') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.contact-page.index') }}"
-                                            title="{{ trans('keywords.contact page settings') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span
-                                                class="text-truncate">{{ trans('keywords.contact page settings') }}</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item {{ Request::is('admin/settings/footer') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.footer.index') }}"
-                                            title="{{ trans('keywords.footer settings') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.footer settings') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
 
 
-
-                            </ul>
-                        </li>
 
                         {{-- Rents --}}
                         <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/rents*') ? 'active' : '' }}">
@@ -294,6 +246,7 @@
 
                             </ul>
                         </li>
+                        {{-- end rents --}}
 
                         {{-- Land Types --}}
                         <li
@@ -331,6 +284,102 @@
                             </ul>
                         </li>
                         {{-- end land type --}}
+
+                        {{-- Estate classifications --}}
+                        <li
+                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/estate-classifications*') ? 'active' : '' }}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                title="{{ trans('keywords.estate classifications') }}">
+                                <i class="tio-filter-list nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{ trans('keywords.estate classifications') }}
+                                </span>
+                            </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/estate-classifications*') ? 'block' : '' }}">
+                                @can('create_estate_classifications')
+                                    <li
+                                        class="nav-item {{ Request::is('admin/estate-classifications/create') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.estate-classifications.create') }}"
+                                            title="{{ trans('keywords.estate classifications') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span
+                                                class="text-truncate">{{ trans('keywords.add estate classification') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                                @can('view_estate_classifications')
+                                    <li
+                                        class="nav-item {{ Request::is('admin/estate-classifications') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.estate-classifications.index') }}"
+                                            title="{{ trans('keywords.estate classifications list') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span
+                                                class="text-truncate">{{ trans('keywords.estate classifications list') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                            </ul>
+                        </li>
+                        {{-- end rents --}}
+
+                        {{-- begin settings --}}
+                        <li
+                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/settings*') ? 'active' : '' }}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                title="{{ trans('keywords.settings') }}">
+                                <i class="tio-filter-list nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{ trans('keywords.settings') }}
+                                </span>
+                            </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/settings*') ? 'block' : '' }}">
+                                @can('settings')
+                                    <li
+                                        class="nav-item {{ Request::is('admin/settings/terms-and-conditions') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.terms-and-conditions.index') }}"
+                                            title="{{ trans('keywords.terms & conditions settings') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span
+                                                class="text-truncate">{{ trans('keywords.terms & conditions settings') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item {{ Request::is('admin/settings/about-page') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.about-page.index') }}"
+                                            title="{{ trans('keywords.about page settings') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span
+                                                class="text-truncate">{{ trans('keywords.about page settings') }}</span>
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="nav-item {{ Request::is('admin/settings/contact-page') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.contact-page.index') }}"
+                                            title="{{ trans('keywords.contact page settings') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span
+                                                class="text-truncate">{{ trans('keywords.contact page settings') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item {{ Request::is('admin/settings/footer') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.footer.index') }}"
+                                            title="{{ trans('keywords.footer settings') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.footer settings') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+
+
+                            </ul>
+                        </li>
+                        {{-- end settings --}}
 
                     </ul>
 

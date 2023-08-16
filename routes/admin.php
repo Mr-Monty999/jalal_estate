@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\EstateClassificationController;
 use App\Http\Controllers\Admin\LandTypeController;
 use App\Http\Controllers\Admin\NeighbourhoodController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
@@ -61,5 +62,8 @@ Route::group(["prefix" => "admin"], function () {
         //// Land Types ////
 
         Route::resource("land-types", LandTypeController::class, ["as" => "admin"]);
+
+        // estate classifications //
+        Route::resource("estate-classifications", EstateClassificationController::class, ["as" => "admin"]);
     });
 });

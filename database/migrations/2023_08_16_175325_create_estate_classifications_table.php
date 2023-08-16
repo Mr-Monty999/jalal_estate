@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('estate_classifications', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("color")->nullable();
             $table->boolean("status")->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

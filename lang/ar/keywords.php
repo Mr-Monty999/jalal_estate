@@ -238,7 +238,18 @@ return [
     "create land type" => "إضافة نوع عقار",
     "land type name" => "إسم نوع العقار",
     "Are You Sure Want To Delete This Land Type" => "هل أنت متأكد من حذف نوع العقار هذا؟",
-    "edit land type" => "تعديل نوع العقار"
+    "edit land type" => "تعديل نوع العقار",
+    "add estate classification" => "إضافة تصنيف عقار",
+    "create estate classification" => "إضافة تصنيف عقار",
+    "estate classifications list" => "قائمة تصنيف العقارات",
+    "estate classification name" => "إسم تصنيف العقار",
+    "edit estate classification" => "تعديل تصنيف العقار",
+    "estate classifications" => "تصنيف العقارات",
+    "color" => "اللون",
+    "Are You Sure Want To Delete This Estate Classification?" => "هل أنت متأكد متأكد من حذف تصنيف العقار هذ؟"
+
+
+
 
 
 
