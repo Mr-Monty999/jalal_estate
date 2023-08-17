@@ -41,4 +41,23 @@ class UserService
 
         return null;
     }
+
+    public static function getUserCities($user, $order = "asc")
+    {
+        if ($user->hasRole('marketer'))
+            return $user->marketer->cities()->orderBy('name', $order)->get();
+        elseif ($user->hasRole('company'))
+            return $user->company->cities()->orderBy('name', $order)->get();
+        else
+            return $user->office->cities()->orderBy('name', $order)->get();
+    }
+    public static function cityExists($user, $cityId)
+    {
+        if ($user->hasRole('marketer'))
+            return $user->marketer->cities()->where("city_id", $cityId)->exists();
+        elseif ($user->hasRole('company'))
+            return $user->company->cities()->where("city_id", $cityId)->exists();
+        else
+            return $user->office->cities()->where("city_id", $cityId)->exists();
+    }
 }

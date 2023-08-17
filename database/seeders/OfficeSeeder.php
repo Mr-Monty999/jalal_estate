@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
 use App\Models\Office;
 use App\Models\User;
 use App\Services\RoleService;
@@ -37,5 +38,23 @@ class OfficeSeeder extends Seeder
 
 
         RoleService::assignOfficeRole($user);
+
+        $city = City::get()->random()->first();
+        $neighbourhood = $city->neighbourhoods()->get()->random()->first();
+
+        $office->cities()->attach(
+            $city->id,
+            [
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        );
+        $office->neighbourhoods()->attach(
+            $neighbourhood->id,
+            [
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        );
     }
 }

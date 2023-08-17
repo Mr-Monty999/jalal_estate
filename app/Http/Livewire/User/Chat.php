@@ -150,7 +150,7 @@ class Chat extends Component
             session()->remove("conversation_id");
         }
 
-        $conversations = $this->getConversations(100);
+        $conversations = $this->getConversations(1000);
         $chatMessages = $this->getConversationMessages($this->conversationId, 10);
 
         return view('livewire.user.chat', [

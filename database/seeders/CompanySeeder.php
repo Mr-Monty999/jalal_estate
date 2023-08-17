@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
 use App\Models\Company;
 use App\Models\User;
 use App\Services\RoleService;
@@ -38,5 +39,23 @@ class CompanySeeder extends Seeder
 
 
         RoleService::assignCompanyRole($user);
+
+        $city = City::get()->random()->first();
+        $neighbourhood = $city->neighbourhoods()->get()->random()->first();
+
+        $company->cities()->attach(
+            $city->id,
+            [
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        );
+        $company->neighbourhoods()->attach(
+            $neighbourhood->id,
+            [
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        );
     }
 }

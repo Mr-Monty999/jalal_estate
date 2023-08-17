@@ -14,6 +14,7 @@ use App\Notifications\LandOfferAcceptedNotification;
 use App\Services\AdService;
 use App\Services\EncryptionService;
 use App\Services\LandOfferService;
+use App\Services\UserService;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -40,8 +41,10 @@ class LandOfferController extends Controller
     {
 
 
+        $user = auth()->user();
 
-        $cities = City::orderBy("name")->get();
+        $cities = UserService::getUserCities($user, "desc");
+
         $landTypes = LandType::orderBy("name")->get();
         $estateClassifications = EstateClassification::orderBy("name")->get();
         $landOffers = LandOffer::with([
@@ -119,6 +122,12 @@ class LandOfferController extends Controller
     public function store(StoreLandOfferRequest $request)
     {
 
+        $user = auth()->user();
+
+        $cities = UserService::getUserCities($user, "desc");
+        if (!UserService::cityExists($user, $request->city_id))
+            abort(403);
+
         $landOffer = LandOfferService::store($request);
 
         toastr()->success(trans('keywords.Offer Added Successfully'));
@@ -174,7 +183,10 @@ class LandOfferController extends Controller
      */
     public function edit(LandOffer $landOffer)
     {
-        $cities = City::orderBy("name")->get();
+        $user = auth()->user();
+
+        $cities = UserService::getUserCities($user, "desc");
+
         $landTypes = LandType::orderBy("name")->get();
         $estateClassifications = EstateClassification::orderBy("name")->get();
 
@@ -190,8 +202,16 @@ class LandOfferController extends Controller
      */
     public function update(UpdateLandOfferRequest $request, LandOffer $landOffer)
     {
-        if ($landOffer->user_id != auth()->id())
+        $user = auth()->user();
+
+        if ($landOffer->user_id != $user->id)
             abort(403);
+
+        $cities = UserService::getUserCities($user, "desc");
+        if (!UserService::cityExists($user, $request->city_id))
+            abort(403);
+
+
 
         LandOfferService::update($request, $landOffer);
 

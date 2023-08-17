@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
 use App\Models\Marketer;
 use App\Models\User;
 use App\Services\RoleService;
@@ -37,5 +38,23 @@ class MarketerSeeder extends Seeder
 
 
         RoleService::assignMarketerRole($user);
+
+        $city = City::get()->random()->first();
+        $neighbourhood = $city->neighbourhoods()->get()->random()->first();
+
+        $marketer->cities()->attach(
+            $city->id,
+            [
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        );
+        $marketer->neighbourhoods()->attach(
+            $neighbourhood->id,
+            [
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        );
     }
 }
