@@ -5,7 +5,7 @@
 <style>
     *:not(i) {
         direction: rtl !important;
-        font-family: 'Cairo', sans-serif;
+        /* font-family: 'Cairo', sans-serif; */
     }
 
     *:not(i, button) {
