@@ -251,7 +251,10 @@ return [
     "Are You Sure Want To Delete This Estate Classification?" => "Are You Sure Want To Delete This Estate Classification?",
     "active setting 1" => "active setting 1",
     "send message" => "send message",
-    "ad cities" => "ad cities"
+    "ad cities" => "ad cities",
+    "print" => "print",
+    "accepted estate offers" => "accepted estate offers",
+    "inbox advertiser" => "inbox advertiser"
 
 
 

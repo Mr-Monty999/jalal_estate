@@ -45,6 +45,7 @@ Route::group(["prefix" => "user"], function () {
             Route::resource("land-offers", LandOfferController::class, ["as" => "user"]);
             Route::post("land-offers/{landOffer}/accept", [LandOfferController::class, "accept"])->name("user.land-offers.accept");
             Route::get("land-offers/{landOffer}/print", [LandOfferController::class, "print"])->name("user.land-offers.print");
+            Route::get("land-offers/type/accepted", [LandOfferController::class, "acceptedOffers"])->name("user.accepted-offers");
 
 
 

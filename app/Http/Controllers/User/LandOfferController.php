@@ -24,7 +24,7 @@ class LandOfferController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("can:view_offers")->only(["index", "show"]);
+        $this->middleware("can:view_offers")->only(["index", "acceptedOffers", "show"]);
         $this->middleware("can:edit_offers")->only(["edit", "update"]);
         $this->middleware("can:create_offers")->only(["create", "store"]);
         $this->middleware("can:delete_offers")->only(["destroy"]);
@@ -101,6 +101,72 @@ class LandOfferController extends Controller
 
 
         return view("user.offers.index", compact("cities", "landTypes", "landOffers", "user", "ads", "estateClassifications"));
+    }
+    public function acceptedOffers(Request $request)
+    {
+
+
+        $user = auth()->user();
+
+        $cities = UserService::getUserCities($user);
+
+        $landTypes = LandType::orderBy("name")->get();
+        $estateClassifications = EstateClassification::orderBy("name")->get();
+        $landOffers = LandOffer::with([
+            "city.neighbourhoods" => function ($query) {
+                $query->orderBy("name");
+            },
+            "neighbourhood",
+            "landTypes"
+        ])
+            ->whereNotNull("accepted_by")
+            ->where("user_id", "!=", $user->id);
+
+        if ($request->city_id)
+            $landOffers->where("city_id", $request->city_id);
+
+        if ($request->neighbourhood_id)
+            $landOffers->whereIn("neighbourhood_id", $request->neighbourhood_id);
+
+        if ($request->estate_classification_id)
+            $landOffers->whereIn("estate_classification_id", $request->estate_classification_id);
+
+
+        if ($request->land_type_ids)
+            $landOffers->whereHas("landTypes", function ($query) use ($request) {
+                $query->whereIn("type_id", $request->land_type_ids);
+            });
+
+
+        if ($request->min_price)
+            $landOffers->where("price", ">=", $request->min_price);
+
+
+        if ($request->max_price)
+            $landOffers->where("price", "<=", $request->max_price);
+
+        if ($request->min_space)
+            $landOffers->where("space", ">=", $request->min_space);
+
+
+        if ($request->max_space)
+            $landOffers->where("space", "<=", $request->max_space);
+
+
+
+        $landOffers =
+            $landOffers->latest()
+            ->paginate(10);
+
+
+        $user = auth()->user();
+
+        $ads = AdService::loadAds(5);
+
+        // return $ads;
+
+
+        return view("user.offers.accepted", compact("cities", "landTypes", "landOffers", "user", "ads", "estateClassifications"));
     }
 
     /**

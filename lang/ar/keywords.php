@@ -249,7 +249,11 @@ return [
     "Are You Sure Want To Delete This Estate Classification?" => "هل أنت متأكد متأكد من حذف تصنيف العقار هذ؟",
     "active setting 1" => "تفعيل الإعدادت 1",
     "send message" => "إرسال رسالة",
-    "ad cities" => "مدن الإعلان"
+    "ad cities" => "مدن الإعلان",
+    "print" => "طباعة",
+    "accepted estate offers" => "عروض العقارات المقبولة",
+    "inbox advertiser" => "مراسلة المعلن"
+
 
 
 

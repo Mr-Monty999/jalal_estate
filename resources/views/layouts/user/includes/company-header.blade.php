@@ -12,6 +12,10 @@
                     <a class="nav-link" href="{{ route('user.home') }}">{{ trans('keywords.Home') }} <span
                             class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item @if (Request::is('user/land-offers/type/accepted')) active @endif">
+                    <a class="nav-link"
+                        href="{{ route('user.accepted-offers') }}">{{ trans('keywords.accepted estate offers') }}</a>
+                </li>
                 <li class="nav-item @if (Request::is('user/rents')) active @endif">
                     <a class="nav-link" href="{{ route('user.rents.index') }}">{{ trans('keywords.rents') }}</a>
                 </li>
@@ -31,7 +35,8 @@
 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('user.profile') }}"> {{ trans('keywords.Profile') }}</a>
+                        <a class="dropdown-item" href="{{ route('user.profile') }}">
+                            {{ trans('keywords.Profile') }}</a>
                         {{-- <a class="dropdown-item" href="#">Another action</a> --}}
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('user.logout') }}">{{ trans('keywords.logout') }}</a>
