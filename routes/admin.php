@@ -5,6 +5,7 @@
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CityBannerController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\EstateClassificationController;
@@ -65,5 +66,9 @@ Route::group(["prefix" => "admin"], function () {
 
         // estate classifications //
         Route::resource("estate-classifications", EstateClassificationController::class, ["as" => "admin"]);
+
+
+        // city banners //
+        Route::resource("cities-banners", CityBannerController::class, ["as" => "admin"]);
     });
 });

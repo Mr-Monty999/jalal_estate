@@ -11,8 +11,7 @@
                     <h1 class="text-center">{{ App\Services\SettingService::get('contact_page_title') }}</h1>
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center my-4">
-                    <img style="width: 50%;heigt:50%"
-                        onerror="this.src='{{ asset('theme2/images/thinking-face-rafiki.svg') }}'"
+                    <img style="width: 50%;heigt:50%" onerror="this.src='{{ asset('theme2/images/support.svg') }}'"
                         src="{{ asset('storage/' . App\Services\SettingService::get('contact_page_image')) }}"
                         alt="">
                 </div>

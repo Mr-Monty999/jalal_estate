@@ -65,7 +65,12 @@ class AdService
 
         // $adsCount = Ad::count();
         $user = auth()->user();
-        $userCity = UserService::getUserCities($user)->first();
+        $userCity = UserService::getUserCities($user);
+
+        if ($userCity)
+            $userCity = $userCity->first();
+        else
+            return [];
 
         $ads = $userCity->ads()->get()->shuffle();
 

@@ -31,7 +31,9 @@ class RegisterServiceProviderRequest extends FormRequest
             "password_confirmation" => "required|same:password",
             "birthdate" => "nullable|date",
             "logo" => "nullable|image",
-            "terms_and_conditions" => "required|string"
+            "terms_and_conditions" => "required|string",
+            "terms_and_conditions_confirmation" => "required|string",
+
 
         ];
     }

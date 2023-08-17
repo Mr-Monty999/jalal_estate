@@ -8,7 +8,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item @if (Request::is('user/land-offers')) active @endif">
+                <li class="nav-item @if (Request::is('user')) active @endif">
                     <a class="nav-link" href="{{ route('user.home') }}">{{ trans('keywords.Home') }} <span
                             class="sr-only">(current)</span></a>
                 </li>

@@ -48,8 +48,10 @@ class UserService
             return $user->marketer->cities()->orderBy('name', $order)->get();
         elseif ($user->hasRole('company'))
             return $user->company->cities()->orderBy('name', $order)->get();
-        else
+        elseif ($user->hasRole('office'))
             return $user->office->cities()->orderBy('name', $order)->get();
+        else
+            return null;
     }
     public static function cityExists($user, $cityId)
     {
@@ -57,7 +59,10 @@ class UserService
             return $user->marketer->cities()->where("city_id", $cityId)->exists();
         elseif ($user->hasRole('company'))
             return $user->company->cities()->where("city_id", $cityId)->exists();
-        else
+        elseif ($user->hasRole('office'))
             return $user->office->cities()->where("city_id", $cityId)->exists();
+
+        else
+            return false;
     }
 }

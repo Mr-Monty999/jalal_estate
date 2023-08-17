@@ -93,9 +93,13 @@
             }
         </style> --}}
         <header>
-            <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" style="font-size: 35px"
-                    href="{{ route('guest.home') }}">{{ env('APP_NAME') }}</a>
+            <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <div>
+                    <a class="navbar-brand text-info" style="font-size: 35px"
+                        href="{{ route('guest.home') }}">{{ env('APP_NAME') }}</a>
+                    <br>
+                    <h5 class="text-center text-info">{{ trans('keywords.direct owner and buyer') }}</h5>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -105,44 +109,52 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item @if (Request::is('/')) active @endif">
-                            <a class="nav-link" href="{{ route('guest.home') }}">{{ trans('keywords.Home') }} <span
+                            <a class="nav-link text-info"
+                                href="{{ route('guest.home') }}">{{ trans('keywords.Home') }} <span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item @if (Request::is('user/login')) active @endif">
-                            <a class="nav-link" href="{{ route('user.login') }}">{{ trans('keywords.login') }}</a>
+                            <a class="nav-link text-info"
+                                href="{{ route('user.login') }}">{{ trans('keywords.login') }}</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ trans('keywords.Join Us') }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"
+                                <a class="dropdown-item text-info"
                                     href="{{ route('guest.companies.register') }}">{{ trans('keywords.Create Company Account') }}</a>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item text-info"
                                     href="{{ route('guest.marketers.register') }}">{{ trans('keywords.Create Marketer Account') }}</a>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item text-info"
                                     href="{{ route('guest.offices.register') }}">{{ trans('keywords.Create Office Account') }}</a>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item text-info"
                                     href="{{ route('guest.landlords.register') }}">{{ trans('keywords.Create Landlord Account') }}</a>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item text-info"
                                     href="{{ route('guest.service-providers.register') }}">{{ trans('keywords.Create Service Provider Account') }}</a>
                             </div>
                         </li>
                         <li class="nav-item @if (Request::is('/terms-and-conditions')) active @endif">
                             <a href="{{ route('guest.terms.index') }}"
-                                class="nav-link">{{ trans('keywords.Terms and Conditions') }}</a>
+                                class="nav-link text-info">{{ trans('keywords.Terms and Conditions') }}</a>
                         </li>
                         <li class="nav-item @if (Request::is('/about')) active @endif">
                             <a href="{{ route('guest.about.index') }}"
-                                class="nav-link">{{ trans('keywords.About') }}</a>
+                                class="nav-link text-info">{{ trans('keywords.About') }}</a>
                         </li>
                         <li class="nav-item @if (Request::is('/contact')) active @endif">
                             <a href="{{ route('guest.contact.index') }}"
-                                class="nav-link">{{ trans('keywords.Contact Us') }}</a>
+                                class="nav-link text-info">{{ trans('keywords.Contact Us') }}</a>
                         </li>
 
-
+                        <style>
+                            .nav-link {
+                                font-weight: bold;
+                                font-size: 25px;
+                                color: #17a2b8
+                            }
+                        </style>
 
                     </ul>
                     {{-- <form class="form-inline my-2 my-lg-0">

@@ -1,6 +1,13 @@
 <header>
-    <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" style="font-size: 35px" href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a>
+    <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+        {{-- <a class="navbar-brand" style="font-size: 35px" href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a> --}}
+
+        <div>
+            <a class="navbar-brand text-info" style="font-size: 35px"
+                href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a>
+            <br>
+            <h5 class="text-center text-info">{{ trans('keywords.direct owner and buyer') }}</h5>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,8 +15,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item @if (Request::is('user/land-offers')) active @endif">
+                <li class="nav-item @if (Request::is('user')) active @endif">
                     <a class="nav-link" href="{{ route('user.home') }}">{{ trans('keywords.Home') }} <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item @if (Request::is('user/land-offers')) active @endif">
+                    <a class="nav-link"
+                        href="{{ route('user.land-offers.index') }}">{{ trans('keywords.Estate Offers') }} <span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item @if (Request::is('user/land-offers/type/accepted')) active @endif">
@@ -74,5 +86,14 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form> --}}
         </div>
+
+
+        <style>
+            .nav-link {
+                font-weight: bold;
+                font-size: 25px;
+                color: #17a2b8 !important
+            }
+        </style>
     </nav>
 </header>

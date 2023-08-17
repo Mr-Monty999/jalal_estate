@@ -43,7 +43,8 @@ class LandOfferController extends Controller
 
         $user = auth()->user();
 
-        $cities = UserService::getUserCities($user);
+        // $cities = UserService::getUserCities($user);
+        $cities = City::orderBy("name")->get();
 
         $landTypes = LandType::orderBy("name")->get();
         $estateClassifications = EstateClassification::orderBy("name")->get();

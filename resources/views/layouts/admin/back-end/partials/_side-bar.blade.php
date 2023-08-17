@@ -285,7 +285,7 @@
                         </li>
                         {{-- end land type --}}
 
-                        {{-- Estate classifications --}}
+                        {{-- Begin Estate classifications --}}
                         <li
                             class="navbar-vertical-aside-has-menu {{ Request::is('admin/estate-classifications*') ? 'active' : '' }}">
                             <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
@@ -324,7 +324,46 @@
 
                             </ul>
                         </li>
-                        {{-- end rents --}}
+                        {{-- End Estate classifications --}}
+
+                        {{-- Begin Cities Banners --}}
+                        <li
+                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/cities-banners*') ? 'active' : '' }}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                title="{{ trans('keywords.cities banners') }}">
+                                <i class="tio-filter-list nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{ trans('keywords.cities banners') }}
+                                </span>
+                            </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/cities-banners*') ? 'block' : '' }}">
+                                @can('create_cities_banners')
+                                    <li
+                                        class="nav-item {{ Request::is('admin/cities-banners/create') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.cities-banners.create') }}"
+                                            title="{{ trans('keywords.cities banners') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.add city banner') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                                @can('view_cities_banners')
+                                    <li class="nav-item {{ Request::is('admin/cities-banners') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.cities-banners.index') }}"
+                                            title="{{ trans('keywords.cities banners list') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span
+                                                class="text-truncate">{{ trans('keywords.cities banners list') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                            </ul>
+                        </li>
+                        {{-- End Cities Banners --}}
 
                         {{-- begin settings --}}
                         <li

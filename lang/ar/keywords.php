@@ -252,7 +252,20 @@ return [
     "ad cities" => "مدن الإعلان",
     "print" => "طباعة",
     "accepted estate offers" => "عروض العقارات المقبولة",
-    "inbox advertiser" => "مراسلة المعلن"
+    "inbox advertiser" => "مراسلة المعلن",
+    "add city banner" => 'إضافة صورة مدينة',
+    "city banner" => 'صورة مدينة',
+    "cities banners" => "صور المدن",
+    "cities banners list" => "قائمة صور المدن",
+    "edit city banner" => 'تعديل صورة مدينة',
+    "delete city banner" => 'حذف صورة مدينة',
+    "cities" => "المدن",
+    "welcome" => "مرحبا",
+    "I agree & confirm to these" => "أقبل وأوكد هذه الشروط",
+    "direct owner and buyer" => "مباشر المالك ومباشر المشتري"
+
+
+
 
 
 

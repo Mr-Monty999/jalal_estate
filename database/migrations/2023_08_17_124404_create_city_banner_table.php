@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('city_image', function (Blueprint $table) {
+        Schema::create('city_banner', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("city_id");
-            $table->unsignedBigInteger("image_id");
+            $table->unsignedBigInteger("banner_id");
             $table->timestamps();
 
 
-            $table->foreign("image_id")->references("id")->on("images")->cascimageeOnDelete()->cascadeOnUpdate();
+            $table->foreign("banner_id")->references("id")->on("city_banners")->cascimageeOnDelete()->cascadeOnUpdate();
             $table->foreign("city_id")->references("id")->on("cities")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('city_image');
+        Schema::dropIfExists('city_banner');
     }
 };

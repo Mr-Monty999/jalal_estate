@@ -48,4 +48,9 @@ class City extends Model
     {
         return $this->belongsToMany(Ad::class, "ad_city");
     }
+
+    public function banners()
+    {
+        return $this->belongsToMany(CityBanner::class, "city_banner", "city_id", "banner_id");
+    }
 }

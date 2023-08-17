@@ -35,7 +35,9 @@ class RegisterMarketerRequest extends FormRequest
             "logo" => "nullable|image",
             "city_id" => "required|exists:cities,id",
             "neighbourhood_id" => "required|exists:neighbourhoods,id",
-            "terms_and_conditions" => "required|string"
+            "terms_and_conditions" => "required|string",
+            "terms_and_conditions_confirmation" => "required|string",
+
 
 
         ];

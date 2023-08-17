@@ -99,6 +99,10 @@ class PermissionService
             "create_estate_classifications",
             "edit_estate_classifications",
             "delete_estate_classifications",
+            "view_cities_banners",
+            "create_cities_banners",
+            "edit_cities_banners",
+            "delete_cities_banners",
 
 
         ];

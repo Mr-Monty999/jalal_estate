@@ -254,7 +254,17 @@ return [
     "ad cities" => "ad cities",
     "print" => "print",
     "accepted estate offers" => "accepted estate offers",
-    "inbox advertiser" => "inbox advertiser"
+    "inbox advertiser" => "inbox advertiser",
+    "add city banner" => 'add city banner',
+    "city banner" => 'city banner',
+    "cities banners" => "cities banners",
+    "cities banners list" => "cities banners list",
+    "edit city banner" => 'edit city banner',
+    "delete city banner" => 'delete city banner',
+    "cities" => "cities",
+    "welcome" => "welcome",
+    "I agree & confirm to these" => "I agree & confirm to these",
+    "direct owner and buyer" => "direct owner and buyer"
 
 
 
