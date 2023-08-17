@@ -86,7 +86,7 @@ class PermissionService
             "create_ads",
             "edit_ads",
             "delete_ads",
-            "settings",
+            "view_settings",
             "view_rents",
             "create_rents",
             "edit_rents",

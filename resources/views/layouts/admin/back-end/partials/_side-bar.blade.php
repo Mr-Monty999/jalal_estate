@@ -339,7 +339,7 @@
 
                             <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
                                 style="display: {{ Request::is('admin/settings*') ? 'block' : '' }}">
-                                @can('settings')
+                                @can('view_settings')
                                     <li
                                         class="nav-item {{ Request::is('admin/settings/terms-and-conditions') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.terms-and-conditions.index') }}"

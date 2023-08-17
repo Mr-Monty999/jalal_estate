@@ -13,7 +13,7 @@ class SettingController extends Controller
 
     public function __construct()
     {
-        $this->middleware("can:settings");
+        $this->middleware("can:view_settings");
     }
     public function termsAndConditions()
     {
