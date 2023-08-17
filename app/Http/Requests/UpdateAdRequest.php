@@ -27,6 +27,8 @@ class UpdateAdRequest extends FormRequest
             "company_name" => "required|string",
             "company_logo" => "nullable|image|mimes:jpeg,png,jpg,gif",
             "description" => "nullable|string",
+            "cities_ids" => "nullable|array"
+
         ];
     }
 }

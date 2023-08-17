@@ -43,4 +43,9 @@ class City extends Model
     {
         return $this->hasMany(LandOffer::class, "city_id");
     }
+
+    public function ads()
+    {
+        return $this->belongsToMany(Ad::class, "ad_city");
+    }
 }

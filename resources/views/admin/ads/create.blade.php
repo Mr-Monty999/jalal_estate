@@ -40,6 +40,9 @@
                                         <input type="file" name="company_logo" id="customFileEg1" class="form-control"
                                             accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                     </div>
+                                    @error('company_logo')
+                                        <div class="alert alert-danger text-center">{{ $message }}</div>
+                                    @enderror
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <center>
@@ -57,6 +60,26 @@
                                     <input value="{{ old('description') }}" type="text" name="description"
                                         class="form-control" placeholder="">
                                     @error('description')
+                                        <div class="alert alert-danger text-center">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-12 form-group">
+                                    <h1 class="title-color my-3">
+                                        {{ trans('keywords.ad cities') }}:
+                                    </h1>
+                                    <label for="check-all-cities"
+                                        class="title-color text-black">{{ trans('keywords.all') }}</label>
+                                    <input id="check-all-cities" type="checkbox" class="mx-2 cities" placeholder="">
+                                    <br>
+                                    @foreach ($cities as $index => $city)
+                                        <label for="city{{ $index }}" class="title-color">
+                                            {{ $city->name }}</label>
+                                        <input @checked(old('cities_ids') && in_array($city->id, old('cities_ids'))) id="city{{ $index }}"
+                                            value="{{ $city->id }}" type="checkbox" name="cities_ids[]"
+                                            class="mx-2 cities" placeholder="">
+                                    @endforeach
+
+                                    @error('cities_ids')
                                         <div class="alert alert-danger text-center">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -83,7 +106,24 @@
         })
     </script>
 
+    <script>
+        let cities = $(".cities");
+        let checkAllCities = $("#check-all-cities");
 
+        checkAllCities.on('click', function() {
+            if (!$(this).hasClass("checked")) {
+                $(this).addClass("checked");
+                cities.attr('checked', true);
+            } else {
+                $(this).removeClass("checked");
+                cities.removeAttr('checked');
+
+
+
+            }
+
+        });
+    </script>
 
 
 

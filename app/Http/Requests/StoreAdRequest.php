@@ -27,6 +27,7 @@ class StoreAdRequest extends FormRequest
             "company_name" => "required|string",
             "company_logo" => "required|image|mimes:jpeg,png,jpg,gif",
             "description" => "nullable|string",
+            "cities_ids" => "nullable|array"
         ];
     }
 }

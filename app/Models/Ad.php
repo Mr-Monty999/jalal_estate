@@ -12,4 +12,9 @@ class Ad extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = ["id"];
+
+    public function cities()
+    {
+        return $this->belongsToMany(City::class, "ad_city");
+    }
 }

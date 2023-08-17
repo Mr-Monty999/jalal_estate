@@ -26,6 +26,9 @@ class AdService
 
         $ad = Ad::create($data);
 
+        if ($request->cities_ids)
+            $ad->cities()->attach($request->cities_ids);
+
         return $ad;
     }
 
@@ -44,6 +47,7 @@ class AdService
         }
 
         $ad->update($data);
+        $ad->cities()->sync($request->cities_ids);
 
         return $ad;
     }
@@ -51,31 +55,23 @@ class AdService
     public static function loadAds($count = null)
     {
 
-        if (!session()->has("current_ad"))
-            session()->put("current_ad", 1);
+        // if (!session()->has("current_ad"))
+        //     session()->put("current_ad", 1);
 
-        $currentAd = session()->get("current_ad");
+        // $currentAd = session()->get("current_ad");
 
         // return $currentAd;s
 
 
-        $adsCount = Ad::count();
+        // $adsCount = Ad::count();
+        $user = auth()->user();
+        $userCity = UserService::getUserCities($user)->first();
 
-        $ads = Ad::get()->shuffle();
-
-        // $ads->shuffle();
-        // shuffle($ads);
-        // unset($ads[$currentAd]);
-        // $ads = array_values($ads);
-
-        // return $adsCount % $currentAd;
-
-        // if ($adsCount > $count)
-
-        //     $ads = $ads->get();
+        $ads = $userCity->ads()->get()->shuffle();
 
 
-        session()->put("current_ad", $currentAd + 1);
+
+        // session()->put("current_ad", $currentAd + 1);
         return $ads;
     }
 }

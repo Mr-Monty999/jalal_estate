@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAdRequest;
 use App\Http\Requests\UpdateAdRequest;
 use App\Models\Ad;
+use App\Models\City;
 use App\Services\AdService;
 
 class AdController extends Controller
@@ -24,7 +25,7 @@ class AdController extends Controller
      */
     public function index()
     {
-        $ads  = Ad::latest()->paginate(10);
+        $ads  = Ad::with("cities")->latest()->paginate(10);
         return view("admin.ads.index", compact("ads"));
     }
 
@@ -35,7 +36,9 @@ class AdController extends Controller
      */
     public function create()
     {
-        return view("admin.ads.create");
+        $cities = City::orderBy("name")->get();
+
+        return view("admin.ads.create", compact("cities"));
     }
 
     /**
@@ -71,7 +74,11 @@ class AdController extends Controller
      */
     public function edit(Ad $ad)
     {
-        return view("admin.ads.edit", compact("ad"));
+        $cities = City::orderBy("name")->get();
+        $adCities = $ad->cities()->pluck("city_id")->toArray();
+
+
+        return view("admin.ads.edit", compact("ad", "cities", "adCities"));
     }
 
     /**

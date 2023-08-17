@@ -43,7 +43,7 @@ class LandOfferController extends Controller
 
         $user = auth()->user();
 
-        $cities = UserService::getUserCities($user, "desc");
+        $cities = UserService::getUserCities($user);
 
         $landTypes = LandType::orderBy("name")->get();
         $estateClassifications = EstateClassification::orderBy("name")->get();
@@ -124,7 +124,6 @@ class LandOfferController extends Controller
 
         $user = auth()->user();
 
-        $cities = UserService::getUserCities($user, "desc");
         if (!UserService::cityExists($user, $request->city_id))
             abort(403);
 
@@ -185,7 +184,7 @@ class LandOfferController extends Controller
     {
         $user = auth()->user();
 
-        $cities = UserService::getUserCities($user, "desc");
+        $cities = UserService::getUserCities($user);
 
         $landTypes = LandType::orderBy("name")->get();
         $estateClassifications = EstateClassification::orderBy("name")->get();
@@ -207,7 +206,6 @@ class LandOfferController extends Controller
         if ($landOffer->user_id != $user->id)
             abort(403);
 
-        $cities = UserService::getUserCities($user, "desc");
         if (!UserService::cityExists($user, $request->city_id))
             abort(403);
 
