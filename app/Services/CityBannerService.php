@@ -26,7 +26,8 @@ class CityBannerService
 
         $cityBanner = CityBanner::create($data);
 
-        $cityBanner->cities()->attach($data['cities_ids']);
+        if ($request->cities_ids)
+            $cityBanner->cities()->attach($request->cities_ids);
 
         return $cityBanner;
     }
@@ -48,7 +49,7 @@ class CityBannerService
 
         $cityBanner->update($data);
 
-        $cityBanner->cities()->sync($data['cities_ids']);
+        $cityBanner->cities()->sync($request->cities_ids);
 
         return $cityBanner;
     }
