@@ -34,7 +34,9 @@ class RegisterMarketerRequest extends FormRequest
             "birthdate" => "nullable|date",
             "logo" => "nullable|image",
             "city_id" => "required|exists:cities,id",
-            "neighbourhood_id" => "required|exists:neighbourhoods,id"
+            "neighbourhood_id" => "required|exists:neighbourhoods,id",
+            "terms_and_conditions" => "required|string"
+
 
         ];
     }
