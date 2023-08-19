@@ -103,6 +103,14 @@ class PermissionService
             "create_cities_banners",
             "edit_cities_banners",
             "delete_cities_banners",
+            "view_admins",
+            "create_admins",
+            "edit_admins",
+            "delete_admins",
+            "view_roles",
+            "create_roles",
+            "edit_roles",
+            "delete_roles",
 
 
         ];

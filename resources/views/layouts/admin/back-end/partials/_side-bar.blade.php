@@ -365,6 +365,33 @@
                         </li>
                         {{-- End Cities Banners --}}
 
+                        {{-- Begin Cities Banners --}}
+                        <li
+                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/admins*') || Request::is('admin/roles*') ? 'active' : '' }}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                title="{{ trans('keywords.admins') }}">
+                                <i class="tio-filter-list nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{ trans('keywords.admins') }}
+                                </span>
+                            </a>
+
+                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                style="display: {{ Request::is('admin/admins*') || Request::is('admin/roles*') ? 'block' : '' }}">
+                                @can('view_roles')
+                                    <li class="nav-item {{ Request::is('admin/roles') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.roles.index') }}"
+                                            title="{{ trans('keywords.roles') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.roles') }}</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                            </ul>
+                        </li>
+                        {{-- End Cities Banners --}}
+
                         {{-- begin settings --}}
                         <li
                             class="navbar-vertical-aside-has-menu {{ Request::is('admin/settings*') ? 'active' : '' }}">

@@ -9,6 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // $clientNumber
         return view("admin.home.index");
     }
 }

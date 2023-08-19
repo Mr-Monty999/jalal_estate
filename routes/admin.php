@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\LandTypeController;
 use App\Http\Controllers\Admin\NeighbourhoodController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\RentController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Guest\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\ProfileController;
@@ -70,5 +71,9 @@ Route::group(["prefix" => "admin"], function () {
 
         // city banners //
         Route::resource("cities-banners", CityBannerController::class, ["as" => "admin"]);
+
+
+        // roles //
+        Route::resource("roles", RoleController::class, ["as" => "admin"]);
     });
 });

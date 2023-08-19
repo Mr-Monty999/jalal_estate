@@ -264,7 +264,15 @@ return [
     "cities" => "cities",
     "welcome" => "welcome",
     "I agree & confirm to these" => "I agree & confirm to these",
-    "direct owner and buyer" => "direct owner and buyer"
+    "direct owner and buyer" => "direct owner and buyer",
+    "roles" => "roles",
+    "permissions" => "permissions",
+    "add role" => "add role",
+    "role name" => "role name",
+    "edit role" => "edit role",
+    "admins" => "admins",
+    "roles list" => "roles List",
+    "are you sure want to delete this role" => 'are you sure want to delete this role'
 
 
 

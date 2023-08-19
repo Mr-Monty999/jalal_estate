@@ -15,6 +15,9 @@
                     <h3 class="text-center">{{ trans('keywords.Hi') }} {{ auth()->user()->name }},
                         {{ trans('keywords.Welcome To Dashboard') }}.</h3>
                 </div>
+                <div class="row">
+                    <div></div>
+                </div>
             </div>
         </div>
         <!-- End Page Header -->

@@ -26,7 +26,7 @@ class ProfileController extends Controller
 
         $user =  auth()->user();
         $user->update($data);
-        AdminService::update($request, $user->admin);
+        AdminService::updateProfile($request, $user->admin);
 
         toastr()->success(trans('keywords.profile updated successfully'));
 

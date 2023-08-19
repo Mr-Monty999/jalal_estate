@@ -262,7 +262,18 @@ return [
     "cities" => "المدن",
     "welcome" => "مرحبا",
     "I agree & confirm to these" => "أقبل وأوكد هذه الشروط",
-    "direct owner and buyer" => "مباشر المالك ومباشر المشتري"
+    "direct owner and buyer" => "مباشر المالك ومباشر المشتري",
+    "roles" => "الإدوار",
+    "permissions" => "الصلاحيات",
+    "add role" => "إضافة دور",
+    "role name" => "إسم الدور",
+    "edit role" => "تعديل الدور",
+    "admins" => "المشرفين",
+    "roles list" => "قائمة الأدوار",
+    "are you sure want to delete this role" => 'هل أنت متأكد من حذف هذا الدور'
+
+
+
 
 
 
