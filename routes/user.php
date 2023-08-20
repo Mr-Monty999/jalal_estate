@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\AuctionController;
 use App\Http\Controllers\User\ChatController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\CompanyController;
@@ -12,9 +13,10 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RentController;
 use App\Http\Controllers\User\ServiceProviderController;
 use App\Http\Controllers\User\UserController;
+use App\Models\Auction;
 use Illuminate\Support\Facades\Route;
 
-Route::group(["prefix" => "user"], function () {
+Route::group(["prefix" => "user", "middleware" => ["user-permissions-updater"]], function () {
 
     Route::group(["middleware" => "guest"], function () {
 
@@ -59,6 +61,13 @@ Route::group(["prefix" => "user"], function () {
             //// Rents ///
             Route::get("/rents", [RentController::class, "index"])->name("user.rents.index");
             Route::get("/rents/{rent}", [RentController::class, "show"])->name("user.rents.show");
+
+
+
+
+
+            //// auctions ///
+            Route::resource("auctions", AuctionController::class, ["as" => "user"]);
         });
     });
 });

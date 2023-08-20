@@ -22,16 +22,18 @@ return new class extends Migration
             $table->unsignedBigInteger("neighbourhood_id");
             $table->string("name");
             $table->string("street");
-            $table->string("video");
+            $table->string("video")->nullable();
             $table->double("price");
-            $table->double("size");
+            $table->double("space");
             $table->string("north_border");
             $table->string("south_border");
             $table->string("east_border");
             $table->string("west_border");
+            $table->bigInteger("instrument_number");
             $table->text("description")->nullable();
             $table->text("features")->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
 
             $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete()->cascadeOnUpdate();

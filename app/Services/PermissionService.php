@@ -18,6 +18,10 @@ class PermissionService
             "edit_offers",
             "delete_offers",
             "accept_offers",
+            "view_auctions",
+            "edit_auctions",
+            "delete_auctions",
+            "create_auctions",
         ];
     }
     public static function marketerPermissions()
@@ -29,6 +33,10 @@ class PermissionService
             "edit_offers",
             "delete_offers",
             "accept_offers",
+            "view_auctions",
+            "edit_auctions",
+            "delete_auctions",
+            "create_auctions",
         ];
     }
 
@@ -41,6 +49,10 @@ class PermissionService
             "edit_offers",
             "delete_offers",
             "accept_offers",
+            "view_auctions",
+            "edit_auctions",
+            "delete_auctions",
+            "create_auctions",
         ];
     }
 

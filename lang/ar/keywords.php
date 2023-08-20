@@ -270,7 +270,27 @@ return [
     "edit role" => "تعديل الدور",
     "admins" => "المشرفين",
     "roles list" => "قائمة الأدوار",
-    "are you sure want to delete this role" => 'هل أنت متأكد من حذف هذا الدور'
+    "are you sure want to delete this role" => 'هل أنت متأكد من حذف هذا الدور',
+    "auctions" => "المزادات",
+    "add auction" => "إضافة مزاد",
+    "features" => "المميزات",
+    "street" => "الشارع",
+    "north" => "شمال",
+    "south" => "جنوب",
+    "west" => "غرب",
+    "east" => "شرق",
+    "the boundaries and lengths of the estate" => "حدود واطوال العقار",
+    "estate video" => "فيديو العقار",
+    "show" => "عرض",
+    "are you sure want to delete this auction?" => "هل أنت متأكد من حذف هذا المزاد؟"
+
+
+
+
+
+
+
+
 
 
 

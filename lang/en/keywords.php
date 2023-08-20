@@ -272,7 +272,19 @@ return [
     "edit role" => "edit role",
     "admins" => "admins",
     "roles list" => "roles List",
-    "are you sure want to delete this role" => 'are you sure want to delete this role'
+    "are you sure want to delete this role" => 'are you sure want to delete this role',
+    "auctions" => "auctions",
+    "add auction" => "add auction",
+    "features" => "features",
+    "street" => "street",
+    "north" => "north",
+    "south" => "south",
+    "west" => "west",
+    "east" => "east",
+    "the boundaries and lengths of the estate" => "the boundaries and lengths of the estate",
+    "estate video" => "estate video",
+    "show" => "show",
+    "are you sure want to delete this auction?" => "are you sure want to delete this auction?"
 
 
 

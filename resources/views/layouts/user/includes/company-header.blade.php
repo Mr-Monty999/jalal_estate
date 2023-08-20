@@ -28,6 +28,9 @@
                     <a class="nav-link"
                         href="{{ route('user.accepted-offers') }}">{{ trans('keywords.accepted estate offers') }}</a>
                 </li>
+                <li class="nav-item @if (Request::is('user/auctions')) active @endif">
+                    <a class="nav-link" href="{{ route('user.auctions.index') }}">{{ trans('keywords.auctions') }}</a>
+                </li>
                 <li class="nav-item @if (Request::is('user/rents')) active @endif">
                     <a class="nav-link" href="{{ route('user.rents.index') }}">{{ trans('keywords.rents') }}</a>
                 </li>
@@ -91,7 +94,7 @@
         <style>
             .nav-link {
                 font-weight: bold;
-                font-size: 25px;
+                font-size: 22px;
                 color: #17a2b8 !important
             }
         </style>

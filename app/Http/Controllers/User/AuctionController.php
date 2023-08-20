@@ -6,9 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAuctionRequest;
 use App\Http\Requests\UpdateAuctionRequest;
 use App\Models\Auction;
+use App\Models\City;
+use App\Models\EstateClassification;
+use App\Models\LandType;
+use App\Services\AuctionService;
 
 class AuctionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware("can:view_auctions")->only(["index", "show"]);
+        $this->middleware("can:edit_auctions")->only(["edit", "update"]);
+        $this->middleware("can:create_auctions")->only(["create", "store"]);
+        $this->middleware("can:delete_auctions")->only(["destroy"]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +29,10 @@ class AuctionController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $auctions = Auction::latest()->paginate(10);
+
+        return view("user.auctions.index", compact("auctions", "user"));
     }
 
     /**
@@ -26,7 +42,14 @@ class AuctionController extends Controller
      */
     public function create()
     {
-        //
+        $user = auth()->user();
+        $cities = City::with("neighbourhoods")->orderBy("name")->get();
+        $estateClassifications = EstateClassification::orderBy("name")->get();
+        $landTypes = LandType::orderBy("name")->get();
+
+
+
+        return view("user.auctions.create", compact("user", "cities", "estateClassifications", "landTypes"));
     }
 
     /**
@@ -37,7 +60,11 @@ class AuctionController extends Controller
      */
     public function store(StoreAuctionRequest $request)
     {
-        //
+        AuctionService::store($request);
+
+        toastr()->success(trans("keywords.Added Successfully"));
+
+        return redirect()->route("user.auctions.index");
     }
 
     /**
@@ -59,7 +86,15 @@ class AuctionController extends Controller
      */
     public function edit(Auction $auction)
     {
-        //
+
+        $user = auth()->user();
+        $cities = City::with("neighbourhoods")->orderBy("name")->get();
+        $estateClassifications = EstateClassification::orderBy("name")->get();
+        $landTypes = LandType::orderBy("name")->get();
+
+
+
+        return view("user.auctions.edit", compact("auction", "user", "cities", "estateClassifications", "landTypes"));
     }
 
     /**
@@ -71,7 +106,12 @@ class AuctionController extends Controller
      */
     public function update(UpdateAuctionRequest $request, Auction $auction)
     {
-        //
+
+        AuctionService::update($request, $auction);
+
+        toastr()->success(trans("keywords.updated successfully"));
+
+        return redirect()->route("user.auctions.index");
     }
 
     /**
@@ -82,6 +122,11 @@ class AuctionController extends Controller
      */
     public function destroy(Auction $auction)
     {
-        //
+        $auction->delete();
+
+
+        toastr()->success(trans("keywords.deleted successfully"));
+
+        return back();
     }
 }

@@ -13,7 +13,7 @@ class UpdateAuctionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,24 @@ class UpdateAuctionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required|string",
+            "price" => "required|numeric",
+            "city_id" => "required|exists:cities,id",
+            "neighbourhood_id" => "required|exists:neighbourhoods,id",
+            "street" => "required|string",
+            "space" => "required|numeric",
+            "north_border" => "required|string",
+            "south_border" => "required|string",
+            "east_border" => "required|string",
+            "west_border" => "required|string",
+            "estate_classification_id" => "required|exists:estate_classifications,id",
+            "land_type_id" => "required|exists:land_types,id",
+            "features" => "nullable|string",
+            "description" => "nullable|string",
+            "video" => "nullable|file|mimes:mp4,ogx,oga,ogv,ogg,webm,avi,flv,mov,mpeg",
+            "instrument_number" => "required|numeric|unique:auctions,instrument_number," . $this->route("auction")->id,
+
+
         ];
     }
 }

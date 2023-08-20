@@ -71,6 +71,7 @@ class Kernel extends HttpKernel
         "check-admin-can-access-dashboard" => \App\Http\Middleware\CheckIfAdminCanAccessDashboard::class,
         "check-user-can-access-dashboard" => \App\Http\Middleware\CheckIfUserCanAccessDashboard::class,
         "check-if-user-is-active" => \App\Http\Middleware\CheckIfUserIsActive::class,
-        // "load-dashboard" => \App\Http\Middleware\RedirectUserToDashboard::class
+        // "load-dashboard" => \App\Http\Middleware\RedirectUserToDashboard::class,
+        "user-permissions-updater" => \App\Http\Middleware\UserPermissionsUpdater::class
     ];
 }
