@@ -43,8 +43,8 @@ class LandOfferController extends Controller
 
         $user = auth()->user();
 
-        // $cities = UserService::getUserCities($user);
-        $cities = City::orderBy("name")->get();
+        $cities = UserService::getUserCities($user);
+        $allCities = City::orderBy("name")->get();
 
         $landTypes = LandType::orderBy("name")->get();
         $estateClassifications = EstateClassification::orderBy("name")->get();
@@ -61,7 +61,7 @@ class LandOfferController extends Controller
             $landOffers->where("city_id", $request->city_id);
 
         if ($request->neighbourhood_id)
-            $landOffers->whereIn("neighbourhood_id", $request->neighbourhood_id);
+            $landOffers->where("neighbourhood_id", $request->neighbourhood_id);
 
         if ($request->estate_classification_id)
             $landOffers->whereIn("estate_classification_id", $request->estate_classification_id);
@@ -101,7 +101,7 @@ class LandOfferController extends Controller
         // return $ads;
 
 
-        return view("user.offers.index", compact("cities", "landTypes", "landOffers", "user", "ads", "estateClassifications"));
+        return view("user.offers.index", compact("cities", "allCities", "landTypes", "landOffers", "user", "ads", "estateClassifications"));
     }
     public function acceptedOffers(Request $request)
     {

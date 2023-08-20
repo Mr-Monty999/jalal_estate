@@ -10,7 +10,7 @@
                        <option class="text-black" id="all" value="" selected>
                            {{ trans('keywords.all') }}</option>
 
-                       @foreach ($cities as $city)
+                       @foreach ($allCities as $city)
                            @php
                                request('city_id') == $city->id ? ($selectedCity = $city) : null;
                            @endphp
