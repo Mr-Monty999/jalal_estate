@@ -282,7 +282,19 @@ return [
     "the boundaries and lengths of the estate" => "حدود واطوال العقار",
     "estate video" => "فيديو العقار",
     "show" => "عرض",
-    "are you sure want to delete this auction?" => "هل أنت متأكد من حذف هذا المزاد؟"
+    "are you sure want to delete this auction?" => "هل أنت متأكد من حذف هذا المزاد؟",
+    "data" => "البيانات",
+    "video" => "الفيديو",
+    "images" => "الصور",
+    "address" => "العنوان",
+    "fal certificate number" => "رقم شهادة الفال",
+    "meter" => "متر"
+
+
+
+
+
+
 
 
 

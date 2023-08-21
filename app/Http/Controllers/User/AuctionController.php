@@ -75,7 +75,16 @@ class AuctionController extends Controller
      */
     public function show(Auction $auction)
     {
-        //
+        $auction->load([
+            "images",
+            "user",
+            "city",
+            "neighbourhood",
+            "landType",
+            "estateClassification"
+        ]);
+
+        return view("user.auctions.show", compact("auction"));
     }
 
     /**

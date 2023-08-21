@@ -66,7 +66,45 @@
                                 @foreach ($auctions as $index => $auction)
                                     <tr>
                                         <th scope="row">{{ $index + 1 }}</th>
-                                        <td class="text-black">{{ $auction->user->name }}</td>
+                                        <td class="text-black">
+                                            <div class="d-flex">
+                                                @if ($user->hasRole('company') && $user->company->logo)
+                                                    <img onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                        style="width:
+                                                        50px;height:50px;border-radius:50%"
+                                                        src="{{ asset('storage/' . $user->company->logo) }}" alt="">
+                                                @elseif ($user->hasRole('landlord'))
+                                                    <img onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                        style="width:
+                                                        50px;height:50px;border-radius:50%"
+                                                        src="{{ asset('storage/' . $user->landlord->photo) }}" alt="">
+                                                @elseif ($user->hasRole('marketer'))
+                                                    <img onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                        style="width:
+                                                        50px;height:50px;border-radius:50%"
+                                                        src="{{ asset('storage/' . $user->marketer->photo) }}" alt="">
+                                                @elseif($user->hasRole('office'))
+                                                    <img onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                        style="width:
+                                                        50px;height:50px;border-radius:50%"
+                                                        src="{{ asset('storage/' . $user->office->logo) }}" alt="">
+                                                @elseif($user->hasRole('service-provider'))
+                                                    <img onerror="this.src='{{ asset('assets/front-end/img/image-place-holder.png') }}'"
+                                                        style="width:
+                                                        50px;height:50px;border-radius:50%"
+                                                        src="{{ asset('storage/' . $user->serviceProvider->photo) }}"
+                                                        alt="">
+                                                @else
+                                                    <img src="{{ asset('assets/front-end/img/image-place-holder.png') }}"
+                                                        style="width:
+                                                        50px;height:50px;border-radius:50%"
+                                                        alt="">
+                                                @endif
+                                                <div class="mx-1">
+                                                    {{ $auction->user->name }}
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td class="text-black">{{ $auction->name }}</td>
                                         {{-- <td class="text-black">{{ $auction->instrument_number }}</td> --}}
                                         <td class="text-white">

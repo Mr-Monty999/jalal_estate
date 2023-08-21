@@ -37,7 +37,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-12 col-md-6">
-                        <label for="license_number">{{ trans('keywords.License Number') }}</label>
+                        <label for="license_number">{{ trans('keywords.fal certificate number') }}</label>
                         <input name="license_number" value="{{ old('license_number') }}" type="number"
                             class="form-control" id="license_number">
                         @error('license_number')

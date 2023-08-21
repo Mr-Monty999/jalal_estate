@@ -284,7 +284,13 @@ return [
     "the boundaries and lengths of the estate" => "the boundaries and lengths of the estate",
     "estate video" => "estate video",
     "show" => "show",
-    "are you sure want to delete this auction?" => "are you sure want to delete this auction?"
+    "are you sure want to delete this auction?" => "are you sure want to delete this auction?",
+    "data" => "data",
+    "video" => "video",
+    "images" => "images",
+    "address" => "address",
+    "fal certificate number" => "fal certificate number",
+    "meter" => "meter"
 
 
 
