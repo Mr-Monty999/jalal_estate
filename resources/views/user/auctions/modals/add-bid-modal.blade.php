@@ -31,8 +31,8 @@
                                                         <div class="row">
                                                             <div class="form-group col-12">
                                                                 <label for="price">{{ trans('keywords.price') }}</label>
-                                                                <input name="price" type="number" class="form-control"
-                                                                    id="price">
+                                                                <input required name="price" type="number"
+                                                                    class="form-control" id="price">
                                                                 @error('price')
                                                                     <div style="border-radius: 30px"
                                                                         class="alert alert-danger text-center mt-1">
@@ -57,3 +57,11 @@
                                 {{-- End Modal  --}}
                             @endcan
                         @endif
+                        @push('scripts')
+                            @if ($errors->any())
+                                <script>
+                                    // $("#open-modal-button").click();
+                                    $("#addBidModal").modal("show");
+                                </script>
+                            @endif
+                        @endpush
