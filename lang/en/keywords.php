@@ -291,7 +291,9 @@ return [
     "address" => "address",
     "fal certificate number" => "fal certificate number",
     "meter" => "meter",
-    "estate images" => "estate images"
+    "estate images" => "estate images",
+    "ended auction" => "ended auction",
+    "active auction" => "active auctin"
 
 
 

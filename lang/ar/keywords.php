@@ -289,7 +289,10 @@ return [
     "address" => "العنوان",
     "fal certificate number" => "رقم شهادة الفال",
     "meter" => "متر",
-    "estate images" => "صور العقار"
+    "estate images" => "صور العقار",
+    "ended auction" => "مزاد منتهي",
+    "active auction" => "مزاد نشط"
+
 
 
 

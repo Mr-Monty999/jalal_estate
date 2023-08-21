@@ -58,6 +58,7 @@
                                     <th scope="col">{{ trans('keywords.Neighbourhood') }}</th>
                                     {{-- <th scope="col">{{ trans('keywords.Price') }}</th> --}}
                                     <th scope="col">{{ trans('keywords.created at') }}</th>
+                                    <th scope="col">{{ trans('keywords.status') }}</th>
 
                                     <th scope="col">{{ trans('keywords.Action') }}</th>
                                 </tr>
@@ -124,6 +125,16 @@
                                         <td class="text-black">{{ $auction->neighbourhood->name }}</td>
                                         {{-- <td class="text-black">{{ number_format($auction->price) }}</td> --}}
                                         <td class="text-black">{{ $auction->created_at->diffForHumans() }}</td>
+                                        <td class="text-black">
+                                            @if ($auction->status == 'active')
+                                                <div style="padding: 5px;border-radius:10px" class="bg-success text-white">
+                                                    {{ trans('keywords.active auction') }}</div>
+                                            @elseif($auction->status == 'end')
+                                                <div style="padding: 5px;border-radius:10px" class="bg-danger text-white">
+                                                    {{ trans('keywords.ended auction') }}</div>
+                                            @endif
+                                        </td>
+
                                         <td>
                                             <div class="d-flex">
                                                 @if ($auction->user_id == auth()->id())

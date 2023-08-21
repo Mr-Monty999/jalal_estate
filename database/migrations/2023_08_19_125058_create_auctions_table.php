@@ -32,6 +32,7 @@ return new class extends Migration
             $table->bigInteger("instrument_number");
             $table->text("description")->nullable();
             $table->text("features")->nullable();
+            $table->string("status")->default("active");
             $table->timestamps();
             $table->softDeletes();
 
