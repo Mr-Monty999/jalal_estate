@@ -293,7 +293,8 @@ return [
     "meter" => "meter",
     "estate images" => "estate images",
     "ended auction" => "ended auction",
-    "active auction" => "active auctin"
+    "active auction" => "active auctin",
+    "your bid added successfully" => 'your bid added successfully'
 
 
 

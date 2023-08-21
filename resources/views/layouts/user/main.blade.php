@@ -42,6 +42,13 @@
         *:not(i) {
             text-transform: capitalize !important
         }
+
+        @media only screen and (max-width: 800px) {
+            .root-container {
+                margin-top: 20%;
+                margin-bottom: 10%;
+            }
+        }
     </style>
     @if (app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('theme2/css/bootstrap.min.rtl.css') }}">
@@ -106,8 +113,9 @@
             <a href="#howitworks-section" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
 
         </div> --}}
-        @yield('content')
-
+        <div class="root-container">
+            @yield('content')
+        </div>
 
         @include('layouts.includes.footer')
 

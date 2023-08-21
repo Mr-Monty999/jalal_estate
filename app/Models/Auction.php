@@ -43,4 +43,9 @@ class Auction extends Model
     {
         return $this->belongsTo(EstateClassification::class, "estate_classification_id");
     }
+
+    public function auctionBids()
+    {
+        return $this->belongsTo(AuctionBid::class, "auction_id");
+    }
 }

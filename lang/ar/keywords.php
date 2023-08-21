@@ -291,7 +291,8 @@ return [
     "meter" => "متر",
     "estate images" => "صور العقار",
     "ended auction" => "مزاد منتهي",
-    "active auction" => "مزاد نشط"
+    "active auction" => "مزاد نشط",
+    "your bid added successfully" => "تم إضافة مزايدتك بنجاح"
 
 
 
