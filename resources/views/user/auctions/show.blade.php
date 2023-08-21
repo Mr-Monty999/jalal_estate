@@ -78,6 +78,7 @@
             line-height: 2.15;
         }
 
+        div#one,
         div#two,
         div#three,
         div#four,
@@ -87,11 +88,14 @@
     </style>
     <br><br><br><br><br><br>
     <div class="container">
-
+        @include('user.auctions.modals.end-auction-modal')
         <div>
             <ul class="tabs group">
                 <li>
-                    <a class="active text-center" href="#/one">{{ trans('keywords.data') }}</a>
+                    <a class="active text-center" href="#/details">{{ trans('keywords.details') }}</a>
+                </li>
+                <li>
+                    <a class="text-center" href="#/one">{{ trans('keywords.data') }}</a>
                 </li>
                 <li><a class="text-center" href="#/two">{{ trans('keywords.video') }}</a></li>
                 <li>
@@ -105,6 +109,55 @@
                 </li>
             </ul>
             <div id="content">
+                <div id="details">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h3>{{ trans('keywords.lowest bid amount is currently over') }}:</h3>
+                            <p class="text-black custom-font">{{ number_format($lowestBidPrice) }}</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h3>{{ trans('keywords.auction status') }}:</h3>
+                            @if ($auction->status == 'active')
+                                <div style="font-weight: bold" class="text-white text-success">
+                                    {{ trans('keywords.active auction') }}</div>
+                            @elseif($auction->status == 'end')
+                                <div style="font-weight: bold" class="text-white text-danger">
+                                    {{ trans('keywords.ended auction') }}</div>
+                            @endif
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h3>{{ trans('keywords.participants count') }}:</h3>
+                            <p class="text-black custom-font">{{ number_format($participantsCount) }}</p>
+                        </div>
+                        <div class="col-12 my-4">
+                            <h3>{{ trans('keywords.bids record') }}:</h3>
+                            <table class="table
+                                table-responsive">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">{{ trans('keywords.ID') }}</th>
+                                        <th scope="col">{{ trans('keywords.bidder') }}</th>
+                                        <th scope="col">
+                                            {{ trans('keywords.price') }}&ThinSpace;{{ trans('keywords.SAR') }}</th>
+                                        <th scope="col">{{ trans('keywords.time') }}</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($auctionBids as $index => $auctionBid)
+                                        <tr>
+                                            <th>{{ $index + 1 }}</th>
+                                            <td class="text-black">{{ $auctionBid->user->name }}</td>
+                                            <td class="text-black">{{ number_format($auctionBid->price) }}</td>
+                                            <td class="text-black">{{ $auctionBid->created_at }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {!! $auctionBids->links() !!}
+                        </div>
+                    </div>
+                </div>
                 <div id="one">
                     <div class="row">
                         <style>
@@ -169,11 +222,17 @@
                 </div>
                 <div id="three">
                     <div class="row">
-                        @foreach ($auction->images as $image)
-                            <div class="col-6 col-md-4">
-                                <img style="width: 100%" src="{{ asset('storage/' . $image->path) }}" alt="">
+                        @if ($auction->images()->count() > 0)
+                            @foreach ($auction->images as $image)
+                                <div class="col-6 col-md-4">
+                                    <img style="width: 100%" src="{{ asset('storage/' . $image->path) }}" alt="">
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="col-12">
+                                <h1 class="text-center">{{ trans('keywords.None') }}</h1>
                             </div>
-                        @endforeach
+                        @endif
 
                     </div>
                 </div>

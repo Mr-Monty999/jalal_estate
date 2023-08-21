@@ -70,6 +70,7 @@ Route::group(["prefix" => "user", "middleware" => ["user-permissions-updater"]],
             //// auctions ///
             Route::resource("auctions", AuctionController::class, ["as" => "user"]);
             Route::post("auctions/{auction}/bid", [AuctionBidController::class, "store"])->name("user.auctions.bid.store");
+            Route::post("auctions/{auction}/end", [AuctionController::class, "end"])->name("user.auctions.end");
         });
     });
 });

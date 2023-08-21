@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Auction;
+use App\Models\AuctionBid;
 use App\Models\Image;
 use Storage;
 
@@ -84,5 +85,27 @@ class AuctionService
         // $auction->cities()->sync($request->cities_ids);
 
         return $auction;
+    }
+
+
+    public static function lowestBidPrice($auction)
+    {
+        $latestBid =  AuctionBid::where("auction_id", $auction->id)->latest()->firstOrNew();
+        $price = $auction->price;
+
+        if ($auction)
+            $price = $latestBid->price;
+
+        return $price;
+    }
+
+    public static function participantsCount($auction)
+    {
+        $count =  AuctionBid::where("auction_id", $auction->id)
+            ->distinct()
+            ->count("user_id");
+
+
+        return $count;
     }
 }

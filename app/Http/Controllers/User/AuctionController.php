@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\EstateClassification;
 use App\Models\LandType;
 use App\Services\AuctionService;
+use Database\Seeders\AuctionSeeder;
 
 class AuctionController extends Controller
 {
@@ -82,12 +83,16 @@ class AuctionController extends Controller
             "city",
             "neighbourhood",
             "landType",
-            "estateClassification"
+            "estateClassification",
+            'auctionBids'
         ]);
+        $lowestBidPrice = AuctionService::lowestBidPrice($auction);
+        $participantsCount = AuctionService::participantsCount($auction);
+        $auctionBids = $auction->auctionBids()->orderBy("price", "desc")->paginate(10);
 
         // return $auction;
 
-        return view("user.auctions.show", compact("auction"));
+        return view("user.auctions.show", compact("auction", "lowestBidPrice", "participantsCount", "auctionBids"));
     }
 
     /**
@@ -138,6 +143,22 @@ class AuctionController extends Controller
 
 
         toastr()->success(trans("keywords.deleted successfully"));
+
+        return back();
+    }
+
+    public function end(Auction $auction)
+    {
+        if ($auction->user_id != auth()->id())
+            abort(403);
+
+
+        $auction->update([
+            "status" => "end"
+        ]);
+
+
+        toastr()->success(trans("keywords.auction ended successfully"));
 
         return back();
     }

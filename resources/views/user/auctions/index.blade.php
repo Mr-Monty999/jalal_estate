@@ -150,6 +150,8 @@
                                                     <a href="{{ route('user.auctions.show', $auction->id) }}"
                                                         class="btn btn-info text-center text-white mx-1">{{ trans('keywords.show') }}</a>
                                                 @endcan
+                                                @include('user.auctions.modals.end-auction-modal')
+
                                             </div>
                                             <style>
                                                 a.btn.btn-warning {

@@ -296,8 +296,26 @@ return [
     "add bid" => "إضافة مزايدة",
     "bid" => "مزايدة",
     "you are the last bidder" => "أنت أخر مزايد",
-    "the lowest bid amount is currently" => 'أقل مبلغ للمزايدة حاليا هو',
-    'lowest bid price' => 'أقل سعر للمزايدة'
+    "lowest bid amount is currently over" => 'أقل مبلغ للمزايدة حاليا فوق',
+    'lowest bid amount' => 'أقل مبلغ للمزايدة',
+    "details" => "التفاصيل",
+    "auction status" => "حالة المزاد",
+    "participants count" => "عدد المشاركين",
+    "bids record" => "سجل المزايدات",
+    "time" => 'الوقت',
+    "bidder" => 'المزايد',
+    "this auction has ended" => 'هذا المزاد منتهي',
+    "are sure want to end this auction?" => 'هل أنت متأكد من إنهاء هذا المزاد؟',
+    "auction ended successfully" => "تم إنهاء المزاد بنجاح",
+    "end" => "إنهاء",
+    "end auction" => "إنهاء المزاد"
+
+
+
+
+
+
+
 
 
 

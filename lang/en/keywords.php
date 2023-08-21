@@ -298,8 +298,20 @@ return [
     "add bid" => "add bid",
     "bid" => "bid",
     "you are the last bidder" => "you are the last bidder",
-    "the lowest bid amount is currently" => 'the lowest bid amount is currently',
-    'lowest bid price' => 'lowest bid price'
+    "lowest bid amount is currently over" => 'lowest bid amount is currently over',
+    'lowest bid amount' => 'lowest bid amount',
+    "details" => "details",
+    "auction status" => "auction status",
+    "participants count" => "participants count",
+    "bids record" => "bids record",
+    "time" => 'time',
+    "bidder" => 'bidder',
+    "this auction has ended" => 'this auction has ended',
+    "are sure want to end this auction?" => 'are sure want to end this auction?',
+    "auction ended successfully" => "auction ended successfully",
+    "end" => "end",
+    "end auction" => "end auction"
+
 
 
 
