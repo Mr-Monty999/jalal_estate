@@ -230,6 +230,15 @@
                     @enderror
                 </div>
                 <div class="form-group col-12">
+                    <label for="images">{{ trans('keywords.estate images') }}</label>
+                    <input name="images[]" type="file" multiple class="form-control" id="images">
+                    @error('images')
+                        <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="form-group col-12">
                     <a href="{{ url()->previous() }}" class="btn btn-secondary mx-1">{{ trans('keywords.Cancel') }}</a>
                     <button type="submit" class="btn btn-primary">{{ trans('keywords.Add') }}</button>
 

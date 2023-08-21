@@ -40,6 +40,7 @@ class StoreAuctionRequest extends FormRequest
             "description" => "nullable|string",
             "video" => "nullable|mimes:mp4,ogx,oga,ogv,ogg,webm,avi,flv,mov,mpeg",
             "instrument_number" => "required|numeric|unique:auctions,instrument_number",
+            "images" => "nullable|array"
 
 
 

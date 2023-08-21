@@ -168,7 +168,14 @@
                     </div>
                 </div>
                 <div id="three">
+                    <div class="row">
+                        @foreach ($auction->images as $image)
+                            <div class="col-6 col-md-4">
+                                <img style="width: 100%" src="{{ asset('storage/' . $image->path) }}" alt="">
+                            </div>
+                        @endforeach
 
+                    </div>
                 </div>
                 <div id="four">
                     <div class="row">

@@ -40,6 +40,8 @@ class UpdateAuctionRequest extends FormRequest
             "description" => "nullable|string",
             "video" => "nullable|file|mimes:mp4,ogx,oga,ogv,ogg,webm,avi,flv,mov,mpeg",
             "instrument_number" => "required|numeric|unique:auctions,instrument_number," . $this->route("auction")->id,
+            "images" => "nullable|array"
+
 
 
         ];

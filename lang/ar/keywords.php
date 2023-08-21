@@ -288,7 +288,9 @@ return [
     "images" => "الصور",
     "address" => "العنوان",
     "fal certificate number" => "رقم شهادة الفال",
-    "meter" => "متر"
+    "meter" => "متر",
+    "estate images" => "صور العقار"
+
 
 
 

@@ -234,6 +234,28 @@
                     @endif
                 </div>
                 <div class="form-group col-12">
+                    <label for="images">{{ trans('keywords.estate images') }}</label>
+                    <input name="images[]" type="file" multiple class="form-control" id="images">
+                    @error('images')
+                        <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    @if ($auction->images)
+                        <br>
+                        <div class="row">
+                            @foreach ($auction->images as $image)
+                                <div class="col-12 col-md-4">
+                                    <img style="width: 100%" src="{{ asset('storage/' . $image->path) }}"
+                                        alt="">
+                                </div>
+                            @endforeach
+
+                        </div>
+                        <br>
+                    @endif
+                </div>
+                <div class="form-group col-12">
                     <a href="{{ url()->previous() }}" class="btn btn-secondary mx-1">{{ trans('keywords.Cancel') }}</a>
                     <button type="submit" class="btn btn-primary">{{ trans('keywords.Edit') }}</button>
 

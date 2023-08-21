@@ -60,6 +60,7 @@ class AuctionController extends Controller
      */
     public function store(StoreAuctionRequest $request)
     {
+
         AuctionService::store($request);
 
         toastr()->success(trans("keywords.Added Successfully"));
@@ -83,6 +84,8 @@ class AuctionController extends Controller
             "landType",
             "estateClassification"
         ]);
+
+        // return $auction;
 
         return view("user.auctions.show", compact("auction"));
     }

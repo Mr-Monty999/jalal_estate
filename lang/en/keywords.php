@@ -290,7 +290,8 @@ return [
     "images" => "images",
     "address" => "address",
     "fal certificate number" => "fal certificate number",
-    "meter" => "meter"
+    "meter" => "meter",
+    "estate images" => "estate images"
 
 
 
