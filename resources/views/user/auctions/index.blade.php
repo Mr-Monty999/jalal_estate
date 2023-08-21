@@ -127,16 +127,18 @@
                                         <td class="text-black">{{ $auction->created_at->diffForHumans() }}</td>
                                         <td class="text-black">
                                             @if ($auction->status == 'active')
-                                                <div style="padding: 5px;border-radius:10px" class="bg-success text-white">
+                                                <div style="font-weight: bold" class="text-white text-success">
                                                     {{ trans('keywords.active auction') }}</div>
                                             @elseif($auction->status == 'end')
-                                                <div style="padding: 5px;border-radius:10px" class="bg-danger text-white">
+                                                <div style="font-weight: bold" class="text-white text-danger">
                                                     {{ trans('keywords.ended auction') }}</div>
                                             @endif
                                         </td>
 
                                         <td>
                                             <div class="d-flex">
+                                                @include('user.auctions.modals.add-bid-modal')
+
                                                 @if ($auction->user_id == auth()->id())
                                                     @can('edit_offers')
                                                         <a href="{{ route('user.auctions.edit', $auction->id) }}"

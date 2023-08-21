@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\AuctionBidController;
 use App\Http\Controllers\User\AuctionController;
 use App\Http\Controllers\User\ChatController;
 use App\Http\Controllers\User\LoginController;
@@ -68,6 +69,7 @@ Route::group(["prefix" => "user", "middleware" => ["user-permissions-updater"]],
 
             //// auctions ///
             Route::resource("auctions", AuctionController::class, ["as" => "user"]);
+            Route::post("auctions/{auction}/bid", [AuctionBidController::class, "store"])->name("user.auctions.bid.store");
         });
     });
 });

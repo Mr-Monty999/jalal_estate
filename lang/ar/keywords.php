@@ -292,7 +292,17 @@ return [
     "estate images" => "صور العقار",
     "ended auction" => "مزاد منتهي",
     "active auction" => "مزاد نشط",
-    "your bid added successfully" => "تم إضافة مزايدتك بنجاح"
+    "your bid added successfully" => "تم إضافة مزايدتك بنجاح",
+    "add bid" => "إضافة مزايدة",
+    "bid" => "مزايدة",
+    "you are the last bidder" => "أنت أخر مزايد",
+    "the lowest bid amount is currently" => 'أقل مبلغ للمزايدة حاليا هو',
+    'lowest bid price' => 'أقل سعر للمزايدة'
+
+
+
+
+
 
 
 

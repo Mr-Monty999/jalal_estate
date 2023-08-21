@@ -21,6 +21,9 @@
                     <a class="nav-link"
                         href="{{ route('user.accepted-offers') }}">{{ trans('keywords.accepted estate offers') }}</a>
                 </li>
+                <li class="nav-item @if (Request::is('user/auctions')) active @endif">
+                    <a class="nav-link" href="{{ route('user.auctions.index') }}">{{ trans('keywords.auctions') }}</a>
+                </li>
                 <li class="nav-item @if (Request::is('user/rents')) active @endif">
                     <a class="nav-link" href="{{ route('user.rents.index') }}">{{ trans('keywords.rents') }}</a>
                 </li>

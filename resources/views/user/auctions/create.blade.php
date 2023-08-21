@@ -25,7 +25,7 @@
                     @enderror
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <label for="price">{{ trans('keywords.price') }}<span class="text-danger"
+                    <label for="price">{{ trans('keywords.lowest bid price') }}<span class="text-danger"
                             style="font-weight: bold">*</span></label>
                     <input name="price" value="{{ old('price') }}" type="number" class="form-control" id="price">
                     @error('price')

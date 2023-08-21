@@ -294,7 +294,12 @@ return [
     "estate images" => "estate images",
     "ended auction" => "ended auction",
     "active auction" => "active auctin",
-    "your bid added successfully" => 'your bid added successfully'
+    "your bid added successfully" => 'your bid added successfully',
+    "add bid" => "add bid",
+    "bid" => "bid",
+    "you are the last bidder" => "you are the last bidder",
+    "the lowest bid amount is currently" => 'the lowest bid amount is currently',
+    'lowest bid price' => 'lowest bid price'
 
 
 

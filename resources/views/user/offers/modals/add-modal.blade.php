@@ -13,10 +13,11 @@
                                 <div class="modal fade" id="addOfferModal" tabindex="-1" role="dialog"
                                     aria-labelledby="addOfferModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <form method="POST" action="{{ route('user.land-offers.store') }}"
-                                                enctype="multipart/form-data">
-                                                @csrf
+                                        <form method="POST" action="{{ route('user.land-offers.store') }}"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-content">
+
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="addOfferModalLabel">
                                                         {{ trans('keywords.New Offer') }}
@@ -457,7 +458,7 @@
                                                     <button type="submit"
                                                         class="btn btn-primary">{{ trans('keywords.Add') }}</button>
                                                 </div>
-                                        </div>
+                                            </div>
                                         </form>
 
                                     </div>
