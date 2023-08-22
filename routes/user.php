@@ -5,6 +5,7 @@ use App\Http\Controllers\User\AuctionController;
 use App\Http\Controllers\User\ChatController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\CompanyController;
+use App\Http\Controllers\User\ForgetPasswordController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LandlordController;
 use App\Http\Controllers\User\LandOfferController;
@@ -23,6 +24,12 @@ Route::group(["prefix" => "user", "middleware" => ["user-permissions-updater"]],
 
         Route::get("/login", [LoginController::class, "index"])->name("user.login");
         Route::post("/login", [LoginController::class, "login"])->name("user.login.attempt");
+
+        Route::get("/forget-password", [ForgetPasswordController::class, "index"])->name("user.forget-password");
+        Route::post("/forget-password", [ForgetPasswordController::class, "postForgetPassword"])->name("user.forget-password.post");
+
+        Route::post('/reset-password', [ForgetPasswordController::class, "postResetPassword"])->name('password.update');
+        Route::get('/reset-password/{token}', [ForgetPasswordController::class, "resetPassword"])->name('password.reset');
     });
 
 

@@ -308,7 +308,15 @@ return [
     "are sure want to end this auction?" => 'هل أنت متأكد من إنهاء هذا المزاد؟',
     "auction ended successfully" => "تم إنهاء المزاد بنجاح",
     "end" => "إنهاء",
-    "end auction" => "إنهاء المزاد"
+    "end auction" => "إنهاء المزاد",
+    "forget your password?" => "هل نسيت كلمة السر الخاصة بك؟",
+    "reset password" => "إعادة تعيين كلمة المرور",
+    "new password" => 'كلمة مرور جديدة',
+    'a password reset link has been sent to your email. please check your inbox or junk mail' => "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد الخاص بك أو البريد غير المرغوب فيه"
+
+
+
+
 
 
 

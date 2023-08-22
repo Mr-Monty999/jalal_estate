@@ -310,7 +310,11 @@ return [
     "are sure want to end this auction?" => 'are sure want to end this auction?',
     "auction ended successfully" => "auction ended successfully",
     "end" => "end",
-    "end auction" => "end auction"
+    "end auction" => "end auction",
+    "forget your password?" => "forget your password?",
+    "reset password" => "reset your password",
+    "new password" => 'new password',
+    'a password reset link has been sent to your email. please check your inbox or junk mail' => "a password reset link has been sent to your email. please check your inbox or junk mail"
 
 
 

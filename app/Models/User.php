@@ -10,8 +10,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Musonza\Chat\Traits\Messageable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Contracts\Auth\CanResetPassword;
 
-class User extends Authenticatable
+class User extends Authenticatable implements CanResetPassword
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes, Messageable;
 
