@@ -33,6 +33,13 @@
         button {
             border-radius: 10px !important
         }
+
+        @media only screen and (max-width: 800px) {
+            .root-container {
+                margin-top: 20%;
+                margin-bottom: 10%;
+            }
+        }
     </style>
     @if (app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('theme2/css/bootstrap.min.rtl.css') }}">
@@ -42,7 +49,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body class="root-container" data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
     <div class="site-wrap">
 
