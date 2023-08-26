@@ -7,7 +7,7 @@
              background-image: url("{{ asset('theme2/images/riyadh.jpeg') }}");
              background-size: cover;
              background-position: center;
-             padding-bottom: 400px
+             padding-bottom: 600px
          }
 
          .link2 {
@@ -44,5 +44,4 @@
              </div>
          </div>
      </div>
-     <br><br><br>
  @endsection
