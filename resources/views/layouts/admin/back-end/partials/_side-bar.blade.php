@@ -64,28 +64,30 @@
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                         </li> --}}
                         <!-- Pages -->
-                        <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/cities*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.Cities') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.Cities') }}
-                                </span>
-                            </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/cities*') ? 'block' : '' }}">
-                                @can('create_cities')
-                                    <li class="nav-item {{ Request::is('admin/cities/create') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.cities.create') }}"
-                                            title="{{ trans('keywords.Add City') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.Add City') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
+                        {{-- begin citites  --}}
+                        @can('view_cities')
+                            <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/cities*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.Cities') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.Cities') }}
+                                    </span>
+                                </a>
 
-                                @can('view_cities')
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/cities*') ? 'block' : '' }}">
+                                    @can('create_cities')
+                                        <li class="nav-item {{ Request::is('admin/cities/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.cities.create') }}"
+                                                title="{{ trans('keywords.Add City') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.Add City') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
+
                                     <li class="nav-item {{ Request::is('admin/cities') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.cities.index') }}"
                                             title="{{ trans('keywords.Cities List') }}">
@@ -93,34 +95,36 @@
                                             <span class="text-truncate">{{ trans('keywords.Cities List') }}</span>
                                         </a>
                                     </li>
-                                @endcan
 
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endcan
+                        {{-- end cities --}}
 
-                        <li
-                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/neighbourhoods*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.Neighbourhoods') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.Neighbourhoods') }}
-                                </span>
-                            </a>
+                        {{-- begin neighborhoods --}}
+                        @can('view_neighbourhoods')
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/neighbourhoods*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.Neighbourhoods') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.Neighbourhoods') }}
+                                    </span>
+                                </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/neighbourhoods*') ? 'block' : '' }}">
-                                @can('create_neighbourhoods')
-                                    <li class="nav-item {{ Request::is('admin/neighbourhoods/create') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.neighbourhoods.create') }}"
-                                            title="{{ trans('keywords.Add Neighbourhood') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.Add Neighbourhood') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/neighbourhoods*') ? 'block' : '' }}">
+                                    @can('create_neighbourhoods')
+                                        <li class="nav-item {{ Request::is('admin/neighbourhoods/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.neighbourhoods.create') }}"
+                                                title="{{ trans('keywords.Add Neighbourhood') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.Add Neighbourhood') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
 
-                                @can('view_neighbourhoods')
                                     <li class="nav-item {{ Request::is('admin/neighbourhoods') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.neighbourhoods.index') }}"
                                             title="{{ trans('keywords.Neighbourhoods List') }}">
@@ -128,10 +132,11 @@
                                             <span class="text-truncate">{{ trans('keywords.Neighbourhoods List') }}</span>
                                         </a>
                                     </li>
-                                @endcan
 
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endcan
+                        {{-- end neighbourhoods --}}
 
                         {{-- users --}}
                         @can('view_users')
@@ -176,28 +181,29 @@
 
                         {{-- end user --}}
 
-                        <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/ads*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.ads') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.ads') }}
-                                </span>
-                            </a>
+                        {{-- begin ads --}}
+                        @can('view_ads')
+                            <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/ads*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.ads') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.ads') }}
+                                    </span>
+                                </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/ads*') ? 'block' : '' }}">
-                                @can('create_ads')
-                                    <li class="nav-item {{ Request::is('admin/ads/create') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.ads.create') }}"
-                                            title="{{ trans('keywords.add ad') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.add ad') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/ads*') ? 'block' : '' }}">
+                                    @can('create_ads')
+                                        <li class="nav-item {{ Request::is('admin/ads/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.ads.create') }}"
+                                                title="{{ trans('keywords.add ad') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.add ad') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
 
-                                @can('view_ads')
                                     <li class="nav-item {{ Request::is('admin/ads') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.ads.index') }}"
                                             title="{{ trans('keywords.ads list') }}">
@@ -205,36 +211,35 @@
                                             <span class="text-truncate">{{ trans('keywords.ads list') }}</span>
                                         </a>
                                     </li>
-                                @endcan
 
-                            </ul>
-                        </li>
-
+                                </ul>
+                            </li>
+                        @endcan
+                        {{-- end ads --}}
 
 
                         {{-- Rents --}}
-                        <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/rents*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.rents') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.rents') }}
-                                </span>
-                            </a>
+                        @can('view_rents')
+                            <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/rents*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.rents') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.rents') }}
+                                    </span>
+                                </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/rents*') ? 'block' : '' }}">
-                                @can('create_rents')
-                                    <li class="nav-item {{ Request::is('admin/rents/create') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.rents.create') }}"
-                                            title="{{ trans('keywords.rents') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.add rent') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
-
-                                @can('view_rents')
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/rents*') ? 'block' : '' }}">
+                                    @can('create_rents')
+                                        <li class="nav-item {{ Request::is('admin/rents/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.rents.create') }}"
+                                                title="{{ trans('keywords.rents') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.add rent') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
                                     <li class="nav-item {{ Request::is('admin/rents') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.rents.index') }}"
                                             title="{{ trans('keywords.rents list') }}">
@@ -242,36 +247,37 @@
                                             <span class="text-truncate">{{ trans('keywords.rents list') }}</span>
                                         </a>
                                     </li>
-                                @endcan
 
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endcan
                         {{-- end rents --}}
 
                         {{-- Land Types --}}
-                        <li
-                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/land-types*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.land types') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.land types') }}
-                                </span>
-                            </a>
+                        @can('view_land_types')
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/land-types*') ? 'block' : '' }}">
-                                @can('create_land_types')
-                                    <li class="nav-item {{ Request::is('admin/land-types/create') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.land-types.create') }}"
-                                            title="{{ trans('keywords.land types') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.add land type') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/land-types*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.land types') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.land types') }}
+                                    </span>
+                                </a>
 
-                                @can('view_land_types')
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/land-types*') ? 'block' : '' }}">
+                                    @can('create_land_types')
+                                        <li class="nav-item {{ Request::is('admin/land-types/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.land-types.create') }}"
+                                                title="{{ trans('keywords.land types') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.add land type') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
+
                                     <li class="nav-item {{ Request::is('admin/land-types') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.land-types.index') }}"
                                             title="{{ trans('keywords.land types list') }}">
@@ -279,38 +285,37 @@
                                             <span class="text-truncate">{{ trans('keywords.land types list') }}</span>
                                         </a>
                                     </li>
-                                @endcan
+                                </ul>
+                            </li>
+                        @endcan
 
-                            </ul>
-                        </li>
                         {{-- end land type --}}
 
                         {{-- Begin Estate classifications --}}
-                        <li
-                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/estate-classifications*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.estate classifications') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.estate classifications') }}
-                                </span>
-                            </a>
+                        @can('view_estate_classifications')
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/estate-classifications*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.estate classifications') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.estate classifications') }}
+                                    </span>
+                                </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/estate-classifications*') ? 'block' : '' }}">
-                                @can('create_estate_classifications')
-                                    <li
-                                        class="nav-item {{ Request::is('admin/estate-classifications/create') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.estate-classifications.create') }}"
-                                            title="{{ trans('keywords.estate classifications') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span
-                                                class="text-truncate">{{ trans('keywords.add estate classification') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
-
-                                @can('view_estate_classifications')
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/estate-classifications*') ? 'block' : '' }}">
+                                    @can('create_estate_classifications')
+                                        <li
+                                            class="nav-item {{ Request::is('admin/estate-classifications/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.estate-classifications.create') }}"
+                                                title="{{ trans('keywords.estate classifications') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span
+                                                    class="text-truncate">{{ trans('keywords.add estate classification') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
                                     <li
                                         class="nav-item {{ Request::is('admin/estate-classifications') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.estate-classifications.index') }}"
@@ -320,37 +325,37 @@
                                                 class="text-truncate">{{ trans('keywords.estate classifications list') }}</span>
                                         </a>
                                     </li>
-                                @endcan
 
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endcan
+
                         {{-- End Estate classifications --}}
 
                         {{-- Begin Cities Banners --}}
-                        <li
-                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/cities-banners*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.cities banners') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.cities banners') }}
-                                </span>
-                            </a>
+                        @can('view_cities_banners')
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/cities-banners*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.cities banners') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.cities banners') }}
+                                    </span>
+                                </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/cities-banners*') ? 'block' : '' }}">
-                                @can('create_cities_banners')
-                                    <li
-                                        class="nav-item {{ Request::is('admin/cities-banners/create') ? 'active' : '' }}">
-                                        <a class="nav-link " href="{{ route('admin.cities-banners.create') }}"
-                                            title="{{ trans('keywords.cities banners') }}">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">{{ trans('keywords.add city banner') }}</span>
-                                        </a>
-                                    </li>
-                                @endcan
-
-                                @can('view_cities_banners')
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/cities-banners*') ? 'block' : '' }}">
+                                    @can('create_cities_banners')
+                                        <li
+                                            class="nav-item {{ Request::is('admin/cities-banners/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.cities-banners.create') }}"
+                                                title="{{ trans('keywords.cities banners') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.add city banner') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
                                     <li class="nav-item {{ Request::is('admin/cities-banners') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.cities-banners.index') }}"
                                             title="{{ trans('keywords.cities banners list') }}">
@@ -359,26 +364,27 @@
                                                 class="text-truncate">{{ trans('keywords.cities banners list') }}</span>
                                         </a>
                                     </li>
-                                @endcan
 
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endcan
+
                         {{-- End Cities Banners --}}
 
-                        {{-- Begin Cities Banners --}}
-                        <li
-                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/admins*') || Request::is('admin/roles*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.admins') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.admins') }}
-                                </span>
-                            </a>
+                        {{-- Begin admins --}}
+                        @can('view_roles')
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/admins*') || Request::is('admin/roles*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.admins') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.admins') }}
+                                    </span>
+                                </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/admins*') || Request::is('admin/roles*') ? 'block' : '' }}">
-                                @can('view_roles')
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/admins*') || Request::is('admin/roles*') ? 'block' : '' }}">
                                     <li class="nav-item {{ Request::is('admin/roles') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.roles.index') }}"
                                             title="{{ trans('keywords.roles') }}">
@@ -386,26 +392,44 @@
                                             <span class="text-truncate">{{ trans('keywords.roles') }}</span>
                                         </a>
                                     </li>
-                                @endcan
+                                    @can('view_admins')
+                                        <li class="nav-item {{ Request::is('admin/admins') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.admins.index') }}"
+                                                title="{{ trans('keywords.admins') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.admins') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can('create_admins')
+                                        <li class="nav-item {{ Request::is('admin/admins/create') ? 'active' : '' }}">
+                                            <a class="nav-link " href="{{ route('admin.admins.create') }}"
+                                                title="{{ trans('keywords.create admin') }}">
+                                                <span class="tio-circle nav-indicator-icon"></span>
+                                                <span class="text-truncate">{{ trans('keywords.create admin') }}</span>
+                                            </a>
+                                        </li>
+                                    @endcan
+                                </ul>
+                            </li>
+                        @endcan
 
-                            </ul>
-                        </li>
-                        {{-- End Cities Banners --}}
+                        {{-- End admins --}}
 
                         {{-- begin settings --}}
-                        <li
-                            class="navbar-vertical-aside-has-menu {{ Request::is('admin/settings*') ? 'active' : '' }}">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
-                                title="{{ trans('keywords.settings') }}">
-                                <i class="tio-filter-list nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                    {{ trans('keywords.settings') }}
-                                </span>
-                            </a>
+                        @can('view_settings')
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/settings*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.settings') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.settings') }}
+                                    </span>
+                                </a>
 
-                            <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
-                                style="display: {{ Request::is('admin/settings*') ? 'block' : '' }}">
-                                @can('view_settings')
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/settings*') ? 'block' : '' }}">
                                     <li
                                         class="nav-item {{ Request::is('admin/settings/terms-and-conditions') ? 'active' : '' }}">
                                         <a class="nav-link " href="{{ route('admin.terms-and-conditions.index') }}"
@@ -439,12 +463,9 @@
                                             <span class="text-truncate">{{ trans('keywords.footer settings') }}</span>
                                         </a>
                                     </li>
-                                @endcan
-
-
-
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endcan
                         {{-- end settings --}}
 
                     </ul>

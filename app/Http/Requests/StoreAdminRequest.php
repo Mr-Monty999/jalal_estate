@@ -24,7 +24,13 @@ class StoreAdminRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "nullable|string",
+            "password" => "required|string",
+            "password_confirmation" => "required|string|same:password",
+            "photo" => "nullable|image|max:10240",
+            "email" => "required|email",
+            "phone" => "nullable|string",
+            "role_name" => "required|exists:roles,name"
         ];
     }
 }

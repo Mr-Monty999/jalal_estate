@@ -44,7 +44,7 @@ class RoleController extends Controller
     {
 
         $permissions = PermissionService::adminPermissions();
-
+        unset($permissions[0]);
 
         return view("admin.roles.create", compact("permissions"));
     }
@@ -86,6 +86,8 @@ class RoleController extends Controller
     {
 
         $permissions = PermissionService::adminPermissions();
+        unset($permissions[0]);
+
         $rolePermissions = $role->permissions()->pluck("name")->toArray();
 
 

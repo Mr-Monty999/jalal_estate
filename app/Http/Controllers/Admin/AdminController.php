@@ -8,7 +8,9 @@ use App\Http\Requests\UpdateAdminRequest;
 use App\Models\Ad;
 use App\Models\Admin;
 use App\Services\AdminService;
+use App\Services\RoleService;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
@@ -27,8 +29,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::latest()->paginate(10);
-        return view("admin.admins.index");
+        $admins = Admin::with("user")
+            ->whereHas("user.roles", function ($q) {
+                $q->where("name", "!=", "Super Admin");
+            })
+            ->latest()
+            ->paginate(10);
+        return view("admin.admins.index", compact("admins"));
     }
 
     /**
@@ -38,7 +45,14 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view("admin.admins.create");
+        $user = auth()->user();
+        $roles = Role::whereNotIn(
+            "name",
+            RoleService::systemRoles()
+        )->get();
+
+
+        return view("admin.admins.create", compact("user", "roles"));
     }
 
     /**
@@ -49,6 +63,8 @@ class AdminController extends Controller
      */
     public function store(StoreAdminRequest $request)
     {
+
+
         AdminService::store($request);
 
         toastr()->success(trans("keywords.Added Successfully"));
@@ -75,7 +91,15 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
-        return view("admin.admins.edit", compact("admin"));
+
+        $admin->load("user.roles");
+        $roles = Role::whereNotIn(
+            "name",
+            RoleService::systemRoles()
+        )->get();
+
+
+        return view("admin.admins.edit", compact("admin", "roles"));
     }
 
     /**
@@ -90,7 +114,7 @@ class AdminController extends Controller
         AdminService::update($request, $admin);
 
         toastr()->success(trans("keywords.updated successfully"));
-        return view("admin.admins.index", $admin);
+        return redirect()->route("admin.admins.index");
     }
 
     /**
@@ -101,7 +125,8 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        $admin->delete();
+        $admin->user->forceDelete();
+        $admin->forceDelete();
 
         toastr()->success(trans("keywords.destroy successfully"));
 

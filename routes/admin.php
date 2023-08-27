@@ -4,6 +4,7 @@
 
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\AdController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CityBannerController;
 use App\Http\Controllers\Admin\HomeController;
@@ -72,6 +73,10 @@ Route::group(["prefix" => "admin"], function () {
         // city banners //
         Route::resource("cities-banners", CityBannerController::class, ["as" => "admin"]);
 
+
+
+        // admins //
+        Route::resource("admins", AdminController::class, ["as" => "admin"]);
 
         // roles //
         Route::resource("roles", RoleController::class, ["as" => "admin"]);

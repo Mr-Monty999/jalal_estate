@@ -45,7 +45,7 @@
                                     <br>
                                     @foreach ($permissions as $index => $permission)
                                         <label for="permission{{ $index }}" class="title-color">
-                                            {{ $permission }}</label>
+                                            {{ trans('keywords.' . $permission) }}</label>
                                         <input @checked(old('permissions') && in_array($permission, old('permissions'))) id="permission{{ $index }}"
                                             value="{{ $permission }}" type="checkbox" name="permissions[]"
                                             class="mx-2 permissions" placeholder="">

@@ -18,7 +18,7 @@ use App\Http\Controllers\User\UserController;
 use App\Models\Auction;
 use Illuminate\Support\Facades\Route;
 
-Route::group(["prefix" => "user", "middleware" => ["user-permissions-updater"]], function () {
+Route::group(["prefix" => "user", "middleware" => [/*"user-permissions-updater"*/]], function () {
 
     Route::group(["middleware" => "guest"], function () {
 
