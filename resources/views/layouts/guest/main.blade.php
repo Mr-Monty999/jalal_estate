@@ -102,10 +102,11 @@
         <header>
             <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <div>
-                    <a class="navbar-brand text-info" style="font-size: 35px"
+                    {{-- <a class="navbar-brand text-info" style="font-size: 35px"
                         href="{{ route('guest.home') }}">{{ env('APP_NAME') }}</a>
-                    <br>
-                    <h5 class="text-center text-info">{{ trans('keywords.direct owner and buyer') }}</h5>
+                    <br> --}}
+                    <img style="width: 130px" src="{{ asset('assets/front-end/img/reop-logo.jpeg') }}" alt="">
+                    {{-- <h5 class="text-center text-info">{{ trans('keywords.direct owner and buyer') }}</h5> --}}
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
