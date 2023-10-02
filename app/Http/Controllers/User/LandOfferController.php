@@ -337,6 +337,9 @@ class LandOfferController extends Controller
 
                 if ($request->schema_number)
                     $q->where("schema_number", "LIKE", "%$request->schema_number%");
+
+                if ($request->instrument_number)
+                    $q->where("instrument_number", "LIKE", "%$request->instrument_number%");
             });
 
         $landOffers =

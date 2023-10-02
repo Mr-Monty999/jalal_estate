@@ -61,6 +61,11 @@
                                 <input type="number" name="schema_number" class="form-control"
                                     value="{{ request('schema_number') }}">
                             </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="instrument_number">{{ trans('keywords.Instrument Number') }}</label>
+                                <input type="number" name="instrument_number" class="form-control"
+                                    value="{{ request('instrument_number') }}">
+                            </div>
                             <div class="col-12 text-center">
                                 <button class="btn btn-primary" type="submit">{{ trans('keywords.search') }}</button>
                             </div>
