@@ -271,6 +271,9 @@ class LandOfferController extends Controller
      */
     public function update(UpdateLandOfferRequest $request, LandOffer $landOffer)
     {
+        if (!is_null($landOffer))
+            abort(403);
+
         $user = auth()->user();
 
         if ($landOffer->user_id != $user->id)
@@ -295,6 +298,10 @@ class LandOfferController extends Controller
      */
     public function destroy(LandOffer $landOffer)
     {
+        if (!is_null($landOffer))
+            abort(403);
+
+
         if ($landOffer->user_id != auth()->id())
             abort(403);
 

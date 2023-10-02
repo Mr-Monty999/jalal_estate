@@ -138,13 +138,15 @@
                                                 @endif
                                                 @include('user.offers.modals.view-modal')
                                                 {{-- @include('user.offers.modals.edit-modal') --}}
-                                                @if ($landOffer->user_id == auth()->id())
+                                                @if ($landOffer->user_id == auth()->id() && is_null($landOffer->accepted_by))
                                                     @can('edit_offers')
                                                         <a href="{{ route('user.land-offers.edit', $landOffer->id) }}"
                                                             class="btn btn-warning text-center text-white">{{ trans('keywords.Edit') }}</a>
                                                     @endcan
                                                 @endif
-                                                @include('user.offers.modals.delete-modal')
+                                                @if (is_null($landOffer->accepted_by))
+                                                    @include('user.offers.modals.delete-modal')
+                                                @endif
                                             </div>
                                             <style>
                                                 a.btn.btn-warning {
