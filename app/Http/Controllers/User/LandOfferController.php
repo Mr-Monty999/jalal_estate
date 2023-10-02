@@ -312,4 +312,43 @@ class LandOfferController extends Controller
 
         return view("user.offers.print", compact("landOffer", "user"));
     }
+
+    public function allOffers(Request $request)
+    {
+
+
+
+        $user = auth()->user();
+
+        $landOffers = LandOffer::with([
+            "city.neighbourhoods" => function ($query) {
+                $query->orderBy("name");
+            },
+            "neighbourhood",
+            "landTypes"
+        ])
+            ->whereNull("accepted_by")
+            ->where(function ($q) use ($request) {
+                if ($request->land_number)
+                    $q->where("land_number", "LIKE", "%$request->land_number%");
+
+                if ($request->space)
+                    $q->where("space", "LIKE", "%$request->space%");
+
+                if ($request->schema_number)
+                    $q->where("schema_number", "LIKE", "%$request->schema_number%");
+            });
+
+        $landOffers =
+            $landOffers->latest()
+            ->paginate(10);
+
+
+        $user = auth()->user();
+
+        $ads = AdService::loadAds(5);
+
+
+        return view("user.offers.all", compact("landOffers", "user", "ads"));
+    }
 }

@@ -3,6 +3,11 @@
 @section('content')
     <br>
     @can('view_offers')
+        <style>
+            thead th {
+                color: rgb(22 171 2) !important
+            }
+        </style>
         <div class="bg-light site-section bg-white my-4" id="offers">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
@@ -41,7 +46,7 @@
 
                         <table class="table
                                 table-responsive">
-                            <thead class="thead-dark">
+                            <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{ trans('keywords.ID') }}</th>
                                     <th scope="col">{{ trans('keywords.estate classification') }}

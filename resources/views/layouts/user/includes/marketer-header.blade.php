@@ -12,6 +12,11 @@
                     <a class="nav-link" href="{{ route('user.home') }}">{{ trans('keywords.Home') }} <span
                             class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item @if (Request::is('user/land-offers/all')) active @endif">
+                    <a class="nav-link"
+                        href="{{ route('user.land-offers.all') }}">{{ trans('keywords.Companies & Offices Offers') }}
+                        <span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item @if (Request::is('user/land-offers')) active @endif">
                     <a class="nav-link"
                         href="{{ route('user.land-offers.index') }}">{{ trans('keywords.Estate Offers') }} <span

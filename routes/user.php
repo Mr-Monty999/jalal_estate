@@ -52,6 +52,7 @@ Route::group(["prefix" => "user", "middleware" => [/*"user-permissions-updater"*
 
 
 
+            Route::get("land-offers/all", [LandOfferController::class, "allOffers"])->name("user.land-offers.all");
             Route::resource("land-offers", LandOfferController::class, ["as" => "user"]);
             Route::post("land-offers/{landOffer}/accept", [LandOfferController::class, "accept"])->name("user.land-offers.accept");
             Route::get("land-offers/{landOffer}/print", [LandOfferController::class, "print"])->name("user.land-offers.print");

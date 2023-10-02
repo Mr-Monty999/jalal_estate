@@ -358,7 +358,8 @@ return [
     "create_roles" => "create roles",
     "edit_roles" => "edit roles",
     "delete_roles" => "delete roles",
-    "your account has been disabled" => "your account has been disabled !"
+    "your account has been disabled" => "your account has been disabled !",
+    "Companies & Offices Offers" => "Companies & Offices Offers"
 
 
 

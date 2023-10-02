@@ -43,6 +43,10 @@
             text-transform: capitalize !important
         }
 
+        .nav-link {
+            font-size: 18px !important
+        }
+
         @media only screen and (max-width: 800px) {
             .root-container {
                 margin-top: 20%;

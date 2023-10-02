@@ -356,7 +356,9 @@ return [
     "create_roles" => "إضافة الأدوار",
     "edit_roles" => "تعديل الأدوار",
     "delete_roles" => "حذف الأدوار",
-    "your account has been disabled" => "تم تعطيل حسابك !"
+    "your account has been disabled" => "تم تعطيل حسابك !",
+    "Companies & Offices Offers" => "عروض المكاتب والشركات"
+
 
 
 

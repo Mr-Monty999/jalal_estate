@@ -41,10 +41,30 @@
                             @endif
                         </div>
                         <br><br>
-                        <h1 class="text-center text-black">{{ trans('keywords.Estate Offers') }}</h1>
+                        <h1 class="text-center text-black">{{ trans('keywords.Companies & Offices Offers') }}</h1>
 
-                        @include('user.offers.modals.add-modal')
-                        @include('user.offers.table-filters')
+                        {{-- @include('user.offers.modals.add-modal') --}}
+                        {{-- @include('user.offers.table-filters') --}}
+                        <form class="row my-5" method="GET" action="{{ route('user.land-offers.all') }}">
+                            @csrf
+                            <div class="form-group col-12 col-md-4">
+                                <label for="land_number">{{ trans('keywords.Land Number') }}</label>
+                                <input type="number" name="land_number" class="form-control"
+                                    value="{{ request('land_number') }}">
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="space">{{ trans('keywords.space (in metres)') }}</label>
+                                <input type="number" name="space" class="form-control" value="{{ request('space') }}">
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="schema_number">{{ trans('keywords.schema number') }}</label>
+                                <input type="number" name="schema_number" class="form-control"
+                                    value="{{ request('schema_number') }}">
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" type="submit">{{ trans('keywords.search') }}</button>
+                            </div>
+                        </form>
                         <table class="table
                                 table-responsive">
                             <thead class="thead-light">
