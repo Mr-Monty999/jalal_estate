@@ -15,7 +15,6 @@ class LandOfferService
     {
         $data = $request->validated();
         $data["user_id"] = auth()->id();
-        $data["adjective"] = "direct owner (I have half the quest)";
 
         if ($request->hasFile("image")) {
             $name = time() . "-" . $request->file("image")->getClientOriginalName();
@@ -36,7 +35,6 @@ class LandOfferService
     {
         $data = $request->validated();
         $data["user_id"] = auth()->id();
-        $data["adjective"] = "direct owner (I have half the quest)";
 
         if ($request->hasFile("image")) {
             $name = time() . "-" . $request->file("image")->getClientOriginalName();

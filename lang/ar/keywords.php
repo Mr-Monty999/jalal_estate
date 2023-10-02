@@ -357,7 +357,8 @@ return [
     "edit_roles" => "تعديل الأدوار",
     "delete_roles" => "حذف الأدوار",
     "your account has been disabled" => "تم تعطيل حسابك !",
-    "Companies & Offices Offers" => "عروض المكاتب والشركات"
+    "Companies & Offices Offers" => "عروض المكاتب والشركات",
+    "iam the owner (you have all the quest)" => "أنا المالك (لك السعي كامل)"
 
 
 

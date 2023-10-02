@@ -68,8 +68,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <style>
+                                    .owner-style {
+                                        background-color: rgb(52 223 97)
+                                    }
+                                </style>
                                 @foreach ($landOffers as $index => $landOffer)
-                                    <tr>
+                                    <tr class="@if ($landOffer->adjective == 'owner') owner-style @endif">
                                         <th scope="row">{{ $index + 1 }}</th>
                                         <td class="text-black">
                                             <div style="border-radius: 10px;padding:10px;background-color:{{ $landOffer->estateClassification->color }}"

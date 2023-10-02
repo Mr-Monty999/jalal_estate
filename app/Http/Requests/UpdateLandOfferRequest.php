@@ -40,7 +40,7 @@ class UpdateLandOfferRequest extends FormRequest
             "operation_type" => "required|string|in:sell,rent",
             "rent_period" => "required_if:operation_type,rent",
             "price" => "required|numeric",
-            "adjective" => "nullable|string",
+            "adjective" => "required|string",
             "contact_info" => "required|string",
             "type2" => "required|string|in:piece,block",
             "land_type_ids" => "required|array|exists:land_types,id",

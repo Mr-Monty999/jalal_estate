@@ -2,11 +2,13 @@
     <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
         {{-- <a class="navbar-brand" style="font-size: 35px" href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a> --}}
 
-        <div>
-            <a class="navbar-brand text-info" style="font-size: 35px"
+        <div class="text-center">
+            {{-- <a class="navbar-brand text-info" style="font-size: 35px"
                 href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a>
-            <br>
-            <h5 class="text-center text-info">{{ trans('keywords.direct owner and buyer') }}</h5>
+            <br> --}}
+            {{-- <h5 class="text-center text-info">{{ trans('keywords.direct owner and buyer') }}</h5> --}}
+            <img style="width: 130px" src="{{ asset('assets/front-end/img/reop-logo.jpeg') }}" alt="">
+
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,14 +96,5 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form> --}}
         </div>
-
-
-        <style>
-            .nav-link {
-                font-weight: bold;
-                font-size: 22px;
-                color: #17a2b8 !important
-            }
-        </style>
     </nav>
 </header>

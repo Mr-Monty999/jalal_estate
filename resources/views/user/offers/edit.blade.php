@@ -301,9 +301,17 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="adjective{{ $landOffer->id }}">{{ trans('keywords.Adjective') }}</label>
-                    <input readonly name="adjective" value=""
+                    {{-- <input readonly name="adjective" value=""
                         placeholder="{{ trans('keywords.direct owner (I have half the quest)') }}" type="text"
-                        class="form-control" id="adjective{{ $landOffer->id }}">
+                        class="form-control" id="adjective{{ $landOffer->id }}"> --}}
+                    <select name="adjective" id="adjective" class="form-control">
+                        <option @selected($landOffer->adjective == 'direct_owner') value="direct_owner">
+                            {{ trans('keywords.direct owner (I have half the quest)') }}
+                        </option>
+                        <option @selected($landOffer->adjective == 'owner') value="owner">
+                            {{ trans('keywords.iam the owner (you have all the quest)') }}
+                        </option>
+                    </select>
                     @error('adjective')
                         <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                             {{ $message }}

@@ -1,6 +1,8 @@
 <header>
-    <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" style="font-size: 35px" href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a>
+    <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+        {{-- <a class="navbar-brand text-info" style="font-size: 35px" href="{{ route('user.home') }}">{{ env('APP_NAME') }}</a> --}}
+        <img style="width: 130px" src="{{ asset('assets/front-end/img/reop-logo.jpeg') }}" alt="">
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -397,10 +397,18 @@
                                                         <div class="form-group col-12">
                                                             <label
                                                                 for="adjective">{{ trans('keywords.Adjective') }}</label>
-                                                            <input readonly
+                                                            {{-- <input readonly
                                                                 placeholder="{{ trans('keywords.direct owner (I have half the quest)') }}"
                                                                 name="adjective" value="" type="text"
-                                                                class="form-control" id="adjective">
+                                                                class="form-control" id="adjective"> --}}
+                                                            <select name="adjective" id="adjective" class="form-control">
+                                                                <option value="direct_owner">
+                                                                    {{ trans('keywords.direct owner (I have half the quest)') }}
+                                                                </option>
+                                                                <option value="owner">
+                                                                    {{ trans('keywords.iam the owner (you have all the quest)') }}
+                                                                </option>
+                                                            </select>
                                                             @error('adjective')
                                                                 <div style="border-radius: 30px"
                                                                     class="alert alert-danger text-center mt-1">

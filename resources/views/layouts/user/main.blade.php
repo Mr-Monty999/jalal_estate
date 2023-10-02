@@ -44,7 +44,9 @@
         }
 
         .nav-link {
-            font-size: 18px !important
+            font-size: 18px !important;
+            color: #17a2b8 !important;
+            font-weight: bold
         }
 
         @media only screen and (max-width: 800px) {

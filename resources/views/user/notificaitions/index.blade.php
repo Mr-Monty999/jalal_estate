@@ -44,13 +44,15 @@
                             @endif
                             <a href="{{ route('user.land-offers.show', $notification->data['land_offer_id']) }}">
                                 <span class="text-black">
-                                    {{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') . ' [' . trans('keywords.direct buyer (me half quest)') . ']' }}
+                                    {{-- {{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') . ' [' . trans('keywords.direct buyer (me half quest)') . ']' }} --}}
+                                    {{ trans('keywords.user') . ' ' . $user->name . ' ' . trans('keywords.has accepted your offer') }}
+
                                 </span>
                             </a>
 
                         </div>
                         <div>
-                            {{ $landOffer->created_at->diffForHumans() }}
+                            {{ $notification->created_at->diffForHumans() }}
                         </div>
                         <div style="position: absolute;left:1%;bottom:10%">
                             <a class="btn btn-primary" class="dropdown-item"

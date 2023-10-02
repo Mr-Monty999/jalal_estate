@@ -147,7 +147,11 @@
             <div class="form-group col-12 col-md-6">
                 <label for="adjective">{{ trans('keywords.Adjective') }}</label>
                 <p class="text-black">
-                    {{ trans('keywords.' . $landOffer->adjective) }}
+                    @if ($landOffer->adjective == 'owner')
+                        {{ trans('keywords.iam the owner (you have all the quest)') }}
+                    @else
+                        {{ trans('keywords.direct owner (I have half the quest)') }}
+                    @endif
                 </p>
 
             </div>

@@ -215,6 +215,9 @@ class LandOfferController extends Controller
     public function accept(LandOffer $landOffer)
     {
 
+        if ($landOffer->accepted_by != null)
+            abort(403);
+
         session()->put("print_offer_id", $landOffer->id);
         $user = auth()->user();
 
@@ -281,7 +284,7 @@ class LandOfferController extends Controller
         LandOfferService::update($request, $landOffer);
 
         toastr()->success(trans('keywords.updated successfully'));
-        return redirect()->route("user.home");
+        return back();
     }
 
     /**
@@ -327,7 +330,7 @@ class LandOfferController extends Controller
             "neighbourhood",
             "landTypes"
         ])
-            ->whereNull("accepted_by")
+            // ->whereNull("accepted_by")
             ->where(function ($q) use ($request) {
                 if ($request->land_number)
                     $q->where("land_number", "LIKE", "%$request->land_number%");

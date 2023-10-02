@@ -359,7 +359,8 @@ return [
     "edit_roles" => "edit roles",
     "delete_roles" => "delete roles",
     "your account has been disabled" => "your account has been disabled !",
-    "Companies & Offices Offers" => "Companies & Offices Offers"
+    "Companies & Offices Offers" => "Companies & Offices Offers",
+    "iam the owner (you have all the quest)" => "iam the owner (you have all the quest)"
 
 
 
