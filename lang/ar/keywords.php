@@ -358,7 +358,8 @@ return [
     "delete_roles" => "حذف الأدوار",
     "your account has been disabled" => "تم تعطيل حسابك !",
     "Companies & Offices Offers" => "عروض المكاتب والشركات",
-    "iam the owner (you have all the quest)" => "أنا المالك (لك السعي كامل)"
+    "iam the owner (you have all the quest)" => "أنا المالك (لك السعي كامل)",
+    "search with land number,space,schema number,Instrument Number" => 'البحث عن طريق رقم القطعة,المساحة,رقم المخطط,رقم الصك'
 
 
 

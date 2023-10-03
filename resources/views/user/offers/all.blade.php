@@ -47,12 +47,13 @@
                         {{-- @include('user.offers.table-filters') --}}
                         <form class="row my-5" method="GET" action="{{ route('user.land-offers.all') }}">
                             @csrf
-                            <div class="form-group col-12 col-md-4">
-                                <label for="land_number">{{ trans('keywords.Land Number') }}</label>
-                                <input type="number" name="land_number" class="form-control"
-                                    value="{{ request('land_number') }}">
+                            <div class="form-group col-12">
+                                <label for="search"></label>
+                                <input type="text"
+                                    placeholder="{{ trans('keywords.search with land number,space,schema number,Instrument Number') }}"
+                                    name="search" class="form-control" value="{{ request('search') }}">
                             </div>
-                            <div class="form-group col-12 col-md-4">
+                            {{-- <div class="form-group col-12 col-md-4">
                                 <label for="space">{{ trans('keywords.space (in metres)') }}</label>
                                 <input type="number" name="space" class="form-control" value="{{ request('space') }}">
                             </div>
@@ -65,7 +66,7 @@
                                 <label for="instrument_number">{{ trans('keywords.Instrument Number') }}</label>
                                 <input type="number" name="instrument_number" class="form-control"
                                     value="{{ request('instrument_number') }}">
-                            </div>
+                            </div> --}}
                             <div class="col-12 text-center">
                                 <button class="btn btn-primary" type="submit">{{ trans('keywords.search') }}</button>
                             </div>

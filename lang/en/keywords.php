@@ -360,7 +360,8 @@ return [
     "delete_roles" => "delete roles",
     "your account has been disabled" => "your account has been disabled !",
     "Companies & Offices Offers" => "Companies & Offices Offers",
-    "iam the owner (you have all the quest)" => "iam the owner (you have all the quest)"
+    "iam the owner (you have all the quest)" => "iam the owner (you have all the quest)",
+    "search with land number,space,schema number,Instrument Number" => 'search with land number,space,schema number,Instrument Number'
 
 
 

@@ -339,17 +339,11 @@ class LandOfferController extends Controller
         ])
             // ->whereNull("accepted_by")
             ->where(function ($q) use ($request) {
-                if ($request->land_number)
-                    $q->where("land_number", "LIKE", "%$request->land_number%");
-
-                if ($request->space)
-                    $q->where("space", "LIKE", "%$request->space%");
-
-                if ($request->schema_number)
-                    $q->where("schema_number", "LIKE", "%$request->schema_number%");
-
-                if ($request->instrument_number)
-                    $q->where("instrument_number", "LIKE", "%$request->instrument_number%");
+                $search = $request->search ? $request->search : "";
+                $q->where("land_number", "LIKE", "%$search%");
+                $q->orWhere("space", "LIKE", "%$search%");
+                $q->orWhere("schema_number", "LIKE", "%$search%");
+                $q->orWhere("instrument_number", "LIKE", "%$search%");
             });
 
         $landOffers =
