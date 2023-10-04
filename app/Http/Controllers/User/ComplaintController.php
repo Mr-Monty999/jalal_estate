@@ -25,6 +25,7 @@ class ComplaintController extends Controller
     public function store(StoreComplaintRequest $request)
     {
         $data = $request->validated();
+        $data["user_id"] = auth()->id();
 
         if ($request->hasFile("attachment")) {
             $name = time() . "-" . $request->file("attachment")->getClientOriginalName();
