@@ -65,9 +65,10 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group col-12 col-md-6">
+                            <div class="form-group col-12">
                                 <label for="description">{{ trans('keywords.description') }}</label>
-                                <textarea type="text" placeholder="{{ trans('keywords.description') }}" name="description" class="form-control">{{ old('description') }}</textarea>
+                                <textarea rows="5" type="text" placeholder="{{ trans('keywords.description') }}" name="description"
+                                    class="form-control">{{ old('description') }}</textarea>
                                 @error('description')
                                     <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
                                         {{ $message }}
@@ -76,7 +77,7 @@
                             </div>
                             <div class="form-group col-12 col-md-6">
                                 <label for="attachments">{{ trans('keywords.attachments') }}</label>
-                                <input type="file" placeholder="{{ trans('keywords.attachments') }}" name="attachments"
+                                <input type="file" placeholder="{{ trans('keywords.attachments') }}" name="attachment"
                                     class="form-control" value="{{ old('attachments') }}">
                                 @error('attachments')
                                     <div style="border-radius: 30px" class="alert alert-danger text-center mt-1">
