@@ -361,7 +361,12 @@ return [
     "your account has been disabled" => "your account has been disabled !",
     "Companies & Offices Offers" => "Companies & Offices Offers",
     "iam the owner (you have all the quest)" => "iam the owner (you have all the quest)",
-    "search with land number,space,schema number,Instrument Number" => 'search with land number,space,schema number,Instrument Number'
+    "search with land number,space,schema number,Instrument Number" => 'search with land number,space,schema number,Instrument Number',
+    "complaints" => "complaints",
+    "phone number" => 'phone number',
+    "attachments" => "attachments",
+    "send" => "send",
+    "complaint sent successfully" => "complaint sent successfully"
 
 
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\User\AuctionController;
 use App\Http\Controllers\User\ChatController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\CompanyController;
+use App\Http\Controllers\User\ComplaintController;
 use App\Http\Controllers\User\ForgetPasswordController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LandlordController;
@@ -79,6 +80,11 @@ Route::group(["prefix" => "user", "middleware" => [/*"user-permissions-updater"*
             Route::resource("auctions", AuctionController::class, ["as" => "user"]);
             Route::post("auctions/{auction}/bid", [AuctionBidController::class, "store"])->name("user.auctions.bid.store");
             Route::post("auctions/{auction}/end", [AuctionController::class, "end"])->name("user.auctions.end");
+
+            ////// complaints /////
+
+            Route::get("complaints", [ComplaintController::class, "index"])->name("user.complaints.index");
+            Route::post("complaints", [ComplaintController::class, "store"])->name("user.complaints.store");
         });
     });
 });
