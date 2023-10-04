@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CityBannerController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\Admin\EstateClassificationController;
 use App\Http\Controllers\Admin\LandTypeController;
 use App\Http\Controllers\Admin\NeighbourhoodController;
@@ -86,6 +87,11 @@ Route::group(["prefix" => "admin"], function () {
 
             // roles //
             Route::resource("roles", RoleController::class, ["as" => "admin"]);
+
+            /// complaints ///
+            Route::get("/complaints/open", [ComplaintController::class, "openComplaints"])->name("admin.complaints.list.open");
+            Route::get("/complaints/closed", [ComplaintController::class, "closedComplaints"])->name("admin.complaints.list.closed");
+            Route::post("/complaints/{complaint}/close", [ComplaintController::class, "closeComplaint"])->name("admin.complaints.close");
         });
     });
 });

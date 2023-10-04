@@ -366,7 +366,21 @@ return [
     "phone number" => 'phone number',
     "attachments" => "attachments",
     "send" => "send",
-    "complaint sent successfully" => "complaint sent successfully"
+    "complaint sent successfully" => "complaint sent successfully",
+    "open complaints" => "open complaints",
+    "closed complaints" => "closed complaints",
+    "open complaints list" => 'open complaints list',
+    "complaint title" => "complaint title",
+    "open" => "open",
+    "close" => "close",
+    "closed successfully" => "closed successfully",
+    "opened successfully" => "opened successfully",
+    "are you sure you want to close this complaint" => "are you sure you want to close this complaint",
+    "complaint number" => "complaint number",
+    "closed" => "closed",
+    "closed complaints list" => 'closed complaints list',
+    "search by user name,phone,email,complaint number" => "search by user name,phone,email,complaint number"
+
 
 
 

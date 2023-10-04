@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("title");
             $table->text("description");
             $table->text("contact_info");
+            $table->string("status")->default("open");
             $table->string("attachment")->nullable();
             $table->timestamps();
             $table->softDeletes();

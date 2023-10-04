@@ -6,82 +6,81 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreComplaintRequest;
 use App\Http\Requests\UpdateComplaintRequest;
 use App\Models\Complaint;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ComplaintController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function __construct()
     {
-        //
+
+        $this->middleware("can:complaints");
+    }
+    public function openComplaints(Request $request)
+    {
+
+        $search = $request->search;
+
+        $complaints = Complaint::with("user")
+            ->where("status", "open")
+            ->where(function ($q) use ($search) {
+                $q->where("id", "LIKE", "%$search%")
+                    ->orWhereHas("user", function ($q) use ($search) {
+                        $q->where("phone", "LIKE", "%$search%")
+                            ->orWhere("email", "LIKE", "%$search%")
+                            ->orWhere("name", "LIKE", "%$search%");
+                    });
+            })
+            ->latest()
+            ->paginate(10);
+
+        return view("admin.complaints.open", compact("complaints"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function closedComplaints(Request $request)
     {
-        //
+
+        $search = $request->search;
+
+        $complaints = Complaint::with("user")
+            ->where("status", "closed")
+            ->where(function ($q) use ($search) {
+                $q->where("id", "LIKE", "%$search%")
+                    ->orWhereHas("user", function ($q) use ($search) {
+                        $q->where("phone", "LIKE", "%$search%")
+                            ->orWhere("email", "LIKE", "%$search%")
+                            ->orWhere("name", "LIKE", "%$search%");
+                    });
+            })
+            ->latest()
+            ->paginate(10);
+
+
+        return view("admin.complaints.closed", compact("complaints"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreComplaintRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreComplaintRequest $request)
+    public function closeComplaint(Request $request, Complaint $complaint)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Complaint  $complaint
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Complaint $complaint)
-    {
-        //
-    }
+        $complaint->update(
+            ["status" => "closed"]
+        );
+        toastr()->success(trans("keywords.closed successfully"));
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Complaint  $complaint
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Complaint $complaint)
-    {
-        //
+        return back();
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateComplaintRequest  $request
-     * @param  \App\Models\Complaint  $complaint
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateComplaintRequest $request, Complaint $complaint)
+    public function openComplaint(Request $request, Complaint $complaint)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Complaint  $complaint
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Complaint $complaint)
-    {
-        //
+
+        $complaint->update(
+            ["status" => "open"]
+        );
+
+        toastr()->success(trans("keywords.opened successfully"));
+
+        return back();
     }
 }

@@ -78,4 +78,9 @@ class User extends Authenticatable implements CanResetPassword
     {
         return $this->hasMany(LandOffer::class, "user_id");
     }
+
+    public function complaints()
+    {
+        return $this->hasMany(Complaint::class, "user_id");
+    }
 }

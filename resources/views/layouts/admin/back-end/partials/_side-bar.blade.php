@@ -416,6 +416,41 @@
 
                         {{-- End admins --}}
 
+                        {{-- begin complaints --}}
+
+                        @can('complaints')
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/complaints*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.complaints') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.complaints') }}
+                                    </span>
+                                </a>
+
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/complaints*') ? 'block' : '' }}">
+                                    <li class="nav-item {{ Request::is('admin/complaints/open') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.complaints.list.open') }}"
+                                            title="{{ trans('keywords.open complaints') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.open complaints') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item {{ Request::is('admin/complaints/closed') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.complaints.list.closed') }}"
+                                            title="{{ trans('keywords.closed complaints') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.closed complaints') }}</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        @endcan
+                        {{-- end complaints --}}
+
                         {{-- begin settings --}}
                         @can('view_settings')
                             <li

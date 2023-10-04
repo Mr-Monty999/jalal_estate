@@ -364,7 +364,25 @@ return [
     "phone number" => "رقم الهاتف",
     "attachments" => "المرفقات",
     "send" => "إرسال",
-    "complaint sent successfully" => "تم إرسال الشكوى بنجاح"
+    "complaint sent successfully" => "تم إرسال الشكوى بنجاح",
+    "open complaints" => "الشكاوى المفتوحة",
+    "closed complaints" => "الشكاوى المغلقة",
+    "open complaints list" => "قائمة الشكاوى المفتوحة",
+    "closed complaints list" => "قائمة الشكاوى المغلقة",
+    "complaint title" => "عنوان الشكوى",
+    "open" => "مفتوح",
+    "close" => "غلق",
+    "closed successfully" => "تم الإغلاق بنجاح",
+    "opened successfully" => "تم الفتح بنجاح",
+    "are you sure you want to close this complaint" => "هل أنت متأكد من إغلاق هذه الشكوى",
+    "complaint number" => "شكوى رقم",
+    "closed" => "مغلق",
+    "search by user name,phone,email,complaint number" => "البحث بإسم المستخدم,رقم الهاتف,البريد الإلكتروني,رقم الشكوى"
+
+
+
+
+
 
 
 
