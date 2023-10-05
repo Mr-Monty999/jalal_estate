@@ -11,10 +11,11 @@ use Laravel\Sanctum\HasApiTokens;
 use Musonza\Chat\Traits\Messageable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class User extends Authenticatable implements CanResetPassword
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes, Messageable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes, Messageable, SearchableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +48,40 @@ class User extends Authenticatable implements CanResetPassword
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $searchable = [
+        /**
+         * Columns and their priority in search results.
+         * Columns with higher values are more important.
+         * Columns with equal values have equal importance.
+         *
+         * @var array
+         */
+        'columns' => [
+            "users.name" => 1,
+            "users.email" => 1,
+            "users.phone" => 1,
+            "offices.license_number" => 1,
+            "offices.advertiser_number" => 1,
+            "offices.commercial_registration_number" => 1,
+            "marketers.license_number" => 1,
+            "marketers.advertiser_number" => 1,
+            "companies.license_number" => 1,
+            "companies.advertiser_number" => 1,
+            "companies.commercial_registration_number" => 1,
+
+        ],
+        'joins' => [
+            'offices' => ['users.id', 'offices.user_id'],
+            'marketers' => ['users.id', 'marketers.user_id'],
+            'companies' => ['users.id', 'companies.user_id'],
+            'landlords' => ['users.id', 'landlords.user_id'],
+            'service_providers' => ['users.id', 'service_providers.user_id'],
+
+
+
+        ],
     ];
 
     public function company()

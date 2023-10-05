@@ -19,23 +19,24 @@
                                           <span class="badge badge-soft-dark radius-50 fz-12">{{ $users->total() }}</span>
                                       </h5>
                                   </div>
-                                  {{-- <div class="col-sm-8 col-md-6 col-lg-4">
-                                <!-- Search -->
-                                <form action="{{ url()->current() }}" method="GET">
-                                    <div class="input-group input-group-custom input-group-merge">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="tio-search"></i>
-                                            </div>
-                                        </div>
-                                        <input id="" type="search" name="search" class="form-control"
-                                            placeholder="{{ trans('keywords.search_here') }}" value="{{ $search }}"
-                                            required>
-                                        <button type="submit" class="btn btn--primary">{{ trans('keywords.search') }}</button>
-                                    </div>
-                                </form>
-                                <!-- End Search -->
-                            </div> --}}
+                                  <div class="col-sm-8 col-md-6 col-lg-4">
+                                      <!-- Search -->
+                                      <form action="{{ url()->current() }}" method="GET">
+                                          <div class="input-group input-group-custom input-group-merge">
+                                              <div class="input-group-prepend">
+                                                  <div class="input-group-text">
+                                                      <i class="tio-search"></i>
+                                                  </div>
+                                              </div>
+                                              <input id="" type="search" name="search" class="form-control"
+                                                  placeholder="{{ trans('keywords.search') }}"
+                                                  value="{{ request()->search }}">
+                                              <button type="submit"
+                                                  class="btn btn--primary">{{ trans('keywords.search') }}</button>
+                                          </div>
+                                      </form>
+                                      <!-- End Search -->
+                                  </div>
                               </div>
                           </div>
 

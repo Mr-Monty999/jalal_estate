@@ -15,15 +15,21 @@ class UserController extends Controller
     public function all(Request $request)
     {
 
-        $users = User::latest()->paginate(10);
+        $search = $request->search;
+
+        $users = User::latest()
+            ->search($search, null, true, true)
+            ->paginate(10);
 
         return view("admin.users.all", compact("users"));
     }
     public function allActive(Request $request)
     {
 
+        $search = $request->search;
         $users = User::latest()
             ->where("is_active", 1)
+            ->search($search, null, true, true)
             ->paginate(10);
 
         return view("admin.users.active", compact("users"));
@@ -31,8 +37,10 @@ class UserController extends Controller
     public function allUnActive(Request $request)
     {
 
+        $search = $request->search;
         $users = User::latest()
             ->where("is_active", 0)
+            ->search($search, null, true, true)
             ->paginate(10);
 
         return view("admin.users.unactive", compact("users"));
