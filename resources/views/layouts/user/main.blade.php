@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Playfair+Display:400,700,900 "
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('theme2/fonts/icomoon/style.css') }}">
-
+    <link rel="shortcut icon" href="{{ asset('assets/front-end/img/reop-logo.jpeg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('theme2/css/bootstrap.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('theme2/css/jquery-ui.css') }}">
