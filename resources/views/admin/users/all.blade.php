@@ -164,6 +164,21 @@
                                                                   {{ trans('keywords.active user') }}
                                                               </a>
                                                           @endif
+                                                          @php
+                                                              $latestBlock = $user
+                                                                  ->blocks()
+                                                                  ->latest()
+                                                                  ->first();
+                                                          @endphp
+                                                          @if ($latestBlock && $latestBlock->expired_at > now() && $latestBlock->status == 'block')
+                                                              <a class="btn btn-outline-success action btn-sm unblock-user"
+                                                                  title="{{ trans('user.unblock') }}"
+                                                                  id="{{ $user->id }}">
+                                                                  {{ trans('user.unblock') }}
+                                                              </a>
+                                                          @else
+                                                              @include('admin.users.modals.block')
+                                                          @endif
                                                       </div>
                                                   </td>
                                               </tr>
@@ -197,6 +212,8 @@
               $(document).on('click', '.action', function() {
                   var id = $(this).attr("id");
                   let btnHasActiveClass = $(this).hasClass('active-user');
+                  let btnHasUnblockClass = $(this).hasClass('unblock-user');
+
 
                   Swal.fire({
                       title: '{{ trans('keywords.Are You Sure?') }}',
@@ -219,6 +236,8 @@
                           let url = "/admin/users/" + id + "/active";
                           if (btnHasActiveClass)
                               url = "/admin/users/" + id + "/deactive";
+                          if (btnHasUnblockClass)
+                              url = "/admin/users/" + id + "/unblock";
 
 
                           $.ajax({

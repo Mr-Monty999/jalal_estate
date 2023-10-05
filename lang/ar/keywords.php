@@ -380,6 +380,23 @@ return [
     "search by user name,phone,email,complaint number" => "البحث بإسم المستخدم,رقم الهاتف,البريد الإلكتروني,رقم الشكوى",
     "estate offers" => "عروض العقارات",
     "all estate offers" => "جميع عروض العقارات",
+    "period" => "المدة",
+    "period type" => "نوع المدة",
+    "block user" => "حظر المستخدم",
+    "reason" => "السبب",
+    "minute" => "دقيقة",
+    "blocked successfully" => "تم الحظر بنجاح",
+    "blocked users" => "المستخدمين المحظورين",
+    "block reason" => "سبب الحظر",
+    "block period" => "مدة الحظر",
+    "block expired at" => "إنتهاء الحظر",
+    "unblocked successfully" => "تم إلغاء الحظر بنجاح",
+    "you have been blocked" => "لقد تم حظرك"
+
+
+
+
+
 
 
 

@@ -118,4 +118,9 @@ class User extends Authenticatable implements CanResetPassword
     {
         return $this->hasMany(Complaint::class, "user_id");
     }
+
+    public function blocks()
+    {
+        return $this->hasMany(UserBlock::class, "user_id");
+    }
 }

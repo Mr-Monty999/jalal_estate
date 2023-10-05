@@ -175,6 +175,14 @@
                                         </a>
                                     </li>
 
+                                    <li class="nav-item {{ Request::is('admin/users/all/blocked') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.users.blocked.all') }}"
+                                            title="{{ trans('keywords.blocked users') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.blocked users') }}</span>
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </li>
                         @endcan

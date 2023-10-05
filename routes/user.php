@@ -34,7 +34,7 @@ Route::group(["prefix" => "user", "middleware" => [/*"user-permissions-updater"*
     });
 
 
-    Route::group(["middleware" => ["auth", "check-user-can-access-dashboard"]], function () {
+    Route::group(["middleware" => ["auth", "check-user-can-access-dashboard", "check-if-user-is-blocked"]], function () {
         Route::get("/logout", [UserController::class, "logout"])->name("user.logout");
 
         Route::group(["middleware" => "check-if-user-is-active"], function () {

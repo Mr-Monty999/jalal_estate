@@ -382,6 +382,18 @@ return [
     "search by user name,phone,email,complaint number" => "search by user name,phone,email,complaint number",
     "estate offers" => "estate offers",
     "all estate offers" => "all estate offers",
+    "period" => "period",
+    "period type" => "period type",
+    "block user" => "block user",
+    "reason" => "reason",
+    "minute" => "minute",
+    "blocked successfully" => "blocked successfully",
+    "blocked users" => "blocked users",
+    "block reason" => "block reason",
+    "block period" => "block period",
+    "block expired at" => "block expired at",
+    "unblocked successfully" => "unblocked successfully",
+    "you have been blocked" => "you have been blocked"
 
 
 
