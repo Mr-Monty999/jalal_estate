@@ -123,7 +123,8 @@ class PermissionService
             "create_roles",
             "edit_roles",
             "delete_roles",
-            "complaints"
+            "complaints",
+            "estate_offers"
 
 
         ];

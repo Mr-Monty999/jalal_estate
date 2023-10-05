@@ -451,6 +451,34 @@
                         @endcan
                         {{-- end complaints --}}
 
+
+                        {{-- begin complaints --}}
+
+                        @can('estate-offers')
+                            <li
+                                class="navbar-vertical-aside-has-menu {{ Request::is('admin/estate-offers*') ? 'active' : '' }}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                                    title="{{ trans('keywords.estate offers') }}">
+                                    <i class="tio-filter-list nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        {{ trans('keywords.estate offers') }}
+                                    </span>
+                                </a>
+
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                                    style="display: {{ Request::is('admin/estate-offers*') ? 'block' : '' }}">
+                                    <li class="nav-item {{ Request::is('admin/estate-offers/open') ? 'active' : '' }}">
+                                        <a class="nav-link " href="{{ route('admin.estate-offers.index') }}"
+                                            title="{{ trans('keywords.all estate offers') }}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{ trans('keywords.all estate offers') }}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endcan
+                        {{-- end estate-offers --}}
+
                         {{-- begin settings --}}
                         @can('view_settings')
                             <li

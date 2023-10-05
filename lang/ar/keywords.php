@@ -377,7 +377,11 @@ return [
     "are you sure you want to close this complaint" => "هل أنت متأكد من إغلاق هذه الشكوى",
     "complaint number" => "شكوى رقم",
     "closed" => "مغلق",
-    "search by user name,phone,email,complaint number" => "البحث بإسم المستخدم,رقم الهاتف,البريد الإلكتروني,رقم الشكوى"
+    "search by user name,phone,email,complaint number" => "البحث بإسم المستخدم,رقم الهاتف,البريد الإلكتروني,رقم الشكوى",
+    "estate offers" => "عروض العقارات",
+    "all estate offers" => "جميع عروض العقارات",
+
+
 
 
 

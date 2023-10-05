@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\Admin\EstateClassificationController;
+use App\Http\Controllers\Admin\EstateOfferController;
 use App\Http\Controllers\Admin\LandTypeController;
 use App\Http\Controllers\Admin\NeighbourhoodController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
@@ -92,6 +93,10 @@ Route::group(["prefix" => "admin"], function () {
             Route::get("/complaints/open", [ComplaintController::class, "openComplaints"])->name("admin.complaints.list.open");
             Route::get("/complaints/closed", [ComplaintController::class, "closedComplaints"])->name("admin.complaints.list.closed");
             Route::post("/complaints/{complaint}/close", [ComplaintController::class, "closeComplaint"])->name("admin.complaints.close");
+
+
+            /// Estate Offers ///
+            Route::get("/estate-offers", [EstateOfferController::class, "index"])->name("admin.estate-offers.index");
         });
     });
 });

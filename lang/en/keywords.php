@@ -379,7 +379,10 @@ return [
     "complaint number" => "complaint number",
     "closed" => "closed",
     "closed complaints list" => 'closed complaints list',
-    "search by user name,phone,email,complaint number" => "search by user name,phone,email,complaint number"
+    "search by user name,phone,email,complaint number" => "search by user name,phone,email,complaint number",
+    "estate offers" => "estate offers",
+    "all estate offers" => "all estate offers",
+
 
 
 
