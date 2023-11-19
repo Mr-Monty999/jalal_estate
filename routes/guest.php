@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Guest\AboutController;
 use App\Http\Controllers\Guest\CompanyController;
+use App\Http\Controllers\Guest\ComplaintController;
 use App\Http\Controllers\Guest\ContactController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Guest\LandlordController;
@@ -16,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([], function () {
 
-    Route::get("/", [HomeController::class, 'index'])->name("guest.home");
+    // Route::get("/", [HomeController::class, 'index'])->name("guest.home");
+    Route::get("/", [ComplaintController::class, "index"])->name("guest.home");
+    Route::post("complaints", [ComplaintController::class, "store"])->name("guest.complaints.store");
+
     Route::get("/terms-and-conditions", [TermController::class, "index"])->name("guest.terms.index");
     Route::get("/about-us", [AboutController::class, "index"])->name("guest.about.index");
     Route::get("/contact-us", [ContactController::class, "index"])->name("guest.contact.index");
