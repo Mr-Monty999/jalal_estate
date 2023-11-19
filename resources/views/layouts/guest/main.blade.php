@@ -155,6 +155,10 @@
                             <a href="{{ route('guest.contact.index') }}"
                                 class="nav-link text-info">{{ trans('keywords.Contact Us') }}</a>
                         </li>
+                        <li class="nav-item @if (Request::is('/contact')) active @endif">
+                            <a href="{{ route('guest.contact.index') }}"
+                                class="nav-link text-info">{{ trans('keywords.complaints') }}</a>
+                        </li>
 
                         <style>
                             .nav-link {

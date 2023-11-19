@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([], function () {
 
-    // Route::get("/", [HomeController::class, 'index'])->name("guest.home");
-    Route::get("/", [ComplaintController::class, "index"])->name("guest.home");
+    Route::get("/", [HomeController::class, 'index'])->name("guest.home");
+    Route::get("/complaints", [ComplaintController::class, "index"])->name("guest.complaints.index");
     Route::post("complaints", [ComplaintController::class, "store"])->name("guest.complaints.store");
 
     Route::get("/terms-and-conditions", [TermController::class, "index"])->name("guest.terms.index");
