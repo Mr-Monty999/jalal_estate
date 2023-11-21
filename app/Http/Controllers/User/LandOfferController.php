@@ -271,8 +271,8 @@ class LandOfferController extends Controller
      */
     public function update(UpdateLandOfferRequest $request, LandOffer $landOffer)
     {
-        if (!is_null($landOffer))
-            abort(403);
+        // if (!is_null($landOffer))
+        //     abort(403);
 
         $user = auth()->user();
 
