@@ -134,6 +134,10 @@
                                         <td class="text-black">{{ $landOffer->user->name }}</td>
                                         <td>
                                             <div class="d-flex">
+                                                @if ($landOffer->user_id == auth()->id())
+                                                    <a target="_blank" class="btn btn-info mx-1"
+                                                        href="{{ route('user.land-offers.print', $landOffer->id) }}">{{ trans('keywords.print') }}</a>
+                                                @endif
                                                 @if ($landOffer->user_id != auth()->id() && is_null($landOffer->accepted_by))
                                                     @include('user.offers.modals.accept-modal')
                                                 @endif
