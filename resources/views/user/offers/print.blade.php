@@ -31,6 +31,7 @@
     @include('layouts.arabic')
 @endif
 
+
 <div class="d-flex justify-content-center align-items-center">
     <img style="width: 130px" src="{{ asset('assets/front-end/img/reop-logo.jpeg') }}" alt="">
 </div>
@@ -42,6 +43,13 @@
             {{ trans('keywords.accepted by') . ' ' . $landOffer->acceptedBy->name }}</h1>
         <br>
     @endif --}}
+    <h3 class="alert alert-success text-center">
+        {{ trans('keywords.advertiser') }}:
+        <br>
+        {{ $landOffer->user->name }}
+
+    </h3>
+    <br>
     <div class="row">
         <div class="form-group col-6">
             <label for="city_id">{{ trans('keywords.City') }}</label>
@@ -142,13 +150,13 @@
             </p>
 
         </div>
-        <div class="form-group col-6">
+        {{-- <div class="form-group col-6">
             <label for="instrument_number">{{ trans('keywords.Instrument Number') }}</label>
             <p class="text-black">
                 {{ $landOffer->instrument_number }}
             </p>
 
-        </div>
+        </div> --}}
         <div class="form-group col-6">
             <label for="operation_type">{{ trans('keywords.Operation Type') }}</label>
             <p class="text-black">

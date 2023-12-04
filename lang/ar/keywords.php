@@ -391,7 +391,9 @@ return [
     "block period" => "مدة الحظر",
     "block expired at" => "إنتهاء الحظر",
     "unblocked successfully" => "تم إلغاء الحظر بنجاح",
-    "you have been blocked" => "لقد تم حظرك"
+    "you have been blocked" => "لقد تم حظرك",
+    "advertiser" => "المعلن"
+
 
 
 

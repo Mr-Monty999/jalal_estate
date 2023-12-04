@@ -393,7 +393,8 @@ return [
     "block period" => "block period",
     "block expired at" => "block expired at",
     "unblocked successfully" => "unblocked successfully",
-    "you have been blocked" => "you have been blocked"
+    "you have been blocked" => "you have been blocked",
+    "advertiser" => "advertiser"
 
 
 
