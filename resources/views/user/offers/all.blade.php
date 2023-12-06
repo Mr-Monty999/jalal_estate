@@ -130,8 +130,8 @@
                                         <td class="text-black">{{ $landOffer->schema_number }}</td>
                                         <td class="text-black">{{ $landOffer->land_number }}</td>
                                         <td class="text-black">{{ number_format($landOffer->price) }}</td>
-                                        <td class="text-black">{{ $landOffer->created_at->diffForHumans() }}</td>
-                                        <td class="text-black">{{ $landOffer->user->name }}</td>
+                                        {{-- <td class="text-black">{{ $landOffer->created_at->diffForHumans() }}</td> --}}
+                                        {{-- <td class="text-black">{{ $landOffer->user->name }}</td> --}}
                                         <td>
                                             <div class="d-flex">
                                                 @if ($landOffer->user_id == auth()->id())

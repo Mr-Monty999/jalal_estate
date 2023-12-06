@@ -50,6 +50,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{ trans('keywords.ID') }}</th>
+                                    <th scope="col">{{ trans('keywords.Instrument Order') }}</th>
                                     <th scope="col">{{ trans('keywords.estate classification') }}
                                     </th>
                                     <th scope="col">{{ trans('keywords.Estate Type') }}
@@ -77,6 +78,7 @@
                                 @foreach ($landOffers as $index => $landOffer)
                                     <tr class="@if ($landOffer->adjective == 'owner') owner-style @endif">
                                         <th scope="row">{{ $index + 1 }}</th>
+                                        <th scope="row">{{  $landOffer->order }}</th>
                                         <td class="text-black">
                                             <div style="border-radius: 10px;padding:10px;background-color:{{ $landOffer->estateClassification->color }}"
                                                 class="btn">

@@ -188,7 +188,6 @@ class LandOfferController extends Controller
      */
     public function store(StoreLandOfferRequest $request)
     {
-
         $user = auth()->user();
 
         if (!UserService::cityExists($user, $request->city_id))

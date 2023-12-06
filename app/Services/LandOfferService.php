@@ -16,6 +16,8 @@ class LandOfferService
         $data = $request->validated();
         $data["user_id"] = auth()->id();
 
+        $data['order'] = self::generateOfferOrder($data['instrument_number']);
+
         if ($request->hasFile("image")) {
             $name = time() . "-" . $request->file("image")->getClientOriginalName();
             $data["image"] = $request->file("image")->storeAs("images/land-offers", $name, "public");
@@ -28,6 +30,14 @@ class LandOfferService
         $landOffer->landTypes()->attach($data["land_type_ids"]);
 
         return $landOffer;
+    }
+
+    protected static function generateOfferOrder($instrument_number) {
+        $count = LandOffer::whereInstrumentNumber($instrument_number)
+            ->count();
+
+        return $count + 1;
+
     }
 
 

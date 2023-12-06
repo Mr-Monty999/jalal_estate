@@ -392,8 +392,9 @@ return [
     "block expired at" => "إنتهاء الحظر",
     "unblocked successfully" => "تم إلغاء الحظر بنجاح",
     "you have been blocked" => "لقد تم حظرك",
-    "advertiser" => "المعلن"
+    "advertiser" => "المعلن",
 
+    'Instrument Order' => 'ترتيب الصك',
 
 
 
